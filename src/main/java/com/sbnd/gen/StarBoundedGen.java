@@ -35,11 +35,11 @@ public class StarBoundedGen implements IWorldGenerator
 
     private void genOverworld(World world, Random random, int x, int z)
     {
-        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreCopper, world, random, x, z, 16, 16, 6, 4, 5, 12, 60);
-        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreAluminum, world, random, x, z, 16, 16, 6, 4, 5, 12, 60);
-        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreTitanium, world, random, x, z, 16, 16, 6, 4, 5, 12, 60);
-        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreTungsten, world, random, x, z, 16, 16, 6, 4, 5, 12, 60);
-        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreTin, world, random, x, z, 16, 16, 6, 4, 5, 12, 60);
+        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreCopper, world, random, x, z, 16, 16, 12, 4, 8, 12, 65);
+        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreAluminum, world, random, x, z, 16, 16, 8, 6, 6, 12, 50);
+        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreTitanium, world, random, x, z, 16, 16, 8, 6, 6, 12, 50);
+        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreTungsten, world, random, x, z, 16, 16, 4, 2, 5, 12, 40);
+        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreTin, world, random, x, z, 16, 16, 8, 4, 6, 12, 50);
     }
 
     private void genEnd(World world, Random random, int x, int z)

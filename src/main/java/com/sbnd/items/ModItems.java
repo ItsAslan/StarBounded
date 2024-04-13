@@ -1,7 +1,9 @@
 package com.sbnd.items;
 
+import com.sbnd.enums.ToolMaterials;
 import com.sbnd.items.generic.ItemGeneric;
-import com.sbnd.items.tools.ItemHammer;
+import com.sbnd.items.tools.AoePickaxeBase;
+import com.sbnd.items.tools.crafting.ItemHammer;
 import com.sbnd.lib.ModVars;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,25 +17,25 @@ public class ModItems
         ItemRegister();
     }
 
-    // INGOTS
-
+    //INGOTS
     public static Item ingotCopper;
     public static Item ingotAluminum;
     public static Item ingotTitanium;
     public static Item ingotTungsten;
     public static Item ingotTin;
 
-    // PLATES
-
+    //PLATES
     public static Item plateCopper;
     public static Item plateAluminum;
     public static Item plateTitanium;
     public static Item plateTungsten;
     public static Item plateTin;
 
-    //TOOLS
-
+    //CRAFTING TOOLS
     public static Item itemHammer;
+
+    //TOOLS
+    public static Item copperAoePickaxe;
 
     public static void ItemInit()
     {
@@ -52,9 +54,11 @@ public class ModItems
         plateTungsten = new ItemGeneric().setUnlocalizedName("plateTungsten").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":plateTungsten");
         plateTin = new ItemGeneric().setUnlocalizedName("plateTin").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":plateTin");
 
-        //TOOLS
-        itemHammer = new ItemHammer().setUnlocalizedName("itemHammer").setCreativeTab(CreativeTabs.tabTools).setContainerItem(itemHammer).setTextureName(ModVars.MOD_ID + ":itemHammer");
+        //CRAFTING TOOLS
+        itemHammer = new ItemHammer(20).setUnlocalizedName("itemHammer").setCreativeTab(CreativeTabs.tabTools).setTextureName(ModVars.MOD_ID + ":itemHammer");
 
+        //TOOLS
+        copperAoePickaxe = new AoePickaxeBase(ToolMaterials.AOEMATERIAL, 3, 3).setUnlocalizedName("copperAoePickaxe").setCreativeTab(CreativeTabs.tabTools).setTextureName(ModVars.MOD_ID + ":copperAoePickaxe");
     }
 
     public static void ItemRegister()
@@ -74,8 +78,11 @@ public class ModItems
         GameRegistry.registerItem(plateTungsten, plateTungsten.getUnlocalizedName());
         GameRegistry.registerItem(plateTin, plateTin.getUnlocalizedName());
 
-        //TOOLS
+        //CRAFTING TOOLS
         GameRegistry.registerItem(itemHammer, itemHammer.getUnlocalizedName());
+
+        //TOOLS
+        GameRegistry.registerItem(copperAoePickaxe, copperAoePickaxe.getUnlocalizedName());
 
     }
 }
