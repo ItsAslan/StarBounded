@@ -1,0 +1,11 @@
+tile.oreCopper.name=Copper Ore
+tile.oreAluminum.name=Aluminum Ore
+tile.oreTitanium.name=Titanium Ore
+tile.oreTungsten.name=Tungsten Ore
+tile.oreTin.name=Tin Ore
+
+item.ingotCopper.name=Copper Ingot
+item.ingotAluminum.name=Aluminum Ingot
+item.ingotTitanium.name=Titanium Ingot
+item.ingotTungsten.name=Tungsten Ingot
+item.ingotTin.name=Tin Ingot

@@ -1,5 +1,6 @@
 package com.sbnd.blocks.generic;
 
+import com.sbnd.lib.ModVars;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 

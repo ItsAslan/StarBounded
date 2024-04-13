@@ -1,5 +1,12 @@
 package com.sbnd.blocks;
 
+import com.sbnd.blocks.generic.BlockGeneric;
+import com.sbnd.lib.ModVars;
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
+
 public class ModBlocks
 {
 
@@ -9,15 +16,28 @@ public class ModBlocks
         BlockRegister();
     }
 
+    public static Block oreCopper;
+    public static Block oreAluminum;
+    public static Block oreTitanium;
+    public static Block oreTungsten;
+    public static Block oreTin;
 
     public static void BlockInit()
     {
-
+        oreCopper = new BlockGeneric(Material.rock).setBlockName("oreCopper").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreCopper");
+        oreAluminum = new BlockGeneric(Material.rock).setBlockName("oreAluminum").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreAluminum");
+        oreTitanium = new BlockGeneric(Material.rock).setBlockName("oreTitanium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreTitanium");
+        oreTungsten = new BlockGeneric(Material.rock).setBlockName("oreTungsten").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreTungsten");
+        oreTin = new BlockGeneric(Material.rock).setBlockName("oreTin").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreTin");
     }
 
     public static void BlockRegister()
     {
-
+        GameRegistry.registerBlock(oreCopper, oreCopper.getUnlocalizedName());
+        GameRegistry.registerBlock(oreAluminum, oreAluminum.getUnlocalizedName());
+        GameRegistry.registerBlock(oreTitanium, oreTitanium.getUnlocalizedName());
+        GameRegistry.registerBlock(oreTungsten, oreTungsten.getUnlocalizedName());
+        GameRegistry.registerBlock(oreTin, oreTin.getUnlocalizedName());
     }
 
 }

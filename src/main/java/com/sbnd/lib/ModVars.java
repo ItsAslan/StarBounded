@@ -4,7 +4,7 @@ public class ModVars
 {
 
     // Mod Name
-    public static final String MOD_NAME = "Agaric";
+    public static final String MOD_NAME = "StartBounded";
 
     // Mod Version
     public static final String MOD_VERSION = "0.0.1";
@@ -20,6 +20,6 @@ public class ModVars
      */
 
     // Mod ID
-    public static final String MOD_ID = "agaric";
+    public static final String MOD_ID = "sbnd";
 
 }
