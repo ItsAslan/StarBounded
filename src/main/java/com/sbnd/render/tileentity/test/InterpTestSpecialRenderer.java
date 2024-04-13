@@ -19,12 +19,14 @@ public class InterpTestSpecialRenderer extends TileEntitySpecialRenderer
     @Override
     public void renderTileEntityAt(TileEntity te, double x, double y, double z, float partialTicks) {
         if (te instanceof TestInterpTileEntity) {
-            float height = ((TestInterpTileEntity) te).getCurrentHeight();
+            float lastHeight = ((TestInterpTileEntity) te).getLastHeight();
+            float currentHeight = ((TestInterpTileEntity) te).getCurrentHeight();
+            float interpHeight = lastHeight + (currentHeight - lastHeight) * partialTicks;
 
-            System.out.println(height);
+            System.out.println(interpHeight);
 
             GL11.glPushMatrix();
-            GL11.glTranslatef((float) (x + 0.5), (float) (y + height + 0.5), (float) (z + 0.5));
+            GL11.glTranslatef((float) (x + 0.5), (float) (y + interpHeight + 0.5), (float) (z + 0.5));
             Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
             model.renderAll();
             GL11.glPopMatrix();

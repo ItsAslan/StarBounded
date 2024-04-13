@@ -11,6 +11,7 @@ public class TestInterpTileEntity extends TileEntity
 
     private boolean isActive = false;
     private float currentHeight = 0.0f;
+    private float lastHeight = 0.0f;
     private float maxHeight = 100.0f;
     private float interpAmount = 0.1f;
 
@@ -29,6 +30,11 @@ public class TestInterpTileEntity extends TileEntity
         return this.currentHeight;
     }
 
+    public float getLastHeight()
+    {
+        return this.lastHeight;
+    }
+
     @Override
     public void updateEntity() {
         super.updateEntity();
@@ -37,13 +43,9 @@ public class TestInterpTileEntity extends TileEntity
         {
             if(maxHeight >= currentHeight)
             {
-                int x = this.xCoord;
-                int y = this.yCoord;
-                int z = this.zCoord;
-
+                lastHeight = currentHeight;
                 this.currentHeight += interpAmount;
                 worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-
             }
             else
             {
