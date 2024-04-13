@@ -16,9 +16,7 @@ public class StarBoundedGenHandler
             int yPos = minY + random.nextInt(maxY - minY);
             int zPos = blockZ + random.nextInt(maxZ);
 
-            int veinSize = random.nextInt(maxVeinSize - minVeinSize);
-
-            (new WorldGenMinable(block, veinSize)).generate(world, random, xPos, yPos, zPos);
+            (new WorldGenMinable(block, maxVeinSize)).generate(world, random, xPos, yPos, zPos);
         }
     }
 }
