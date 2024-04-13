@@ -3,6 +3,7 @@ package com.sbnd.proxy;
 import com.sbnd.crafting.RegisterCrafting;
 import com.sbnd.gen.StarBoundedGen;
 import com.sbnd.items.ModItems;
+import com.sbnd.tileentity.RegisterTileEntities;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -16,6 +17,7 @@ public class CommonProxy
         ModItems.MainRegistry();
         ModBlocks.MainRegistry();
         RegisterCrafting.MainRegistry();
+        RegisterTileEntities.MainRegistry();
 
         GameRegistry.registerWorldGenerator(new StarBoundedGen(), 0);
     }
