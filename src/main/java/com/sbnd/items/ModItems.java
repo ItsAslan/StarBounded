@@ -17,6 +17,11 @@ public class ModItems
         ItemRegister();
     }
 
+    //MATERIALS
+    public static Item cubeGraphite;
+    public static Item cubeLithium;
+    public static Item cubeSulfur;
+
     //INGOTS
     public static Item ingotCopper;
     public static Item ingotAluminum;
@@ -39,6 +44,11 @@ public class ModItems
 
     public static void ItemInit()
     {
+
+        //MATERIALS
+        cubeGraphite = new ItemGeneric().setUnlocalizedName("cubeGraphite").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubeGraphite");
+        cubeLithium = new ItemGeneric().setUnlocalizedName("cubeLithium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubeLithium");
+        cubeSulfur = new ItemGeneric().setUnlocalizedName("cubeSulfur").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubeSulfur");
 
         // INGOTS
         ingotCopper = new ItemGeneric().setUnlocalizedName("ingotCopper").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":ingotCopper");
@@ -63,6 +73,11 @@ public class ModItems
 
     public static void ItemRegister()
     {
+
+        //MATERIALS
+        GameRegistry.registerItem(cubeGraphite, cubeGraphite.getUnlocalizedName());
+        GameRegistry.registerItem(cubeLithium, cubeLithium.getUnlocalizedName());
+        GameRegistry.registerItem(cubeSulfur, cubeSulfur.getUnlocalizedName());
 
         //INGOTS
         GameRegistry.registerItem(ingotCopper, ingotCopper.getUnlocalizedName());

@@ -1,7 +1,6 @@
 package com.sbnd.blocks;
 
 import com.sbnd.blocks.generic.BlockGeneric;
-import com.sbnd.blocks.machine.RocketAssembler;
 import com.sbnd.blocks.test.interpTest;
 import com.sbnd.lib.ModVars;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -29,7 +28,7 @@ public class ModBlocks
     public static Block interpTest;
 
     //Machine Blocks
-    public static Block rocketAssembler;
+
 
     public static void BlockInit()
     {
@@ -44,7 +43,7 @@ public class ModBlocks
         interpTest = new interpTest(Material.rock).setBlockName("interpTest").setCreativeTab(CreativeTabs.tabBlock);
 
         //Machine Blocks
-        rocketAssembler = new RocketAssembler(Material.rock).setBlockName("rocketAssembler").setCreativeTab(CreativeTabs.tabBlock);
+
     }
 
     public static void BlockRegister()
@@ -60,7 +59,7 @@ public class ModBlocks
         GameRegistry.registerBlock(interpTest, interpTest.getUnlocalizedName());
 
         //Machine Blocks
-        GameRegistry.registerBlock(rocketAssembler, rocketAssembler.getUnlocalizedName());
+
     }
 
 }

@@ -4,6 +4,9 @@ tile.oreTitanium.name=Titanium Ore
 tile.oreTungsten.name=Tungsten Ore
 tile.oreTin.name=Tin Ore
 
+item.cubeGraphite.name=Graphite Cube
+item.cubeLithium.name=Lithium Cube
+item.cubeSulfur.name=Sulfur Cube
 item.ingotCopper.name=Copper Ingot
 item.ingotAluminum.name=Aluminum Ingot
 item.ingotTitanium.name=Titanium Ingot
@@ -14,5 +17,6 @@ item.plateAluminum.name=Aluminum Plate
 item.plateTitanium.name=Titanium Plate
 item.plateTungsten.name=Tungsten Plate
 item.plateTin.name=Tin Plate
+
 item.itemHammer.name=Plate Hammer
-item.copperAoePickaxe.name=AOE Copper Pickaxe
+item.copperAoePickaxe.name=Copper Pickaxe

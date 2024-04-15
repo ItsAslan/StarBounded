@@ -11,18 +11,18 @@ import com.sbnd.proxy.CommonProxy;
 import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = ModVars.MOD_ID, name = ModVars.MOD_NAME, version = ModVars.MOD_VERSION)
-public class MainRegistry
+public class Starbounded
 {
     @Mod.Instance
-    public static MainRegistry instance = new MainRegistry();
+    public static Starbounded instance = new Starbounded();
 
     @SidedProxy(clientSide = "com.sbnd.proxy.ClientProxy", serverSide = "com.sbnd.proxy.ServerProxy")
-    public static CommonProxy proxy;
+    public static CommonProxy PROXY;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent $e)
     {
-        proxy.preInit($e);
+        PROXY.preInit($e);
 
         ModEventHandler handler = new ModEventHandler();
         FMLCommonHandler.instance().bus().register(handler);
@@ -32,12 +32,12 @@ public class MainRegistry
     @Mod.EventHandler
     public void init(FMLInitializationEvent $e)
     {
-        proxy.init($e);
+        PROXY.init($e);
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent $e)
     {
-        proxy.postInit($e);
+        PROXY.postInit($e);
     }
 }
