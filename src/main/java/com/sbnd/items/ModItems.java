@@ -1,7 +1,9 @@
 package com.sbnd.items;
 
+import com.sbnd.enums.EnumPlanet;
 import com.sbnd.enums.ToolMaterials;
 import com.sbnd.items.generic.ItemGeneric;
+import com.sbnd.items.generic.ItemOreGeneric;
 import com.sbnd.items.tools.AoePickaxeBase;
 import com.sbnd.items.tools.crafting.ItemHammer;
 import com.sbnd.lib.ModVars;
@@ -22,6 +24,8 @@ public class ModItems
     public static Item cubeLithium;
     public static Item cubeSulfur;
     public static Item shardMoonStone;
+    public static Item clusterSmokeyQuartz;
+    public static Item clusterCadmium;
 
     //Ingots
     public static Item ingotCopper;
@@ -47,10 +51,12 @@ public class ModItems
     {
 
         //Materials
-        cubeGraphite = new ItemGeneric().setUnlocalizedName("cubeGraphite").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubeGraphite");
-        cubeLithium = new ItemGeneric().setUnlocalizedName("cubeLithium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubeLithium");
-        cubeSulfur = new ItemGeneric().setUnlocalizedName("cubeSulfur").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubeSulfur");
-        shardMoonStone = new ItemGeneric().setUnlocalizedName("shardMoonStone").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":shardMoonStone");
+        cubeGraphite = new ItemOreGeneric(EnumPlanet.EARTH).setUnlocalizedName("cubeGraphite").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubeGraphite");
+        cubeLithium = new ItemOreGeneric(EnumPlanet.EARTH).setUnlocalizedName("cubeLithium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubeLithium");
+        cubeSulfur = new ItemOreGeneric(EnumPlanet.EARTH).setUnlocalizedName("cubeSulfur").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubeSulfur");
+        shardMoonStone = new ItemOreGeneric(EnumPlanet.MOON).setUnlocalizedName("shardMoonStone").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":shardMoonStone");
+        clusterSmokeyQuartz = new ItemOreGeneric(EnumPlanet.MOON).setUnlocalizedName("clusterSmokeyQuartz").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":clusterSmokeyQuartz");
+        clusterCadmium = new ItemOreGeneric(EnumPlanet.MOON).setUnlocalizedName("clusterCadmium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":clusterCadmium");
 
         //Ingots
         ingotCopper = new ItemGeneric().setUnlocalizedName("ingotCopper").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":ingotCopper");
@@ -81,6 +87,8 @@ public class ModItems
         GameRegistry.registerItem(cubeLithium, cubeLithium.getUnlocalizedName());
         GameRegistry.registerItem(cubeSulfur, cubeSulfur.getUnlocalizedName());
         GameRegistry.registerItem(shardMoonStone, shardMoonStone.getUnlocalizedName());
+        GameRegistry.registerItem(clusterSmokeyQuartz, clusterSmokeyQuartz.getUnlocalizedName());
+        GameRegistry.registerItem(clusterCadmium, clusterCadmium.getUnlocalizedName());
 
         //Ingots
         GameRegistry.registerItem(ingotCopper, ingotCopper.getUnlocalizedName());

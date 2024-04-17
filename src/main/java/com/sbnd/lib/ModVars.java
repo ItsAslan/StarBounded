@@ -4,7 +4,7 @@ public class ModVars
 {
 
     // Mod Name
-    public static final String MOD_NAME = "StartBounded";
+    public static final String MOD_NAME = "StarBounded";
 
     // Mod Version
     public static final String MOD_VERSION = "0.0.1";

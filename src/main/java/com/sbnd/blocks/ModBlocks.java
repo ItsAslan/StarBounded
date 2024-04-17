@@ -29,6 +29,8 @@ public class ModBlocks
     public static Block oreTungsten;
     public static Block oreTin;
     public static Block oreMoonStone;
+    public static Block oreSmokeyQuartz;
+    public static Block oreCadmium;
 
     //Rocket Blocks
     public static Block interpTest;
@@ -48,7 +50,9 @@ public class ModBlocks
         oreTitanium = new OreGeneric(Material.rock).setBlockName("oreTitanium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreTitanium");
         oreTungsten = new OreGeneric(Material.rock).setBlockName("oreTungsten").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreTungsten");
         oreTin = new OreGeneric(Material.rock).setBlockName("oreTin").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreTin");
-        oreMoonStone = new OreGeneric(Material.rock, ModItems.shardMoonStone, 4).setBlockName("oreMoonStone").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreMoonStone");
+        oreMoonStone = new OreGeneric(Material.rock, ModItems.shardMoonStone, 4).setBlockName("oreMoonStone").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreMoonStone");
+        oreSmokeyQuartz = new OreGeneric(Material.rock, ModItems.clusterSmokeyQuartz, 1).setBlockName("oreSmokeyQuartz").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreSmokeyQuartz");
+        oreCadmium = new OreGeneric(Material.rock, ModItems.clusterCadmium, 2).setBlockName("oreCadmium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreCadmium");
 
         //Rocket Blocks
         interpTest = new interpTest(Material.rock).setBlockName("interpTest").setCreativeTab(CreativeTabs.tabBlock);
@@ -70,6 +74,8 @@ public class ModBlocks
         GameRegistry.registerBlock(oreTungsten, oreTungsten.getUnlocalizedName());
         GameRegistry.registerBlock(oreTin, oreTin.getUnlocalizedName());
         GameRegistry.registerBlock(oreMoonStone, oreMoonStone.getUnlocalizedName());
+        GameRegistry.registerBlock(oreSmokeyQuartz, oreSmokeyQuartz.getUnlocalizedName());
+        GameRegistry.registerBlock(oreCadmium, oreCadmium.getUnlocalizedName());
 
         //Rocket Blocks
         GameRegistry.registerBlock(interpTest, interpTest.getUnlocalizedName());
