@@ -17,86 +17,89 @@ public class ModItems
         ItemRegister();
     }
 
-    //MATERIALS
+    //Materials
     public static Item cubeGraphite;
     public static Item cubeLithium;
     public static Item cubeSulfur;
+    public static Item shardMoonStone;
 
-    //INGOTS
+    //Ingots
     public static Item ingotCopper;
     public static Item ingotAluminum;
     public static Item ingotTitanium;
     public static Item ingotTungsten;
     public static Item ingotTin;
 
-    //PLATES
+    //Plates
     public static Item plateCopper;
     public static Item plateAluminum;
     public static Item plateTitanium;
     public static Item plateTungsten;
     public static Item plateTin;
 
-    //CRAFTING TOOLS
+    //Crafting Tools
     public static Item itemHammer;
 
-    //TOOLS
+    //Tools
     public static Item copperAoePickaxe;
 
     public static void ItemInit()
     {
 
-        //MATERIALS
+        //Materials
         cubeGraphite = new ItemGeneric().setUnlocalizedName("cubeGraphite").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubeGraphite");
         cubeLithium = new ItemGeneric().setUnlocalizedName("cubeLithium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubeLithium");
         cubeSulfur = new ItemGeneric().setUnlocalizedName("cubeSulfur").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubeSulfur");
+        shardMoonStone = new ItemGeneric().setUnlocalizedName("shardMoonStone").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":shardMoonStone");
 
-        // INGOTS
+        //Ingots
         ingotCopper = new ItemGeneric().setUnlocalizedName("ingotCopper").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":ingotCopper");
         ingotAluminum = new ItemGeneric().setUnlocalizedName("ingotAluminum").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":ingotAluminum");
         ingotTitanium = new ItemGeneric().setUnlocalizedName("ingotTitanium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":ingotTitanium");
         ingotTungsten = new ItemGeneric().setUnlocalizedName("ingotTungsten").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":ingotTungsten");
         ingotTin = new ItemGeneric().setUnlocalizedName("ingotTin").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":ingotTin");
 
-        //PLATES
+        //Plates
         plateCopper = new ItemGeneric().setUnlocalizedName("plateCopper").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":plateCopper");
         plateAluminum = new ItemGeneric().setUnlocalizedName("plateAluminum").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":plateAluminum");
         plateTitanium = new ItemGeneric().setUnlocalizedName("plateTitanium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":plateTitanium");
         plateTungsten = new ItemGeneric().setUnlocalizedName("plateTungsten").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":plateTungsten");
         plateTin = new ItemGeneric().setUnlocalizedName("plateTin").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":plateTin");
 
-        //CRAFTING TOOLS
+        //Crafting Tools
         itemHammer = new ItemHammer(20).setUnlocalizedName("itemHammer").setCreativeTab(CreativeTabs.tabTools).setTextureName(ModVars.MOD_ID + ":itemHammer");
 
-        //TOOLS
+        //Tools
         copperAoePickaxe = new AoePickaxeBase(ToolMaterials.AOEMATERIAL, 3, 3).setUnlocalizedName("copperAoePickaxe").setCreativeTab(CreativeTabs.tabTools).setTextureName(ModVars.MOD_ID + ":copperAoePickaxe");
     }
 
     public static void ItemRegister()
     {
 
-        //MATERIALS
+        //Materials
         GameRegistry.registerItem(cubeGraphite, cubeGraphite.getUnlocalizedName());
         GameRegistry.registerItem(cubeLithium, cubeLithium.getUnlocalizedName());
         GameRegistry.registerItem(cubeSulfur, cubeSulfur.getUnlocalizedName());
+        GameRegistry.registerItem(shardMoonStone, shardMoonStone.getUnlocalizedName());
 
-        //INGOTS
+        //Ingots
         GameRegistry.registerItem(ingotCopper, ingotCopper.getUnlocalizedName());
         GameRegistry.registerItem(ingotAluminum, ingotAluminum.getUnlocalizedName());
         GameRegistry.registerItem(ingotTitanium, ingotTitanium.getUnlocalizedName());
         GameRegistry.registerItem(ingotTungsten, ingotTungsten.getUnlocalizedName());
         GameRegistry.registerItem(ingotTin, ingotTin.getUnlocalizedName());
 
-        //PLATES
+        //Plates
         GameRegistry.registerItem(plateCopper, plateCopper.getUnlocalizedName());
         GameRegistry.registerItem(plateAluminum, plateAluminum.getUnlocalizedName());
         GameRegistry.registerItem(plateTitanium, plateTitanium.getUnlocalizedName());
         GameRegistry.registerItem(plateTungsten, plateTungsten.getUnlocalizedName());
         GameRegistry.registerItem(plateTin, plateTin.getUnlocalizedName());
 
-        //CRAFTING TOOLS
+        //Crafting Tools
         GameRegistry.registerItem(itemHammer, itemHammer.getUnlocalizedName());
 
-        //TOOLS
+        //Tools
         GameRegistry.registerItem(copperAoePickaxe, copperAoePickaxe.getUnlocalizedName());
 
     }
