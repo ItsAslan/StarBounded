@@ -26,7 +26,7 @@ public class ItemOreGeneric extends Item
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean advanced) {
         super.addInformation(stack, player, list, advanced);
 
-        list.add(planet.color + "Found on " + planet.getName());
+        list.add(planet.getColor() + "Found on " + planet.getName());
 
     }
 }

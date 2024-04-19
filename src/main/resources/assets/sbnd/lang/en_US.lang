@@ -7,6 +7,8 @@ tile.blockMoonTurf.name=Moon Turf
 tile.oreMoonStone.name=Moonstone Ore
 tile.oreSmokeyQuartz.name=Smokey Quartz Ore
 tile.oreCadmium.name=Cadmium Ore
+tile.blockMarsTurf.name=Mars Turf
+tile.oreMagnesium.name=Magnesium Ore
 
 item.cubeGraphite.name=Graphite Cube
 item.cubeLithium.name=Lithium Cube
@@ -24,6 +26,7 @@ item.plateTin.name=Tin Plate
 item.shardMoonStone.name=Moonstone Shard
 item.clusterSmokeyQuartz.name=Smokey Quartz Cluster
 item.clusterCadmium.name=Cadmium Cluster
+item.shardMagnesium.name=Magnesium Shard
 
 item.itemHammer.name=Plate Hammer
 item.copperAoePickaxe.name=Copper Pickaxe

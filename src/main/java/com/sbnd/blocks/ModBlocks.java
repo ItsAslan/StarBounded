@@ -21,6 +21,7 @@ public class ModBlocks
 
     //Terrain Blocks
     public static Block blockMoonTurf;
+    public static Block blockMarsTurf;
 
     //Ore Blocks
     public static Block oreCopper;
@@ -31,6 +32,7 @@ public class ModBlocks
     public static Block oreMoonStone;
     public static Block oreSmokeyQuartz;
     public static Block oreCadmium;
+    public static Block oreMagnesium;
 
     //Rocket Blocks
     public static Block interpTest;
@@ -43,6 +45,7 @@ public class ModBlocks
 
         //Terrain Blocks
         blockMoonTurf = new BlockGeneric(Material.sand).setBlockName("blockMoonTurf").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":blockMoonTurf");
+        blockMarsTurf = new BlockGeneric(Material.sand).setBlockName("blockMarsTurf").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":blockMarsTurf");
 
         //Ore Blocks
         oreCopper = new OreGeneric(Material.rock).setBlockName("oreCopper").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreCopper");
@@ -53,6 +56,7 @@ public class ModBlocks
         oreMoonStone = new OreGeneric(Material.rock, ModItems.shardMoonStone, 4).setBlockName("oreMoonStone").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreMoonStone");
         oreSmokeyQuartz = new OreGeneric(Material.rock, ModItems.clusterSmokeyQuartz, 1).setBlockName("oreSmokeyQuartz").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreSmokeyQuartz");
         oreCadmium = new OreGeneric(Material.rock, ModItems.clusterCadmium, 2).setBlockName("oreCadmium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreCadmium");
+        oreMagnesium = new OreGeneric(Material.rock, ModItems.shardMagnesium, 3).setBlockName("oreMagnesium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreMagnesium");
 
         //Rocket Blocks
         interpTest = new interpTest(Material.rock).setBlockName("interpTest").setCreativeTab(CreativeTabs.tabBlock);
@@ -66,6 +70,7 @@ public class ModBlocks
 
         //Terrain Blocks
         GameRegistry.registerBlock(blockMoonTurf, blockMoonTurf.getUnlocalizedName());
+        GameRegistry.registerBlock(blockMarsTurf, blockMarsTurf.getUnlocalizedName());
 
         //Ore Blocks
         GameRegistry.registerBlock(oreCopper, oreCopper.getUnlocalizedName());
@@ -76,6 +81,7 @@ public class ModBlocks
         GameRegistry.registerBlock(oreMoonStone, oreMoonStone.getUnlocalizedName());
         GameRegistry.registerBlock(oreSmokeyQuartz, oreSmokeyQuartz.getUnlocalizedName());
         GameRegistry.registerBlock(oreCadmium, oreCadmium.getUnlocalizedName());
+        GameRegistry.registerBlock(oreMagnesium, oreMagnesium.getUnlocalizedName());
 
         //Rocket Blocks
         GameRegistry.registerBlock(interpTest, interpTest.getUnlocalizedName());

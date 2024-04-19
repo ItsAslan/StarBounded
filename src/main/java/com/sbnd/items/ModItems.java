@@ -13,6 +13,7 @@ import net.minecraft.item.Item;
 
 public class ModItems
 {
+
     public static void MainRegistry()
     {
         ItemInit();
@@ -26,6 +27,7 @@ public class ModItems
     public static Item shardMoonStone;
     public static Item clusterSmokeyQuartz;
     public static Item clusterCadmium;
+    public static Item shardMagnesium;
 
     //Ingots
     public static Item ingotCopper;
@@ -57,6 +59,7 @@ public class ModItems
         shardMoonStone = new ItemOreGeneric(EnumPlanet.MOON).setUnlocalizedName("shardMoonStone").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":shardMoonStone");
         clusterSmokeyQuartz = new ItemOreGeneric(EnumPlanet.MOON).setUnlocalizedName("clusterSmokeyQuartz").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":clusterSmokeyQuartz");
         clusterCadmium = new ItemOreGeneric(EnumPlanet.MOON).setUnlocalizedName("clusterCadmium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":clusterCadmium");
+        shardMagnesium = new ItemOreGeneric(EnumPlanet.MARS).setUnlocalizedName("shardMagnesium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":shardMagnesium");
 
         //Ingots
         ingotCopper = new ItemGeneric().setUnlocalizedName("ingotCopper").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":ingotCopper");
@@ -89,6 +92,7 @@ public class ModItems
         GameRegistry.registerItem(shardMoonStone, shardMoonStone.getUnlocalizedName());
         GameRegistry.registerItem(clusterSmokeyQuartz, clusterSmokeyQuartz.getUnlocalizedName());
         GameRegistry.registerItem(clusterCadmium, clusterCadmium.getUnlocalizedName());
+        GameRegistry.registerItem(shardMagnesium, shardMagnesium.getUnlocalizedName());
 
         //Ingots
         GameRegistry.registerItem(ingotCopper, ingotCopper.getUnlocalizedName());

@@ -5,9 +5,10 @@ import net.minecraft.util.EnumChatFormatting;
 public enum EnumPlanet
 {
     EARTH(EnumChatFormatting.DARK_GREEN, "Earth"),
-    MOON(EnumChatFormatting.DARK_GRAY, "the Moon");
+    MOON(EnumChatFormatting.DARK_GRAY, "the Moon"),
+    MARS(EnumChatFormatting.DARK_RED, "Mars");
 
-    public EnumChatFormatting color;
+    private EnumChatFormatting color;
     private String name;
 
     EnumPlanet(EnumChatFormatting color, String name)
@@ -19,6 +20,11 @@ public enum EnumPlanet
     public String getName()
     {
         return this.name;
+    }
+
+    public EnumChatFormatting getColor()
+    {
+        return this.color;
     }
 
 }
