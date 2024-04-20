@@ -28,7 +28,7 @@ public class Starbounded
         FMLCommonHandler.instance().bus().register(handler);
         MinecraftForge.EVENT_BUS.register(handler);
     }
-
+    
     @Mod.EventHandler
     public void init(FMLInitializationEvent $e)
     {

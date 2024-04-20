@@ -11,9 +11,9 @@ buildscript {
 
 apply plugin: 'forge'
 
-group = "com.agaric" // Replace with your group ID, following Maven's naming conventions
+group = "com.sbnd" // Replace with your group ID, following Maven's naming conventions
 version = "0.0.1" // Your mod's version
-archivesBaseName = "AgaricMod" // The base name for your mod's archive (jar files)
+archivesBaseName = "StarBounded" // The base name for your mod's archive (jar files)
 
 sourceCompatibility = targetCompatibility = '1.8' // Java version compatibility
 

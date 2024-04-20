@@ -1,9 +1,7 @@
 package com.sbnd.items.tools;
 
 import com.sbnd.api.SbndMath;
-import com.sbnd.lib.ModVars;
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
