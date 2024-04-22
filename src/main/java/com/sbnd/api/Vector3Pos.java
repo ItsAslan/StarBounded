@@ -1,5 +1,7 @@
 package com.sbnd.api;
 
+import java.util.Objects;
+
 public class Vector3Pos
 {
 
@@ -12,6 +14,116 @@ public class Vector3Pos
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    public Vector3Pos add(Vector3Pos otherVec)
+    {
+        return new Vector3Pos(this.x + otherVec.x, this.y + otherVec.y, this.z + otherVec.z);
+    }
+
+    public Vector3Pos subtract(Vector3Pos otherVec)
+    {
+        return new Vector3Pos(this.x - otherVec.x, this.y - otherVec.y, this.z = otherVec.z);
+    }
+
+    public Vector3Pos multiply(long scalar)
+    {
+        return new Vector3Pos(this.x * scalar, this.y * scalar, this.z * scalar);
+    }
+
+    public long dot(Vector3Pos otherVec)
+    {
+        return this.x * otherVec.x + this.y * otherVec.y + this.z * otherVec.z;
+    }
+
+    public double magnitude()
+    {
+        return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+    }
+
+    public Vector3Pos normalize()
+    {
+        double magnitude = magnitude();
+        if(magnitude == 0)
+        {
+            return new Vector3Pos(0, 0, 0);
+        }
+        return new Vector3Pos((long)(this.x / magnitude), (long)(this.y / magnitude), (long)(this.z / magnitude));
+    }
+
+    public Vector3Pos cross(Vector3Pos otherVec)
+    {
+        return new Vector3Pos(
+                this.y * otherVec.z - this.z * otherVec.y,
+                this.z * otherVec.x - this.x * otherVec.z,
+                this.x * otherVec.y - this.y * otherVec.x
+        );
+    }
+
+    public double distanceTo(Vector3Pos otherVec)
+    {
+        return Math.sqrt(
+                (this.x - otherVec.x) * (this.x - otherVec.x) +
+                (this.y - otherVec.y) * (this.y - otherVec.y) +
+                (this.z - otherVec.z) * (this.z - otherVec.z)
+        );
+    }
+
+    public boolean equals(Vector3Pos otherVec)
+    {
+        return this.x == otherVec.x && this.y == otherVec.y && this.z == otherVec.z;
+    }
+
+    public boolean isZeroVector()
+    {
+        return this.x == 0 && this.y == 0 && this.z == 0;
+    }
+
+    public String toString()
+    {
+        return String.format("(%d, %d, %d)", this.x, this.y, this.z);
+    }
+
+    public long[] toArray()
+    {
+        return new long[] {this.x, this.y, this.z};
+    }
+
+    public int hashCode()
+    {
+        return Objects.hash(this.x, this.y, this.z);
+    }
+
+    // Some nerdy physics stuff ill probably never use but hey, if I want to I can
+
+    public double angleWith(Vector3Pos otherVec)
+    {
+        double dotProduct = this.dot(otherVec);
+        double magnitudeProduct = this.magnitude() * otherVec.magnitude();
+        return Math.acos(dotProduct / magnitudeProduct);
+    }
+
+    public Vector3Pos projectOnto(Vector3Pos otherVec)
+    {
+        double dotProduct = this.dot(otherVec);
+        double otherMagnitudeSquared = otherVec.x * otherVec.x + otherVec.y * otherVec.y + otherVec.z * otherVec.z;
+        double scalar = dotProduct / otherMagnitudeSquared;
+        return otherVec.multiply((long)scalar);
+    }
+
+    public Vector3Pos negate()
+    {
+        return new Vector3Pos(-this.x, -this.y, -this.z);
+    }
+
+    public Vector3Pos clampMagnitude(double max)
+    {
+        double currentMagnitude = this.magnitude();
+        if(currentMagnitude > max)
+        {
+            return this.normalize().multiply((long)max);
+        }
+        return new Vector3Pos(this.x, this.y, this.z);
     }
 
 }
