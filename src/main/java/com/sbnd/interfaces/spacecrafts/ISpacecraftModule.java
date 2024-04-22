@@ -9,7 +9,7 @@ public interface ISpacecraftModule
     void setOwner(ISpacecraft owner);
     ISpacecraft getOwner();
 
-    void onSpacecraftTick(int interval);
+    default void onSpacecraftTick(int interval) { };
 
     String getName();
     default String getUnlocalizedName()
@@ -19,5 +19,6 @@ public interface ISpacecraftModule
 
     void setModuleAbility(EnumModuleAbility ability);
     EnumModuleAbility getModuleAbility();
+    boolean hasAbility();
 
 }

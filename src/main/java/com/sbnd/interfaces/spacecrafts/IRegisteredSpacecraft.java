@@ -7,7 +7,12 @@ public interface IRegisteredSpacecraft
     String getName();
 
     boolean isOrbiting();
-    boolean isManned();
+    default boolean isMannable()
+    {
+        return false;
+    }
+    void setMannable(boolean set);
+    boolean isDestroyed();
 
     boolean canLaunch();
     void launch();
