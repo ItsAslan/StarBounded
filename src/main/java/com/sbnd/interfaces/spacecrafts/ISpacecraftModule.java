@@ -18,7 +18,7 @@ public interface ISpacecraftModule
     }
 
     void setModuleAbility(EnumModuleAbility ability);
-    EnumModuleAbility getModuleAbility();
+    default EnumModuleAbility getModuleAbility() { return null; };
     boolean hasAbility();
 
 }

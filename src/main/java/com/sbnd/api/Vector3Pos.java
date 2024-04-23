@@ -2,9 +2,8 @@ package com.sbnd.api;
 
 import java.util.Objects;
 
-public class Vector3Pos
+public class Vector3Pos 
 {
-
     public long x;
     public long y;
     public long z;
@@ -64,8 +63,8 @@ public class Vector3Pos
     {
         return Math.sqrt(
                 (this.x - otherVec.x) * (this.x - otherVec.x) +
-                (this.y - otherVec.y) * (this.y - otherVec.y) +
-                (this.z - otherVec.z) * (this.z - otherVec.z)
+                        (this.y - otherVec.y) * (this.y - otherVec.y) +
+                        (this.z - otherVec.z) * (this.z - otherVec.z)
         );
     }
 
@@ -125,5 +124,4 @@ public class Vector3Pos
         }
         return new Vector3Pos(this.x, this.y, this.z);
     }
-
 }

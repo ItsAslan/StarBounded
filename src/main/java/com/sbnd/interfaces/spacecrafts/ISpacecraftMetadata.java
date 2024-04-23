@@ -1,6 +1,6 @@
 package com.sbnd.interfaces.spacecrafts;
 
-import com.sbnd.api.Vector3Pos;
+import com.sbnd.api.BlockCoordinate;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public interface ISpacecraftMetadata
 
     class Thruster
     {
-        private final Vector3Pos pos;
+        private final BlockCoordinate pos;
         private final ThrusterTier tier;
         private final double thrusterForce;
         private final float drain;
@@ -28,7 +28,7 @@ public interface ISpacecraftMetadata
             MULTIPLE_USE
         }
 
-        public Thruster(Vector3Pos pos, double thrusterForce, float drain, ThrusterTier tier) {
+        public Thruster(BlockCoordinate pos, double thrusterForce, float drain, ThrusterTier tier) {
 
             this.pos = pos;
             this.thrusterForce = thrusterForce;
@@ -38,7 +38,7 @@ public interface ISpacecraftMetadata
 
         }
 
-        public Vector3Pos getPos()
+        public BlockCoordinate getPos()
         {
             return this.pos;
         }
@@ -57,20 +57,19 @@ public interface ISpacecraftMetadata
         {
             return this.tier;
         }
-
     }
 
     class Fin
     {
-        private final Vector3Pos pos;
+        private final BlockCoordinate pos;
         private final float speedMultiplier;
 
-        public Fin(Vector3Pos pos, float speedMultiplier) {
+        public Fin(BlockCoordinate pos, float speedMultiplier) {
             this.pos = pos;
             this.speedMultiplier = speedMultiplier;
         }
 
-        public Vector3Pos getPos()
+        public BlockCoordinate getPos()
         {
             return pos;
         }
@@ -83,18 +82,18 @@ public interface ISpacecraftMetadata
 
     class Nose
     {
-        private final Vector3Pos pos;
+        private final BlockCoordinate pos;
         private final float speedMultiplier;
-        private final byte height; // Used to dictate how tall and aerodynamic the Nose / Noses make the spacecraft
+        private final int height; // Used to dictate how tall and aerodynamic the Nose / Noses make the spacecraft
 
 
-        public Nose(Vector3Pos pos, float speedMultiplier, byte height) {
+        public Nose(BlockCoordinate pos, float speedMultiplier, int height) {
             this.pos = pos;
             this.speedMultiplier = speedMultiplier;
             this.height = height;
         }
 
-        public Vector3Pos getPos()
+        public BlockCoordinate getPos()
         {
             return pos;
         }
@@ -104,7 +103,7 @@ public interface ISpacecraftMetadata
             return speedMultiplier;
         }
 
-        public byte getHeight()
+        public int getHeight()
         {
             return height;
         }
