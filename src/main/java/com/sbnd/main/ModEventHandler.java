@@ -9,6 +9,7 @@ import net.minecraft.util.EnumChatFormatting;
 
 public class ModEventHandler
 {
+
     @SubscribeEvent
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event)
     {
@@ -18,4 +19,5 @@ public class ModEventHandler
                     .setChatStyle(new ChatStyle().setColor(EnumChatFormatting.DARK_GREEN)));
         }
     }
+
 }
