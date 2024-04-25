@@ -24,8 +24,20 @@ public interface ISpacecraftMetadata
 
         enum ThrusterTier
         {
-            SINGLE_USE,
-            MULTIPLE_USE
+
+            TIER_1(2),
+            TIER_2(4),
+            TIER_3(8),
+            TIER_4(16),
+            TIER_5(-1); // Infinite
+
+            int numUses;
+
+            ThrusterTier(int numUses)
+            {
+                this.numUses = numUses;
+            }
+
         }
 
         public Thruster(BlockCoordinate pos, double thrusterForce, float drain, ThrusterTier tier) {
