@@ -18,35 +18,17 @@ public interface ISpacecraftMetadata
     class Thruster
     {
         private final BlockCoordinate pos;
-        private final ThrusterTier tier;
+        private final boolean isSingleUse;
         private final double thrusterForce;
         private final float drain;
 
-        enum ThrusterTier
-        {
-
-            TIER_1(2),
-            TIER_2(4),
-            TIER_3(8),
-            TIER_4(16),
-            TIER_5(-1); // Infinite
-
-            int numUses;
-
-            ThrusterTier(int numUses)
-            {
-                this.numUses = numUses;
-            }
-
-        }
-
-        public Thruster(BlockCoordinate pos, double thrusterForce, float drain, ThrusterTier tier) {
+        public Thruster(BlockCoordinate pos, double thrusterForce, float drain, boolean isSingleUse) {
 
             this.pos = pos;
             this.thrusterForce = thrusterForce;
             this.drain = drain;
 
-            this.tier = tier;
+            this.isSingleUse = isSingleUse;
 
         }
 
@@ -65,9 +47,9 @@ public interface ISpacecraftMetadata
             return this.drain;
         }
 
-        public ThrusterTier getTier()
+        public boolean getUses()
         {
-            return this.tier;
+            return this.isSingleUse;
         }
     }
 

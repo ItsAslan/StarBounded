@@ -1,4 +1,4 @@
-package cofh.energy;
+package cofh.api.energy;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

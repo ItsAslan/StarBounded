@@ -1,4 +1,4 @@
-package com.sbnd.enums;
+package com.sbnd.enums.materials;
 
 import net.minecraft.item.Item;
 import net.minecraftforge.common.util.EnumHelper;

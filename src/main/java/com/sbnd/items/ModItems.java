@@ -1,7 +1,8 @@
 package com.sbnd.items;
 
 import com.sbnd.enums.EnumPlanet;
-import com.sbnd.enums.ToolMaterials;
+import com.sbnd.enums.materials.ToolMaterials;
+import com.sbnd.items.generic.ArmorGeneric;
 import com.sbnd.items.generic.ItemGeneric;
 import com.sbnd.items.generic.ItemOreGeneric;
 import com.sbnd.items.tools.AoePickaxeBase;
@@ -10,6 +11,7 @@ import com.sbnd.lib.ModVars;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 
 public class ModItems
 {
@@ -49,6 +51,12 @@ public class ModItems
     //Tools
     public static Item copperAoePickaxe;
 
+    //Armor
+    public static Item astronautSuitHelmet;
+    public static Item astronautSuitChestplate;
+    public static Item astronautSuitLeggings;
+    public static Item astronautSuitBoots;
+
     public static void ItemInit()
     {
 
@@ -80,6 +88,13 @@ public class ModItems
 
         //Tools
         copperAoePickaxe = new AoePickaxeBase(ToolMaterials.AOEMATERIAL, 3, 3).setUnlocalizedName("copperAoePickaxe").setCreativeTab(CreativeTabs.tabTools).setTextureName(ModVars.MOD_ID + ":copperAoePickaxe");
+
+        //Armor
+        astronautSuitHelmet = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 0, "astronautSuit").setUnlocalizedName("astronautSuitHelmet").setCreativeTab(CreativeTabs.tabCombat);
+        astronautSuitChestplate = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 1, "astronautSuit").setUnlocalizedName("astronautSuitChestplate").setCreativeTab(CreativeTabs.tabCombat);
+        astronautSuitLeggings = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 2, "astronautSuit").setUnlocalizedName("astronautSuitLeggings").setCreativeTab(CreativeTabs.tabCombat);
+        astronautSuitBoots = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 3, "astronautSuit").setUnlocalizedName("astronautSuitBoots").setCreativeTab(CreativeTabs.tabCombat);
+
     }
 
     public static void ItemRegister()
@@ -113,6 +128,13 @@ public class ModItems
 
         //Tools
         GameRegistry.registerItem(copperAoePickaxe, copperAoePickaxe.getUnlocalizedName());
+
+        //Armor
+        GameRegistry.registerItem(astronautSuitHelmet, astronautSuitHelmet.getUnlocalizedName());
+        GameRegistry.registerItem(astronautSuitChestplate, astronautSuitChestplate.getUnlocalizedName());
+        GameRegistry.registerItem(astronautSuitLeggings, astronautSuitLeggings.getUnlocalizedName());
+        GameRegistry.registerItem(astronautSuitBoots, astronautSuitBoots.getUnlocalizedName());
+
 
     }
 }
