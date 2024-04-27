@@ -1,5 +1,6 @@
 package com.sbnd.main;
 
+import com.sbnd.commands.CommandTeleportDimension;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -8,6 +9,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import com.sbnd.lib.ModVars;
 import com.sbnd.proxy.CommonProxy;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = ModVars.MOD_ID, name = ModVars.MOD_NAME, version = ModVars.MOD_VERSION)
@@ -39,5 +41,10 @@ public class Starbounded
     public void postInit(FMLPostInitializationEvent $e)
     {
         PROXY.postInit($e);
+    }
+
+    @Mod.EventHandler
+    public void serverStart(FMLServerStartingEvent event) {
+        event.registerServerCommand(new CommandTeleportDimension());
     }
 }

@@ -52,10 +52,15 @@ public class ModItems
     public static Item copperAoePickaxe;
 
     //Armor
-    public static Item astronautSuitHelmet;
-    public static Item astronautSuitChestplate;
-    public static Item astronautSuitLeggings;
-    public static Item astronautSuitBoots;
+    public static Item suitWhiteHelmet;
+    public static Item suitWhiteChestplate;
+    public static Item suitWhiteLeggings;
+    public static Item suitWhiteBoots;
+
+    public static Item suitRedHelmet;
+    public static Item suitRedChestplate;
+    public static Item suitRedLeggings;
+    public static Item suitRedBoots;
 
     public static void ItemInit()
     {
@@ -90,10 +95,14 @@ public class ModItems
         copperAoePickaxe = new AoePickaxeBase(ToolMaterials.AOEMATERIAL, 3, 3).setUnlocalizedName("copperAoePickaxe").setCreativeTab(CreativeTabs.tabTools).setTextureName(ModVars.MOD_ID + ":copperAoePickaxe");
 
         //Armor
-        astronautSuitHelmet = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 0, "astronautSuit").setUnlocalizedName("astronautSuitHelmet").setCreativeTab(CreativeTabs.tabCombat);
-        astronautSuitChestplate = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 1, "astronautSuit").setUnlocalizedName("astronautSuitChestplate").setCreativeTab(CreativeTabs.tabCombat);
-        astronautSuitLeggings = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 2, "astronautSuit").setUnlocalizedName("astronautSuitLeggings").setCreativeTab(CreativeTabs.tabCombat);
-        astronautSuitBoots = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 3, "astronautSuit").setUnlocalizedName("astronautSuitBoots").setCreativeTab(CreativeTabs.tabCombat);
+        suitWhiteHelmet = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 0, "suitWhite").setUnlocalizedName("suitWhiteHelmet").setCreativeTab(CreativeTabs.tabCombat);
+        suitWhiteChestplate = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 1, "suitWhite").setUnlocalizedName("suitWhiteChestplate").setCreativeTab(CreativeTabs.tabCombat);
+        suitWhiteLeggings = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 2, "suitWhite").setUnlocalizedName("suitWhiteLeggings").setCreativeTab(CreativeTabs.tabCombat);
+        suitWhiteBoots = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 3, "suitWhite").setUnlocalizedName("suitWhiteBoots").setCreativeTab(CreativeTabs.tabCombat);
+        suitRedHelmet = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 0, "suitRed").setUnlocalizedName("suitRedHelmet").setCreativeTab(CreativeTabs.tabCombat);
+        suitRedChestplate = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 1, "suitRed").setUnlocalizedName("suitRedChestplate").setCreativeTab(CreativeTabs.tabCombat);
+        suitRedLeggings = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 2, "suitRed").setUnlocalizedName("suitRedLeggings").setCreativeTab(CreativeTabs.tabCombat);
+        suitRedBoots = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 3, "suitRed").setUnlocalizedName("suitRedBoots").setCreativeTab(CreativeTabs.tabCombat);
 
     }
 
@@ -130,11 +139,15 @@ public class ModItems
         GameRegistry.registerItem(copperAoePickaxe, copperAoePickaxe.getUnlocalizedName());
 
         //Armor
-        GameRegistry.registerItem(astronautSuitHelmet, astronautSuitHelmet.getUnlocalizedName());
-        GameRegistry.registerItem(astronautSuitChestplate, astronautSuitChestplate.getUnlocalizedName());
-        GameRegistry.registerItem(astronautSuitLeggings, astronautSuitLeggings.getUnlocalizedName());
-        GameRegistry.registerItem(astronautSuitBoots, astronautSuitBoots.getUnlocalizedName());
+        GameRegistry.registerItem(suitWhiteHelmet, suitWhiteHelmet.getUnlocalizedName());
+        GameRegistry.registerItem(suitWhiteChestplate, suitWhiteChestplate.getUnlocalizedName());
+        GameRegistry.registerItem(suitWhiteLeggings, suitWhiteLeggings.getUnlocalizedName());
+        GameRegistry.registerItem(suitWhiteBoots, suitWhiteBoots.getUnlocalizedName());
 
+        GameRegistry.registerItem(suitRedHelmet, suitRedHelmet.getUnlocalizedName());
+        GameRegistry.registerItem(suitRedChestplate, suitRedChestplate.getUnlocalizedName());
+        GameRegistry.registerItem(suitRedLeggings, suitRedLeggings.getUnlocalizedName());
+        GameRegistry.registerItem(suitRedBoots, suitRedBoots.getUnlocalizedName());
 
     }
 }
