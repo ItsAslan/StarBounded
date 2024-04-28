@@ -6,7 +6,7 @@ import net.minecraftforge.common.BiomeDictionary;
 public class ModBiomes
 {
 
-    private static final int moonBiomeId = 180;
+    private static final int moonBiomeId = 50;
 
     public static BiomeGenBase moonBiome = new MoonBiome(moonBiomeId);
 

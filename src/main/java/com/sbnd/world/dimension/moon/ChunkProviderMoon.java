@@ -1,5 +1,6 @@
 package com.sbnd.world.dimension.moon;
 
+import com.sbnd.blocks.ModBlocks;
 import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -8,31 +9,22 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkPosition;
-import net.minecraft.world.SpawnerAnimals;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.*;
-import net.minecraft.world.gen.feature.WorldGenDungeons;
-import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenScatteredFeature;
-import net.minecraft.world.gen.structure.MapGenStronghold;
-import net.minecraft.world.gen.structure.MapGenVillage;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.*;
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.*;
 
 public class ChunkProviderMoon implements IChunkProvider
 {
@@ -157,11 +149,7 @@ public class ChunkProviderMoon implements IChunkProvider
                             {
                                 if ((d15 += d16) > 0.0D)
                                 {
-                                    p_147424_3_[j3 += short1] = Blocks.stone;
-                                }
-                                else if (k2 * 8 + l2 < b0)
-                                {
-                                    p_147424_3_[j3 += short1] = Blocks.water;
+                                    p_147424_3_[j3 += short1] = ModBlocks.blockMoonTurf;
                                 }
                                 else
                                 {
