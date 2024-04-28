@@ -1,7 +1,7 @@
 package com.sbnd.items;
 
-import com.sbnd.enums.EnumPlanet;
-import com.sbnd.enums.materials.ToolMaterials;
+import api.enums.EnumPlanet;
+import api.enums.materials.ToolMaterials;
 import com.sbnd.items.generic.ArmorGeneric;
 import com.sbnd.items.generic.ItemGeneric;
 import com.sbnd.items.generic.ItemOreGeneric;

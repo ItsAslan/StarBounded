@@ -1,6 +1,6 @@
 package com.sbnd.items.generic;
 
-import com.sbnd.enums.EnumPlanet;
+import api.enums.EnumPlanet;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

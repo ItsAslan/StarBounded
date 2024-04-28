@@ -1,6 +1,8 @@
 package com.sbnd.lib;
 
-import com.sbnd.enums.EnumPlanet;
+import api.enums.EnumPlanet;
+
+import java.util.List;
 
 public class Library
 {
@@ -19,5 +21,6 @@ public class Library
     {
         return planet.getDimensionId();
     }
+
 
 }

@@ -28,7 +28,7 @@ public class CommandTeleportDimension extends CommandBase
             int dimensionId = parseInt(sender, args[0]);
             if(DimensionManager.isDimensionRegistered(dimensionId))
             {
-                player.mcServer.getConfigurationManager().transferPlayerToDimension(player, dimensionId, new Teleporter(player.mcServer.worldServerForDimension(dimensionId)));
+                player.mcServer.getConfigurationManager().transferPlayerToDimension(player, dimensionId);
             }
             else
             {
