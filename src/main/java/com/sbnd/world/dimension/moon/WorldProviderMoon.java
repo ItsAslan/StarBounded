@@ -3,15 +3,17 @@ package com.sbnd.world.dimension.moon;
 import api.NoCloudRenderer;
 import api.enums.EnumPlanet;
 import com.sbnd.lib.Library;
+import com.sbnd.render.sky.MoonSkyRender;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraftforge.client.IRenderHandler;
 
 public class WorldProviderMoon extends WorldProvider
 {
 
-    private EnumPlanet planet = EnumPlanet.MOON;
+    private final EnumPlanet planet = EnumPlanet.MOON;
 
     public void registerWorldChunkManager()
     {
@@ -40,4 +42,8 @@ public class WorldProviderMoon extends WorldProvider
         return new ChunkProviderMoon(this.worldObj, this.worldObj.getSeed(), false);
     }
 
+    @Override
+    public IRenderHandler getSkyRenderer() {
+        return new MoonSkyRender();
+    }
 }
