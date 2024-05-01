@@ -14,8 +14,12 @@ public class ResourceManager
     //TEXTURES
     public static ResourceLocation TEST_OBJ_TEXTURE = new ResourceLocation(ModVars.MOD_ID, "textures/models/testTexture.png");
 
-    //Backdrops
-    public static ResourceLocation EARTH = new ResourceLocation(ModVars.MOD_ID, "textures/background/earthTexture.png");
-    public static ResourceLocation SUN = new ResourceLocation(ModVars.MOD_ID, "textures/background/sunTexture.png");
+    //Planets
+    public static ResourceLocation EARTH = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/planets/earthTexture.png");
+    public static ResourceLocation MOON = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/planets/moonTexture.png");
+    public static ResourceLocation MARS = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/planets/marsTexture.png");
+
+    //Stars
+    public static ResourceLocation SUN = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/sunTexture.png");
 
 }

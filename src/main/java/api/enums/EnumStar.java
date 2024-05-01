@@ -4,18 +4,16 @@ import com.sbnd.main.ResourceManager;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 
-public enum EnumPlanet
+public enum EnumStar
 {
-    EARTH(EnumChatFormatting.DARK_GREEN, ResourceManager.EARTH, "Earth", 0),
-    MOON(EnumChatFormatting.DARK_GRAY, ResourceManager.MOON, "The Moon",2),
-    MARS(EnumChatFormatting.DARK_RED, ResourceManager.MARS, "Mars", 3);
+    SOL(EnumChatFormatting.GOLD, ResourceManager.SUN, "Sun", 0);
 
     private EnumChatFormatting color;
     private ResourceLocation texture;
     private String name;
     private int Id;
 
-    EnumPlanet(EnumChatFormatting color, ResourceLocation texture, String name, int Id)
+    EnumStar(EnumChatFormatting color, ResourceLocation texture, String name, int Id)
     {
         this.color = color;
         this.texture = texture;
@@ -42,5 +40,4 @@ public enum EnumPlanet
     {
         return this.Id;
     }
-
 }
