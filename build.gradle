@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'forge'
 
 group = "com.sbnd" // Replace with your group ID, following Maven's naming conventions
-version = "0.0.1" // Your mod's version
+version = "0.0.3" // Your mod's version
 archivesBaseName = "StarBounded" // The base name for your mod's archive (jar files)
 
 sourceCompatibility = targetCompatibility = '1.8' // Java version compatibility

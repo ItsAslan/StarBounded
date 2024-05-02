@@ -89,7 +89,7 @@ public abstract class PlanetSkyRender extends IRenderHandler
         final Tessellator var23 = Tessellator.instance;
         GL11.glDepthMask(false);
         GL11.glEnable(GL11.GL_FOG);
-        float[] color = PlanetManager.getSkyColor(getPrimaryPlanet());
+        float[] color = PlanetManager.getSkyColor(getCurrentPlanet());
         GL11.glColor3f(color[0], color[1], color[2]);
         GL11.glCallList(this.glSkyList);
         GL11.glDisable(GL11.GL_FOG);
@@ -269,6 +269,7 @@ public abstract class PlanetSkyRender extends IRenderHandler
     protected abstract boolean hasMoons();
 
     protected abstract EnumPlanet getPrimaryPlanet();
+    protected abstract EnumPlanet getCurrentPlanet();
     protected abstract EnumStar getPlanetStar();
     protected abstract EnumPlanet[] getMoons();
 }

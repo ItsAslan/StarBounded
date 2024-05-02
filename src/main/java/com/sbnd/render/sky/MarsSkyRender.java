@@ -28,6 +28,11 @@ public class MarsSkyRender extends PlanetSkyRender {
 
     @Override
     protected EnumPlanet getPrimaryPlanet() {
+        return null;
+    }
+
+    @Override
+    protected EnumPlanet getCurrentPlanet() {
         return EnumPlanet.MARS;
     }
 

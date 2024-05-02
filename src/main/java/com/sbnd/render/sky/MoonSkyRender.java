@@ -32,6 +32,11 @@ public class MoonSkyRender extends PlanetSkyRender {
     }
 
     @Override
+    protected EnumPlanet getCurrentPlanet() {
+        return EnumPlanet.MOON;
+    }
+
+    @Override
     protected EnumStar getPlanetStar() {
         return EnumStar.SOL;
     }

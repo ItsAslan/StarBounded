@@ -1,3 +1,3 @@
-1. Created `ResourceManager` for better organization
-2. Created `Vector3Pos` to store block locations
-3. Created `ISpacecraftMetaData` and `ISpacecraftStructureData`
+1. Refactored `Sky Render` classes
+2. Added Mars dimension
+3. Bug-fixed rendering issues
