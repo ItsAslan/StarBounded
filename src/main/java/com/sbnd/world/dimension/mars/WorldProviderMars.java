@@ -1,14 +1,14 @@
-package com.sbnd.world.dimension.moon;
+package com.sbnd.world.dimension.mars;
 
 import api.enums.EnumPlanet;
 import api.planets.WorldProviderPlanet;
 
-public class WorldProviderMoon extends WorldProviderPlanet
+public class WorldProviderMars extends WorldProviderPlanet
 {
 
     @Override
     protected EnumPlanet getPlanet() {
-        return EnumPlanet.MOON;
+        return EnumPlanet.MARS;
     }
 
     @Override

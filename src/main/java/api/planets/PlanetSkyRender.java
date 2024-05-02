@@ -2,6 +2,7 @@ package api.planets;
 
 import api.enums.EnumPlanet;
 import api.enums.EnumStar;
+import com.sbnd.world.PlanetManager;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -88,7 +89,8 @@ public abstract class PlanetSkyRender extends IRenderHandler
         final Tessellator var23 = Tessellator.instance;
         GL11.glDepthMask(false);
         GL11.glEnable(GL11.GL_FOG);
-        GL11.glColor3f(0, 0, 0);
+        float[] color = PlanetManager.getSkyColor(getPrimaryPlanet());
+        GL11.glColor3f(color[0], color[1], color[2]);
         GL11.glCallList(this.glSkyList);
         GL11.glDisable(GL11.GL_FOG);
         GL11.glDisable(GL11.GL_ALPHA_TEST);
@@ -116,22 +118,8 @@ public abstract class PlanetSkyRender extends IRenderHandler
         GL11.glDisable(GL11.GL_TEXTURE_2D);
         GL11.glColor4f(0.0F, 0.0F, 0.0F, 1.0F);
         var12 = 20.0F / 3.5F;
-        var23.startDrawingQuads();
-        var23.addVertex(-var12, 99.9D, -var12);
-        var23.addVertex(var12, 99.9D, -var12);
-        var23.addVertex(var12, 99.9D, var12);
-        var23.addVertex(-var12, 99.9D, var12);
-        var23.draw();
-        GL11.glEnable(GL11.GL_TEXTURE_2D);
-
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        var12 = 20.0F;
 
         if(isOrbitingBody()) { drawPrimaryPlanet(var23, var12); }
-
-        GL11.glPushMatrix();
-
-        GL11.glDisable(GL11.GL_BLEND);
 
         // HOME:
         var12 = 10.0F;
@@ -161,6 +149,17 @@ public abstract class PlanetSkyRender extends IRenderHandler
     private void drawPrimaryPlanet(Tessellator var23, float var12)
     {
 
+        var23.startDrawingQuads();
+        var23.addVertex(-var12, 99.9D, -var12);
+        var23.addVertex(var12, 99.9D, -var12);
+        var23.addVertex(var12, 99.9D, var12);
+        var23.addVertex(-var12, 99.9D, var12);
+        var23.draw();
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        var12 = 20.0F;
+
         // Here is where you change the angle of the earth
         GL11.glRotatef(75.0F, 1.0F, 0.0F, 0.0F);
 
@@ -172,10 +171,15 @@ public abstract class PlanetSkyRender extends IRenderHandler
         var23.addVertexWithUV(-var12, 100.0D, var12, 0.0D, 1.0D);
         var23.draw();
         GL11.glPopMatrix();
+        GL11.glPushMatrix();
+
+        GL11.glDisable(GL11.GL_BLEND);
     }
 
     private void drawStar(Tessellator var23, float var12)
     {
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         FMLClientHandler.instance().getClient().renderEngine.bindTexture(getPlanetStar().getTexture());
         var23.startDrawingQuads();
         var23.addVertexWithUV(-var12, -100.0D, var12, 0, 1);
@@ -183,6 +187,7 @@ public abstract class PlanetSkyRender extends IRenderHandler
         var23.addVertexWithUV(var12, -100.0D, -var12, 1, 0);
         var23.addVertexWithUV(-var12, -100.0D, -var12, 0, 0);
         var23.draw();
+        GL11.glDisable(GL11.GL_BLEND);
     }
 
     private void renderHorizon(Minecraft mc, float var10, float var11, float var12, double var25, Tessellator var23, float partialTicks, World world)
@@ -239,7 +244,7 @@ public abstract class PlanetSkyRender extends IRenderHandler
         GL11.glBegin(GL11.GL_POINTS); // Start drawing points
         GL11.glColor3f(1.0F, 1.0F, 1.0F);
 
-        for (int i = 0; i < numStars; ++i) {
+        for (int i = 0; i < this.numStars; ++i) {
             double x = var1.nextFloat() * 2.0F - 1.0F;
             double y = var1.nextFloat() * 2.0F - 1.0F;
             double z = var1.nextFloat() * 2.0F - 1.0F;

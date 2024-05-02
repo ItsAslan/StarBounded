@@ -4,21 +4,21 @@ import api.enums.EnumPlanet;
 import api.enums.EnumStar;
 import api.planets.PlanetSkyRender;
 
-public class MoonSkyRender extends PlanetSkyRender {
+public class MarsSkyRender extends PlanetSkyRender {
 
-    public MoonSkyRender()
+    public MarsSkyRender()
     {
         this.numStars = 1000;
     }
 
     @Override
     protected boolean canSeeStars() {
-        return true;
+        return false;
     }
 
     @Override
     protected boolean isOrbitingBody() {
-        return true;
+        return false;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class MoonSkyRender extends PlanetSkyRender {
 
     @Override
     protected EnumPlanet getPrimaryPlanet() {
-        return EnumPlanet.EARTH;
+        return EnumPlanet.MARS;
     }
 
     @Override
