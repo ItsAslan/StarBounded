@@ -117,16 +117,15 @@ public abstract class PlanetSkyRender extends IRenderHandler
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         GL11.glDisable(GL11.GL_TEXTURE_2D);
         GL11.glColor4f(0.0F, 0.0F, 0.0F, 1.0F);
-        var12 = 20.0F / 3.5F;
+        var12 = PlanetManager.getPrimaryPlanetSize(getCurrentPlanet());
 
         if(isOrbitingBody()) { drawPrimaryPlanet(var23, var12); }
 
         // HOME:
-        var12 = 10.0F;
-        final float earthRotation = (float) (world.getSpawnPoint().posZ - mc.thePlayer.posZ) * 0.01F;
+        var12 = PlanetManager.getStarSize(getCurrentPlanet());
         GL11.glScalef(0.6F, 0.6F, 0.6F);
-        GL11.glRotatef(earthRotation, 1.0F, 0.0F, 0.0F);
-        GL11.glRotatef(200F, 1.0F, 0.0F, 0.0F);
+        float rot = PlanetManager.getStarRotation(getCurrentPlanet());
+        GL11.glRotatef(rot, 1.0F, 0.0F, 0.0F);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1F);
 
         drawStar(var23, var12);

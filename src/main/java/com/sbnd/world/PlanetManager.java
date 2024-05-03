@@ -3,9 +3,12 @@ package com.sbnd.world;
 import api.enums.EnumPlanet;
 import api.planets.PlanetSkyRender;
 import com.sbnd.render.sky.MarsSkyRender;
+import com.sbnd.render.sky.MercurySkyRender;
 import com.sbnd.render.sky.MoonSkyRender;
 import com.sbnd.world.dimension.mars.ChunkProviderMars;
 import com.sbnd.world.dimension.mars.WorldChunkManagerMars;
+import com.sbnd.world.dimension.mercury.ChunkProviderMercury;
+import com.sbnd.world.dimension.mercury.WorldChunkManagerMercury;
 import com.sbnd.world.dimension.moon.ChunkProviderMoon;
 import com.sbnd.world.dimension.moon.WorldChunkManagerMoon;
 import net.minecraft.util.Vec3;
@@ -24,6 +27,8 @@ public class PlanetManager
                 return getColorArray(new float[]{0, 0, 0});
             case MARS:
                 return getColorArray(new float[]{171, 119, 67});
+            case MERCURY:
+                return getColorArray(new float[] {0, 0, 0});
             default:
                 return getColorArray(new float[]{255, 255, 173});
         }
@@ -37,6 +42,8 @@ public class PlanetManager
                 return getColor(new float[]{0, 0, 0});
             case MARS:
                 return getColor(new float[]{133, 73, 33});
+            case MERCURY:
+                return getColor(new float[] {20, 20, 20});
             default:
                 return getColor(new float[]{255, 255, 255});
         }
@@ -50,6 +57,8 @@ public class PlanetManager
                 return "Moon";
             case MARS:
                 return "Mars";
+            case MERCURY:
+                return "Mercury";
             default:
                 return "Null";
         }
@@ -63,6 +72,8 @@ public class PlanetManager
                 return new ChunkProviderMoon(world, world.getSeed(), false);
             case MARS:
                 return new ChunkProviderMars(world, world.getSeed(), false);
+            case MERCURY:
+                return new ChunkProviderMercury(world, world.getSeed(), false);
             default:
                 return null;
         }
@@ -76,6 +87,8 @@ public class PlanetManager
                 return new WorldChunkManagerMoon();
             case MARS:
                 return new WorldChunkManagerMars();
+            case MERCURY:
+                return new WorldChunkManagerMercury();
             default:
                 return null;
         }
@@ -89,8 +102,62 @@ public class PlanetManager
                 return new MoonSkyRender();
             case MARS:
                 return new MarsSkyRender();
+            case MERCURY:
+                return new MercurySkyRender();
             default:
                 return null;
+        }
+    }
+
+    public static float getPrimaryPlanetRotation(EnumPlanet planet)
+    {
+        switch(planet)
+        {
+            case MOON:
+                return 75;
+            default:
+                return 0;
+        }
+    }
+
+    public static float getPrimaryPlanetSize(EnumPlanet planet)
+    {
+        switch(planet)
+        {
+            case MOON:
+                return 1;
+            default:
+                return 0;
+        }
+    }
+
+    public static float getStarRotation(EnumPlanet planet)
+    {
+        switch(planet)
+        {
+            case MOON:
+                return 200;
+            case MARS:
+                return 200;
+            case MERCURY:
+                return 255;
+            default:
+                return 0;
+        }
+    }
+
+    public static float getStarSize(EnumPlanet planet)
+    {
+        switch(planet)
+        {
+            case MOON:
+                return 20.0F / 3.5F;
+            case MARS:
+                return 20.0F / 3.5F;
+            case MERCURY:
+                return 100.0f;
+            default:
+                return 0;
         }
     }
 

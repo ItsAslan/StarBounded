@@ -2,9 +2,9 @@ package com.sbnd.world.dimension;
 
 import com.sbnd.world.PlanetManager;
 import com.sbnd.world.dimension.mars.WorldProviderMars;
+import com.sbnd.world.dimension.mercury.WorldProviderMercury;
 import com.sbnd.world.dimension.moon.WorldProviderMoon;
 import api.enums.EnumPlanet;
-import com.sbnd.lib.Library;
 import net.minecraftforge.common.DimensionManager;
 
 public class DimensionRegistry
@@ -17,6 +17,7 @@ public class DimensionRegistry
 
     public static final int moonDimensionID = PlanetManager.getPlanetId(EnumPlanet.MOON);
     public static final int marsDimensionID = PlanetManager.getPlanetId(EnumPlanet.MARS);
+    public static final int mercuryDimensionID = PlanetManager.getPlanetId(EnumPlanet.MERCURY);
 
     public static void RegisterDimension()
     {
@@ -25,6 +26,9 @@ public class DimensionRegistry
 
         DimensionManager.registerProviderType(marsDimensionID, WorldProviderMars.class, false);
         DimensionManager.registerDimension(marsDimensionID, marsDimensionID);
+
+        DimensionManager.registerProviderType(mercuryDimensionID, WorldProviderMercury.class, false);
+        DimensionManager.registerDimension(mercuryDimensionID, mercuryDimensionID);
     }
 
 }

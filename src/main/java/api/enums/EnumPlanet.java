@@ -8,7 +8,8 @@ public enum EnumPlanet
 {
     EARTH(EnumChatFormatting.DARK_GREEN, ResourceManager.EARTH, "Earth", 0),
     MOON(EnumChatFormatting.DARK_GRAY, ResourceManager.MOON, "The Moon",2),
-    MARS(EnumChatFormatting.DARK_RED, ResourceManager.MARS, "Mars", 3);
+    MARS(EnumChatFormatting.DARK_RED, ResourceManager.MARS, "Mars", 3),
+    MERCURY(EnumChatFormatting.GRAY, ResourceManager.MOON, "Mercury", 4);
 
     private EnumChatFormatting color;
     private ResourceLocation texture;
