@@ -4,6 +4,7 @@ import api.enums.EnumPlanet;
 import api.enums.materials.ToolMaterials;
 import com.sbnd.items.generic.ArmorGeneric;
 import com.sbnd.items.generic.ItemGeneric;
+import com.sbnd.items.generic.ItemHot;
 import com.sbnd.items.generic.ItemOreGeneric;
 import com.sbnd.items.tools.AoePickaxeBase;
 import com.sbnd.items.tools.crafting.ItemHammer;
@@ -30,6 +31,7 @@ public class ModItems
     public static Item clusterSmokeyQuartz;
     public static Item clusterCadmium;
     public static Item shardMagnesium;
+    public static Item cubePhosphorus;
 
     //Ingots
     public static Item ingotCopper;
@@ -73,6 +75,7 @@ public class ModItems
         clusterSmokeyQuartz = new ItemOreGeneric(EnumPlanet.MOON).setUnlocalizedName("clusterSmokeyQuartz").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":clusterSmokeyQuartz");
         clusterCadmium = new ItemOreGeneric(EnumPlanet.MOON).setUnlocalizedName("clusterCadmium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":clusterCadmium");
         shardMagnesium = new ItemOreGeneric(EnumPlanet.MARS).setUnlocalizedName("shardMagnesium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":shardMagnesium");
+        cubePhosphorus = new ItemHot(EnumPlanet.MERCURY).setUnlocalizedName("cubePhosphorus").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubePhosphorus");
 
         //Ingots
         ingotCopper = new ItemGeneric().setUnlocalizedName("ingotCopper").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":ingotCopper");
@@ -117,6 +120,7 @@ public class ModItems
         GameRegistry.registerItem(clusterSmokeyQuartz, clusterSmokeyQuartz.getUnlocalizedName());
         GameRegistry.registerItem(clusterCadmium, clusterCadmium.getUnlocalizedName());
         GameRegistry.registerItem(shardMagnesium, shardMagnesium.getUnlocalizedName());
+        GameRegistry.registerItem(cubePhosphorus, cubePhosphorus.getUnlocalizedName());
 
         //Ingots
         GameRegistry.registerItem(ingotCopper, ingotCopper.getUnlocalizedName());

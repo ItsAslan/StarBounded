@@ -25,4 +25,8 @@ public class ItemHammer extends ItemPickaxe
         return itemStack;
     }
 
+    @Override
+    public boolean doesContainerItemLeaveCraftingGrid(ItemStack p_77630_1_) {
+        return false;
+    }
 }

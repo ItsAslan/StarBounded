@@ -11,8 +11,8 @@ public class MercuryBiome extends BiomeGenBase
 {
     public MercuryBiome(int id) {
         super(id);
-        this.topBlock = Blocks.cobblestone;
-        this.fillerBlock = Blocks.cobblestone;
+        this.topBlock = ModBlocks.blockMercurySurface;
+        this.fillerBlock = ModBlocks.blockMercurySurface;
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();
         this.setDisableRain();

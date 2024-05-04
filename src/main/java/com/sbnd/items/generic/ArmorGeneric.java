@@ -24,4 +24,5 @@ public class ArmorGeneric extends ItemArmor
     {
         return this.armorType == 2 ? layer2 : layer1;
     }
+
 }

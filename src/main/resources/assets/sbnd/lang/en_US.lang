@@ -3,12 +3,15 @@ tile.oreAluminum.name=Aluminum Ore
 tile.oreTitanium.name=Titanium Ore
 tile.oreTungsten.name=Tungsten Ore
 tile.oreTin.name=Tin Ore
+tile.oreSulfur.name=Sulfur Ore
 tile.blockMoonTurf.name=Moon Turf
 tile.oreMoonStone.name=Moonstone Ore
 tile.oreSmokeyQuartz.name=Smokey Quartz Ore
 tile.oreCadmium.name=Cadmium Ore
 tile.blockMarsTurf.name=Mars Turf
 tile.oreMagnesium.name=Magnesium Ore
+tile.orePhosphorus.name=Phosphorus Ore
+tile.blockMercurySurface.name=Mercury Stone
 
 item.cubeGraphite.name=Graphite Cube
 item.cubeLithium.name=Lithium Cube
@@ -27,6 +30,7 @@ item.shardMoonStone.name=Moonstone Shard
 item.clusterSmokeyQuartz.name=Smokey Quartz Cluster
 item.clusterCadmium.name=Cadmium Cluster
 item.shardMagnesium.name=Magnesium Shard
+item.cubePhosphorus.name=Cube of Phosphorus
 
 item.itemHammer.name=Plate Hammer
 item.copperAoePickaxe.name=Copper Pickaxe

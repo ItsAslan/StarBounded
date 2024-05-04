@@ -151,11 +151,11 @@ public class PlanetManager
         switch(planet)
         {
             case MOON:
-                return 20.0F / 3.5F;
+                return 20;
             case MARS:
                 return 20.0F / 3.5F;
             case MERCURY:
-                return 100.0f;
+                return 160.0f;
             default:
                 return 0;
         }

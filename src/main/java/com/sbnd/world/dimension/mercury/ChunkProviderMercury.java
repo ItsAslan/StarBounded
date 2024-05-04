@@ -1,5 +1,6 @@
 package com.sbnd.world.dimension.mercury;
 
+import com.sbnd.blocks.ModBlocks;
 import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -150,7 +151,7 @@ public class ChunkProviderMercury  implements IChunkProvider
                             {
                                 if ((d15 += d16) > 0.0D)
                                 {
-                                    p_147424_3_[j3 += short1] = Blocks.cobblestone;
+                                    p_147424_3_[j3 += short1] = ModBlocks.blockMercurySurface;
                                 }
                                 else
                                 {
