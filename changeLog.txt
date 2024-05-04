@@ -1,3 +1,2 @@
-1. Refactored `Sky Render` classes
-2. Added Mars dimension
-3. Bug-fixed rendering issues
+1. Ore spawns
+2. Mercury

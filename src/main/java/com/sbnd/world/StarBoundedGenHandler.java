@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class StarBoundedGenHandler
 {
-    public static void addOreSpawn(Block block, World world, Random random, int blockX, int blockZ, int maxOffsetX, int maxOffsetZ, int maxVeinSize, int minVeinSize, int chanceToSpawn, int minY, int maxY)
+    public static void addOreSpawn(Block block, Block blockIn, World world, Random random, int blockX, int blockZ, int maxOffsetX, int maxOffsetZ, int maxVeinSize, int minVeinSize, int chanceToSpawn, int minY, int maxY)
     {
         for (int i = 0; i < chanceToSpawn; i++)
         {
@@ -18,7 +18,9 @@ public class StarBoundedGenHandler
 
             int veinSize = minVeinSize + random.nextInt(maxVeinSize - minVeinSize + 1);
 
-            (new WorldGenMinable(block, veinSize)).generate(world, random, xPos, yPos, zPos);
+            System.out.printf("Attempted to Spawn Ore at: (%d, %d, %d)%n", xPos, yPos, zPos);
+
+            (new WorldGenMinable(block, veinSize, blockIn)).generate(world, random, xPos, yPos, zPos);
         }
     }
 
