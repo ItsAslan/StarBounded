@@ -1,15 +1,19 @@
 package com.sbnd.world;
 
 import api.enums.EnumPlanet;
+import api.interfaces.planets.IAtmosphere;
 import api.planets.PlanetSkyRender;
 import com.sbnd.render.sky.MarsSkyRender;
 import com.sbnd.render.sky.MercurySkyRender;
 import com.sbnd.render.sky.MoonSkyRender;
 import com.sbnd.world.dimension.mars.ChunkProviderMars;
+import com.sbnd.world.dimension.mars.MarsAtmosphere;
 import com.sbnd.world.dimension.mars.WorldChunkManagerMars;
 import com.sbnd.world.dimension.mercury.ChunkProviderMercury;
+import com.sbnd.world.dimension.mercury.MercuryAtmosphere;
 import com.sbnd.world.dimension.mercury.WorldChunkManagerMercury;
 import com.sbnd.world.dimension.moon.ChunkProviderMoon;
+import com.sbnd.world.dimension.moon.MoonAtmosphere;
 import com.sbnd.world.dimension.moon.WorldChunkManagerMoon;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
@@ -18,6 +22,21 @@ import net.minecraft.world.chunk.IChunkProvider;
 
 public class PlanetManager
 {
+
+    public static IAtmosphere getAtmosphere(EnumPlanet planet)
+    {
+        switch(planet)
+        {
+            case MOON:
+                return new MoonAtmosphere();
+            case MARS:
+                return new MarsAtmosphere();
+            case MERCURY:
+                return new MercuryAtmosphere();
+            default:
+                return null;
+        }
+    }
 
     public static float[] getSkyColor(EnumPlanet planet)
     {
@@ -161,14 +180,19 @@ public class PlanetManager
         }
     }
 
-    private static Vec3 getColor(float[] color)
+    public static EnumPlanet getPlanetFromId(int id)
     {
-        return Vec3.createVectorHelper(color[0] / 255.0f, color[1] / 255.0f, color[2] / 255.0f);
-    }
-
-    private static float[] getColorArray(float[] color)
-    {
-        return new float[] {color[0] / 255.0f, color[1] / 255.0f, color[2] / 255.0f};
+        switch(id)
+        {
+            case 2:
+                return EnumPlanet.MOON;
+            case 3:
+                return EnumPlanet.MARS;
+            case 4:
+                return EnumPlanet.MERCURY;
+            default:
+                return null;
+        }
     }
 
     public static int getPlanetId(EnumPlanet planet)
@@ -179,6 +203,17 @@ public class PlanetManager
     public static String getPlanetName(EnumPlanet planet)
     {
         return planet.getName();
+    }
+
+
+    private static Vec3 getColor(float[] color)
+    {
+        return Vec3.createVectorHelper(color[0] / 255.0f, color[1] / 255.0f, color[2] / 255.0f);
+    }
+
+    private static float[] getColorArray(float[] color)
+    {
+        return new float[] {color[0] / 255.0f, color[1] / 255.0f, color[2] / 255.0f};
     }
 
 }

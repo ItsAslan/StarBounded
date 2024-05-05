@@ -12,6 +12,11 @@ tile.blockMarsTurf.name=Mars Turf
 tile.oreMagnesium.name=Magnesium Ore
 tile.orePhosphorus.name=Phosphorus Ore
 tile.blockMercurySurface.name=Mercury Stone
+tile.blockBlackTile.name=Tungsten Tile
+tile.blockBlackTileHazard.name=Hazard Tungsten Tile
+tile.blockGreyTile.name=Steel Tile
+tile.blockGreyTileHazard.name=Hazard Steel Tile
+tile.blockGlassTungsten.name=Tungsten Glass
 
 item.cubeGraphite.name=Graphite Cube
 item.cubeLithium.name=Lithium Cube

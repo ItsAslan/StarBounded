@@ -2,6 +2,7 @@ package com.sbnd.items;
 
 import api.enums.EnumPlanet;
 import api.enums.materials.ToolMaterials;
+import com.sbnd.items.armor.AstronautSuitBasic;
 import com.sbnd.items.generic.ArmorGeneric;
 import com.sbnd.items.generic.ItemGeneric;
 import com.sbnd.items.generic.ItemHot;
@@ -98,14 +99,10 @@ public class ModItems
         copperAoePickaxe = new AoePickaxeBase(ToolMaterials.AOEMATERIAL, 3, 3).setUnlocalizedName("copperAoePickaxe").setCreativeTab(CreativeTabs.tabTools).setTextureName(ModVars.MOD_ID + ":copperAoePickaxe");
 
         //Armor
-        suitWhiteHelmet = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 0, "suitWhite").setUnlocalizedName("suitWhiteHelmet").setCreativeTab(CreativeTabs.tabCombat);
-        suitWhiteChestplate = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 1, "suitWhite").setUnlocalizedName("suitWhiteChestplate").setCreativeTab(CreativeTabs.tabCombat);
-        suitWhiteLeggings = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 2, "suitWhite").setUnlocalizedName("suitWhiteLeggings").setCreativeTab(CreativeTabs.tabCombat);
-        suitWhiteBoots = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 3, "suitWhite").setUnlocalizedName("suitWhiteBoots").setCreativeTab(CreativeTabs.tabCombat);
-        suitRedHelmet = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 0, "suitRed").setUnlocalizedName("suitRedHelmet").setCreativeTab(CreativeTabs.tabCombat);
-        suitRedChestplate = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 1, "suitRed").setUnlocalizedName("suitRedChestplate").setCreativeTab(CreativeTabs.tabCombat);
-        suitRedLeggings = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 2, "suitRed").setUnlocalizedName("suitRedLeggings").setCreativeTab(CreativeTabs.tabCombat);
-        suitRedBoots = new ArmorGeneric(ItemArmor.ArmorMaterial.GOLD, 0, 3, "suitRed").setUnlocalizedName("suitRedBoots").setCreativeTab(CreativeTabs.tabCombat);
+        suitWhiteHelmet = new AstronautSuitBasic(ItemArmor.ArmorMaterial.IRON, 0, 0, "suitWhite").setUnlocalizedName("suitWhiteHelmet").setCreativeTab(CreativeTabs.tabCombat);
+        suitWhiteChestplate = new AstronautSuitBasic(ItemArmor.ArmorMaterial.IRON, 0, 1, "suitWhite").setUnlocalizedName("suitWhiteChestplate").setCreativeTab(CreativeTabs.tabCombat);
+        suitWhiteLeggings = new AstronautSuitBasic(ItemArmor.ArmorMaterial.IRON, 0, 2, "suitWhite").setUnlocalizedName("suitWhiteLeggings").setCreativeTab(CreativeTabs.tabCombat);
+        suitWhiteBoots = new AstronautSuitBasic(ItemArmor.ArmorMaterial.IRON, 0, 3, "suitWhite").setUnlocalizedName("suitWhiteBoots").setCreativeTab(CreativeTabs.tabCombat);
 
     }
 
@@ -147,11 +144,6 @@ public class ModItems
         GameRegistry.registerItem(suitWhiteChestplate, suitWhiteChestplate.getUnlocalizedName());
         GameRegistry.registerItem(suitWhiteLeggings, suitWhiteLeggings.getUnlocalizedName());
         GameRegistry.registerItem(suitWhiteBoots, suitWhiteBoots.getUnlocalizedName());
-
-        GameRegistry.registerItem(suitRedHelmet, suitRedHelmet.getUnlocalizedName());
-        GameRegistry.registerItem(suitRedChestplate, suitRedChestplate.getUnlocalizedName());
-        GameRegistry.registerItem(suitRedLeggings, suitRedLeggings.getUnlocalizedName());
-        GameRegistry.registerItem(suitRedBoots, suitRedBoots.getUnlocalizedName());
 
     }
 }

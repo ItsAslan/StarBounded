@@ -2,6 +2,7 @@ package api.planets;
 
 import api.NoCloudRenderer;
 import api.enums.EnumPlanet;
+import api.interfaces.planets.IAtmosphere;
 import com.sbnd.world.PlanetManager;
 import com.sbnd.world.dimension.moon.WorldChunkManagerMoon;
 import net.minecraft.entity.Entity;
@@ -40,7 +41,13 @@ public abstract class WorldProviderPlanet extends WorldProvider
         return PlanetManager.getSkyRenderer(getPlanet());
     }
 
+    public IAtmosphere getAtmosphere()
+    {
+        return PlanetManager.getAtmosphere(getPlanet());
+    }
+
     protected abstract EnumPlanet getPlanet();
     protected abstract boolean hasClouds();
+
 
 }

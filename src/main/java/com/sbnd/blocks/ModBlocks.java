@@ -1,6 +1,7 @@
 package com.sbnd.blocks;
 
 import com.sbnd.blocks.generic.BlockGeneric;
+import com.sbnd.blocks.generic.BlockGlassGeneric;
 import com.sbnd.blocks.generic.OreGeneric;
 import com.sbnd.blocks.generic.OreParticleEmitter;
 import com.sbnd.blocks.test.interpTest;
@@ -38,6 +39,13 @@ public class ModBlocks
     public static Block oreMagnesium;
     public static Block orePhosphorus;
 
+    //Decoration Blocks
+    public static Block blockBlackTile;
+    public static Block blockBlackTileHazard;
+    public static Block blockGreyTile;
+    public static Block blockGreyTileHazard;
+    public static Block blockGlassTungsten;
+
     //Rocket Blocks
     public static Block interpTest;
 
@@ -64,6 +72,13 @@ public class ModBlocks
         oreCadmium = new OreGeneric(Material.rock, ModItems.clusterCadmium, 2).setBlockName("oreCadmium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreCadmium");
         oreMagnesium = new OreGeneric(Material.rock, ModItems.shardMagnesium, 3).setBlockName("oreMagnesium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreMagnesium");
         orePhosphorus = new OreParticleEmitter(Material.rock, ModItems.cubePhosphorus, 3).setBlockName("orePhosphorus").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":orePhosphorus");
+
+        //Decoration Blocks
+        blockBlackTile = new BlockGeneric(Material.rock).setBlockName("blockBlackTile").setCreativeTab(CreativeTabs.tabDecorations).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockBlackTile");
+        blockBlackTileHazard = new BlockGeneric(Material.rock).setBlockName("blockBlackTileHazard").setCreativeTab(CreativeTabs.tabDecorations).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockBlackTileHazard");
+        blockGreyTile = new BlockGeneric(Material.rock).setBlockName("blockGreyTile").setCreativeTab(CreativeTabs.tabDecorations).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockGreyTile");
+        blockGreyTileHazard = new BlockGeneric(Material.rock).setBlockName("blockGreyTileHazard").setCreativeTab(CreativeTabs.tabDecorations).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockGreyTileHazard");
+        blockGlassTungsten = new BlockGlassGeneric(ModVars.MOD_ID + ":blockGlassTungsten", Material.glass, false).setBlockName("blockGlassTungsten").setCreativeTab(CreativeTabs.tabDecorations).setStepSound(Block.soundTypeGlass).setBlockTextureName(ModVars.MOD_ID + ":blockGlassTungsten");
 
         //Rocket Blocks
         interpTest = new interpTest(Material.rock).setBlockName("interpTest").setCreativeTab(CreativeTabs.tabBlock);
@@ -92,6 +107,13 @@ public class ModBlocks
         GameRegistry.registerBlock(oreCadmium, oreCadmium.getUnlocalizedName());
         GameRegistry.registerBlock(oreMagnesium, oreMagnesium.getUnlocalizedName());
         GameRegistry.registerBlock(orePhosphorus, orePhosphorus.getUnlocalizedName());
+
+        //Decoration Blocks
+        GameRegistry.registerBlock(blockBlackTile, blockBlackTile.getUnlocalizedName());
+        GameRegistry.registerBlock(blockBlackTileHazard, blockBlackTileHazard.getUnlocalizedName());
+        GameRegistry.registerBlock(blockGreyTile, blockGreyTile.getUnlocalizedName());
+        GameRegistry.registerBlock(blockGreyTileHazard, blockGreyTileHazard.getUnlocalizedName());
+        GameRegistry.registerBlock(blockGlassTungsten, blockGlassTungsten.getUnlocalizedName());
 
         //Rocket Blocks
         GameRegistry.registerBlock(interpTest, interpTest.getUnlocalizedName());
