@@ -196,7 +196,7 @@ public class PlanetManager
             case MERCURY:
                 return 160.0f;
             case VENUS:
-                return 35.0f;
+                return 34.0f;
             default:
                 return 0;
         }
