@@ -33,6 +33,7 @@ public class ModItems
     public static Item clusterCadmium;
     public static Item shardMagnesium;
     public static Item cubePhosphorus;
+    public static Item clumpWulfenite;
 
     //Ingots
     public static Item ingotCopper;
@@ -77,6 +78,7 @@ public class ModItems
         clusterCadmium = new ItemOreGeneric(EnumPlanet.MOON).setUnlocalizedName("clusterCadmium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":clusterCadmium");
         shardMagnesium = new ItemOreGeneric(EnumPlanet.MARS).setUnlocalizedName("shardMagnesium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":shardMagnesium");
         cubePhosphorus = new ItemHot(EnumPlanet.MERCURY).setUnlocalizedName("cubePhosphorus").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":cubePhosphorus");
+        clumpWulfenite = new ItemHot(EnumPlanet.VENUS).setUnlocalizedName("clumpWulfenite").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":clumpWulfenite");
 
         //Ingots
         ingotCopper = new ItemGeneric().setUnlocalizedName("ingotCopper").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":ingotCopper");
@@ -118,6 +120,7 @@ public class ModItems
         GameRegistry.registerItem(clusterCadmium, clusterCadmium.getUnlocalizedName());
         GameRegistry.registerItem(shardMagnesium, shardMagnesium.getUnlocalizedName());
         GameRegistry.registerItem(cubePhosphorus, cubePhosphorus.getUnlocalizedName());
+        GameRegistry.registerItem(clumpWulfenite, clumpWulfenite.getUnlocalizedName());
 
         //Ingots
         GameRegistry.registerItem(ingotCopper, ingotCopper.getUnlocalizedName());

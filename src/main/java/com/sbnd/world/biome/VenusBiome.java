@@ -1,18 +1,17 @@
 package com.sbnd.world.biome;
 
 import com.sbnd.blocks.ModBlocks;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.Random;
 
-public class MercuryBiome extends BiomeGenBase
+public class VenusBiome extends BiomeGenBase
 {
-    public MercuryBiome(int id) {
+    public VenusBiome(int id) {
         super(id);
-        this.topBlock = ModBlocks.blockMercuryRock;
-        this.fillerBlock = ModBlocks.blockMercuryRock;
+        this.topBlock = ModBlocks.blockVenusRock;
+        this.fillerBlock = ModBlocks.blockVenusRock;
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();
         this.setDisableRain();

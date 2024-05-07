@@ -1,14 +1,14 @@
-package com.sbnd.world.dimension.mercury;
+package com.sbnd.world.dimension.venus;
 
 import api.enums.EnumPlanet;
 import api.planets.WorldProviderPlanet;
 
-public class WorldProviderMercury extends WorldProviderPlanet
+public class WorldProviderVenus extends WorldProviderPlanet
 {
 
     @Override
     protected EnumPlanet getPlanet() {
-        return EnumPlanet.MERCURY;
+        return EnumPlanet.VENUS;
     }
 
     @Override
@@ -19,7 +19,7 @@ public class WorldProviderMercury extends WorldProviderPlanet
     @Override
     public float[] calcSunriseSunsetColors(float p_76560_1_, float p_76560_2_)
     {
-       return null;
+        return null;
     }
 
 }

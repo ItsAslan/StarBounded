@@ -33,6 +33,9 @@ public class StarBoundedGen implements IWorldGenerator
             case 4:
                 genMercury(world, random, chunkX * 16, chunkZ * 16);
                 break;
+            case 5:
+                genVenus(world, random, chunkX * 16, chunkZ * 16);
+                break;
             default:
                 genAll(world, random, chunkX * 16, chunkZ * 16);
         }
@@ -71,7 +74,12 @@ public class StarBoundedGen implements IWorldGenerator
 
     private void genMercury(World world, Random random, int x, int z)
     {
-        StarBoundedGenHandler.addOreSpawn(ModBlocks.orePhosphorus, ModBlocks.blockMercurySurface, world, random, x, z, 16, 16, 16, 8, 1, 50, 70);
+        StarBoundedGenHandler.addOreSpawn(ModBlocks.orePhosphorus, ModBlocks.blockMercuryRock, world, random, x, z, 16, 16, 16, 8, 1, 50, 70);
+    }
+
+    private void genVenus(World world, Random random, int x, int z)
+    {
+        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreWulfenite, ModBlocks.blockVenusCobblestone, world, random, x, z, 16, 16, 16, 8, 1, 50, 70);
     }
 
     private void genAll(World world, Random random, int x, int z)

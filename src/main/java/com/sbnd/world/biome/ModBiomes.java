@@ -9,10 +9,12 @@ public class ModBiomes
     private static final int moonBiomeId = 50;
     private static final int marsBiomeId = 51;
     private static final int mercuryBiomeId = 52;
+    private static final int venusBiomeId = 53;
 
     public static BiomeGenBase moonBiome = new MoonBiome(moonBiomeId);
     public static BiomeGenBase marsBiome = new MarsBiome(marsBiomeId);
     public static BiomeGenBase mercuryBiome = new MercuryBiome(mercuryBiomeId);
+    public static BiomeGenBase venusBiome = new VenusBiome(venusBiomeId);
 
     public static void MainRegistry()
     {
@@ -24,6 +26,7 @@ public class ModBiomes
         BiomeDictionary.registerBiomeType(moonBiome, BiomeDictionary.Type.COLD);
         BiomeDictionary.registerBiomeType(marsBiome, BiomeDictionary.Type.HOT);
         BiomeDictionary.registerBiomeType(mercuryBiome, BiomeDictionary.Type.COLD);
+        BiomeDictionary.registerBiomeType(venusBiome, BiomeDictionary.Type.HOT);
     }
 
 }

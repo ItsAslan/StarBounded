@@ -3,7 +3,7 @@ package com.sbnd.blocks;
 import com.sbnd.blocks.generic.BlockGeneric;
 import com.sbnd.blocks.generic.BlockGlassGeneric;
 import com.sbnd.blocks.generic.OreGeneric;
-import com.sbnd.blocks.generic.OreParticleEmitter;
+import com.sbnd.blocks.generic.OreGenericHot;
 import com.sbnd.blocks.test.interpTest;
 import com.sbnd.items.ModItems;
 import com.sbnd.lib.ModVars;
@@ -24,7 +24,10 @@ public class ModBlocks
     //Terrain Blocks
     public static Block blockMoonTurf;
     public static Block blockMarsTurf;
-    public static Block blockMercurySurface;
+    public static Block blockMercuryRock;
+    public static Block blockMercuryCobblestone;
+    public static Block blockVenusRock;
+    public static Block blockVenusCobblestone;
 
     //Ore Blocks
     public static Block oreCopper;
@@ -38,6 +41,7 @@ public class ModBlocks
     public static Block oreCadmium;
     public static Block oreMagnesium;
     public static Block orePhosphorus;
+    public static Block oreWulfenite;
 
     //Decoration Blocks
     public static Block blockBlackTile;
@@ -58,7 +62,10 @@ public class ModBlocks
         //Terrain Blocks
         blockMoonTurf = new BlockGeneric(Material.sand).setBlockName("blockMoonTurf").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":blockMoonTurf");
         blockMarsTurf = new BlockGeneric(Material.sand).setBlockName("blockMarsTurf").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":blockMarsTurf");
-        blockMercurySurface = new BlockGeneric(Material.rock).setBlockName("blockMercurySurface").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockMercurySurface");
+        blockMercuryRock = new BlockGeneric(Material.rock).setBlockName("blockMercuryRock").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockMercuryRock");
+        blockMercuryCobblestone = new BlockGeneric(Material.rock).setBlockName("blockMercuryCobblestone").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockMercuryCobblestone");
+        blockVenusRock = new BlockGeneric(Material.rock).setBlockName("blockVenusRock").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockVenusRock");
+        blockVenusCobblestone = new BlockGeneric(Material.rock).setBlockName("blockVenusCobblestone").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockVenusCobblestone");
 
         //Ore Blocks
         oreCopper = new OreGeneric(Material.rock).setBlockName("oreCopper").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreCopper");
@@ -71,7 +78,8 @@ public class ModBlocks
         oreSmokeyQuartz = new OreGeneric(Material.rock, ModItems.clusterSmokeyQuartz, 1).setBlockName("oreSmokeyQuartz").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreSmokeyQuartz");
         oreCadmium = new OreGeneric(Material.rock, ModItems.clusterCadmium, 2).setBlockName("oreCadmium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreCadmium");
         oreMagnesium = new OreGeneric(Material.rock, ModItems.shardMagnesium, 3).setBlockName("oreMagnesium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreMagnesium");
-        orePhosphorus = new OreParticleEmitter(Material.rock, ModItems.cubePhosphorus, 3).setBlockName("orePhosphorus").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":orePhosphorus");
+        orePhosphorus = new OreGenericHot(Material.rock, ModItems.cubePhosphorus, 3).setBlockName("orePhosphorus").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":orePhosphorus");
+        oreWulfenite = new OreGenericHot(Material.rock, ModItems.clumpWulfenite, 4).setBlockName("oreWulfenite").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreWulfenite");
 
         //Decoration Blocks
         blockBlackTile = new BlockGeneric(Material.rock).setBlockName("blockBlackTile").setCreativeTab(CreativeTabs.tabDecorations).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockBlackTile");
@@ -93,7 +101,10 @@ public class ModBlocks
         //Terrain Blocks
         GameRegistry.registerBlock(blockMoonTurf, blockMoonTurf.getUnlocalizedName());
         GameRegistry.registerBlock(blockMarsTurf, blockMarsTurf.getUnlocalizedName());
-        GameRegistry.registerBlock(blockMercurySurface, blockMercurySurface.getUnlocalizedName());
+        GameRegistry.registerBlock(blockMercuryRock, blockMercuryRock.getUnlocalizedName());
+        GameRegistry.registerBlock(blockMercuryCobblestone, blockMercuryCobblestone.getUnlocalizedName());
+        GameRegistry.registerBlock(blockVenusRock, blockVenusRock.getUnlocalizedName());
+        GameRegistry.registerBlock(blockVenusCobblestone, blockVenusCobblestone.getUnlocalizedName());
 
         //Ore Blocks
         GameRegistry.registerBlock(oreCopper, oreCopper.getUnlocalizedName());
@@ -107,6 +118,7 @@ public class ModBlocks
         GameRegistry.registerBlock(oreCadmium, oreCadmium.getUnlocalizedName());
         GameRegistry.registerBlock(oreMagnesium, oreMagnesium.getUnlocalizedName());
         GameRegistry.registerBlock(orePhosphorus, orePhosphorus.getUnlocalizedName());
+        GameRegistry.registerBlock(oreWulfenite, oreWulfenite.getUnlocalizedName());
 
         //Decoration Blocks
         GameRegistry.registerBlock(blockBlackTile, blockBlackTile.getUnlocalizedName());

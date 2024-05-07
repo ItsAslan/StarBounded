@@ -6,15 +6,19 @@ import api.planets.PlanetSkyRender;
 import com.sbnd.render.sky.MarsSkyRender;
 import com.sbnd.render.sky.MercurySkyRender;
 import com.sbnd.render.sky.MoonSkyRender;
+import com.sbnd.render.sky.VenusSkyRender;
 import com.sbnd.world.dimension.mars.ChunkProviderMars;
 import com.sbnd.world.dimension.mars.MarsAtmosphere;
 import com.sbnd.world.dimension.mars.WorldChunkManagerMars;
 import com.sbnd.world.dimension.mercury.ChunkProviderMercury;
+import com.sbnd.world.dimension.mercury.ChunkProviderVenus;
 import com.sbnd.world.dimension.mercury.MercuryAtmosphere;
 import com.sbnd.world.dimension.mercury.WorldChunkManagerMercury;
 import com.sbnd.world.dimension.moon.ChunkProviderMoon;
 import com.sbnd.world.dimension.moon.MoonAtmosphere;
 import com.sbnd.world.dimension.moon.WorldChunkManagerMoon;
+import com.sbnd.world.dimension.venus.VenusAtmosphere;
+import com.sbnd.world.dimension.venus.WorldChunkManagerVenus;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.WorldChunkManagerHell;
@@ -33,6 +37,8 @@ public class PlanetManager
                 return new MarsAtmosphere();
             case MERCURY:
                 return new MercuryAtmosphere();
+            case VENUS:
+                return new VenusAtmosphere();
             default:
                 return null;
         }
@@ -48,6 +54,8 @@ public class PlanetManager
                 return getColorArray(new float[]{171, 119, 67});
             case MERCURY:
                 return getColorArray(new float[] {0, 0, 0});
+            case VENUS:
+                return getColorArray(new float[] {252, 173, 3});
             default:
                 return getColorArray(new float[]{255, 255, 173});
         }
@@ -58,11 +66,13 @@ public class PlanetManager
         switch (planet)
         {
             case MOON:
-                return getColor(new float[]{0, 0, 0});
+                return getColor(new float[]{20, 20, 20});
             case MARS:
                 return getColor(new float[]{133, 73, 33});
             case MERCURY:
                 return getColor(new float[] {20, 20, 20});
+            case VENUS:
+                return getColor(new float[] {163, 115, 26});
             default:
                 return getColor(new float[]{255, 255, 255});
         }
@@ -78,6 +88,8 @@ public class PlanetManager
                 return "Mars";
             case MERCURY:
                 return "Mercury";
+            case VENUS:
+                return "Venus";
             default:
                 return "Null";
         }
@@ -93,6 +105,8 @@ public class PlanetManager
                 return new ChunkProviderMars(world, world.getSeed(), false);
             case MERCURY:
                 return new ChunkProviderMercury(world, world.getSeed(), false);
+            case VENUS:
+                return new ChunkProviderVenus(world, world.getSeed(), false);
             default:
                 return null;
         }
@@ -108,6 +122,8 @@ public class PlanetManager
                 return new WorldChunkManagerMars();
             case MERCURY:
                 return new WorldChunkManagerMercury();
+            case VENUS:
+                return new WorldChunkManagerVenus();
             default:
                 return null;
         }
@@ -123,6 +139,8 @@ public class PlanetManager
                 return new MarsSkyRender();
             case MERCURY:
                 return new MercurySkyRender();
+            case VENUS:
+                return new VenusSkyRender();
             default:
                 return null;
         }
@@ -160,6 +178,8 @@ public class PlanetManager
                 return 200;
             case MERCURY:
                 return 255;
+            case VENUS:
+                return 235;
             default:
                 return 0;
         }
@@ -170,11 +190,13 @@ public class PlanetManager
         switch(planet)
         {
             case MOON:
-                return 20;
+                return 20.0f;
             case MARS:
-                return 20.0F / 3.5F;
+                return 20.0f / 3.5f;
             case MERCURY:
                 return 160.0f;
+            case VENUS:
+                return 60.0f;
             default:
                 return 0;
         }
@@ -190,6 +212,8 @@ public class PlanetManager
                 return EnumPlanet.MARS;
             case 4:
                 return EnumPlanet.MERCURY;
+            case 5:
+                return EnumPlanet.VENUS;
             default:
                 return null;
         }

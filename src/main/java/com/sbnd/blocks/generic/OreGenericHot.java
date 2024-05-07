@@ -9,14 +9,14 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.Random;
 
-public class OreParticleEmitter extends OreGeneric
+public class OreGenericHot extends OreGeneric
 {
 
-    public OreParticleEmitter(Material material) {
+    public OreGenericHot(Material material) {
         super(material);
     }
 
-    public OreParticleEmitter(Material material, Item itemToDrop, int maxAmount) {
+    public OreGenericHot(Material material, Item itemToDrop, int maxAmount) {
         super(material, itemToDrop, maxAmount);
     }
 
@@ -26,9 +26,6 @@ public class OreParticleEmitter extends OreGeneric
         super.randomDisplayTick(world, x, y, z, random);
 
         for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-
-            if(dir == ForgeDirection.DOWN)
-                continue;
 
             if(world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getMaterial() == Material.air) {
 
@@ -47,6 +44,7 @@ public class OreParticleEmitter extends OreGeneric
                 world.spawnParticle("smoke", ix, iy, iz, 0.0, 0.0, 0.0);
                 world.spawnParticle("smoke", ix, iy, iz, 0.0, 0.1, 0.0);
             }
+
         }
     }
 }

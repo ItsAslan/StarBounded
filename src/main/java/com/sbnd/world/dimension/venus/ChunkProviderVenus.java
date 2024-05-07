@@ -28,7 +28,7 @@ import java.util.Random;
 
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.SCATTERED_FEATURE;
 
-public class ChunkProviderMercury implements IChunkProvider
+public class ChunkProviderVenus implements IChunkProvider
 {
 
     /** RNG. */
@@ -64,7 +64,7 @@ public class ChunkProviderMercury implements IChunkProvider
         scatteredFeatureGenerator = (MapGenScatteredFeature) TerrainGen.getModdedMapGen(scatteredFeatureGenerator, SCATTERED_FEATURE);
     }
 
-    public ChunkProviderMercury(World p_i2006_1_, long p_i2006_2_, boolean p_i2006_4_)
+    public ChunkProviderVenus(World p_i2006_1_, long p_i2006_2_, boolean p_i2006_4_)
     {
         this.worldObj = p_i2006_1_;
         this.mapFeaturesEnabled = p_i2006_4_;
@@ -102,7 +102,7 @@ public class ChunkProviderMercury implements IChunkProvider
 
     public void func_147424_a(int p_147424_1_, int p_147424_2_, Block[] p_147424_3_)
     {
-        byte b0 = 63;
+        byte b0 = 64;
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, p_147424_1_ * 4 - 2, p_147424_2_ * 4 - 2, 10, 10);
         this.func_147423_a(p_147424_1_ * 4, 0, p_147424_2_ * 4);
 
@@ -153,11 +153,11 @@ public class ChunkProviderMercury implements IChunkProvider
                                 {
                                     if(rand.nextInt() % 2 == 0)
                                     {
-                                        p_147424_3_[j3 += short1] = ModBlocks.blockMercuryRock;
+                                        p_147424_3_[j3 += short1] = ModBlocks.blockVenusRock;
                                     }
                                     else
                                     {
-                                        p_147424_3_[j3 += short1] = ModBlocks.blockMercuryCobblestone;
+                                        p_147424_3_[j3 += short1] = ModBlocks.blockVenusCobblestone;
                                     }
                                 }
                                 else
