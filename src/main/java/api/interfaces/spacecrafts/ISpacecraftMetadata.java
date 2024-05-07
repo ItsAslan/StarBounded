@@ -1,6 +1,7 @@
 package api.interfaces.spacecrafts;
 
 import api.BlockCoordinate;
+import api.interfaces.annotations.ToDo;
 
 import java.util.List;
 
@@ -8,8 +9,9 @@ public interface ISpacecraftMetadata
 {
 
     List<Thruster> getThrusters();
-    List<Fin> getFins();
-    List<Nose> getNoses();
+
+    // List<Fin> getFins();
+    // List<Nose> getNoses();
 
     double getMass();
     double getThrust();
@@ -53,6 +55,7 @@ public interface ISpacecraftMetadata
         }
     }
 
+    @ToDo("After basic rocket logic is coded")
     class Fin
     {
         private final BlockCoordinate pos;
@@ -74,6 +77,7 @@ public interface ISpacecraftMetadata
         }
     }
 
+    @ToDo("After basic rocket logic is coded")
     class Nose
     {
         private final BlockCoordinate pos;
