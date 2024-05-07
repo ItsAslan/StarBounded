@@ -21,6 +21,9 @@ tile.blockMercuryCobblestone.name=Mercury Cobblestone
 tile.blockVenusRock.name=Venus Rock
 tile.blockVenusCobblestone.name=Venus Cobblestone
 tile.oreWulfenite.name=Wulfenite Ore
+tile.oreMercuryIron.name=Mercury Iron
+tile.oreMercuryTitanium.name=Mercury Titanium
+tile.oreMercurySulfur.name=Mercury Sulfur
 
 item.cubeGraphite.name=Graphite Cube
 item.cubeLithium.name=Lithium Cube

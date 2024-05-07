@@ -18,8 +18,6 @@ public class StarBoundedGenHandler
 
             int veinSize = minVeinSize + random.nextInt(maxVeinSize - minVeinSize + 1);
 
-            System.out.printf("Attempted to Spawn Ore at: (%d, %d, %d)%n", xPos, yPos, zPos);
-
             (new WorldGenMinable(block, veinSize, blockIn)).generate(world, random, xPos, yPos, zPos);
         }
     }

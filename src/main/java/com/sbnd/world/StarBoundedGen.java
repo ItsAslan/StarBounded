@@ -75,6 +75,9 @@ public class StarBoundedGen implements IWorldGenerator
     private void genMercury(World world, Random random, int x, int z)
     {
         StarBoundedGenHandler.addOreSpawn(ModBlocks.orePhosphorus, ModBlocks.blockMercuryRock, world, random, x, z, 16, 16, 16, 8, 1, 50, 70);
+        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreMercuryIron, ModBlocks.blockMercuryRock, world, random, x, z, 16, 16, 6, 3, 8, 10, 68);
+        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreMercuryTitanium, ModBlocks.blockMercuryRock, world, random, x, z, 16, 16, 6, 3, 8, 10, 68);
+        StarBoundedGenHandler.addOreSpawn(ModBlocks.oreMercurySulfur, ModBlocks.blockMercuryRock, world, random, x, z, 16, 16, 6, 3, 8, 10, 68);
     }
 
     private void genVenus(World world, Random random, int x, int z)

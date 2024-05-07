@@ -42,6 +42,9 @@ public class ModBlocks
     public static Block oreMagnesium;
     public static Block orePhosphorus;
     public static Block oreWulfenite;
+    public static Block oreMercuryIron;
+    public static Block oreMercuryTitanium;
+    public static Block oreMercurySulfur;
 
     //Decoration Blocks
     public static Block blockBlackTile;
@@ -80,6 +83,9 @@ public class ModBlocks
         oreMagnesium = new OreGeneric(Material.rock, ModItems.shardMagnesium, 3).setBlockName("oreMagnesium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand).setBlockTextureName(ModVars.MOD_ID + ":oreMagnesium");
         orePhosphorus = new OreGenericHot(Material.rock, ModItems.cubePhosphorus, 3).setBlockName("orePhosphorus").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":orePhosphorus");
         oreWulfenite = new OreGenericHot(Material.rock, ModItems.clumpWulfenite, 4).setBlockName("oreWulfenite").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreWulfenite");
+        oreMercuryIron = new OreGeneric(Material.rock).setBlockName("oreMercuryIron").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreMercuryIron");
+        oreMercuryTitanium = new OreGeneric(Material.rock).setBlockName("oreMercuryTitanium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreMercuryTitanium");
+        oreMercurySulfur = new OreGeneric(Material.rock).setBlockName("oreMercurySulfur").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreMercurySulfur");
 
         //Decoration Blocks
         blockBlackTile = new BlockGeneric(Material.rock).setBlockName("blockBlackTile").setCreativeTab(CreativeTabs.tabDecorations).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockBlackTile");
@@ -119,6 +125,9 @@ public class ModBlocks
         GameRegistry.registerBlock(oreMagnesium, oreMagnesium.getUnlocalizedName());
         GameRegistry.registerBlock(orePhosphorus, orePhosphorus.getUnlocalizedName());
         GameRegistry.registerBlock(oreWulfenite, oreWulfenite.getUnlocalizedName());
+        GameRegistry.registerBlock(oreMercuryIron, oreMercuryIron.getUnlocalizedName());
+        GameRegistry.registerBlock(oreMercuryTitanium, oreMercuryTitanium.getUnlocalizedName());
+        GameRegistry.registerBlock(oreMercurySulfur, oreMercurySulfur.getUnlocalizedName());
 
         //Decoration Blocks
         GameRegistry.registerBlock(blockBlackTile, blockBlackTile.getUnlocalizedName());
