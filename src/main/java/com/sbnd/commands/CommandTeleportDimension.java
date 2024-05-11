@@ -4,7 +4,6 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.world.Teleporter;
 import net.minecraftforge.common.DimensionManager;
 
 public class CommandTeleportDimension extends CommandBase

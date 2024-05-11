@@ -1,6 +1,6 @@
 package com.sbnd.items.tools;
 
-import api.SbndMath;
+import api.util.SbndMath;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

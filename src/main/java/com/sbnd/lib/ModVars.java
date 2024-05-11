@@ -7,7 +7,7 @@ public class ModVars
     public static final String MOD_NAME = "StarBounded";
 
     // Mod Version
-    public static final String MOD_VERSION = "0.0.4";
+    public static final String MOD_VERSION = "0.0.5";
 
     /* NAMING CONVENTION
 

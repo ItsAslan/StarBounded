@@ -1,15 +1,15 @@
-package api;
+package api.util;
 
 import java.util.Objects;
 
-public class BlockCoordinate
+public class BlockPos
 {
 
     public long x;
     public long y;
     public long z;
 
-    public BlockCoordinate(long x, long y, long z)
+    public BlockPos(long x, long y, long z)
     {
         this.x = x;
         this.y = y;

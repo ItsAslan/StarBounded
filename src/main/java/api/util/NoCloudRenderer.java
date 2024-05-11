@@ -1,4 +1,4 @@
-package api;
+package api.util;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;

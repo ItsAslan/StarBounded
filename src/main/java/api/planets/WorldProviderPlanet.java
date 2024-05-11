@@ -1,11 +1,9 @@
 package api.planets;
 
-import api.NoCloudRenderer;
+import api.util.NoCloudRenderer;
 import api.enums.EnumPlanet;
 import api.interfaces.planets.IAtmosphere;
 import com.sbnd.world.PlanetManager;
-import com.sbnd.world.dimension.moon.WorldChunkManagerMoon;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkProvider;

@@ -1,4 +1,4 @@
-package api;
+package api.util;
 
 import java.util.Objects;
 import java.util.Random;

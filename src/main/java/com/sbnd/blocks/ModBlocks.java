@@ -55,6 +55,7 @@ public class ModBlocks
 
     //Rocket Blocks
     public static Block interpTest;
+    public static Block rocketTestModule;
 
     //Machine Blocks
 

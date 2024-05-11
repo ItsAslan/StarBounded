@@ -1,4 +1,4 @@
-package api;
+package api.util;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.util.ForgeDirection;
