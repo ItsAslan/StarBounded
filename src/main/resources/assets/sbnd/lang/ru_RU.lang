@@ -1,0 +1,36 @@
+tile.oreCopper.name=Медная руда
+tile.oreAluminum.name=Алюминиевая руда
+tile.oreTitanium.name=Титановая руда
+tile.oreTungsten.name=Вольфрамовая руда
+tile.oreTin.name=Оловянная руда
+tile.oreSulfur.name=Серная руда
+tile.blockMoonTurf.name=Лунный торф
+tile.oreMoonStone.name=Руда лунного камня
+tile.oreSmokeyQuartz.name=Руда дымчатого кварца
+tile.oreCadmium.name=Кадмиевая руда
+tile.blockMarsTurf.name=Марсовый торф
+tile.oreMagnesium.name=Магниевая руда
+tile.orePhosphorus.name=Фосфорная руда
+tile.blockMercurySurface.name=Камень Меркурия
+
+item.cubeGraphite.name=Графитовый куб
+item.cubeLithium.name=Литиевый куб
+item.cubeSulfur.name=Серный куб
+item.ingotCopper.name=Медный слиток
+item.ingotAluminum.name=Алюминиевый слиток
+item.ingotTitanium.name=Титановый слиток
+item.ingotTungsten.name=Вольфрамный слиток
+item.ingotTin.name=Оловянный слиток
+item.plateCopper.name=Медная пластина
+item.plateAluminum.name=Алюминиевая пластина
+item.plateTitanium.name=Титановая пластина
+item.plateTungsten.name=Вольфрамовая пластина
+item.plateTin.name=Оловянная пластина
+item.shardMoonStone.name=Осколок лунного камня
+item.clusterSmokeyQuartz.name=Кластер дымчатого кварца
+item.clusterCadmium.name=Кадмиевый кластер
+item.shardMagnesium.name=Осколок магния
+item.cubePhosphorus.name=Куб фосфора
+
+item.itemHammer.name=Пластинчатый молоток
+item.copperAoePickaxe.name=Медная кирка
