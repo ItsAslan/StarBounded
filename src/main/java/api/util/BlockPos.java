@@ -16,6 +16,11 @@ public class BlockPos
         this.z = z;
     }
 
+    public long toLong() {
+        // What the fuck?
+        return ((long)x & 0xFFFFFFFFL) | (((long)y & 0xFFFFFFFFL) << 32) | (((long)z & 0xFFFFFFFFL) << 16);
+    }
+
     public String toString()
     {
         return String.format("(%d, %d, %d)", this.x, this.y, this.z);
@@ -31,5 +36,6 @@ public class BlockPos
         return Objects.hash(this.x, this.y, this.z);
     }
 
+    public static final BlockPos ORIGIN = new BlockPos(0, 0, 0);
 
 }

@@ -1,5 +1,6 @@
 package com.sbnd.entity.spacecraft;
 
+import api.interfaces.annotations.ToDo;
 import api.util.BlockPos;
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import cpw.mods.fml.relauncher.Side;
@@ -20,11 +21,13 @@ public class EntitySpacecraft extends Entity implements IEntityAdditionalSpawnDa
     public SpacecraftModel model;
 
     public EntitySpacecraft(World world) {
+        super(world);
 
     }
 
+    @ToDo("gdh")
     public EntitySpacecraft(World world, SpacecraftBlueprint positions, BlockPos origin) {
-
+        super(world);
     }
 
 
