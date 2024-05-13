@@ -59,11 +59,6 @@ public class ModItems
     public static Item suitWhiteLeggings;
     public static Item suitWhiteBoots;
 
-    public static Item suitRedHelmet;
-    public static Item suitRedChestplate;
-    public static Item suitRedLeggings;
-    public static Item suitRedBoots;
-
     // Circuits
 
     public static Item circuitOscillator;
