@@ -1,4 +1,4 @@
-package api.util;
+package api.util.interfaces;
 
 import java.util.UUID;
 

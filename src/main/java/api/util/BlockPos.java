@@ -21,6 +21,14 @@ public class BlockPos
         return ((long)x & 0xFFFFFFFFL) | (((long)y & 0xFFFFFFFFL) << 32) | (((long)z & 0xFFFFFFFFL) << 16);
     }
 
+    public static BlockPos fromLong(long value) {
+        // I just want to talk to him, I just want to talk to him
+        int x = (int) (value >> 38);
+        int y = (int) (value << 52 >> 52);
+        int z = (int) (value << 26 >> 38);
+        return new BlockPos(x, y, z);
+    }
+
     public static long chunkXYZ2Long(BlockPos pos) {
         // I swear it won't hurt you
         return ((long)pos.x & 0x3FFFFFF) << 38 | ((long)pos.y & 0xFFF) << 26 | ((long)pos.z & 0x3FFFFFF);

@@ -1,6 +1,6 @@
 package api.spacecraft;
 
-import api.util.IFixedBoundWorldData;
+import api.util.interfaces.IFixedBoundWorldData;
 import net.minecraft.world.World;
 
 import java.util.List;

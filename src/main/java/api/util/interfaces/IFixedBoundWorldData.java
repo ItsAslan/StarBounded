@@ -1,4 +1,6 @@
-package api.util;
+package api.util.interfaces;
+
+import api.util.BlockPos;
 
 public interface IFixedBoundWorldData {
 

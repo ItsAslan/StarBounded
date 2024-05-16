@@ -8,4 +8,6 @@ public class Library
         return 20;
     }
 
+    public static int getRocketRange() { return 32; }
+
 }
