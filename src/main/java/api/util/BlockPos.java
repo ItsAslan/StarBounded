@@ -21,6 +21,11 @@ public class BlockPos
         return ((long)x & 0xFFFFFFFFL) | (((long)y & 0xFFFFFFFFL) << 32) | (((long)z & 0xFFFFFFFFL) << 16);
     }
 
+    public static long chunkXYZ2Long(BlockPos pos) {
+        // I swear it won't hurt you
+        return ((long)pos.x & 0x3FFFFFF) << 38 | ((long)pos.y & 0xFFF) << 26 | ((long)pos.z & 0x3FFFFFF);
+    }
+
     public String toString()
     {
         return String.format("(%d, %d, %d)", this.x, this.y, this.z);
