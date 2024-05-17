@@ -14,8 +14,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy
 {
+
+    private SpacecraftManager manager;
+
     public void preInit(FMLPreInitializationEvent $e)
     {
+
+        manager = new SpacecraftManager();
+
         ModItems.MainRegistry();
         ModBlocks.MainRegistry();
         RegisterCrafting.MainRegistry();
@@ -34,6 +40,10 @@ public class CommonProxy
     public void postInit(FMLPostInitializationEvent $e)
     {
 
+    }
+
+    public SpacecraftManager getSpacecraftManager() {
+        return manager;
     }
 
 }

@@ -1,4 +1,4 @@
 package api.spacecraft;
 
-public interface ISpacecraftController {
+public interface ISpacecraftController extends ISpacecraftModule {
 }

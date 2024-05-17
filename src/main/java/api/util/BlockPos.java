@@ -1,5 +1,7 @@
 package api.util;
 
+import net.minecraft.util.EnumFacing;
+
 import java.util.Objects;
 
 public class BlockPos
@@ -32,6 +34,18 @@ public class BlockPos
     public static long chunkXYZ2Long(BlockPos pos) {
         // I swear it won't hurt you
         return ((long)pos.x & 0x3FFFFFF) << 38 | ((long)pos.y & 0xFFF) << 26 | ((long)pos.z & 0x3FFFFFF);
+    }
+
+    public BlockPos offset(EnumFacing facing) {
+        switch (facing) {
+            case DOWN: return new BlockPos(x, y - 1, z);
+            case UP: return new BlockPos(x, y + 1, z);
+            case NORTH: return new BlockPos(x, y, z - 1);
+            case SOUTH: return new BlockPos(x, y, z + 1);
+            case WEST: return new BlockPos(x - 1, y, z);
+            case EAST: return new BlockPos(x + 1, y, z);
+            default: return this;
+        }
     }
 
     public String toString()
