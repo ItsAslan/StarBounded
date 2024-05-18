@@ -24,6 +24,7 @@ public class EntitySpacecraft extends Entity implements IEntityAdditionalSpawnDa
 
     private boolean converted;
     private ISpacecraftMetadata metadata;
+
     private ISpacecraft spacecraft;
 
     public EntitySpacecraft(World world) {
