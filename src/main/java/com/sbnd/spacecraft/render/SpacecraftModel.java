@@ -1,4 +1,4 @@
-package com.sbnd.entity.spacecraft;
+package com.sbnd.spacecraft.render;
 
 import api.spacecraft.ISpacecraftBodyData;
 import net.minecraft.client.renderer.GLAllocation;
@@ -8,13 +8,13 @@ import org.lwjgl.opengl.GL11;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DisplayListSpacecraftModel implements SpacecraftModel {
+public class SpacecraftModel implements ISpacecraftModel {
 
     private final ISpacecraftBodyData data;
     private final Map<Integer, Integer> lists = new HashMap<>();
     private boolean available = true;
 
-    public DisplayListSpacecraftModel(ISpacecraftBodyData data) {
+    public SpacecraftModel(ISpacecraftBodyData data) {
 
         this.data = data;
 
@@ -38,7 +38,7 @@ public class DisplayListSpacecraftModel implements SpacecraftModel {
     public void render(int layer) {
 
         if(!this.available) {
-            throw new IllegalStateException("Cannot render spacecraft after display list has been deleted :(");
+            throw new IllegalStateException("Cannot render spacecraft after display list has been deleted");
         }
 
         int list = this.lists.get(layer);

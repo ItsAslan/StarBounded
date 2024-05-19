@@ -1,4 +1,4 @@
-package com.sbnd.entity.spacecraft;
+package com.sbnd.spacecraft.util;
 
 import api.spacecraft.ISpacecraft;
 import api.spacecraft.ISpacecraftController;

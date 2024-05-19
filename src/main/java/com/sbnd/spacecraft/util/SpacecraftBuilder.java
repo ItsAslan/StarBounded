@@ -1,4 +1,4 @@
-package com.sbnd.entity.spacecraft;
+package com.sbnd.spacecraft.util;
 
 import api.util.BlockPos;
 import api.util.BlockPosUtils;

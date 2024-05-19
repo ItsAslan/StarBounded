@@ -1,8 +1,12 @@
-package com.sbnd.entity.spacecraft;
+package com.sbnd.spacecraft.entity;
 
 import api.spacecraft.ISpacecraft;
 import api.spacecraft.ISpacecraftMetadata;
 import api.util.BlockPos;
+import com.sbnd.spacecraft.render.SpacecraftModel;
+import com.sbnd.spacecraft.util.SpacecraftBlueprint;
+import com.sbnd.spacecraft.util.SpacecraftBody;
+import com.sbnd.spacecraft.util.SpacecraftBuilder;
 import com.sbnd.main.Starbounded;
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import cpw.mods.fml.relauncher.Side;
@@ -39,7 +43,7 @@ public class EntitySpacecraft extends Entity implements IEntityAdditionalSpawnDa
         builder.copyFrom(world, origin, positions);
         this.body = new SpacecraftBody(world, builder.buildBodyData(origin, world));
 
-        if(parent != null) {
+        if (parent != null) {
             entityInit();
         }
 

@@ -1,9 +1,11 @@
-package com.sbnd.entity.spacecraft;
+package com.sbnd.spacecraft.util;
 
 
 import api.spacecraft.ISpacecraft;
 import api.spacecraft.ISpacecraftBodyData;
 import api.util.BlockPos;
+import com.sbnd.spacecraft.render.ISpacecraftModel;
+import com.sbnd.spacecraft.render.SpacecraftModel;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.world.World;
@@ -19,12 +21,11 @@ public class SpacecraftBody {
     @SideOnly(Side.CLIENT)
     public SpacecraftModel model;
 
-
     public SpacecraftBody(World parent, ISpacecraftBodyData data) {
         this.data = data;
         this.world = parent;
         if (world.isRemote) {
-            this.model = SpacecraftModel.build(data);
+            this.model = (SpacecraftModel) ISpacecraftModel.build(data);
         }
     }
 

@@ -1,4 +1,4 @@
-package com.sbnd.entity.spacecraft;
+package com.sbnd.spacecraft.util;
 
 import api.interfaces.annotations.ToDo;
 import api.spacecraft.*;

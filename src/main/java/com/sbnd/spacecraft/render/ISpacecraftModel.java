@@ -1,4 +1,4 @@
-package com.sbnd.entity.spacecraft;
+package com.sbnd.spacecraft.render;
 
 import api.spacecraft.ISpacecraftBodyData;
 import cpw.mods.fml.relauncher.Side;
@@ -10,15 +10,15 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public interface SpacecraftModel {
+public interface ISpacecraftModel {
 
     RenderBlocks BLOCK_RENDERER = new RenderBlocks();
     Tessellator TESSELLATOR = Tessellator.instance;
 
     @SideOnly(Side.CLIENT)
-    static SpacecraftModel build(ISpacecraftBodyData data) {
+    static ISpacecraftModel build(ISpacecraftBodyData data) {
 
-        return new DisplayListSpacecraftModel(data);
+        return new SpacecraftModel(data);
 
     }
 
@@ -54,6 +54,5 @@ public interface SpacecraftModel {
     void delete();
     boolean isAvailable();
     ISpacecraftBodyData getBody();
-
 
 }
