@@ -38,6 +38,9 @@ dependencies {
 
     implementation 'codechicken:NotEnoughItems:1.7.10-1.0.3.74:dev'
     compileOnly 'codechicken:NotEnoughItems:1.7.10-1.0.3.74:src'
+
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+
 }
 
 // Process resources and replace tokens in 'mcmod.info'
