@@ -11,16 +11,13 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import com.sbnd.blocks.ModBlocks;
 import cpw.mods.fml.common.registry.GameRegistry;
+import lombok.Getter;
 
 public class CommonProxy
 {
 
-    private SpacecraftManager manager;
-
     public void preInit(FMLPreInitializationEvent $e)
     {
-
-        manager = new SpacecraftManager();
 
         ModItems.MainRegistry();
         ModBlocks.MainRegistry();
@@ -40,10 +37,6 @@ public class CommonProxy
     public void postInit(FMLPostInitializationEvent $e)
     {
 
-    }
-
-    public SpacecraftManager getSpacecraftManager() {
-        return manager;
     }
 
 }

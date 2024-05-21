@@ -3,6 +3,7 @@ package com.sbnd.spacecraft.entity;
 import api.spacecraft.ISpacecraft;
 import api.spacecraft.ISpacecraftMetadata;
 import api.util.BlockPos;
+import com.sbnd.main.SpacecraftManager;
 import com.sbnd.spacecraft.render.SpacecraftModel;
 import com.sbnd.spacecraft.util.SpacecraftBlueprint;
 import com.sbnd.spacecraft.util.SpacecraftBody;
@@ -81,7 +82,7 @@ public class EntitySpacecraft extends Entity implements IEntityAdditionalSpawnDa
     @Override
     protected void entityInit() {
         if (!worldObj.isRemote) {
-            Starbounded.PROXY.getSpacecraftManager().registerSpacecraft(spacecraft);
+            SpacecraftManager.registerSpacecraft(spacecraft);
         }
     }
 

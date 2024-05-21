@@ -4,6 +4,7 @@ import com.sbnd.blocks.generic.BlockGeneric;
 import com.sbnd.blocks.generic.BlockGlassGeneric;
 import com.sbnd.blocks.generic.OreGeneric;
 import com.sbnd.blocks.generic.OreGenericHot;
+import com.sbnd.blocks.multiblock.spinner.SpinnerController;
 import com.sbnd.blocks.test.interpTest;
 import com.sbnd.items.ModItems;
 import com.sbnd.lib.ModVars;
@@ -58,6 +59,8 @@ public class ModBlocks
     public static Block rocketTestModule;
 
     //Machine Blocks
+    public static Block spinnerController;
+    public static Block spinnerModule;
 
 
     public static void BlockInit()
@@ -99,6 +102,8 @@ public class ModBlocks
         interpTest = new interpTest(Material.rock).setBlockName("interpTest").setCreativeTab(CreativeTabs.tabBlock);
 
         //Machine Blocks
+        spinnerController = new SpinnerController(Material.rock).setBlockName("spinnerController").setCreativeTab(CreativeTabs.tabRedstone);
+        spinnerModule = new SpinnerController(Material.rock).setBlockName("spinnerModule").setCreativeTab(CreativeTabs.tabRedstone);
 
     }
 
@@ -141,7 +146,8 @@ public class ModBlocks
         GameRegistry.registerBlock(interpTest, interpTest.getUnlocalizedName());
 
         //Machine Blocks
-
+        GameRegistry.registerBlock(spinnerController, spinnerController.getUnlocalizedName());
+        GameRegistry.registerBlock(spinnerModule, spinnerModule.getUnlocalizedName());
 
     }
 

@@ -13,7 +13,6 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.client.event.FOVUpdateEvent;
 
 public class ModEventHandler
 {
@@ -60,6 +59,12 @@ public class ModEventHandler
         }
     }
 
+    @SubscribeEvent
+    public void worldTick(TickEvent.WorldTickEvent event) {
+
+        MultiblockManager.tickMultiblocks();
+
+    }
 
     private boolean isWearingAstronautSuit(EntityPlayer player)
     {
