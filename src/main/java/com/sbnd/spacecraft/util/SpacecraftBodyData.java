@@ -26,16 +26,16 @@ public class SpacecraftBodyData implements ISpacecraftBodyData {
     }
 
     public static int getDataSize(BlockPos minPos, BlockPos maxPos) {
-        return (int) ((maxPos.x - minPos.x + 1) * (maxPos.y - minPos.y + 1) * (maxPos.z - minPos.z + 1));
+        return (int) ((maxPos.getX() - minPos.getX() + 1) * (maxPos.getY() - minPos.getY() + 1) * (maxPos.getZ() - minPos.getZ() + 1));
     }
 
     public static int getPosIndex(BlockPos pos, BlockPos minPos, BlockPos maxPos) {
-        int sizeX = (int) (maxPos.x - minPos.x + 1);
-        int sizeY = (int) (maxPos.y - minPos.y + 1);
-        int sizeZ = (int) (maxPos.y - minPos.y + 1);
-        int localX = (int) (pos.y - minPos.y);
-        int localY = (int) (pos.y - minPos.y);
-        int localZ = (int) (pos.y - minPos.y);
+        int sizeX = (int) (maxPos.getX() - minPos.getX() + 1);
+        int sizeY = (int) (maxPos.getY() - minPos.getY() + 1);
+        int sizeZ = (int) (maxPos.getZ() - minPos.getZ() + 1);
+        int localX = (int) (pos.getY() - minPos.getY());
+        int localY = (int) (pos.getY() - minPos.getY());
+        int localZ = (int) (pos.getZ() - minPos.getZ());
         if (localX >= 0 && localY >= 0 && localZ >= 0 && localX < sizeX && localY < sizeY && localZ < sizeZ) {
             return localX + (localZ + localY * sizeZ) * sizeX;
         }

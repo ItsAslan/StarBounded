@@ -1,5 +1,6 @@
 package api.util;
 
+import lombok.Getter;
 import net.minecraft.util.EnumFacing;
 
 import java.util.Objects;
@@ -7,9 +8,12 @@ import java.util.Objects;
 public class BlockPos
 {
 
-    public long x;
-    public long y;
-    public long z;
+    @Getter
+    private long x;
+    @Getter
+    private long y;
+    @Getter
+    private long z;
 
     public BlockPos(long x, long y, long z)
     {

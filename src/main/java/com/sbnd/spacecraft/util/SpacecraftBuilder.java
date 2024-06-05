@@ -37,8 +37,8 @@ public class SpacecraftBuilder {
     }
 
     private void updateBounds(BlockPos pos) {
-        this.minPos = BlockPosUtils.min(new BlockPos((int)pos.x, (int)pos.y, (int)pos.z), this.minPos);
-        this.maxPos = BlockPosUtils.max(new BlockPos((int)pos.x, (int)pos.y, (int)pos.z), this.maxPos);
+        this.minPos = BlockPosUtils.min(new BlockPos((int)pos.getX(), (int)pos.getY(), (int)pos.getZ()), this.minPos);
+        this.maxPos = BlockPosUtils.max(new BlockPos((int)pos.getX(), (int)pos.getY(), (int)pos.getZ()), this.maxPos);
     }
 
     public SpacecraftBuilder copyFrom(World world, BlockPos origin, SpacecraftBlueprint positions) {
@@ -51,19 +51,19 @@ public class SpacecraftBuilder {
 
         for(BlockPos pos : locations) {
 
-            BlockPos localPos = new BlockPos(pos.x - origin.x, pos.y - origin.y, pos.z - origin.y);
-            Block block = world.getBlock((int) pos.x, (int) pos.y, (int) pos.z);
-            int meta = world.getBlockMetadata((int) pos.x, (int) pos.y, (int) pos.z);
+            BlockPos localPos = new BlockPos(pos.getX() - origin.getX(), pos.getY() - origin.getY(), pos.getZ() - origin.getZ());
+            Block block = world.getBlock((int) pos.getX(), (int) pos.getY(), (int) pos.getZ());
+            int meta = world.getBlockMetadata((int) pos.getX(), (int) pos.getY(), (int) pos.getZ());
             this.setBlockState(localPos, block, meta);
 
-            TileEntity entity = world.getTileEntity((int) pos.x, (int) pos.y, (int) pos.z);
+            TileEntity entity = world.getTileEntity((int) pos.getX(), (int) pos.getY(), (int) pos.getZ());
             if(entity != null) {
 
                 NBTTagCompound tag = new NBTTagCompound();
                 entity.writeToNBT(tag);
-                tag.setLong("x", localPos.x);
-                tag.setLong("y", localPos.y);
-                tag.setLong("z", localPos.z);
+                tag.setLong("x", localPos.getX());
+                tag.setLong("y", localPos.getY());
+                tag.setLong("z", localPos.getZ());
                 TileEntity copiedEntity = TileEntity.createAndLoadEntity(tag);
 
                 if(copiedEntity == null) {

@@ -128,7 +128,7 @@ public class SpacecraftBlueprint implements Iterable<ISpacecraftModule> {
         Set<BlockPos> seen = new HashSet<>();
         seen.add(root);
 
-        ISpacecraftModule module = (ISpacecraftModule) world.getTileEntity((int) root.x, (int) root.y, (int) root.z);
+        ISpacecraftModule module = (ISpacecraftModule) world.getTileEntity((int) root.getX(), (int) root.getY(), (int) root.getZ());
         Queue<SearchNode> search = new ArrayDeque<>();
 
         Vertex rootVertex = new Vertex(module, root);
@@ -141,7 +141,7 @@ public class SpacecraftBlueprint implements Iterable<ISpacecraftModule> {
             if (node.distance < RANGE) {
                 for (EnumFacing face : EnumFacing.values()) {
                     BlockPos pos = node.vertex.getPos().offset(face);
-                    TileEntity tileEntity = world.getTileEntity((int) pos.x, (int) pos.y, (int) pos.z);
+                    TileEntity tileEntity = world.getTileEntity((int) pos.getX(), (int) pos.getY(), (int) pos.getZ());
                     Vertex newVertex = new Vertex(module, pos);
                     if (filter.test(new SearchData(newVertex.getModule(), newVertex.getPos(), node.vertex.getPos(), face))) {
                         // Only search through this node if it's not been seen before

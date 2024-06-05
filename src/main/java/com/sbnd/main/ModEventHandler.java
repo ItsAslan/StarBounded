@@ -62,8 +62,6 @@ public class ModEventHandler
     @SubscribeEvent
     public void worldTick(TickEvent.WorldTickEvent event) {
 
-        MultiblockManager.tickMultiblocks();
-
     }
 
     private boolean isWearingAstronautSuit(EntityPlayer player)

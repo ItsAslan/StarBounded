@@ -27,11 +27,11 @@ public interface ISpacecraftModel {
         World world = Minecraft.getMinecraft().theWorld;
 
         TESSELLATOR.startDrawingQuads();
-        for (int x = (int) data.getMinPos().x; x <= getBody().getMaxPos().x; x++) {
+        for (int x = (int) data.getMinPos().getX(); x <= getBody().getMaxPos().getX(); x++) {
 
-            for(int y = (int) data.getMinPos().y; y <= data.getMaxPos().y; y++) {
+            for(int y = (int) data.getMinPos().getY(); y <= data.getMaxPos().getY(); y++) {
 
-                for(int z = (int) data.getMinPos().z; z <= data.getMaxPos().z; z++) {
+                for(int z = (int) data.getMinPos().getZ(); z <= data.getMaxPos().getZ(); z++) {
                     Block block = world.getBlock(x, y, z);
                     int meta = world.getBlockMetadata(x, y, z);
 

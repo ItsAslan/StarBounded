@@ -4,8 +4,8 @@ import com.sbnd.blocks.generic.BlockGeneric;
 import com.sbnd.blocks.generic.BlockGlassGeneric;
 import com.sbnd.blocks.generic.OreGeneric;
 import com.sbnd.blocks.generic.OreGenericHot;
-import com.sbnd.blocks.multiblock.spinner.SpinnerController;
-import com.sbnd.blocks.test.interpTest;
+import com.sbnd.blocks.test.TestController;
+import com.sbnd.blocks.test.TestModule;
 import com.sbnd.items.ModItems;
 import com.sbnd.lib.ModVars;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -55,12 +55,11 @@ public class ModBlocks
     public static Block blockGlassTungsten;
 
     //Rocket Blocks
-    public static Block interpTest;
     public static Block rocketTestModule;
 
     //Machine Blocks
-    public static Block spinnerController;
-    public static Block spinnerModule;
+    public static Block controller;
+    public static Block module;
 
 
     public static void BlockInit()
@@ -98,12 +97,9 @@ public class ModBlocks
         blockGreyTileHazard = new BlockGeneric(Material.rock).setBlockName("blockGreyTileHazard").setCreativeTab(CreativeTabs.tabDecorations).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockGreyTileHazard");
         blockGlassTungsten = new BlockGlassGeneric(ModVars.MOD_ID + ":blockGlassTungsten", Material.glass, false).setBlockName("blockGlassTungsten").setCreativeTab(CreativeTabs.tabDecorations).setStepSound(Block.soundTypeGlass).setBlockTextureName(ModVars.MOD_ID + ":blockGlassTungsten");
 
-        //Rocket Blocks
-        interpTest = new interpTest(Material.rock).setBlockName("interpTest").setCreativeTab(CreativeTabs.tabBlock);
-
-        //Machine Blocks
-        spinnerController = new SpinnerController(Material.rock).setBlockName("spinnerController").setCreativeTab(CreativeTabs.tabRedstone);
-        spinnerModule = new SpinnerController(Material.rock).setBlockName("spinnerModule").setCreativeTab(CreativeTabs.tabRedstone);
+        //Multiblocks
+        controller = new TestController(Material.rock).setBlockName("controller").setCreativeTab(CreativeTabs.tabRedstone);
+        module = new TestModule(Material.rock).setBlockName("module").setCreativeTab(CreativeTabs.tabRedstone);
 
     }
 
@@ -142,12 +138,9 @@ public class ModBlocks
         GameRegistry.registerBlock(blockGreyTileHazard, blockGreyTileHazard.getUnlocalizedName());
         GameRegistry.registerBlock(blockGlassTungsten, blockGlassTungsten.getUnlocalizedName());
 
-        //Rocket Blocks
-        GameRegistry.registerBlock(interpTest, interpTest.getUnlocalizedName());
-
-        //Machine Blocks
-        GameRegistry.registerBlock(spinnerController, spinnerController.getUnlocalizedName());
-        GameRegistry.registerBlock(spinnerModule, spinnerModule.getUnlocalizedName());
+        //Multiblocks
+        GameRegistry.registerBlock(controller, controller.getUnlocalizedName());
+        GameRegistry.registerBlock(module, module.getUnlocalizedName());
 
     }
 
