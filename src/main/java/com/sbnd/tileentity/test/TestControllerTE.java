@@ -21,7 +21,9 @@ public class TestControllerTE extends TileEntity implements IMultiblockControlle
     @Override
     public void tick() {
 
-        System.out.printf("%d | %s\n", getConnectedModules().size(), this);
+        if(!worldObj.isRemote) {
+            System.out.printf("%d | %s\n", getConnectedModules().size(), this);
+        }
 
     }
 
