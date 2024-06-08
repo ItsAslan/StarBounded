@@ -2,6 +2,7 @@ package com.sbnd.tileentity.test;
 
 import api.interfaces.multiblock.base.IMultiblockController;
 import api.interfaces.multiblock.base.IMultiblockModule;
+import api.util.BlockPos;
 import lombok.Getter;
 import net.minecraft.tileentity.TileEntity;
 
@@ -16,6 +17,11 @@ public class TestControllerTE extends TileEntity implements IMultiblockControlle
     @Override
     public List<IMultiblockModule> getModules() {
         return getConnectedModules();
+    }
+
+    @Override
+    public BlockPos getPos(){
+        return new BlockPos(this.xCoord, this.yCoord, this.zCoord);
     }
 
     @Override

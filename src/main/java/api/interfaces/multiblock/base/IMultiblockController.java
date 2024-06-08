@@ -11,6 +11,7 @@ import java.util.List;
 public interface IMultiblockController {
 
     List<IMultiblockModule> getModules();
+    BlockPos getPos();
     default void delete() { // Handles controller deletion
 
         List<IMultiblockModule> modulesToRemove = new ArrayList<>(getModules());
@@ -21,6 +22,9 @@ public interface IMultiblockController {
 
     }
     default void pingController(World world, BlockPos pos) {
+
+        // Use this instead of the `.clear()` method because 'delete()' actually unlinks the modules
+        delete();
 
         for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 
@@ -34,7 +38,9 @@ public interface IMultiblockController {
 
                 IMultiblockModule module = (IMultiblockModule) te;
 
-                module.moduleScan(world, pos);
+                if(!te.isInvalid()) {
+                    module.moduleScan(world, module.getPos());
+                }
 
             }
 

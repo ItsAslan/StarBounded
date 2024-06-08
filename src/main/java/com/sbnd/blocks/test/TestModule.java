@@ -46,31 +46,8 @@ public class TestModule extends BlockContainer {
     }
 
     @Override
-    public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-        super.onNeighborBlockChange(world, x, y, z, block);
-
-        if(world.getTileEntity(x, y, z) instanceof TestModuleTE) {
-
-            TestModuleTE te = (TestModuleTE) world.getTileEntity(x, y, z);
-
-            te.moduleScan(world, new BlockPos(x, y, z));
-
-
-        }
-        else if(world.getTileEntity(x, y, z) instanceof TestControllerTE) {
-
-            TestControllerTE te = (TestControllerTE) world.getTileEntity(x, y, z);
-
-            te.pingController(world, new BlockPos(x, y, z));
-
-        }
-        
-    }
-
-    @Override
     public TileEntity createNewTileEntity(World world, int i) {
         return new TestModuleTE();
     }
 
 }
-

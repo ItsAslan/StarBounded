@@ -16,7 +16,7 @@ public class MarsBiome extends BiomeGenBase
         this.spawnableCreatureList.clear();
         this.setDisableRain();
         this.setTemperatureRainfall(2.0f, 0.0f);
-        this.setHeight(height_Shores);
+        this.setHeight(height_HighPlateaus);
         this.setBiomeName("Mars");
         this.setColor(854921);
 

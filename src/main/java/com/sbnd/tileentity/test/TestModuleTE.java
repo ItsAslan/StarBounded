@@ -21,6 +21,11 @@ public class TestModuleTE extends TileEntity implements IMultiblockModule {
     }
 
     @Override
+    public BlockPos getPos() {
+        return new BlockPos(this.xCoord, this.yCoord, this.zCoord);
+    }
+
+    @Override
     public void setController(IMultiblockController controller) {
 
         if(controller != null) {
@@ -43,7 +48,9 @@ public class TestModuleTE extends TileEntity implements IMultiblockModule {
 
         if(hasController()) {
 
-            getMultiblockController().getModules().remove(this);
+            getController().getModules().remove(this);
+            invalidate();
+            getController().pingController(worldObj, getController().getPos());
             setController(null);
 
         }
