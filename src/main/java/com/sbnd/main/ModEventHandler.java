@@ -1,7 +1,7 @@
 package com.sbnd.main;
 
 import api.enums.EnumPlanet;
-import api.interfaces.space.ISpaceSuit;
+import api.interfaces.generic.ISpaceSuit;
 import com.sbnd.lib.ModVars;
 import com.sbnd.world.PlanetManager;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;

@@ -1,3 +1,4 @@
+#Blocks
 tile.oreCopper.name=Copper Ore
 tile.oreAluminum.name=Aluminum Ore
 tile.oreTitanium.name=Titanium Ore
@@ -25,6 +26,7 @@ tile.oreMercuryIron.name=Mercury Iron
 tile.oreMercuryTitanium.name=Mercury Titanium
 tile.oreMercurySulfur.name=Mercury Sulfur
 
+#Items
 item.cubeGraphite.name=Graphite Cube
 item.cubeLithium.name=Lithium Cube
 item.cubeSulfur.name=Sulfur Cube
@@ -45,5 +47,13 @@ item.shardMagnesium.name=Magnesium Shard
 item.cubePhosphorus.name=Cube of Phosphorus
 item.clumpWulfenite.name=Wulfenite Clump
 
+#Tools
 item.itemHammer.name=Plate Hammer
 item.copperAoePickaxe.name=Copper Pickaxe
+
+#Armor
+item.suitWhiteHelmet.name=Basic Astronaut Helmet
+item.suitWhiteChestplate.name=Basic Astronaut Chestplate
+item.suitWhiteLeggings.name=Basic Astronaut Leggings
+item.suitWhiteBoots.name=Basic Astronaut Boots
+

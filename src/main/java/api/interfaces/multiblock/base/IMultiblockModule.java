@@ -15,6 +15,8 @@ public interface IMultiblockModule {
     void unlinkModule();
     default void moduleScan(World world, BlockPos pos) {
 
+        controllerScan(world, pos);
+
         for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 
             TileEntity te = world.getTileEntity((int) pos.getX() + dir.offsetX , (int) pos.getY() + dir.offsetY,  (int) pos.getZ() + dir.offsetZ);
@@ -39,7 +41,22 @@ public interface IMultiblockModule {
                 }
 
             }
-            else if (te instanceof IMultiblockController) {
+
+        }
+
+    }
+
+    default void controllerScan(World world, BlockPos pos) {
+
+        for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
+
+            TileEntity te = world.getTileEntity((int) pos.getX() + dir.offsetX , (int) pos.getY() + dir.offsetY,  (int) pos.getZ() + dir.offsetZ);
+
+            if(te == null) {
+                continue;
+            }
+
+            if (te instanceof IMultiblockController) {
 
                 IMultiblockController controller = (IMultiblockController) te;
 
@@ -51,6 +68,8 @@ public interface IMultiblockModule {
             }
 
         }
+
+
 
     }
 

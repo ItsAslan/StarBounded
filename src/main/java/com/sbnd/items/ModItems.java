@@ -124,10 +124,10 @@ public class ModItems
         copperAoePickaxe = new AoePickaxeBase(ToolMaterials.AOEMATERIAL, 3, 3).setUnlocalizedName("copperAoePickaxe").setCreativeTab(CreativeTabs.tabTools).setTextureName(ModVars.MOD_ID + ":copperAoePickaxe");
 
         //Armor
-        suitWhiteHelmet = new AstronautSuitBasic(ItemArmor.ArmorMaterial.IRON, 0, 0, "suitWhite").setUnlocalizedName("suitWhiteHelmet").setCreativeTab(CreativeTabs.tabCombat);
-        suitWhiteChestplate = new AstronautSuitBasic(ItemArmor.ArmorMaterial.IRON, 0, 1, "suitWhite").setUnlocalizedName("suitWhiteChestplate").setCreativeTab(CreativeTabs.tabCombat);
-        suitWhiteLeggings = new AstronautSuitBasic(ItemArmor.ArmorMaterial.IRON, 0, 2, "suitWhite").setUnlocalizedName("suitWhiteLeggings").setCreativeTab(CreativeTabs.tabCombat);
-        suitWhiteBoots = new AstronautSuitBasic(ItemArmor.ArmorMaterial.IRON, 0, 3, "suitWhite").setUnlocalizedName("suitWhiteBoots").setCreativeTab(CreativeTabs.tabCombat);
+        suitWhiteHelmet = new AstronautSuitBasic(ItemArmor.ArmorMaterial.IRON, 0, 0, "suitWhite").setUnlocalizedName("suitWhiteHelmet").setCreativeTab(CreativeTabs.tabCombat).setTextureName(ModVars.MOD_ID + ":suitWhiteHelmet");;
+        suitWhiteChestplate = new AstronautSuitBasic(ItemArmor.ArmorMaterial.IRON, 0, 1, "suitWhite").setUnlocalizedName("suitWhiteChestplate").setCreativeTab(CreativeTabs.tabCombat).setTextureName(ModVars.MOD_ID + ":suitWhiteChestplate");;
+        suitWhiteLeggings = new AstronautSuitBasic(ItemArmor.ArmorMaterial.IRON, 0, 2, "suitWhite").setUnlocalizedName("suitWhiteLeggings").setCreativeTab(CreativeTabs.tabCombat).setTextureName(ModVars.MOD_ID + ":suitWhiteLeggings");;
+        suitWhiteBoots = new AstronautSuitBasic(ItemArmor.ArmorMaterial.IRON, 0, 3, "suitWhite").setUnlocalizedName("suitWhiteBoots").setCreativeTab(CreativeTabs.tabCombat).setTextureName(ModVars.MOD_ID + ":suitWhiteBoots");;
 
         // Circuits
         createCircuitBoard(circuitOscillator, "Oscillator", EnumRarity.common);

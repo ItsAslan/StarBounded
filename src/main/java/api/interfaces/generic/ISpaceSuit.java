@@ -1,4 +1,4 @@
-package api.interfaces.space;
+package api.interfaces.generic;
 
 public interface ISpaceSuit
 {
