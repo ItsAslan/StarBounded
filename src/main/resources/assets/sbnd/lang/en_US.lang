@@ -25,6 +25,8 @@ tile.oreWulfenite.name=Wulfenite Ore
 tile.oreMercuryIron.name=Mercury Iron
 tile.oreMercuryTitanium.name=Mercury Titanium
 tile.oreMercurySulfur.name=Mercury Sulfur
+tile.mixerController.name=Mixer Controller
+tile.mixerModule.name=Mixer Module
 
 #Items
 item.cubeGraphite.name=Graphite Cube
@@ -46,6 +48,11 @@ item.clusterCadmium.name=Cadmium Cluster
 item.shardMagnesium.name=Magnesium Shard
 item.cubePhosphorus.name=Cube of Phosphorus
 item.clumpWulfenite.name=Wulfenite Clump
+item.capacitor.name=Capacitor
+item.inductor.name=Inductor
+item.pcb.name=Pcb
+item.logicChip.name=Chip
+item.battery.name=Battery
 
 #Tools
 item.itemHammer.name=Plate Hammer

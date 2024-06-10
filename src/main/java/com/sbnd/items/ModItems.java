@@ -22,7 +22,7 @@ public class ModItems
         ItemRegister();
     }
 
-    //Materials
+    //Raw Materials
     public static Item cubeGraphite;
     public static Item cubeLithium;
     public static Item cubeSulfur;
@@ -47,6 +47,13 @@ public class ModItems
     public static Item plateTungsten;
     public static Item plateTin;
 
+    //Crafting Materials
+    public static Item capacitor;
+    public static Item inductor;
+    public static Item pcb;
+    public static Item logicChip;
+    public static Item battery;
+
     //Crafting Tools
     public static Item itemHammer;
 
@@ -60,7 +67,6 @@ public class ModItems
     public static Item suitWhiteBoots;
 
     // Circuits
-
     public static Item circuitOscillator;
     public static Item circuitCapacitorBank;
     public static Item circuitAmplifier;
@@ -116,6 +122,13 @@ public class ModItems
         plateTitanium = new ItemGeneric().setUnlocalizedName("plateTitanium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":plateTitanium");
         plateTungsten = new ItemGeneric().setUnlocalizedName("plateTungsten").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":plateTungsten");
         plateTin = new ItemGeneric().setUnlocalizedName("plateTin").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":plateTin");
+
+        //Crafting Materials
+        capacitor = new ItemGeneric().setUnlocalizedName("capacitor").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":capacitor");
+        inductor = new ItemGeneric().setUnlocalizedName("inductor").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":inductor");
+        pcb = new ItemGeneric().setUnlocalizedName("pcb").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":pcb");
+        logicChip = new ItemGeneric().setUnlocalizedName("logicChip").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":logicChip");
+        battery = new ItemGeneric().setUnlocalizedName("battery").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(ModVars.MOD_ID + ":battery");
 
         //Crafting Tools
         itemHammer = new ItemHammer(20).setUnlocalizedName("itemHammer").setCreativeTab(CreativeTabs.tabTools).setTextureName(ModVars.MOD_ID + ":itemHammer");
@@ -186,6 +199,13 @@ public class ModItems
         GameRegistry.registerItem(plateTitanium, plateTitanium.getUnlocalizedName());
         GameRegistry.registerItem(plateTungsten, plateTungsten.getUnlocalizedName());
         GameRegistry.registerItem(plateTin, plateTin.getUnlocalizedName());
+
+        //Crafting Materials
+        GameRegistry.registerItem(capacitor, capacitor.getUnlocalizedName());
+        GameRegistry.registerItem(inductor, inductor.getUnlocalizedName());
+        GameRegistry.registerItem(pcb, pcb.getUnlocalizedName());
+        GameRegistry.registerItem(logicChip, logicChip.getUnlocalizedName());
+        GameRegistry.registerItem(battery, battery.getUnlocalizedName());
 
         //Crafting Tools
         GameRegistry.registerItem(itemHammer, itemHammer.getUnlocalizedName());

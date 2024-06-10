@@ -104,7 +104,7 @@ public class ModBlocks
         //Multiblocks
         controller = new BaseMultiblockController(Material.rock).setBlockName("controller").setCreativeTab(CreativeTabs.tabRedstone);
         module = new BaseMultiblockModule(Material.rock).setBlockName("module").setCreativeTab(CreativeTabs.tabRedstone);
-        mixerModule = new MixerModule(Material.rock).setBlockName("mixerModule").setCreativeTab(CreativeTabs.tabRedstone);
+        mixerModule = new MixerModule(Material.rock).setBlockName("mixerModule").setCreativeTab(CreativeTabs.tabRedstone).setBlockTextureName(ModVars.MOD_ID + ":blockBlackTile");
         mixerController = new MixerController(Material.rock).setBlockName("mixerController").setCreativeTab(CreativeTabs.tabRedstone);
 
     }
