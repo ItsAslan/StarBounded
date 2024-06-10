@@ -1,15 +1,21 @@
-package com.sbnd.tileentity.test;
+package com.sbnd.tileentity.machine.base;
 
 import api.interfaces.multiblock.base.IMultiblockController;
 import api.interfaces.multiblock.base.IMultiblockModule;
 import api.util.BlockPos;
 import lombok.Getter;
 import lombok.Setter;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
-public class TestModuleTE extends TileEntity implements IMultiblockModule {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class BaseMultiblockModuleTE extends TileEntity implements IMultiblockModule {
+
+    @Getter
+    @Setter
+    ArrayList<ForgeDirection> validConnections = new ArrayList<>(Arrays.asList(ForgeDirection.VALID_DIRECTIONS));
 
     @Getter
     @Setter
@@ -23,6 +29,11 @@ public class TestModuleTE extends TileEntity implements IMultiblockModule {
     @Override
     public BlockPos getPos() {
         return new BlockPos(this.xCoord, this.yCoord, this.zCoord);
+    }
+
+    @Override
+    public ArrayList<ForgeDirection> getValidDirections() {
+        return getValidConnections();
     }
 
     @Override
@@ -50,7 +61,7 @@ public class TestModuleTE extends TileEntity implements IMultiblockModule {
 
             getController().getModules().remove(this);
             invalidate();
-            getController().pingController(worldObj, getController().getPos());
+            getController().pingController(worldObj, getController().getPos(), getValidDirections());
             setController(null);
 
         }

@@ -10,9 +10,11 @@ public class ResourceManager
 
     //MODELS
     public static IModelCustom TEST_OBJ_MODEL = AdvancedModelLoader.loadModel(new ResourceLocation(ModVars.MOD_ID, "models/blocks/test.obj"));
+    public static IModelCustom MIXER_MODULE_MODEL = AdvancedModelLoader.loadModel(new ResourceLocation(ModVars.MOD_ID, "models/blocks/mixerModule.obj"));
 
     //TEXTURES
     public static ResourceLocation TEST_OBJ_TEXTURE = new ResourceLocation(ModVars.MOD_ID, "textures/models/testTexture.png");
+    public static ResourceLocation MIXER_MODULE_TEXTURE = new ResourceLocation(ModVars.MOD_ID, "textures/models/mixerModuleTexture.png");
 
     //Planets
     public static ResourceLocation EARTH = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/planets/earthTexture.png");

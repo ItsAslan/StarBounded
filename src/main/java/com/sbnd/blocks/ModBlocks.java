@@ -4,8 +4,10 @@ import com.sbnd.blocks.generic.BlockGeneric;
 import com.sbnd.blocks.generic.BlockGlassGeneric;
 import com.sbnd.blocks.generic.OreGeneric;
 import com.sbnd.blocks.generic.OreGenericHot;
-import com.sbnd.blocks.test.TestController;
-import com.sbnd.blocks.test.TestModule;
+import com.sbnd.blocks.machine.base.BaseMultiblockController;
+import com.sbnd.blocks.machine.base.BaseMultiblockModule;
+import com.sbnd.blocks.machine.mixer.MixerController;
+import com.sbnd.blocks.machine.mixer.MixerModule;
 import com.sbnd.items.ModItems;
 import com.sbnd.lib.ModVars;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -60,6 +62,8 @@ public class ModBlocks
     //Machine Blocks
     public static Block controller;
     public static Block module;
+    public static Block mixerModule;
+    public static Block mixerController;
 
 
     public static void BlockInit()
@@ -98,8 +102,10 @@ public class ModBlocks
         blockGlassTungsten = new BlockGlassGeneric(ModVars.MOD_ID + ":blockGlassTungsten", Material.glass, false).setBlockName("blockGlassTungsten").setCreativeTab(CreativeTabs.tabDecorations).setStepSound(Block.soundTypeGlass).setBlockTextureName(ModVars.MOD_ID + ":blockGlassTungsten");
 
         //Multiblocks
-        controller = new TestController(Material.rock).setBlockName("controller").setCreativeTab(CreativeTabs.tabRedstone);
-        module = new TestModule(Material.rock).setBlockName("module").setCreativeTab(CreativeTabs.tabRedstone);
+        controller = new BaseMultiblockController(Material.rock).setBlockName("controller").setCreativeTab(CreativeTabs.tabRedstone);
+        module = new BaseMultiblockModule(Material.rock).setBlockName("module").setCreativeTab(CreativeTabs.tabRedstone);
+        mixerModule = new MixerModule(Material.rock).setBlockName("mixerModule").setCreativeTab(CreativeTabs.tabRedstone);
+        mixerController = new MixerController(Material.rock).setBlockName("mixerController").setCreativeTab(CreativeTabs.tabRedstone);
 
     }
 
@@ -141,6 +147,8 @@ public class ModBlocks
         //Multiblocks
         GameRegistry.registerBlock(controller, controller.getUnlocalizedName());
         GameRegistry.registerBlock(module, module.getUnlocalizedName());
+        GameRegistry.registerBlock(mixerModule, mixerModule.getLocalizedName());
+        GameRegistry.registerBlock(mixerController, mixerController.getLocalizedName());
 
     }
 

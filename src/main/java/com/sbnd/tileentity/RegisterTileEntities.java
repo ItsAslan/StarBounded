@@ -3,8 +3,8 @@ package com.sbnd.tileentity;
 import com.sbnd.tileentity.energy.BlockEnergyPathTileEntity;
 import com.sbnd.tileentity.energy.BlockEnergySinkTileEntity;
 import com.sbnd.tileentity.energy.BlockEnergySourceTileEntity;
-import com.sbnd.tileentity.test.TestControllerTE;
-import com.sbnd.tileentity.test.TestModuleTE;
+import com.sbnd.tileentity.machine.base.BaseMultiblockControllerTE;
+import com.sbnd.tileentity.machine.base.BaseMultiblockModuleTE;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RegisterTileEntities
@@ -18,7 +18,7 @@ public class RegisterTileEntities
         GameRegistry.registerTileEntity(BlockEnergySourceTileEntity.class, "BlockEnergySourceTileEntity");
 
         //Multiblocks
-        GameRegistry.registerTileEntity(TestControllerTE.class, "ControllerTileEntity");
-        GameRegistry.registerTileEntity(TestModuleTE.class, "ModuleTileEntity");
+        GameRegistry.registerTileEntity(BaseMultiblockControllerTE.class, "baseMultiblockControllerTileEntity");
+        GameRegistry.registerTileEntity(BaseMultiblockModuleTE.class, "baseMultiblockModuleTileEntity");
     }
 }

@@ -5,19 +5,22 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import java.util.ArrayList;
+
 public interface IMultiblockModule {
 
     IMultiblockController getController();
     BlockPos getPos();
+    ArrayList<ForgeDirection> getValidDirections();
     void setController(IMultiblockController controller);
     boolean hasController();
     void linkModule(); // Appends it to the `connectedModules` ArrayList in the controller
     void unlinkModule();
-    default void moduleScan(World world, BlockPos pos) {
+    default void moduleScan(World world, BlockPos pos, ArrayList<ForgeDirection> validDirections) {
 
-        controllerScan(world, pos);
+        controllerScan(world, pos, validDirections);
 
-        for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
+        for(ForgeDirection dir : validDirections) {
 
             TileEntity te = world.getTileEntity((int) pos.getX() + dir.offsetX , (int) pos.getY() + dir.offsetY,  (int) pos.getZ() + dir.offsetZ);
 
@@ -32,12 +35,8 @@ public interface IMultiblockModule {
                 if(!module.hasController() && hasController()) {
 
                     module.setController(getController());
-                    module.moduleScan(world, ((IMultiblockModule) te).getPos());
+                    module.moduleScan(world, ((IMultiblockModule) te).getPos(), validDirections);
 
-                }
-                else if(module.hasController() && !hasController()) {
-                    setController(module.getController());
-                    module.moduleScan(world, ((IMultiblockModule) te).getPos());
                 }
 
             }
@@ -46,9 +45,9 @@ public interface IMultiblockModule {
 
     }
 
-    default void controllerScan(World world, BlockPos pos) {
+    default void controllerScan(World world, BlockPos pos, ArrayList<ForgeDirection> validDirections) {
 
-        for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
+        for(ForgeDirection dir : validDirections) {
 
             TileEntity te = world.getTileEntity((int) pos.getX() + dir.offsetX , (int) pos.getY() + dir.offsetY,  (int) pos.getZ() + dir.offsetZ);
 
@@ -62,14 +61,24 @@ public interface IMultiblockModule {
 
                 if(!hasController()) {
                     setController(controller);
+
+                    break;
                 }
-                //controller.pingController(world, pos);
+
+            }
+            else if(te instanceof IMultiblockModule) {
+
+                IMultiblockModule module = (IMultiblockModule) te;
+
+                if(module.hasController() && !hasController()) {
+                    setController(module.getController());
+
+                    break;
+                }
 
             }
 
         }
-
-
 
     }
 

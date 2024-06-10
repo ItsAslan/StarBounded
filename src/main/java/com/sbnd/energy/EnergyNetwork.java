@@ -1,6 +1,9 @@
 package com.sbnd.energy;
 
-public class EnergyNetwork
-{
+public class EnergyNetwork {
+
+
+
+
 
 }

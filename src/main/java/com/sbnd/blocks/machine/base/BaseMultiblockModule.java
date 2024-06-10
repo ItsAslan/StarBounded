@@ -1,17 +1,16 @@
-package com.sbnd.blocks.test;
+package com.sbnd.blocks.machine.base;
 
 import api.util.BlockPos;
-import com.sbnd.tileentity.test.TestControllerTE;
-import com.sbnd.tileentity.test.TestModuleTE;
+import com.sbnd.tileentity.machine.base.BaseMultiblockModuleTE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class TestModule extends BlockContainer {
+public class BaseMultiblockModule extends BlockContainer {
 
-    public TestModule(Material material) {
+    public BaseMultiblockModule(Material material) {
         super(material);
     }
 
@@ -19,11 +18,11 @@ public class TestModule extends BlockContainer {
     public void onBlockAdded(World world, int x, int y, int z) {
         super.onBlockAdded(world, x, y, z);
 
-        if(world.getTileEntity(x, y, z) instanceof TestModuleTE) {
+        if(world.getTileEntity(x, y, z) instanceof BaseMultiblockModuleTE) {
 
-            TestModuleTE te = (TestModuleTE) world.getTileEntity(x, y, z);
+            BaseMultiblockModuleTE te = (BaseMultiblockModuleTE) world.getTileEntity(x, y, z);
 
-            te.moduleScan(world, new BlockPos(x, y, z));
+            te.moduleScan(world, new BlockPos(x, y, z), te.getValidDirections());
 
         }
 
@@ -34,9 +33,9 @@ public class TestModule extends BlockContainer {
 
         TileEntity te = world.getTileEntity(x, y, z);
 
-        if(te instanceof TestModuleTE) {
+        if(te instanceof BaseMultiblockModuleTE) {
 
-            TestModuleTE module = (TestModuleTE) te;
+            BaseMultiblockModuleTE module = (BaseMultiblockModuleTE) te;
 
             module.unlinkModule();
 
@@ -47,7 +46,7 @@ public class TestModule extends BlockContainer {
 
     @Override
     public TileEntity createNewTileEntity(World world, int i) {
-        return new TestModuleTE();
+        return new BaseMultiblockModuleTE();
     }
 
 }

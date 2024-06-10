@@ -1,5 +1,8 @@
 package com.sbnd.proxy;
 
+import com.sbnd.render.tileentity.machine.MixerTileRenderer;
+import com.sbnd.tileentity.machine.mixer.MixerModuleTE;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -16,6 +19,8 @@ public class ClientProxy extends CommonProxy
     public void init(FMLInitializationEvent $e)
     {
         super.init($e);
+
+        ClientRegistry.bindTileEntitySpecialRenderer(MixerModuleTE.class, new MixerTileRenderer());
 
     }
 
