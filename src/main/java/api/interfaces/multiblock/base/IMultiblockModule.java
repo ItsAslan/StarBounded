@@ -16,6 +16,7 @@ public interface IMultiblockModule {
     boolean hasController();
     void linkModule(); // Appends it to the `connectedModules` ArrayList in the controller
     void unlinkModule();
+    void notifyControllerDeletion();
     default void moduleScan(World world, BlockPos pos, ArrayList<ForgeDirection> validDirections) {
 
         controllerScan(world, pos, validDirections);

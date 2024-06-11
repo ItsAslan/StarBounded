@@ -20,5 +20,6 @@ public class RegisterTileEntities
         //Multiblocks
         GameRegistry.registerTileEntity(BaseMultiblockControllerTE.class, "baseMultiblockControllerTileEntity");
         GameRegistry.registerTileEntity(BaseMultiblockModuleTE.class, "baseMultiblockModuleTileEntity");
+
     }
 }

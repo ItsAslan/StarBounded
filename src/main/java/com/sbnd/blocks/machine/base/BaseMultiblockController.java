@@ -43,6 +43,7 @@ public class BaseMultiblockController extends BlockContainer {
         }
 
         super.breakBlock(world, x, y, z, block, meta);
+
     }
 
     @Override

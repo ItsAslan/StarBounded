@@ -92,7 +92,7 @@ public class ModBlocks
         oreWulfenite = new OreGenericHot(Material.rock, ModItems.clumpWulfenite, 4).setBlockName("oreWulfenite").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreWulfenite");
         oreMercuryIron = new OreGeneric(Material.rock).setBlockName("oreMercuryIron").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreMercuryIron");
         oreMercuryTitanium = new OreGeneric(Material.rock).setBlockName("oreMercuryTitanium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreMercuryTitanium");
-        oreMercurySulfur = new OreGeneric(Material.rock).setBlockName("oreMercurySulfur").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreMercurySulfur");
+        oreMercurySulfur = new OreGeneric(Material.rock, ModItems.cubeSulfur, 3).setBlockName("oreMercurySulfur").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":oreMercurySulfur");
 
         //Decoration Blocks
         blockBlackTile = new BlockGeneric(Material.rock).setBlockName("blockBlackTile").setCreativeTab(CreativeTabs.tabDecorations).setStepSound(Block.soundTypeStone).setBlockTextureName(ModVars.MOD_ID + ":blockBlackTile");

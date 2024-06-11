@@ -19,4 +19,13 @@ public class MixerModuleTE extends BaseMultiblockModuleTE {
         return getValidConnections();
     }
 
+    @Override
+    public void updateEntity() {
+        super.updateEntity();
+
+        if(!worldObj.isRemote) {
+            //System.out.println(getController() != null ? "Has" : "None");
+        }
+
+    }
 }

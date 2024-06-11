@@ -18,7 +18,8 @@ public interface IMultiblockController {
         List<IMultiblockModule> modulesToRemove = new ArrayList<>(getModules());
 
         for(IMultiblockModule module : modulesToRemove) {
-            module.unlinkModule();
+            module.notifyControllerDeletion();
+            System.out.println("Deleted: " + module);
         }
 
     }
@@ -40,7 +41,7 @@ public interface IMultiblockController {
                 IMultiblockModule module = (IMultiblockModule) te;
 
                 if(!te.isInvalid()) {
-                    module.moduleScan(world, module.getPos(), validDirections);
+                    module.moduleScan(world, module.getPos(), module.getValidDirections());
                 }
 
             }
