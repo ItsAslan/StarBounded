@@ -34,6 +34,8 @@ public class BaseMultiblockController extends BlockContainer {
 
         TileEntity te = world.getTileEntity(x, y, z);
 
+        super.breakBlock(world, x, y, z, block, meta);
+
         if(te instanceof BaseMultiblockControllerTE) {
 
             BaseMultiblockControllerTE controller = (BaseMultiblockControllerTE) te;
@@ -41,8 +43,6 @@ public class BaseMultiblockController extends BlockContainer {
             controller.delete();
 
         }
-
-        super.breakBlock(world, x, y, z, block, meta);
 
     }
 

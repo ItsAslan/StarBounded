@@ -44,7 +44,6 @@ public class BaseMultiblockModuleTE extends TileEntity implements IMultiblockMod
             linkModule();
         }
         else {
-            System.out.println("set controlelr to nul");
             setMultiblockController(null);
         }
 
@@ -63,18 +62,11 @@ public class BaseMultiblockModuleTE extends TileEntity implements IMultiblockMod
             getController().getModules().remove(this);
             invalidate();
 
-            getController().pingController(worldObj, getController().getPos(), getValidDirections());
+            getController().pingController(worldObj, getController().getPos(), getController().getValidDirections());
             setController(null);
+            validate();
 
         }
-
-
-    }
-
-    @Override
-    public void notifyControllerDeletion() {
-
-        setController(null);
 
     }
 

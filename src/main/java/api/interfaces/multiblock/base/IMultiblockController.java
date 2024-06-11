@@ -18,8 +18,7 @@ public interface IMultiblockController {
         List<IMultiblockModule> modulesToRemove = new ArrayList<>(getModules());
 
         for(IMultiblockModule module : modulesToRemove) {
-            module.notifyControllerDeletion();
-            System.out.println("Deleted: " + module);
+            module.unlinkModule();
         }
 
     }
