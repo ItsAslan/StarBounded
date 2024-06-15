@@ -37,7 +37,21 @@ public class MixerController extends BaseMultiblockController {
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        return icons[side];
+
+        if(meta == 0 && side == 3) {
+            return icons[3];
+        }
+        else {
+
+            if(side == meta) {
+                return icons[3];
+            }
+            else {
+                return icons[side == 1 ? 1 : side == 0 ? 0 : 2];
+            }
+
+        }
+
     }
 
     @Override

@@ -1,16 +1,16 @@
 package com.sbnd.blocks.generic;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockGeneric extends Block
-{
+public class BlockContainerGeneric extends BlockContainer {
 
-    public BlockGeneric(Material material) {
+    public BlockContainerGeneric(Material material) {
         super(material);
         this.setHarvestLevel("pickaxe", 2);
         this.setHardness(3.0F);
@@ -39,4 +39,9 @@ public class BlockGeneric extends Block
 
     }
 
+    @Override
+    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
+        return null;
+    }
+    
 }

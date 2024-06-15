@@ -1,6 +1,7 @@
 package com.sbnd.blocks.machine.base;
 
 import api.util.BlockPos;
+import com.sbnd.blocks.generic.BlockContainerGeneric;
 import com.sbnd.tileentity.machine.base.BaseMultiblockModuleTE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -8,7 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BaseMultiblockModule extends BlockContainer {
+public class BaseMultiblockModule extends BlockContainerGeneric {
 
     public BaseMultiblockModule(Material material) {
         super(material);

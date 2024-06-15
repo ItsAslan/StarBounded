@@ -62,6 +62,8 @@ public class ModEventHandler
     @SubscribeEvent
     public void worldTick(TickEvent.WorldTickEvent event) {
 
+        Starbounded.NETWORKHANDLER.tickNetworks();
+
     }
 
     private boolean isWearingAstronautSuit(EntityPlayer player)

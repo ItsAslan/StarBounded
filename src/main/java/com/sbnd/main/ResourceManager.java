@@ -24,4 +24,7 @@ public class ResourceManager
     //Stars
     public static ResourceLocation SUN = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/sunTexture.png");
 
+    //Overlays
+    public static ResourceLocation WATER_OVERLAY = new ResourceLocation(ModVars.MOD_ID, "textures/overlay/waterOverlay.png");
+
 }

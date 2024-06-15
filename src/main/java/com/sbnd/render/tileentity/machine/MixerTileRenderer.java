@@ -1,8 +1,8 @@
 package com.sbnd.render.tileentity.machine;
 
-import com.sbnd.lib.ModVars;
 import com.sbnd.main.ResourceManager;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;

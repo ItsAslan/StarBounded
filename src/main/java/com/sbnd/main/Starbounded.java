@@ -1,6 +1,8 @@
 package com.sbnd.main;
 
 import com.sbnd.commands.CommandTeleportDimension;
+import com.sbnd.energy.EnergyNetwork;
+import com.sbnd.energy.EnergyNetworkHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -20,6 +22,8 @@ public class Starbounded
 
     @SidedProxy(clientSide = "com.sbnd.proxy.ClientProxy", serverSide = "com.sbnd.proxy.ServerProxy")
     public static CommonProxy PROXY;
+
+    public static EnergyNetworkHandler NETWORKHANDLER = EnergyNetworkHandler.INSTANCE();
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent $e)

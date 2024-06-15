@@ -1,5 +1,8 @@
 package com.sbnd.blocks;
 
+import com.sbnd.blocks.energy.BlockEnergyPath;
+import com.sbnd.blocks.energy.BlockEnergySink;
+import com.sbnd.blocks.energy.BlockEnergySource;
 import com.sbnd.blocks.generic.BlockGeneric;
 import com.sbnd.blocks.generic.BlockGlassGeneric;
 import com.sbnd.blocks.generic.OreGeneric;
@@ -65,6 +68,11 @@ public class ModBlocks
     public static Block mixerModule;
     public static Block mixerController;
 
+    //Energy Blocks
+    public static Block path;
+    public static Block sink;
+    public static Block source;
+
 
     public static void BlockInit()
     {
@@ -107,6 +115,12 @@ public class ModBlocks
         mixerModule = new MixerModule(Material.rock).setBlockName("mixerModule").setCreativeTab(CreativeTabs.tabRedstone).setBlockTextureName(ModVars.MOD_ID + ":blockBlackTile");
         mixerController = new MixerController(Material.rock).setBlockName("mixerController").setCreativeTab(CreativeTabs.tabRedstone);
 
+        //Energy Blocks
+        path = new BlockEnergyPath(Material.rock).setBlockName("path").setCreativeTab(CreativeTabs.tabRedstone);
+        sink = new BlockEnergySink(Material.rock).setBlockName("sink").setCreativeTab(CreativeTabs.tabRedstone);
+        source = new BlockEnergySource(Material.rock).setBlockName("source").setCreativeTab(CreativeTabs.tabRedstone);
+
+
     }
 
     public static void BlockRegister()
@@ -147,8 +161,13 @@ public class ModBlocks
         //Multiblocks
         GameRegistry.registerBlock(controller, controller.getUnlocalizedName());
         GameRegistry.registerBlock(module, module.getUnlocalizedName());
-        GameRegistry.registerBlock(mixerModule, mixerModule.getLocalizedName());
-        GameRegistry.registerBlock(mixerController, mixerController.getLocalizedName());
+        GameRegistry.registerBlock(mixerModule, mixerModule.getUnlocalizedName());
+        GameRegistry.registerBlock(mixerController, mixerController.getUnlocalizedName());
+
+        //Energy Blocks
+        GameRegistry.registerBlock(path, path.getUnlocalizedName());
+        GameRegistry.registerBlock(sink, sink.getUnlocalizedName());
+        GameRegistry.registerBlock(source, source.getUnlocalizedName());
 
     }
 
