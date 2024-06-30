@@ -1,7 +1,6 @@
 package com.sbnd.world.celestial;
 
 import com.sbnd.world.celestial.core.CelestialBody;
-import com.sbnd.world.celestial.core.CelestialType;
 import net.minecraftforge.common.DimensionManager;
 
 import java.util.HashSet;

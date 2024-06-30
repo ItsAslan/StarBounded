@@ -2,7 +2,9 @@ package com.sbnd.content.block.core.definitions.basic;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -20,25 +22,19 @@ public class OreGeneric extends Block {
 
     private int maxAmount = 1;
 
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
     public enum OreType {
 
-        NORMAL(null, null),
+        NORMAL(),
         BURNING("flame", "smoke"),
         FREEZING("----", "----"),
         WET("----", "----");
 
-        @Getter
-        private final String particle;
+        private String particle;
 
-        @Getter
-        private final String secondaryParticle;
-
-        OreType(String particle, String secondaryParticle) {
-
-            this.particle = particle;
-            this.secondaryParticle = secondaryParticle;
-
-        }
+        private String secondaryParticle;
 
     }
 

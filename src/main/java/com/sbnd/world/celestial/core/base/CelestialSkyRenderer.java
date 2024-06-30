@@ -53,10 +53,10 @@ public class CelestialSkyRenderer extends IRenderHandler {
             for (int l = -byte2 * i; l <= byte2 * i; l += byte2)
             {
                 tessellator.startDrawingQuads();
-                tessellator.addVertex(j + 0, f, l + 0);
-                tessellator.addVertex(j + byte2, f, l + 0);
+                tessellator.addVertex(j, f, l);
+                tessellator.addVertex(j + byte2, f, l);
                 tessellator.addVertex(j + byte2, f, l + byte2);
-                tessellator.addVertex(j + 0, f, l + byte2);
+                tessellator.addVertex(j, f, l + byte2);
                 tessellator.draw();
             }
         }
@@ -71,9 +71,9 @@ public class CelestialSkyRenderer extends IRenderHandler {
         {
             for (int i1 = -byte2 * i; i1 <= byte2 * i; i1 += byte2)
             {
-                tessellator.addVertex(k + byte2, f, i1 + 0);
-                tessellator.addVertex(k + 0, f, i1 + 0);
-                tessellator.addVertex(k + 0, f, i1 + byte2);
+                tessellator.addVertex(k + byte2, f, i1);
+                tessellator.addVertex(k, f, i1);
+                tessellator.addVertex(k, f, i1 + byte2);
                 tessellator.addVertex(k + byte2, f, i1 + byte2);
             }
         }
@@ -111,7 +111,7 @@ public class CelestialSkyRenderer extends IRenderHandler {
         RenderHelper.disableStandardItemLighting();
         float var10 = 0;
         float var11 = 0;
-        float var12 = 0;
+        float var12;
 
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F); // Set full visibility
         GL11.glCallList(this.starGLCallList);

@@ -7,7 +7,6 @@ import java.util.Set;
 public interface ISkyData {
 
     boolean canSeeStars();
-
     int starAmount();
 
     boolean isOrbitingBody();
