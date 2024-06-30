@@ -25,6 +25,7 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.SCATTERED_FEATURE;
@@ -158,14 +159,27 @@ public class ChunkProviderCelestial implements IChunkProvider
                                 if ((d15 += d16) > 0.0D)
                                 {
 
-                                    int totalWeight = data.blocksToWeight.values().stream().mapToInt(Integer::intValue).sum();
-                                    List<Map.Entry<Block, Integer>> weightedEntries = new ArrayList<>(data.blocksToWeight.entrySet());
+                                    int totalWeight = data.getBlocksToWeight().values().stream().mapToInt(Integer::intValue).sum();
+
+                                    int maxWeight = data.getBlocksToWeight().values().stream().mapToInt(Integer::intValue).max().orElse(0);
+
+                                    double scalingFactor = 0.5;
+
+                                    List<Map.Entry<Block, Integer>> weightedEntries = new ArrayList<>(data.getBlocksToWeight().entrySet());
 
                                     Block selectedBlock = weightedEntries.stream()
-                                            .flatMap(e -> IntStream.range(0, e.getValue()).mapToObj(i -> e.getKey()))
+                                            .flatMap(e -> IntStream.range(0, (int)((maxWeight - e.getValue()) * scalingFactor) + 1).mapToObj(i -> e.getKey()))
                                             .skip(new Random().nextInt(totalWeight))
                                             .findFirst()
                                             .orElse(null);
+
+                                    if (selectedBlock == null) {
+                                        selectedBlock = data.getBlocksToWeight().entrySet().stream()
+                                                .filter(entry -> Objects.equals(entry.getValue(), 1))
+                                                .map(Map.Entry::getKey)
+                                                .findFirst()
+                                                .orElse(null);
+                                    }
 
                                     if (selectedBlock != null) {
                                         blocks[j3 += short1] = selectedBlock;

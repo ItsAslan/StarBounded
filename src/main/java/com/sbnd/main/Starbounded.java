@@ -1,5 +1,6 @@
 package com.sbnd.main;
 
+import com.sbnd.commands.CommandTeleportDimension;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -10,6 +11,7 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
 @Mod(modid = ModVars.MOD_ID, name = ModVars.MOD_NAME, version = ModVars.MOD_VERSION)
 public class Starbounded {
+
     @Mod.Instance
     public static Starbounded instance = new Starbounded();
 
@@ -34,6 +36,7 @@ public class Starbounded {
 
     @Mod.EventHandler
     public void serverStart(FMLServerStartingEvent event) {
-
+        event.registerServerCommand(new CommandTeleportDimension());
     }
+
 }

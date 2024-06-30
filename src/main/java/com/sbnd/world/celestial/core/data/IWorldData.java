@@ -1,9 +1,10 @@
 package com.sbnd.world.celestial.core.data;
 
-import net.minecraft.world.WorldProvider;
+import com.sbnd.world.celestial.core.base.ChunkProviderCelestial;
+import com.sbnd.world.celestial.core.base.WorldChunkManagerCelestial;
+import com.sbnd.world.celestial.core.base.WorldProviderCelestial;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.WorldChunkManagerHell;
-import net.minecraft.world.chunk.IChunkProvider;
 
 import java.util.Set;
 
@@ -11,12 +12,10 @@ public interface IWorldData {
 
     String getName();
 
-    WorldProvider getWorldProvider();
+    WorldProviderCelestial getWorldProvider();
 
-    IChunkProvider getChunkProvider();
+    ChunkProviderCelestial getChunkProvider(World world);
 
-    WorldChunkManagerHell getChunkManager();
-
-    Set<BiomeGenBase> getBiomes();
+    WorldChunkManagerCelestial getChunkManager();
 
 }

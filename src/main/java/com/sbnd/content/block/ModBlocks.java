@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class ModBlocks {
 
-    public static Set<Block> modBlocks = new HashSet<>();
+    static Set<Block> modBlocks = new HashSet<>();
 
     //---------------BLOCKS---------------//
 

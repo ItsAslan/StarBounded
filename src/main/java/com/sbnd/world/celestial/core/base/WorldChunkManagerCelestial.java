@@ -8,9 +8,9 @@ import net.minecraft.world.biome.WorldChunkManager;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class WorldChunkManagerCelestial extends WorldChunkManager {
 
-    @Getter
     private IGenData data;
 
     public WorldChunkManagerCelestial(IGenData data) {
@@ -19,7 +19,7 @@ public class WorldChunkManagerCelestial extends WorldChunkManager {
 
     @Override
     public List<BiomeGenBase> getBiomesToSpawnIn() {
-        return new ArrayList<>(data.biomes);
+        return new ArrayList<>(data.getBiomes());
     }
 
 }

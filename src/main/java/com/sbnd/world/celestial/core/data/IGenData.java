@@ -11,8 +11,8 @@ import java.util.Set;
 public interface IGenData {
 
     // Block, Weight [1 is primary, 2 is secondary, 3... is everything else]
-    Map<Block, Integer> blocksToWeight = new HashMap<>();
+    Map<Block, Integer> getBlocksToWeight();
 
-    Set<BiomeGenBase> biomes = new HashSet<>();
+    Set<BiomeGenBase> getBiomes();
 
 }

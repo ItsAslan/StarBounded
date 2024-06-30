@@ -1,26 +1,25 @@
-package com.sbnd.world.celestial.sample;
+package com.sbnd.world.celestial;
 
 
+import com.sbnd.main.ResourceManager;
 import com.sbnd.world.celestial.core.CelestialType;
 import lombok.Getter;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 
+@Getter
 public enum EnumCelestial {
 
-    MOON(EnumChatFormatting.DARK_GREEN, null, CelestialType.SATELLITE),
+    MOON(EnumChatFormatting.GRAY, ResourceManager.MOON, CelestialType.SATELLITE),
 
-    MARS(EnumChatFormatting.DARK_RED, null, CelestialType.PLANET),
+    EARTH(EnumChatFormatting.DARK_GREEN, ResourceManager.EARTH, CelestialType.PLANET),
 
-    SOL(EnumChatFormatting.RED, null, CelestialType.STAR);
+    SOL(EnumChatFormatting.RED, ResourceManager.SOL, CelestialType.STAR);
 
-    @Getter
     private final EnumChatFormatting color;
 
-    @Getter
     private final ResourceLocation icon;
 
-    @Getter
     private final CelestialType type;
 
     EnumCelestial(EnumChatFormatting color, ResourceLocation icon, CelestialType type) {
