@@ -59,7 +59,7 @@ git clone https://github.com/ItsAslan/Starbounded.git
 ```
 
 5. Enter the source directory
-```
+```bash
 cd Hbm-s-Nuclear-Tech-GIT
 ```
 6. Setup forge decompilation workspace
