@@ -11,8 +11,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class SbndCelestialObjects {
 
-    static AtomicInteger currentId = new AtomicInteger(1);
-    static Set<CelestialBody> celestialBodies = new HashSet<>();
+    public static AtomicInteger currentId = new AtomicInteger(1);
+    public static Set<CelestialBody> celestialBodies = new HashSet<>();
 
 
     //---------------SATELLITES---------------//

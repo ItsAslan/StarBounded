@@ -8,11 +8,9 @@ import java.util.Random;
 
 public class SbndGenToolbox {
 
-    public static void addOreSpawn(Block block, Block blockIn, World world, Random random, int blockX, int blockZ, int maxOffsetX, int maxOffsetZ, int maxVeinSize, int minVeinSize, int chanceToSpawn, int minY, int maxY)
-    {
+    public static void addOreSpawn(Block block, Block blockIn, World world, Random random, int blockX, int blockZ, int maxOffsetX, int maxOffsetZ, int maxVeinSize, int minVeinSize, int chanceToSpawn, int minY, int maxY) {
 
-        for (int i = 0; i < chanceToSpawn; i++)
-        {
+        for (int i = 0; i < chanceToSpawn; i++) {
 
             int xPos = blockX + random.nextInt(maxOffsetX);
             int yPos = minY + random.nextInt(maxY - minY);

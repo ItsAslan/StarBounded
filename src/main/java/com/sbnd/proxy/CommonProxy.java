@@ -1,6 +1,7 @@
 package com.sbnd.proxy;
 
 import com.sbnd.content.block.ModBlocks;
+import com.sbnd.content.crafting.CraftingRegistry;
 import com.sbnd.content.item.ModItems;
 import com.sbnd.world.celestial.SbndCelestialObjects;
 import com.sbnd.world.gen.SbndGen;
@@ -22,6 +23,7 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent $e) {
 
+        CraftingRegistry.REGISTER();
         SbndCelestialObjects.REGISTER();
 
     }

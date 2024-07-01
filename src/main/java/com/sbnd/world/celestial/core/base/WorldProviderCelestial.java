@@ -1,5 +1,6 @@
 package com.sbnd.world.celestial.core.base;
 
+import com.sbnd.world.celestial.SbndCelestialObjects;
 import com.sbnd.world.celestial.core.data.ISkyData;
 import com.sbnd.world.celestial.core.data.IWorldData;
 import lombok.Getter;
@@ -17,6 +18,7 @@ public class WorldProviderCelestial extends WorldProvider {
     private ISkyData skyData;
 
     public WorldProviderCelestial() {
+        this.dimensionId = SbndCelestialObjects.currentId.get();
         setCloudRenderer(new NoCloudRenderer());
     }
 

@@ -1,5 +1,6 @@
 package com.sbnd.world.celestial.sample.moon.data;
 
+import com.sbnd.content.block.ModBlocks;
 import com.sbnd.world.celestial.core.data.IGenData;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -17,9 +18,7 @@ public class MoonGenData implements IGenData {
 
         Map<Block, Integer> blocks = new HashMap<>();
 
-        blocks.put(Blocks.cobblestone, 1);
-        blocks.put(Blocks.bedrock, 2);
-        blocks.put(Blocks.sand, 10);
+        blocks.put(ModBlocks.blockMoonTurf, 1);
 
         return blocks;
 
