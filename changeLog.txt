@@ -1,2 +1,25 @@
-1. Venus!!
-2. Mercury Ores
+1. Full refactor for Planet Initialization:
+    Now supports easy planet additions
+    Easily scalable
+
+2. Refactored Block and Item registry to increase fluidity and ease
+    Now uses lambdas to register items instead of rewriting the same line repeatedly
+    Cleaner code with comments to create distinct variables
+
+3. Cleaned up `BlockPos` class and merged it with `BlockPosUtils`
+
+TO-DO:
+
+1. Create more injections for `ChunkProviderCelestial`
+    Craters
+    Surface block sploshes (Terrain stuff)
+    Fauna
+
+2. Custom implementation of `SbndBiomes`
+    Allows unique custom biome generation
+
+3. Begin working on spacecraft implementation
+    Multi-block instantiable spacecraft
+    Custom spacecraft rendering
+    Custom spacecraft entity
+    Mountable
