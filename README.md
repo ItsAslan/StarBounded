@@ -42,5 +42,43 @@ cd Starbounded
     + Grab the "Starbounded-.jar" one.
       + This is your mod file. With this file, you put it in your Minecraft mods folder. 
 
+<h1>Contributing</h1>
+
+1. Follow steps 1-2 from _Building from source_ section
+2. Create a directory where the repository will reside
+3. Download the forge `src` from [minecraftforge.net](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.7.10.html) and extract it into the directory
+4. Download the source code:
+
+- Using Git Bash, enter wherever your directory is located:
+```bash
+cd $HOME/Downloads
+```
+- Download the source code:
+```bash
+git clone https://github.com/ItsAslan/Starbounded.git
+```
+
+5. Enter the source directory
+```
+cd Hbm-s-Nuclear-Tech-GIT
+```
+6. Setup forge decompilation workspace
+```bash
+./gradlew setupDecompWorkspace
+```
+<h3>Necessary for Eclipse users</h3>
+
+7. Generate eclipse files
+```bash
+./gradlew eclipse
+```
+   
 <h1>Liscense</h1>
+
 This software is licensed under the GNU General Public License v3.0 (GPLv3). The GNU General Public License v3.0 (GPLv3) is a license for free software that allows users to run, study, share, and change the software. Released in 2007 by the Free Software Foundation, it fixes problems from earlier versions, making it easier to work with other licenses and protecting against patent issues. It also stops hardware makers from blocking modified versions of the software. By using GPLv3, developers keep their software free and open, helping people work together and protecting users' rights.
+
+<h1>Mentions</h1>
+
+**Starbounded** is heavily influenced by:
+- [Practical Space Fireworks](https://github.com/PracticalSpaceFireworks/PracticalSpaceFireworks)
+- [HBMs Nuclear Tech Mod](https://github.com/HbmMods/Hbm-s-Nuclear-Tech-GIT)
