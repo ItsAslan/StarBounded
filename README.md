@@ -1,17 +1,46 @@
-Welcome to the official GitHub repository for Starbounded!
+<h1>Starbounded: Far Above the Moon</h1>
 
-Short Summary:
+[Starbounded on Modrinth](https://modrinth.com/mod/starbounded)
 
-- **Space Travel:** Journey between planets within our solar system using custom spacecrafts.
-- **Planetary Exploration:** Each planet has unique environments, with special ores and resources not found elsewhere.
-- **Multi-Block Machinery:** Build complex machines that are essential for processing, extracting, and creating resources.
-- **Resource Collection:** Unique ores and materials available for crafting advanced technology, machinery, and gear.
+[Starbounded on Curseforge](https://www.curseforge.com/minecraft/mc-mods/starbounded)
 
-This mod is still in very EARLY stages of development, and is no where CLOSE to being finished.
+**Starbounded is for Minecraft Version 1.7.10.** Later in the mods progression, I may port to a newer version such as >1.16, but I wouldn't count on that.
 
-Starbounded is HEAVILY influenced by:
+<h1>Download from Github</h1>
 
-https://github.com/HbmMods/Hbm-s-Nuclear-Tech-GIT
-https://github.com/PracticalSpaceFireworks/PracticalSpaceFireworks
+Navigate to the **"Releases"** section on the right side of the page. Under the **"Assets"** category at the very bottom, you will find download links for the compiled **JAR**. Once you download this **JAR** you can put it into your mods folder and begin playing. Don't forget to view the **changelog** before swapping versions!
 
-Go give them some support :)
+<h1>Building from Source Code</h1>
+
+1. Make sure you have JDK8 installed. If not, download it from [adoptium.net](https://adoptium.net/temurin/releases/?variant=openjdk8&jvmVariant=hotspot)
+2. If you don't have git installed, download it from [git](https://git-scm.com/downloads)
+3. Open up "Git Bash":
+   - Press the Windows Button, type "Git Bash" and press ENTER
+4. Enter the directory where you would like the sources to be (advanced users can use any directory)
+```bash
+ cd $HOME/Downloads
+```
+5. Download the source code
+```bash
+git clone https://github.com/ItsAslan/Starbounded.git
+```
+6. Enter the source code directory
+```bash
+cd Starbounded
+```
+6. Build the mod
+```bash
+./gradlew build
+```
+6. Locate the mod file.
+
+    + Open up your file explorer.
+    + Navigate to where you downloaded the sources.
+      + If you exactly followed step 1, it should be `C:/Users/%USER%/Downloads`.
+    + Enter the downloaded source tree.
+    + Navigate to `build/libs`.
+    + Grab the "Starbounded-.jar" one.
+      + This is your mod file. With this file, you put it in your Minecraft mods folder. 
+
+<h1>Liscense</h1>
+This software is licensed under the GNU General Public License v3.0 (GPLv3). The GNU General Public License v3.0 (GPLv3) is a license for free software that allows users to run, study, share, and change the software. Released in 2007 by the Free Software Foundation, it fixes problems from earlier versions, making it easier to work with other licenses and protecting against patent issues. It also stops hardware makers from blocking modified versions of the software. By using GPLv3, developers keep their software free and open, helping people work together and protecting users' rights.
