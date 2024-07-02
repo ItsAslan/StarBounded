@@ -1,8 +1,8 @@
 [
   {
     "modid": "sbnd",
-    "name": "StarBounded",
-    "description": "Don't gripe if something happens to you when you're exploring space, for after all, you're riding a giant bomb",
+    "name": "Starbounded",
+    "description": "You're technically riding a giant bomb",
     "version": "0.0.4",
     "mcversion": "1.7.10",
     "url": "",

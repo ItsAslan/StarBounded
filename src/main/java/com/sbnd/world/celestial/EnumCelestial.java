@@ -3,11 +3,13 @@ package com.sbnd.world.celestial;
 
 import com.sbnd.main.ResourceManager;
 import com.sbnd.world.celestial.core.CelestialType;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 
 @Getter
+@AllArgsConstructor
 public enum EnumCelestial {
 
     MOON(EnumChatFormatting.GRAY, ResourceManager.MOON, CelestialType.SATELLITE),
@@ -22,12 +24,7 @@ public enum EnumCelestial {
 
     private final CelestialType type;
 
-    EnumCelestial(EnumChatFormatting color, ResourceLocation icon, CelestialType type) {
-
-        this.color = color;
-        this.icon = icon;
-        this.type = type;
-
-    }
+    // NullPointerException is my biggest op
+    public static EnumCelestial NONE;
 
 }

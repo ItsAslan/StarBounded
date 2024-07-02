@@ -21,7 +21,7 @@ public class SbndCelestialObjects {
 
     static void planetInit() {
 
-        moon = new CelestialBody(celestialBodies, new MoonBodyData(), CelestialType.SATELLITE, "Moon");
+        moon = new CelestialBody(celestialBodies, new MoonBodyData(), CelestialType.SATELLITE, "Moon").setParent(EnumCelestial.EARTH).setStar(EnumCelestial.SOL);
 
     }
 

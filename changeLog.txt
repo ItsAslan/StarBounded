@@ -1,12 +1,11 @@
-1. Full refactor for Planet Initialization:
-    Now supports easy planet additions
+1. Started working on multiblock spacecraft implementation
+    Began working on `SpacecraftBlueprint` which maps out all
+    valid rocket blocks and maps it to an abstract vertex map
+
+2. Created custom and scalable implementation of `SbndBiomes`
+    Allows unique custom biome generation
+    Easy Additions
     Easily scalable
-
-2. Refactored Block and Item registry to increase fluidity and ease
-    Now uses lambdas to register items instead of rewriting the same line repeatedly
-    Cleaner code with comments to create distinct variables
-
-3. Cleaned up `BlockPos` class and merged it with `BlockPosUtils`
 
 TO-DO:
 
@@ -15,8 +14,7 @@ TO-DO:
     Surface block sploshes (Terrain stuff)
     Fauna
 
-2. Custom implementation of `SbndBiomes`
-    Allows unique custom biome generation
+2. Finish implementation of `SbndBiomes`
 
 3. Begin working on spacecraft implementation
     Multi-block instantiable spacecraft
