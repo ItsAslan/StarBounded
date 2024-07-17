@@ -1,12 +1,7 @@
 package com.sbnd.world.biome;
 
 import com.sbnd.world.biome.core.SbndBiomeBase;
-import com.sbnd.world.celestial.EnumCelestial;
-import com.sbnd.world.celestial.core.CelestialBody;
-import com.sbnd.world.celestial.core.CelestialType;
-import com.sbnd.world.celestial.sample.moon.MoonBodyData;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.DimensionManager;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,7 +20,7 @@ public class SbndBiomes {
 
     static void planetInit() {
 
-        test1 = new SbndBiomeBase(biomes, null, null, currentId.getAndIncrement());
+        //test1 = new SbndBiomeBase(biomes, null, null, currentId.getAndIncrement());
 
     }
 

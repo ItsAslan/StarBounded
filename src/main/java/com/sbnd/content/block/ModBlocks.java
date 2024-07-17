@@ -27,6 +27,9 @@ public class ModBlocks {
     // Terrain
     public static Block blockMoonTurf;
 
+    // Test
+    public static Block test;
+
     public static void REGISTER() {
 
         initBlocks();

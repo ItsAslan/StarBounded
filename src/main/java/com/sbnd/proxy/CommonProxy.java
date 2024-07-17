@@ -3,6 +3,7 @@ package com.sbnd.proxy;
 import com.sbnd.content.block.ModBlocks;
 import com.sbnd.content.crafting.CraftingRegistry;
 import com.sbnd.content.item.ModItems;
+import com.sbnd.world.biome.SbndBiomes;
 import com.sbnd.world.celestial.SbndCelestialObjects;
 import com.sbnd.world.gen.SbndGen;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -17,14 +18,16 @@ public class CommonProxy {
         ModBlocks.REGISTER();
         ModItems.REGISTER();
 
+        CraftingRegistry.REGISTER();
+
         GameRegistry.registerWorldGenerator(new SbndGen(), 0);
 
     }
 
     public void init(FMLInitializationEvent $e) {
 
-        CraftingRegistry.REGISTER();
         SbndCelestialObjects.REGISTER();
+        SbndBiomes.REGISTER();
 
     }
 

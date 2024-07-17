@@ -13,22 +13,21 @@ public class SbndGen implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 
-        switch (world.provider.dimensionId)
-        {
+        switch (world.provider.dimensionId) {
 
             case -1:
 
-                genNether(world, random, chunkX * 16, chunkZ * 16);
+                genNether(world, random, chunkX << 4, chunkZ << 4);
                 break;
 
             case 0:
 
-                genOverworld(world, random, chunkX * 16, chunkZ * 16);
+                genOverworld(world, random, chunkX << 4, chunkZ << 4);
                 break;
 
             case 1:
 
-                genEnd(world, random, chunkX * 16, chunkZ * 16);
+                genEnd(world, random, chunkX << 4, chunkZ << 4);
                 break;
 
 

@@ -29,8 +29,8 @@ public class OreGeneric extends Block {
 
         NORMAL(),
         BURNING("flame", "smoke"),
-        FREEZING("----", "----"),
-        WET("----", "----");
+        FREEZING(),
+        WET();
 
         private String particle;
 

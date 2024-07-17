@@ -22,6 +22,23 @@ public class ModItems {
     public static Item ingotTitanium;
     public static Item ingotTungsten;
     public static Item ingotTin;
+    public static Item ingotLead;
+
+    // Plate
+    public static Item plateCopper;
+    public static Item plateAluminum;
+    public static Item plateTitanium;
+    public static Item plateTungsten;
+    public static Item plateTin;
+    public static Item plateLead;
+
+    // Wire
+    public static Item wireCopper;
+    public static Item wireAluminum;
+    public static Item wireTitanium;
+    public static Item wireTungsten;
+    public static Item wireTin;
+    public static Item wireLead;
 
     public static void REGISTER() {
 
@@ -39,6 +56,23 @@ public class ModItems {
         ingotTitanium = new ItemGeneric(modItems).setUnlocalizedName("ingotTitanium").setCreativeTab(CreativeTabs.tabMaterials);
         ingotTungsten = new ItemGeneric(modItems).setUnlocalizedName("ingotTungsten").setCreativeTab(CreativeTabs.tabMaterials);
         ingotTin = new ItemGeneric(modItems).setUnlocalizedName("ingotTin").setCreativeTab(CreativeTabs.tabMaterials);
+        ingotLead = new ItemGeneric(modItems).setUnlocalizedName("ingotLead").setCreativeTab(CreativeTabs.tabMaterials);
+
+        // Plate
+        plateCopper = new ItemGeneric(modItems).setUnlocalizedName("plateCopper").setCreativeTab(CreativeTabs.tabMaterials);
+        plateAluminum = new ItemGeneric(modItems).setUnlocalizedName("plateAluminum").setCreativeTab(CreativeTabs.tabMaterials);
+        plateTitanium = new ItemGeneric(modItems).setUnlocalizedName("plateTitanium").setCreativeTab(CreativeTabs.tabMaterials);
+        plateTungsten = new ItemGeneric(modItems).setUnlocalizedName("plateTungsten").setCreativeTab(CreativeTabs.tabMaterials);
+        plateTin = new ItemGeneric(modItems).setUnlocalizedName("plateTin").setCreativeTab(CreativeTabs.tabMaterials);
+        plateLead = new ItemGeneric(modItems).setUnlocalizedName("plateLead").setCreativeTab(CreativeTabs.tabMaterials);
+
+        // Wire
+        wireCopper = new ItemGeneric(modItems).setUnlocalizedName("wireCopper").setCreativeTab(CreativeTabs.tabMaterials);
+        wireAluminum = new ItemGeneric(modItems).setUnlocalizedName("wireAluminum").setCreativeTab(CreativeTabs.tabMaterials);
+        wireTitanium = new ItemGeneric(modItems).setUnlocalizedName("wireTitanium").setCreativeTab(CreativeTabs.tabMaterials);
+        wireTungsten = new ItemGeneric(modItems).setUnlocalizedName("wireTungsten").setCreativeTab(CreativeTabs.tabMaterials);
+        wireTin = new ItemGeneric(modItems).setUnlocalizedName("wireTin").setCreativeTab(CreativeTabs.tabMaterials);
+        wireLead = new ItemGeneric(modItems).setUnlocalizedName("wireLead").setCreativeTab(CreativeTabs.tabMaterials);
 
     }
 
