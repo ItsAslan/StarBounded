@@ -1,5 +1,6 @@
 package com.sbnd.content.block;
 
+import com.sbnd.content.block.core.definitions.basic.BlockGeneric;
 import com.sbnd.content.block.core.definitions.basic.OreGeneric;
 import com.sbnd.main.ModVars;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -15,6 +16,11 @@ public class ModBlocks {
     static Set<Block> modBlocks = new HashSet<>();
 
     //---------------BLOCKS---------------//
+
+    //Decoration
+    public static Block blockComputerRack;
+    public static Block blockMonitor1;
+    public static Block blockMonitor2;
 
     // Ore
     public static Block oreCopper;
@@ -39,6 +45,11 @@ public class ModBlocks {
     }
 
     static void initBlocks() {
+
+        //Decoration
+        blockComputerRack = new BlockGeneric(modBlocks, Material.rock).setBlockName("blockComputerRack").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeAnvil);
+        blockMonitor1 = new BlockGeneric(modBlocks, Material.rock).setBlockName("blockMonitor1").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeAnvil);
+        blockMonitor2 = new BlockGeneric(modBlocks, Material.rock).setBlockName("blockMonitor2").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeAnvil);
 
         // Ore
         oreCopper = new OreGeneric(modBlocks, Material.rock, OreGeneric.OreType.NORMAL).setBlockName("oreCopper").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone);
