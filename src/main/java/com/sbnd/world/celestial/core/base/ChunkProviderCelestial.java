@@ -2,11 +2,15 @@ package com.sbnd.world.celestial.core.base;
 
 import api.noise.NoiseModule;
 import api.noise.perlin.Gradient;
+import com.sbnd.content.block.ModBlocks;
+import com.sbnd.world.celestial.core.enums.EnumCrater;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderGenerate;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -26,6 +30,8 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
     private static final int Y_START = 60;
 
+    private static final int CRATER_PROBABILITY = 700;
+
     private final World world;
 
     public ChunkProviderCelestial(World world, long seed, boolean keepLoaded) {
@@ -43,7 +49,7 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
     }
 
-    public void generateTerrain(int chunkX, int chunkZ, Block[] idArray, byte[] metaArray) {
+    public void generateTerrain(int chunkX, int chunkZ, Block[] ids, byte[] meta) {
 
         noiseGen1.setFrequency(0.0125F);
         noiseGen2.setFrequency(0.015F);
@@ -58,7 +64,7 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
                 final double gen2 = noiseGen2.getNoise(x + chunkX * 16, z + chunkZ * 16) * 24;
                 final double gen3 = (noiseGen3.getNoise(x + chunkX * 16, z + chunkZ * 16) - 0.1) * 4;
 
-                double yDev = 0;
+                double yDev;
 
                 if (gen3 < 0.0D) {
 
@@ -80,8 +86,8 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
                     if (y < Y_START + yDev) {
 
-                        idArray[this.getIndex(x, y, z)] = Blocks.stone;
-                        metaArray[this.getIndex(x, y, z)] = 1;
+                        ids[this.getIndex(x, y, z)] = ModBlocks.blockMoonTurf;
+                        meta[this.getIndex(x, y, z)] = 1;
 
                     }
 
@@ -103,9 +109,100 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
         Arrays.fill(ids, Blocks.air);
 
-        this.generateTerrain(chunkX, chunkY, ids, meta);
+        generateTerrain(chunkX, chunkY, ids, meta);
 
-        return new Chunk(world, ids, meta, chunkX, chunkY);
+        generateCrater(chunkX, chunkY, ids, meta);
+
+        Chunk chunk = new Chunk(world, ids, meta, chunkX, chunkY);
+        chunk.generateSkylightMap();
+
+        return chunk;
+
+    }
+
+    @Override
+    public void populate(IChunkProvider p_73153_1_, int p_73153_2_, int p_73153_3_) {
+
+        //Empty for now
+
+    }
+
+    private void generateCrater(int chunkX, int chunkZ, Block[] blocks, byte[] meta) {
+
+        for (int cx = chunkX - 2; cx <= chunkX + 2; cx++) {
+
+            for (int cz = chunkZ - 2; cz <= chunkZ + 2; cz++) {
+
+                for (int x = 0; x < CHUNK_SIZE_X; x++) {
+
+                    for (int z = 0; z < CHUNK_SIZE_Z; z++) {
+
+                        if (Math.abs(randFromPoint(cx * 16 + x, (cz * 16 + z) * 1000)) < noiseGen4.getNoise(x * CHUNK_SIZE_X + x, cz * CHUNK_SIZE_Z + z) / CRATER_PROBABILITY) {
+
+                            Random random = new Random(cx * 16L + x + (cz * 16L + z) * 5000);
+
+                            EnumCrater craterSize = EnumCrater.sizeArray[random.nextInt(EnumCrater.sizeArray.length)];
+
+                            int size = random.nextInt(craterSize.MAX - craterSize.MIN) + craterSize.MIN;
+
+                            makeCrater(cx * 16 + x, cz * 16 + z, chunkX * 16, chunkZ * 16, size, blocks, meta);
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    public void makeCrater(int craterX, int craterZ, int chunkX, int chunkZ, int size, Block[] blocks, byte[] meta) {
+
+        for (int x = 0; x < CHUNK_SIZE_X; x++) {
+
+            for (int z = 0; z < CHUNK_SIZE_Z; z++) {
+
+                double xDev = craterX - (chunkX + x);
+                double zDev = craterZ - (chunkZ + z);
+
+                if (xDev * xDev + zDev * zDev < size * size) {
+
+                    xDev /= size;
+                    zDev /= size;
+                    double sqrtY = xDev * xDev + zDev * zDev;
+                    double yDev = sqrtY * sqrtY * 6;
+                    yDev = 5 - yDev;
+
+                    yDev *= 2; // Depth
+
+                    int i = 0;
+
+                    for (int y = 127; y > 0; y--) {
+
+                        if (Blocks.air != blocks[getIndex(x, y, z)] && i <= yDev) {
+
+                            blocks[getIndex(x, y, z)] = Blocks.air;
+                            meta[getIndex(x, y, z)] = 0;
+
+                            i++;
+
+                        }
+                        if (i > yDev) {
+
+                            break;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
 
     }
 
@@ -115,6 +212,12 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
     }
 
-
+    private double randFromPoint(int x, int z)
+    {
+        int n;
+        n = x + z * 57;
+        n = n << 13 ^ n;
+        return 1.0 - (n * (n * n * 15731 + 789221) + 1376312589 & 0x7fffffff) / 1073741824.0;
+    }
 
 }
