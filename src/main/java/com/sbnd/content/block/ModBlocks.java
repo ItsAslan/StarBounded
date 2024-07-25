@@ -32,6 +32,8 @@ public class ModBlocks {
 
     // Terrain
     public static Block blockMoonTurf;
+    public static Block blockMoonTurfMedium;
+    public static Block blockMoonTurfDark;
 
     // Test
     public static Block test;
@@ -61,6 +63,8 @@ public class ModBlocks {
 
         // Terrain
         blockMoonTurf = new OreGeneric(modBlocks, Material.sand, OreGeneric.OreType.NORMAL).setBlockName("blockMoonTurf").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
+        blockMoonTurfMedium = new OreGeneric(modBlocks, Material.sand, OreGeneric.OreType.NORMAL).setBlockName("blockMoonTurfMedium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
+        blockMoonTurfDark = new OreGeneric(modBlocks, Material.sand, OreGeneric.OreType.NORMAL).setBlockName("blockMoonTurfDark").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
 
     }
 

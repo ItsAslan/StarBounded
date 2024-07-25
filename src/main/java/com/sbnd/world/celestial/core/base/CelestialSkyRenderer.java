@@ -1,5 +1,6 @@
 package com.sbnd.world.celestial.core.base;
 
+import com.sbnd.main.ResourceManager;
 import com.sbnd.world.celestial.core.data.ISkyData;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -190,8 +191,31 @@ public class CelestialSkyRenderer extends IRenderHandler {
     private void drawStar(Tessellator var23, float var12) {
 
         GL11.glEnable(GL11.GL_TEXTURE_2D);
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
+
+        GL11.glPushMatrix();
+
+        GL11.glPopMatrix();
+
+        GL11.glPushMatrix();
+
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 5F);
+        GL11.glRotatef(45, 1.0F, 0.0F, 0.0F);
         GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
+        GL11.glColor4f(0.0F, 0.0F, 0.0F, 1.0F);
+        var12 = 20.0F / 3.5F;
+        var23.startDrawingQuads();
+        var23.addVertex(-var12, 99.9D, -var12);
+        var23.addVertex(var12, 99.9D, -var12);
+        var23.addVertex(var12, 99.9D, var12);
+        var23.addVertex(-var12, 99.9D, var12);
+        var23.draw();
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        var12 = 20.0F;
         FMLClientHandler.instance().getClient().renderEngine.bindTexture(data.getPlanetStar().getIcon());
         var23.startDrawingQuads();
         var23.addVertexWithUV(-var12, -100.0D, var12, 0, 1);
@@ -200,6 +224,12 @@ public class CelestialSkyRenderer extends IRenderHandler {
         var23.addVertexWithUV(-var12, -100.0D, -var12, 0, 0);
         var23.draw();
         GL11.glDisable(GL11.GL_BLEND);
+
+        GL11.glPopMatrix();
+
+        GL11.glPushMatrix();
+
+        GL11.glPopMatrix();
 
     }
 

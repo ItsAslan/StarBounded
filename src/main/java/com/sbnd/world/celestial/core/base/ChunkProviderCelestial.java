@@ -10,9 +10,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderGenerate;
-import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Random;
 
 public class ChunkProviderCelestial extends ChunkProviderGenerate {
@@ -86,8 +86,22 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
                     if (y < Y_START + yDev) {
 
-                        ids[this.getIndex(x, y, z)] = ModBlocks.blockMoonTurf;
-                        meta[this.getIndex(x, y, z)] = 1;
+                        if(y >= 58) {
+
+                            ids[this.getIndex(x, y, z)] = ModBlocks.blockMoonTurf;
+                            meta[this.getIndex(x, y, z)] = 1;
+
+                        } else if (y >= 50) {
+
+                            ids[this.getIndex(x, y, z)] = ModBlocks.blockMoonTurfMedium;
+                            meta[this.getIndex(x, y, z)] = 1;
+
+                        } else {
+
+                            ids[this.getIndex(x, y, z)] = ModBlocks.blockMoonTurfDark;
+                            meta[this.getIndex(x, y, z)] = 1;
+
+                        }
 
                     }
 
@@ -123,7 +137,7 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
     @Override
     public void populate(IChunkProvider p_73153_1_, int p_73153_2_, int p_73153_3_) {
 
-        //Empty for now
+        ;
 
     }
 
@@ -167,8 +181,10 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
                 double xDev = craterX - (chunkX + x);
                 double zDev = craterZ - (chunkZ + z);
+                double distanceSquared = xDev * xDev + zDev * zDev;
 
-                if (xDev * xDev + zDev * zDev < size * size) {
+                // Check if the block is within the crater radius
+                if (distanceSquared < size * size) {
 
                     xDev /= size;
                     zDev /= size;
@@ -190,10 +206,9 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
                             i++;
 
                         }
+
                         if (i > yDev) {
-
                             break;
-
                         }
 
                     }

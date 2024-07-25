@@ -21,7 +21,7 @@ public class MoonWorldData implements IWorldData {
 
     @Override
     public ChunkProviderCelestial getChunkProvider(World world) {
-        return new ChunkProviderCelestial(world, world.getSeed(), false);
+        return new ChunkProviderCelestial(world, world.getSeed(), true);
     }
 
     @Override
