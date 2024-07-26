@@ -1,5 +1,16 @@
 package com.sbnd.world.tmp;
 
+import com.sbnd.world.celestial.EnumCelestial;
+import com.sbnd.world.celestial.core.CelestialType;
+import com.sbnd.world.celestial.sample.moon.MoonBodyData;
+import com.sbnd.world.tmp.core.CelestialBody;
+import com.sbnd.world.tmp.core.Star;
+import com.sbnd.world.tmp.core.StarSystem;
+import com.sbnd.world.tmp.core.enums.EnumCelestialType;
+
+import java.util.HashSet;
+import java.util.Set;
+
 public class sbndCelestialObjects {
 
     // In system object you add star -> add planets -> add planet satellites in tree graph fashion
@@ -32,5 +43,29 @@ public class sbndCelestialObjects {
 
     // The `ChunkProvider` for each planet will extend a common `CelestialChunkProvider` that's
     // noise generation / structure generation can be altered to fit a planets certain criteria
+
+    private static StarSystem solarSystem;
+
+    public static void systemInit() {
+
+        solarSystem = new StarSystem()
+
+                .setName("Solar System")
+                .setSizeKm(100)
+                .setStar(new Star()
+
+                        .setName("Sol")
+                        .addPlanets(new CelestialBody(EnumCelestialType.PLANET)
+
+                                .setName("Earth")
+                                .setOrbitRadiusKm(15_000)
+                                .setTemperatureC(90)
+                                .setDimensionId(2)
+
+                        )
+
+                );
+
+    }
 
 }
