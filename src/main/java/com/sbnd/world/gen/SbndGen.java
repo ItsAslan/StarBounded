@@ -30,6 +30,9 @@ public class SbndGen implements IWorldGenerator {
                 genEnd(world, random, chunkX << 4, chunkZ << 4);
                 break;
 
+            case 2:
+                genMoon(world, random, chunkX << 4, chunkZ << 4);
+                break;
 
         }
 
@@ -51,6 +54,14 @@ public class SbndGen implements IWorldGenerator {
     }
 
     private void genEnd(World world, Random random, int x, int z) {
+
+    }
+
+    private void genMoon(World world, Random random, int x, int z) {
+
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreZirconium, ModBlocks.blockMoonTurf, world, random, x, z, 16, 16, 3, 1, 2, 58, 67);
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreNiobium, ModBlocks.blockMoonTurfMedium, world, random, x, z, 16, 16, 4, 1, 3, 50, 57);
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreTantalum, ModBlocks.blockMoonTurfDark, world, random, x, z, 16, 16, 2, 1, 7, 40, 57);
 
     }
 

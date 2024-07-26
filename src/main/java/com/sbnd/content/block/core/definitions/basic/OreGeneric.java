@@ -29,7 +29,7 @@ public class OreGeneric extends Block {
 
         NORMAL(),
         BURNING("flame", "smoke"),
-        FREEZING(),
+        FREEZING("crit", "crit"),
         WET();
 
         private String particle;
@@ -84,6 +84,7 @@ public class OreGeneric extends Block {
                     world.spawnParticle(type.getParticle(), ix, iy, iz, 0.0, 0.0, 0.0);
                     world.spawnParticle(type.getSecondaryParticle(), ix, iy, iz, 0.0, 0.0, 0.0);
                     world.spawnParticle(type.getSecondaryParticle(), ix, iy, iz, 0.0, 0.1, 0.0);
+
                 }
 
             }

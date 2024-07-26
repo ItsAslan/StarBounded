@@ -7,6 +7,6 @@ public enum CelestialType {
     SATELLITE, // Moon's are satellites .o.
     STAR,
     BLACKHOLE,
-    ANOMALY,
+    ANOMALY
 
 }

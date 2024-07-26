@@ -35,7 +35,7 @@ public class SbndCelestialObjects {
 
     static void init(CelestialBody body) {
 
-        DimensionManager.registerProviderType(currentId.incrementAndGet(), body.getData().getWorldData().getWorldProvider().getClass(), false);
+        DimensionManager.registerProviderType(currentId.incrementAndGet(), body.getData().getWorldData().getWorldProvider().getClass(), true);
         DimensionManager.registerDimension(currentId.get(), currentId.get());
 
     }

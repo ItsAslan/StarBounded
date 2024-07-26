@@ -29,6 +29,9 @@ public class ModBlocks {
     public static Block oreTungsten;
     public static Block oreTin;
     public static Block oreSulfur;
+    public static Block oreZirconium;
+    public static Block oreNiobium;
+    public static Block oreTantalum;
 
     // Terrain
     public static Block blockMoonTurf;
@@ -60,6 +63,9 @@ public class ModBlocks {
         oreTungsten = new OreGeneric(modBlocks, Material.rock, OreGeneric.OreType.NORMAL).setBlockName("oreTungsten").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone);
         oreTin = new OreGeneric(modBlocks, Material.rock, OreGeneric.OreType.NORMAL).setBlockName("oreTin").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone);
         oreSulfur = new OreGeneric(modBlocks, Material.rock, OreGeneric.OreType.NORMAL).setBlockName("oreSulfur").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone);
+        oreZirconium = new OreGeneric(modBlocks, Material.rock, OreGeneric.OreType.FREEZING).setBlockName("oreZirconium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
+        oreNiobium = new OreGeneric(modBlocks, Material.rock, OreGeneric.OreType.FREEZING).setBlockName("oreNiobium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
+        oreTantalum = new OreGeneric(modBlocks, Material.rock, OreGeneric.OreType.FREEZING).setBlockName("oreTantalum").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
 
         // Terrain
         blockMoonTurf = new OreGeneric(modBlocks, Material.sand, OreGeneric.OreType.NORMAL).setBlockName("blockMoonTurf").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
