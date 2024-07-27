@@ -1,15 +1,9 @@
 package com.sbnd.world.tmp;
 
-import com.sbnd.world.celestial.EnumCelestial;
-import com.sbnd.world.celestial.core.CelestialType;
-import com.sbnd.world.celestial.sample.moon.MoonBodyData;
 import com.sbnd.world.tmp.core.CelestialBody;
 import com.sbnd.world.tmp.core.Star;
 import com.sbnd.world.tmp.core.StarSystem;
 import com.sbnd.world.tmp.core.enums.EnumCelestialType;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class sbndCelestialObjects {
 
@@ -28,6 +22,8 @@ public class sbndCelestialObjects {
 
     // This class is only used for registering systems
     // It will loop through every "dimension" inside the system and register it with a unique id
+    // Each `CelestialBody` will be stored in the `CelestialBody` class through statics
+    // They can be accessed via id or name -> CelestialBody.getBody(name / id)
 
     // This system supports binary star systems; however, it does not support binary star orbit deviation
 
@@ -51,18 +47,131 @@ public class sbndCelestialObjects {
         solarSystem = new StarSystem()
 
                 .setName("Solar System")
-                .setSizeKm(100)
+                .setSizeAu(200_000)
+                .setPrimaryGas(SbndGas.HELIUM, SbndGas.HYDROGEN)
                 .setStar(new Star()
 
                         .setName("Sol")
+                        .setRadiusKm(696_000)
+                        .setTempuratureC(5_600)
                         .addPlanets(new CelestialBody(EnumCelestialType.PLANET)
 
-                                .setName("Earth")
-                                .setOrbitRadiusKm(15_000)
-                                .setTemperatureC(90)
-                                .setDimensionId(2)
+                                        .setName("Mercury")
+                                        .setMassKg(3.3e23)
+                                        .setRadiusKm(2_440)
+                                        .setDimensionId(2),
 
-                        )
+                                new CelestialBody(EnumCelestialType.PLANET)
+
+                                        .setName("Venus")
+                                        .setMassKg(4.8e24)
+                                        .setRadiusKm(6_052)
+                                        .setDimensionId(3),
+
+                                new CelestialBody(EnumCelestialType.PLANET)
+
+                                        .setName("Earth")
+                                        .setMassKg(5.9e24)
+                                        .setRadiusKm(6_378)
+                                        .setDimensionId(0)
+                                        .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
+
+                                                .setName("Moon")
+                                                .setMassKg(7.3e22)
+                                                .setRadiusKm(1_079)
+                                                .setDimensionId(4)
+
+                                        ),
+
+                                new CelestialBody(EnumCelestialType.PLANET)
+
+                                        .setName("Mars")
+                                        .setMassKg(6.3e23)
+                                        .setRadiusKm(2_106)
+                                        .setDimensionId(5)
+                                        .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
+
+                                                        .setName("Phobos")
+                                                        .setMassKg(1.06e16)
+                                                        .setRadiusKm(11.1)
+                                                        .setDimensionId(6),
+
+                                                new CelestialBody(EnumCelestialType.SATELLITE)
+
+                                                        .setName("Deimos")
+                                                        .setMassKg(1.5e15)
+                                                        .setRadiusKm(6.2)
+                                                        .setDimensionId(7)
+
+                                        ),
+
+                                new CelestialBody(EnumCelestialType.GAS_GIANT)
+
+                                        .setName("Jupiter")
+                                        .setMassKg(1.8e27)
+                                        .setRadiusKm(69_911)
+                                        .setDimensionId(8)
+                                        .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
+
+                                                        .setName("Europa")
+                                                        .setMassKg(4.8e22)
+                                                        .setRadiusKm(1_560)
+                                                        .setDimensionId(9),
+
+                                                new CelestialBody(EnumCelestialType.SATELLITE)
+
+                                                        .setName("Io")
+                                                        .setMassKg(8.9e22)
+                                                        .setRadiusKm(1_821)
+                                                        .setDimensionId(10)
+
+                                        ),
+
+                                new CelestialBody(EnumCelestialType.GAS_GIANT)
+
+                                        .setName("Saturn")
+                                        .setMassKg(5.6e26)
+                                        .setRadiusKm(58.232)
+                                        .setDimensionId(11)
+                                        .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
+
+                                                        .setName("Titan")
+                                                        .setMassKg(1.3e23)
+                                                        .setRadiusKm(2_575)
+                                                        .setDimensionId(12)
+
+                                        ),
+
+                                new CelestialBody(EnumCelestialType.GAS_GIANT)
+
+                                        .setName("Uranus")
+                                        .setMassKg(8.7e25)
+                                        .setRadiusKm(25_559)
+                                        .setDimensionId(13),
+
+                                new CelestialBody(EnumCelestialType.GAS_GIANT)
+
+                                        .setName("Neptune")
+                                        .setMassKg(1.02e26)
+                                        .setRadiusKm(24_622)
+                                        .setDimensionId(14)
+                                        .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
+
+                                                .setName("Triton")
+                                                .setMassKg(2.1e22)
+                                                .setRadiusKm(2_706)
+                                                .setDimensionId(15)
+
+                                        ),
+
+                                new CelestialBody(EnumCelestialType.DWARF)
+
+                                        .setName("Pluto")
+                                        .setMassKg(1.3e22)
+                                        .setRadiusKm(1_188)
+                                        .setDimensionId(16)
+
+                                )
 
                 );
 

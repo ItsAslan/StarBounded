@@ -8,6 +8,7 @@ import lombok.experimental.Accessors;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 @Accessors(chain = true)
 public class CelestialBody {
@@ -17,8 +18,18 @@ public class CelestialBody {
     @Getter
     private final EnumCelestialType type;
 
-    @Setter
+    @Getter
     private String name;
+
+    public CelestialBody setName(String name) {
+
+        this.name = name;
+
+        nameToBodyMap.put(name, this);
+
+        return this;
+
+    }
 
     public CelestialBody(EnumCelestialType type) {
 
@@ -27,20 +38,34 @@ public class CelestialBody {
     }
 
     @Getter
-    @Setter
     private int dimensionId;
 
-    @Setter
-    private int mass;
+    public CelestialBody setDimensionId(int id) {
+
+        idToBodyMap.put(id, this);
+
+        this.dimensionId = id;
+
+        return this;
+
+    }
 
     @Setter
-    private int radius;
+    private double massKg;
+
+    @Setter
+    private double radiusKm;
 
     public ArrayList<CelestialBody> satellites = new ArrayList<>();
 
     public CelestialBody addSatellites(CelestialBody... bodies) {
 
-        satellites.addAll(Arrays.asList(bodies));
+        Arrays.asList(bodies).forEach(e -> {
+
+            e.setParent(this);
+            satellites.add(e);
+
+        });
 
         return this;
 
@@ -49,7 +74,7 @@ public class CelestialBody {
     // Star map and Sky
 
     @Setter
-    private int orbitRadiusKm;
+    private double orbitRadiusKm;
 
     @Setter
     private CelestialBody parent = null;
@@ -79,6 +104,23 @@ public class CelestialBody {
         propertyList.addAll(Arrays.asList(properties));
 
         return this;
+
+    }
+
+    // Statics
+
+    public static Map<String, CelestialBody> nameToBodyMap;
+    public static Map<Integer, CelestialBody> idToBodyMap;
+
+    public static CelestialBody getBody(String name) {
+
+        return nameToBodyMap.get(name);
+
+    }
+
+    public static CelestialBody getBody(int id) {
+
+        return idToBodyMap.get(id);
 
     }
 

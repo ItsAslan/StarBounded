@@ -4,6 +4,8 @@ public enum EnumCelestialType {
 
     ASTEROID,
     PLANET,
+    DWARF,
+    GAS_GIANT,
     SATELLITE,
     ANOMALY
 
