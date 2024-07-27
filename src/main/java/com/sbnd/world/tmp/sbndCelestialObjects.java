@@ -53,7 +53,7 @@ public class sbndCelestialObjects {
 
                         .setName("Sol")
                         .setRadiusKm(696_000)
-                        .setTempuratureC(5_600)
+                        .setTemperatureK(5_800)
                         .addPlanets(new CelestialBody(EnumCelestialType.PLANET)
 
                                         .setName("Mercury")
