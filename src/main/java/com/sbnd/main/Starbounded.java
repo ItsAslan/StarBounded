@@ -11,8 +11,6 @@ import com.sbnd.proxy.CommonProxy;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.common.config.Configuration;
 
-import java.io.File;
-
 @Mod(modid = ModVars.MOD_ID, name = ModVars.MOD_NAME, version = ModVars.MOD_VERSION)
 public class Starbounded {
 

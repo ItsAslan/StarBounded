@@ -33,11 +33,15 @@ public class CelestialProperty {
     public static class PROPERTY_HOT extends CelestialProperty { }
     public static class PROPERTY_FREEZING extends CelestialProperty { }
     public static class PROPERTY_BREATHABLE extends CelestialProperty { }
+    public static class PROPERTY_PATHOGENIC extends CelestialProperty { }
+    public static class PROPERTY_WATER extends CelestialProperty { }
 
     public static PROPERTY_COLD COLD = new PROPERTY_COLD();
     public static PROPERTY_HOT HOT = new PROPERTY_HOT();
     public static PROPERTY_FREEZING FREEZING = new PROPERTY_FREEZING();
     public static PROPERTY_BREATHABLE BREATHABLE = new PROPERTY_BREATHABLE();
+    public static PROPERTY_PATHOGENIC PATHOGENIC = new PROPERTY_PATHOGENIC();
+    public static PROPERTY_WATER WATER = new PROPERTY_WATER();
 
     // Referencing subclass `PROPERTY_FREEZING` from superclass
     // `CelestialProperty` initializer might lead to class loading deadlock.
@@ -50,6 +54,8 @@ public class CelestialProperty {
         registerProperty("hot", PROPERTY_HOT.class);
         registerProperty("freezing", PROPERTY_FREEZING.class);
         registerProperty("breathable", PROPERTY_BREATHABLE.class);
+        registerProperty("pathogenic", PROPERTY_PATHOGENIC.class);
+        registerProperty("water", PROPERTY_WATER.class);
 
     }
 

@@ -1,7 +1,8 @@
-package com.sbnd.world.tmp.core;
+package com.sbnd.world.tmp.core.bodies;
 
 import com.sbnd.world.tmp.SbndGas;
-import com.sbnd.world.tmp.core.enums.EnumCelestialType;
+import com.sbnd.world.tmp.core.CelestialProperty;
+import com.sbnd.world.tmp.core.EnumCelestialType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;

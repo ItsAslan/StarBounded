@@ -1,4 +1,4 @@
-package com.sbnd.world.tmp.core.enums;
+package com.sbnd.world.tmp.core;
 
 public enum EnumCelestialType {
 

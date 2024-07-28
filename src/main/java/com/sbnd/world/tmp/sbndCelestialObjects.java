@@ -1,11 +1,12 @@
 package com.sbnd.world.tmp;
 
 import com.sbnd.config.PlanetConfig;
-import com.sbnd.world.tmp.core.CelestialBody;
-import com.sbnd.world.tmp.core.CelestialProperty;
-import com.sbnd.world.tmp.core.Star;
-import com.sbnd.world.tmp.core.StarSystem;
-import com.sbnd.world.tmp.core.enums.EnumCelestialType;
+import com.sbnd.world.tmp.core.bodies.CelestialBody;
+import com.sbnd.world.tmp.core.bodies.Star;
+import com.sbnd.world.tmp.core.bodies.StarSystem;
+import com.sbnd.world.tmp.core.EnumCelestialType;
+import net.minecraft.world.WorldProvider;
+import net.minecraftforge.common.DimensionManager;
 
 public class sbndCelestialObjects {
 
@@ -43,6 +44,20 @@ public class sbndCelestialObjects {
     // noise generation / structure generation can be altered to fit a planets certain criteria
 
     private static StarSystem solarSystem;
+
+    public static void REGISTER() {
+
+        // This is a sample. Change `WorldProvider` to a custom one
+        dimensionInit(WorldProvider.class , CelestialBody.getBody("Moon").getDimensionId());
+
+    }
+
+    public static void dimensionInit(Class<? extends WorldProvider> c, int id) {
+
+        DimensionManager.registerProviderType(id, c, false);
+        DimensionManager.registerDimension(id, id);
+
+    }
 
     public static void systemInit() {
 

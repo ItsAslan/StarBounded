@@ -1,4 +1,4 @@
-package com.sbnd.world.tmp.core;
+package com.sbnd.world.tmp.core.bodies;
 
 import com.sbnd.world.tmp.SbndGas;
 import lombok.Getter;
