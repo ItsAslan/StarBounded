@@ -1,6 +1,8 @@
 package com.sbnd.world.tmp;
 
+import com.sbnd.config.PlanetConfig;
 import com.sbnd.world.tmp.core.CelestialBody;
+import com.sbnd.world.tmp.core.CelestialProperty;
 import com.sbnd.world.tmp.core.Star;
 import com.sbnd.world.tmp.core.StarSystem;
 import com.sbnd.world.tmp.core.enums.EnumCelestialType;
@@ -60,7 +62,7 @@ public class sbndCelestialObjects {
                                         .setMassKg(3.3e23)
                                         .setRadiusKm(2_440)
                                         .setOrbitRadiusKm(57.9e6)
-                                        .setDimensionId(2),
+                                        .setDimensionId(PlanetConfig.EARTH),
 
                                 new CelestialBody(EnumCelestialType.PLANET)
 
@@ -68,7 +70,7 @@ public class sbndCelestialObjects {
                                         .setMassKg(4.8e24)
                                         .setRadiusKm(6_052)
                                         .setOrbitRadiusKm(108.2e6)
-                                        .setDimensionId(3),
+                                        .setDimensionId(PlanetConfig.VENUS),
 
                                 new CelestialBody(EnumCelestialType.PLANET)
 
@@ -76,14 +78,14 @@ public class sbndCelestialObjects {
                                         .setMassKg(5.9e24)
                                         .setRadiusKm(6_378)
                                         .setOrbitRadiusKm(149.6e6)
-                                        .setDimensionId(0)
+                                        .setDimensionId(PlanetConfig.EARTH)
                                         .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
 
                                                 .setName("Moon")
                                                 .setMassKg(7.3e22)
                                                 .setRadiusKm(1_079)
                                                 .setOrbitRadiusKm(384_400)
-                                                .setDimensionId(4)
+                                                .setDimensionId(PlanetConfig.MOON)
 
                                         ),
 
@@ -93,14 +95,14 @@ public class sbndCelestialObjects {
                                         .setMassKg(6.3e23)
                                         .setRadiusKm(2_106)
                                         .setOrbitRadiusKm(228e6)
-                                        .setDimensionId(5)
+                                        .setDimensionId(PlanetConfig.MARS)
                                         .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
 
                                                         .setName("Phobos")
                                                         .setMassKg(1.06e16)
                                                         .setRadiusKm(11.1)
                                                         .setOrbitRadiusKm(6_000)
-                                                        .setDimensionId(6),
+                                                        .setDimensionId(PlanetConfig.PHOBOS),
 
                                                 new CelestialBody(EnumCelestialType.SATELLITE)
 
@@ -108,7 +110,7 @@ public class sbndCelestialObjects {
                                                         .setMassKg(1.5e15)
                                                         .setRadiusKm(6.2)
                                                         .setOrbitRadiusKm(23_458)
-                                                        .setDimensionId(7)
+                                                        .setDimensionId(PlanetConfig.DEIMOS)
 
                                         ),
 
@@ -118,14 +120,14 @@ public class sbndCelestialObjects {
                                         .setMassKg(1.8e27)
                                         .setRadiusKm(69_911)
                                         .setOrbitRadiusKm(778.5e6)
-                                        .setDimensionId(8)
+                                        .setDimensionId(PlanetConfig.JUPITER)
                                         .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
 
                                                         .setName("Europa")
                                                         .setMassKg(4.8e22)
                                                         .setRadiusKm(1_560)
                                                         .setOrbitRadiusKm(671_000)
-                                                        .setDimensionId(9),
+                                                        .setDimensionId(PlanetConfig.EUROPA),
 
                                                 new CelestialBody(EnumCelestialType.SATELLITE)
 
@@ -133,7 +135,7 @@ public class sbndCelestialObjects {
                                                         .setMassKg(8.9e22)
                                                         .setRadiusKm(1_821)
                                                         .setOrbitRadiusKm(422_000)
-                                                        .setDimensionId(10)
+                                                        .setDimensionId(PlanetConfig.IO)
 
                                         ),
 
@@ -143,14 +145,14 @@ public class sbndCelestialObjects {
                                         .setMassKg(5.6e26)
                                         .setRadiusKm(58.232)
                                         .setOrbitRadiusKm(1432e6)
-                                        .setDimensionId(11)
+                                        .setDimensionId(PlanetConfig.SATURN)
                                         .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
 
                                                         .setName("Titan")
                                                         .setMassKg(1.3e23)
                                                         .setRadiusKm(2_575)
                                                         .setOrbitRadiusKm(1.2e6)
-                                                        .setDimensionId(12)
+                                                        .setDimensionId(PlanetConfig.TITAN)
 
                                         ),
 
@@ -160,7 +162,7 @@ public class sbndCelestialObjects {
                                         .setMassKg(8.7e25)
                                         .setRadiusKm(25_559)
                                         .setOrbitRadiusKm(2867e6)
-                                        .setDimensionId(13),
+                                        .setDimensionId(PlanetConfig.URANUS),
 
                                 new CelestialBody(EnumCelestialType.GAS_GIANT)
 
@@ -168,14 +170,14 @@ public class sbndCelestialObjects {
                                         .setMassKg(1.02e26)
                                         .setRadiusKm(24_622)
                                         .setOrbitRadiusKm(4515e6)
-                                        .setDimensionId(14)
+                                        .setDimensionId(PlanetConfig.NEPTUNE)
                                         .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
 
                                                 .setName("Triton")
                                                 .setMassKg(2.1e22)
                                                 .setRadiusKm(2_706)
                                                 .setOrbitRadiusKm(354_800)
-                                                .setDimensionId(15)
+                                                .setDimensionId(PlanetConfig.TRITON)
 
                                         ),
 
@@ -185,7 +187,7 @@ public class sbndCelestialObjects {
                                         .setMassKg(1.3e22)
                                         .setRadiusKm(1_188)
                                         .setOrbitRadiusKm(5906e6)
-                                        .setDimensionId(16)
+                                        .setDimensionId(PlanetConfig.PLUTO)
 
                                 )
 
