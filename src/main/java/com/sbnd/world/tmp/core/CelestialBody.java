@@ -8,6 +8,7 @@ import lombok.experimental.Accessors;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 @Accessors(chain = true)
@@ -56,14 +57,15 @@ public class CelestialBody {
     @Setter
     private double radiusKm;
 
-    public ArrayList<CelestialBody> satellites = new ArrayList<>();
+    @Getter
+    public Map<String, CelestialBody> nameToSatelliteMap = new HashMap<>();
 
     public CelestialBody addSatellites(CelestialBody... bodies) {
 
         Arrays.asList(bodies).forEach(e -> {
 
             e.setParent(this);
-            satellites.add(e);
+            nameToSatelliteMap.put(e.getName(), e);
 
         });
 
@@ -77,6 +79,9 @@ public class CelestialBody {
     private double orbitRadiusKm;
 
     @Setter
+    private float axialTilt;
+
+    @Setter
     private CelestialBody parent = null;
 
     @Setter
@@ -85,18 +90,13 @@ public class CelestialBody {
     // Atmosphere
 
     @Setter
-    private int temperatureC;
-
-    @Setter
     @Getter
     private SbndGas primaryAtmosphereGas;
 
     @Setter
-    private int radiationRad;
-
-    @Setter
     private int pressurePsi;
 
+    @Getter
     public ArrayList<CelestialProperty> propertyList = new ArrayList<>();
 
     public CelestialBody addProperties(CelestialProperty... properties) {
