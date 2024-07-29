@@ -39,6 +39,14 @@ public class ModItems {
     public static Item wireTin;
     public static Item wireLead;
 
+    // Sheet
+    public static Item sheetCopper;
+    public static Item sheetAluminum;
+    public static Item sheetTitanium;
+    public static Item sheetTungsten;
+    public static Item sheetTin;
+    public static Item sheetLead;
+
     public static void REGISTER() {
 
         initItems();
@@ -72,6 +80,14 @@ public class ModItems {
         wireTungsten = new ItemGeneric(modItems).setUnlocalizedName("wireTungsten").setCreativeTab(CreativeTabs.tabMaterials);
         wireTin = new ItemGeneric(modItems).setUnlocalizedName("wireTin").setCreativeTab(CreativeTabs.tabMaterials);
         wireLead = new ItemGeneric(modItems).setUnlocalizedName("wireLead").setCreativeTab(CreativeTabs.tabMaterials);
+
+        // Sheet
+        sheetCopper = new ItemGeneric(modItems).setUnlocalizedName("sheetCopper").setCreativeTab(CreativeTabs.tabMaterials);
+        sheetAluminum = new ItemGeneric(modItems).setUnlocalizedName("sheetAluminum").setCreativeTab(CreativeTabs.tabMaterials);
+        sheetTitanium = new ItemGeneric(modItems).setUnlocalizedName("sheetTitanium").setCreativeTab(CreativeTabs.tabMaterials);
+        sheetTungsten = new ItemGeneric(modItems).setUnlocalizedName("sheetTungsten").setCreativeTab(CreativeTabs.tabMaterials);
+        sheetTin = new ItemGeneric(modItems).setUnlocalizedName("sheetTin").setCreativeTab(CreativeTabs.tabMaterials);
+        sheetLead = new ItemGeneric(modItems).setUnlocalizedName("sheetLead").setCreativeTab(CreativeTabs.tabMaterials);
 
     }
 

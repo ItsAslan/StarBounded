@@ -1,0 +1,45 @@
+#Items
+
+item.ingotCopper.name=سبيكة نحاس
+item.ingotAluminum.name=سبيكة ألومنيوم
+item.ingotTitanium.name=سبيكة تيتانيوم
+item.ingotTungsten.name=سبيكة تنغستن
+item.ingotTin.name=سبيكة قصدير
+item.ingotLead.name=سبيكة رصاص
+
+item.plateCopper.name=لوح نحاس
+item.plateAluminum.name=لوح ألومنيوم
+item.plateTitanium.name=لوح تيتانيوم
+item.plateTungsten.name=لوح تنغستن
+item.plateTin.name=لوح قصدير
+item.plateLead.name=لوح رصاص
+
+item.wireCopper.name=سلك نحاس
+item.wireAluminum.name=سلك ألومنيوم
+item.wireTitanium.name=سلك تيتانيوم
+item.wireTungsten.name=سلك تنغستن
+item.wireTin.name=سلك قصدير
+item.wireLead.name=سلك رصاص
+
+item.sheetCopper.name=صفحة نحاس
+item.sheetAluminum.name=صفحة ألومنيوم
+item.sheetTitanium.name=صفحة تيتانيوم
+item.sheetTungsten.name=صفحة تنغستن
+item.sheetTin.name=صفحة قصدير
+item.sheetLead.name=صفحة رصاص
+
+#Blocks
+
+tile.oreCopper.name=خام نحاس
+tile.oreAluminum.name=خام ألومنيوم
+tile.oreTitanium.name=خام تيتانيوم
+tile.oreTungsten.name=خام تنغستن
+tile.oreTin.name=خام قصدير
+tile.oreSulfur.name=خام كبريت
+tile.oreZirconium.name=خام زركونيوم
+tile.oreNiobium.name=خام نيوبيوم
+tile.oreTantalum.name=خام تانتالوم
+
+tile.blockMoonTurf.name=تربة القمر
+tile.blockMoonTurfMedium=تربة القمر الداكنة
+tile.blockMoonTurfDark=تربة القمر الأكثر داكنة

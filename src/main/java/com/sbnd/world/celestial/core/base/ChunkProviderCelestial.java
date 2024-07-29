@@ -60,9 +60,9 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
             for(int z = 0; z < CHUNK_SIZE_Z; z++) {
 
-                final double gen1 = noiseGen1.getNoise(x + chunkX << 4, z + chunkZ << 4) * 8;
-                final double gen2 = noiseGen2.getNoise(x + chunkX << 4, z + chunkZ << 4) * 24;
-                final double gen3 = (noiseGen3.getNoise(x + chunkX << 4, z + chunkZ << 4) - 0.1) * 4;
+                final double gen1 = noiseGen1.getNoise(x + chunkX * 16, z + chunkZ * 16) * 8;
+                final double gen2 = noiseGen2.getNoise(x + chunkX * 16, z + chunkZ * 16) * 24;
+                final double gen3 = (noiseGen3.getNoise(x + chunkX * 16, z + chunkZ * 16) - 0.1) * 4;
 
                 double yDev;
 
@@ -150,7 +150,7 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
                     for (int z = 0; z < CHUNK_SIZE_Z; z++) {
 
-                        if (Math.abs(randFromPoint((cx << 4) + x, ((cz << 4) + z) * 1000)) < noiseGen4.getNoise(x * CHUNK_SIZE_X + x, cz * CHUNK_SIZE_Z + z) / CRATER_PROBABILITY) {
+                        if (Math.abs(randFromPoint((cx * 16) + x, ((cz * 16) + z) * 1000)) < noiseGen4.getNoise(x * CHUNK_SIZE_X + x, cz * CHUNK_SIZE_Z + z) / CRATER_PROBABILITY) {
 
                             Random random = new Random(cx * 16L + x + (cz * 16L + z) * 5000);
 
@@ -158,7 +158,7 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
                             int size = random.nextInt(craterSize.MAX - craterSize.MIN) + craterSize.MIN;
 
-                            makeCrater((cx << 4) + x, (cz << 4) + z, chunkX << 4, chunkZ << 4, size, blocks, meta);
+                            makeCrater((cx * 16) + x, (cz * 16) + z, chunkX * 16, chunkZ * 16, size, blocks, meta);
 
                         }
 
@@ -226,12 +226,13 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
     }
 
-    private double randFromPoint(int x, int z)
-    {
+    private double randFromPoint(int x, int z) {
+
         int n;
         n = x + z * 57;
         n = n << 13 ^ n;
         return 1.0 - (n * (n * n * 15731 + 789221) + 1376312589 & 0x7fffffff) / 1073741824.0;
+
     }
 
     @Getter

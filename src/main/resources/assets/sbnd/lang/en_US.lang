@@ -1,0 +1,45 @@
+#Items
+
+item.ingotCopper.name=Copper Ingot
+item.ingotAluminum.name=Aluminum Ingot
+item.ingotTitanium.name=Titanium Ingot
+item.ingotTungsten.name=Tungsten Ingot
+item.ingotTin.name=Tin Ingot
+item.ingotLead.name=Lead Ingot
+
+item.plateCopper.name=Copper Plate
+item.plateAluminum.name=Aluminum Plate
+item.plateTitanium.name=Titanium Plate
+item.plateTungsten.name=Tungsten Plate
+item.plateTin.name=Tin Plate
+item.plateLead.name=Lead Plate
+
+item.wireCopper.name=Copper Wire
+item.wireAluminum.name=Aluminum Wire
+item.wireTitanium.name=Titanium Wire
+item.wireTungsten.name=Tungsten Wire
+item.wireTin.name=Tin Wire
+item.wireLead.name=Lead Wire
+
+item.sheetCopper.name=Copper Sheet
+item.sheetAluminum.name=Aluminum Sheet
+item.sheetTitanium.name=Titanium Sheet
+item.sheetTungsten.name=Tungsten Sheet
+item.sheetTin.name=Tin Sheet
+item.sheetLead.name=Lead Sheet
+
+#Blocks
+
+tile.oreCopper.name=Copper Ore
+tile.oreAluminum.name=Aluminum Ore
+tile.oreTitanium.name=Titanium Ore
+tile.oreTungsten.name=Tungsten Ore
+tile.oreTin.name=Tin Ore
+tile.oreSulfur.name=Sulfur Ore
+tile.oreZirconium.name=Zirconium Ore
+tile.oreNiobium.name=Niobium Ore
+tile.oreTantalum.name=Tantalum Ore
+
+tile.blockMoonTurf.name=Moon Turf
+tile.blockMoonTurfMedium=Dark Moon Turf
+tile.blockMoonTurfDark=Darker Moon Turf
