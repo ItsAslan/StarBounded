@@ -7,6 +7,7 @@ public class SbndConfig {
 
     //CATEGORY LIST
     public static final String CATEGORY_PLANET_IDS = "01_planet_ids";
+    public static final String CATEGORY_ORE_SPAWN = "02_ore_spawn";
 
 
 

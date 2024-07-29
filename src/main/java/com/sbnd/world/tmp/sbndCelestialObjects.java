@@ -47,21 +47,21 @@ public class sbndCelestialObjects {
 
     public static void REGISTER() {
 
-        systemInit();
+        initSystems();
 
         // This is a sample. Change `WorldProvider` to a custom one
-        dimensionInit(WorldProvider.class , CelestialBody.getBody("Moon").getDimensionId());
+        initDimensions(WorldProvider.class , CelestialBody.getBody("Moon").getDimensionId());
 
     }
 
-    public static void dimensionInit(Class<? extends WorldProvider> c, int id) {
+    public static void initDimensions(Class<? extends WorldProvider> c, int id) {
 
         DimensionManager.registerProviderType(id, c, false);
         DimensionManager.registerDimension(id, id);
 
     }
 
-    public static void systemInit() {
+    public static void initSystems() {
 
         solarSystem = new StarSystem()
 

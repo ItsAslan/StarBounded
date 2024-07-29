@@ -1,6 +1,7 @@
 package com.sbnd.main;
 
 import com.sbnd.commands.CommandTeleportDimension;
+import com.sbnd.config.OreConfig;
 import com.sbnd.config.PlanetConfig;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -30,6 +31,7 @@ public class Starbounded {
         config.load();
 
         PlanetConfig.loadFromConfig(config);
+        OreConfig.loadFromConfig(config);
 
         if(config.hasChanged()) {
 
