@@ -12,7 +12,6 @@ public class SbndBiomes {
     public static AtomicInteger currentId = new AtomicInteger(50);
     public static Set<SbndBiomeBase> biomes = new HashSet<>();
 
-
     //---------------BIOMES---------------//
 
     public static SbndBiomeBase test1;

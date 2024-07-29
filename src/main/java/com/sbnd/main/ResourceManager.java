@@ -13,7 +13,4 @@ public class ResourceManager {
     //Stars
     public static ResourceLocation SOL = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/solTexture.png");
 
-    //Particles
-    public static ResourceLocation PARTICLE_COLD = new ResourceLocation(ModVars.MOD_ID, "textures/particle/particleBlue.png");
-
 }

@@ -10,7 +10,6 @@ public class SbndConfig {
     public static final String CATEGORY_ORE_SPAWN = "02_ore_spawn";
 
 
-
     public static String createConfigString(Configuration config, String category, String name, String comment, String value) {
 
         Property prop = config.get(category, name, value);

@@ -1,21 +1,15 @@
 package com.sbnd.main;
 
-
-import com.sbnd.content.item.ItemPrefix;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.Set;
-
 // This is so cool
 import static com.sbnd.content.item.ModItems.*;
 import static com.sbnd.content.block.ModBlocks.*;
 import static com.sbnd.content.item.ItemPrefix.*;
-
 
 public class OreDictionaryManager {
 

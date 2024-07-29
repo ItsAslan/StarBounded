@@ -4,6 +4,7 @@ import api.noise.NoiseModule;
 import api.noise.perlin.Gradient;
 import com.sbnd.content.block.ModBlocks;
 import com.sbnd.world.celestial.core.enums.EnumCrater;
+import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -12,7 +13,6 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderGenerate;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.Random;
 
 public class ChunkProviderCelestial extends ChunkProviderGenerate {
@@ -60,9 +60,9 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
             for(int z = 0; z < CHUNK_SIZE_Z; z++) {
 
-                final double gen1 = noiseGen1.getNoise(x + chunkX * 16, z + chunkZ * 16) * 8;
-                final double gen2 = noiseGen2.getNoise(x + chunkX * 16, z + chunkZ * 16) * 24;
-                final double gen3 = (noiseGen3.getNoise(x + chunkX * 16, z + chunkZ * 16) - 0.1) * 4;
+                final double gen1 = noiseGen1.getNoise(x + chunkX << 4, z + chunkZ << 4) * 8;
+                final double gen2 = noiseGen2.getNoise(x + chunkX << 4, z + chunkZ << 4) * 24;
+                final double gen3 = (noiseGen3.getNoise(x + chunkX << 4, z + chunkZ << 4) - 0.1) * 4;
 
                 double yDev;
 
@@ -118,16 +118,15 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
         rand.setSeed(chunkX * 341873128712L + chunkY * 132897987541L);
 
-        final Block[] ids = new Block[16 * 16 * 256];
-        final byte[] meta = new byte[16 * 16 * 256];
+        BlockMetaBuffer buffer = new BlockMetaBuffer();
 
-        Arrays.fill(ids, Blocks.air);
+        Arrays.fill(buffer.getIds(), Blocks.air);
 
-        generateTerrain(chunkX, chunkY, ids, meta);
+        generateTerrain(chunkX, chunkY, buffer.getIds(), buffer.getMeta());
 
-        generateCrater(chunkX, chunkY, ids, meta);
+        generateCrater(chunkX, chunkY, buffer.getIds(), buffer.getMeta());
 
-        Chunk chunk = new Chunk(world, ids, meta, chunkX, chunkY);
+        Chunk chunk = new Chunk(world, buffer.getIds(), buffer.getMeta(), chunkX, chunkY);
         chunk.generateSkylightMap();
 
         return chunk;
@@ -151,7 +150,7 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
                     for (int z = 0; z < CHUNK_SIZE_Z; z++) {
 
-                        if (Math.abs(randFromPoint(cx * 16 + x, (cz * 16 + z) * 1000)) < noiseGen4.getNoise(x * CHUNK_SIZE_X + x, cz * CHUNK_SIZE_Z + z) / CRATER_PROBABILITY) {
+                        if (Math.abs(randFromPoint((cx << 4) + x, ((cz << 4) + z) * 1000)) < noiseGen4.getNoise(x * CHUNK_SIZE_X + x, cz * CHUNK_SIZE_Z + z) / CRATER_PROBABILITY) {
 
                             Random random = new Random(cx * 16L + x + (cz * 16L + z) * 5000);
 
@@ -159,7 +158,7 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
                             int size = random.nextInt(craterSize.MAX - craterSize.MIN) + craterSize.MIN;
 
-                            makeCrater(cx * 16 + x, cz * 16 + z, chunkX * 16, chunkZ * 16, size, blocks, meta);
+                            makeCrater((cx << 4) + x, (cz << 4) + z, chunkX << 4, chunkZ << 4, size, blocks, meta);
 
                         }
 
@@ -233,6 +232,14 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
         n = x + z * 57;
         n = n << 13 ^ n;
         return 1.0 - (n * (n * n * 15731 + 789221) + 1376312589 & 0x7fffffff) / 1073741824.0;
+    }
+
+    @Getter
+    private static class BlockMetaBuffer {
+
+        private final Block[] ids = new Block[16 * 16 * 256];
+        private final byte[] meta = new byte[16 * 16 * 256];
+
     }
 
 }

@@ -12,6 +12,14 @@ import java.util.Arrays;
 @Accessors(chain = true)
 public class StarSystem {
 
+    // Contains:
+    // Star
+    // Icon
+    // Size
+    // Location
+    // Travel Distance
+    // Primary Gas
+
     @Setter
     private double sizeAu;
 
@@ -38,13 +46,5 @@ public class StarSystem {
         return this;
 
     }
-
-    // Contains:
-    // Star
-    // Icon
-    // Size
-    // Location
-    // Travel Distance
-    // Primary Gas
 
 }

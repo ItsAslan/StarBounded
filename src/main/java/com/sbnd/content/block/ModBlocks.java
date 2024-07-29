@@ -38,9 +38,6 @@ public class ModBlocks {
     public static Block blockMoonTurfMedium;
     public static Block blockMoonTurfDark;
 
-    // Test
-    public static Block test;
-
     public static void REGISTER() {
 
         initBlocks();

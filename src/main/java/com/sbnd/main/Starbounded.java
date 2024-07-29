@@ -21,13 +21,11 @@ public class Starbounded {
     @SidedProxy(clientSide = "com.sbnd.proxy.ClientProxy", serverSide = "com.sbnd.proxy.ServerProxy")
     public static CommonProxy PROXY;
 
-    private Configuration config;
-
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent $e) {
         PROXY.preInit($e);
 
-        config = new Configuration($e.getSuggestedConfigurationFile());
+        Configuration config = new Configuration($e.getSuggestedConfigurationFile());
         config.load();
 
         PlanetConfig.loadFromConfig(config);

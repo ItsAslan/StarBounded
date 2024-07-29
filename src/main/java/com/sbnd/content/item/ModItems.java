@@ -3,7 +3,6 @@ package com.sbnd.content.item;
 import com.sbnd.content.item.core.definitions.basic.ItemGeneric;
 import com.sbnd.main.ModVars;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
