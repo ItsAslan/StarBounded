@@ -42,6 +42,9 @@ public class Starbounded {
     @Mod.EventHandler
     public void init(FMLInitializationEvent $e) {
         PROXY.init($e);
+
+        OreDictionaryManager.REGISTER();
+
     }
 
     @Mod.EventHandler

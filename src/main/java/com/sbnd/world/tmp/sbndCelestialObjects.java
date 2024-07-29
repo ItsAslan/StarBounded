@@ -47,6 +47,8 @@ public class sbndCelestialObjects {
 
     public static void REGISTER() {
 
+        systemInit();
+
         // This is a sample. Change `WorldProvider` to a custom one
         dimensionInit(WorldProvider.class , CelestialBody.getBody("Moon").getDimensionId());
 
