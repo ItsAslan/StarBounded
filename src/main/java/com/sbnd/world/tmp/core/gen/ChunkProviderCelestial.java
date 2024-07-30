@@ -1,5 +1,6 @@
 package com.sbnd.world.tmp.core.gen;
 
+import com.sbnd.world.celestial.core.enums.EnumCrater;
 import com.sbnd.world.tmp.core.gen.util.BlockLayer;
 import javafx.util.Pair;
 import lombok.Getter;
@@ -37,6 +38,11 @@ public class ChunkProviderCelestial implements IChunkProvider {
     @Getter
     protected ArrayList<BlockLayer> blockLayers;
 
+    // Specifics
+    protected final int CRATER_PROBABILITY = 700;
+    protected boolean spawnCraters = false;
+
+
     // Noise
     protected NoiseGeneratorOctaves heightOrder;
     protected NoiseGeneratorOctaves noiseGen1;
@@ -54,6 +60,11 @@ public class ChunkProviderCelestial implements IChunkProvider {
     double[] genBuffer1;
     double[] genBuffer2;
     double[] genBuffer3;
+
+    //Constants
+    private static final int CHUNK_SIZE_X = 16;
+    private static final int CHUNK_SIZE_Y = 128;
+    private static final int CHUNK_SIZE_Z = 16;
 
     public ChunkProviderCelestial(World world, long seed, boolean bool) {
 
@@ -355,6 +366,8 @@ public class ChunkProviderCelestial implements IChunkProvider {
         biomesForGeneration = world.getWorldChunkManager().loadBlockGeneratorData(biomesForGeneration, x * 16, z * 16, 16, 16);
         replaceBlocksForBiome(x, z, buffer.getBlocks(), buffer.getMetas(), biomesForGeneration);
 
+        generateCrater(x, z, buffer.getBlocks(), buffer.getMetas());
+
         Chunk chunk = new Chunk(world, buffer.getBlocks(), buffer.getMetas(), x, z);
 
         byte[] blockBuffer = chunk.getBiomeArray();
@@ -390,6 +403,88 @@ public class ChunkProviderCelestial implements IChunkProvider {
     public void recreateStructures(int x, int y) {
 
         ;
+
+    }
+
+    //---------------------------------------------------//
+
+    private void generateCrater(int chunkX, int chunkZ, Block[] blocks, byte[] meta) {
+
+        for (int cx = chunkX - 2; cx <= chunkX + 2; cx++) {
+
+            for (int cz = chunkZ - 2; cz <= chunkZ + 2; cz++) {
+
+                for (int x = 0; x < CHUNK_SIZE_X; x++) {
+
+                    for (int z = 0; z < CHUNK_SIZE_Z; z++) {
+
+                        if (Math.abs(randFromPoint((cx * 16) + x, ((cz * 16) + z) * 1000)) < perlinGen1.func_151601_a(x * CHUNK_SIZE_X + x, cz * CHUNK_SIZE_Z + z) / CRATER_PROBABILITY) {
+
+                            Random random = new Random(cx * 16L + x + (cz * 16L + z) * 5000);
+
+                            EnumCrater craterSize = EnumCrater.sizeArray[random.nextInt(EnumCrater.sizeArray.length)];
+
+                            int size = random.nextInt(craterSize.MAX - craterSize.MIN) + craterSize.MIN;
+
+                            makeCrater((cx * 16) + x, (cz * 16) + z, chunkX * 16, chunkZ * 16, size, blocks, meta);
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    public void makeCrater(int craterX, int craterZ, int chunkX, int chunkZ, int size, Block[] blocks, byte[] meta) {
+
+        for (int x = 0; x < CHUNK_SIZE_X; x++) {
+
+            for (int z = 0; z < CHUNK_SIZE_Z; z++) {
+
+                double xDev = craterX - (chunkX + x);
+                double zDev = craterZ - (chunkZ + z);
+                double distanceSquared = xDev * xDev + zDev * zDev;
+
+                // Check if the block is within the crater radius
+                if (distanceSquared < size * size) {
+
+                    xDev /= size;
+                    zDev /= size;
+                    double sqrtY = xDev * xDev + zDev * zDev;
+                    double yDev = sqrtY * sqrtY * 6;
+                    yDev = 5 - yDev;
+
+                    yDev *= 2; // Depth
+
+                    int i = 0;
+
+                    for (int y = 127; y > 0; y--) {
+
+                        if (Blocks.air != blocks[getIndex(x, y, z)] && i <= yDev) {
+
+                            blocks[getIndex(x, y, z)] = Blocks.air;
+                            meta[getIndex(x, y, z)] = 0;
+
+                            i++;
+
+                        }
+
+                        if (i > yDev) {
+                            break;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
 
     }
 
@@ -447,5 +542,21 @@ public class ChunkProviderCelestial implements IChunkProvider {
         private final byte[] metas = new byte[16 * 16 * 256];
 
     }
+
+    private double randFromPoint(int x, int z) {
+
+        int n;
+        n = x + z * 57;
+        n = n << 13 ^ n;
+        return 1.0 - (n * (n * n * 15731 + 789221) + 1376312589 & 0x7fffffff) / 1073741824.0;
+
+    }
+
+    private int getIndex(int x, int y, int z) {
+
+        return (x * 16 + z) * 256 + y;
+
+    }
+
 
 }
