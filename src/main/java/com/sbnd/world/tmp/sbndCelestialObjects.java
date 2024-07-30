@@ -8,6 +8,9 @@ import com.sbnd.world.tmp.core.EnumCelestialType;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.common.DimensionManager;
 
+import static com.sbnd.world.tmp.core.CelestialProperty.*;
+
+
 public class sbndCelestialObjects {
 
     // In system object you add star -> add planets -> add planet satellites in tree graph fashion
@@ -79,6 +82,7 @@ public class sbndCelestialObjects {
                                         .setMassKg(3.3e23)
                                         .setRadiusKm(2_440)
                                         .setOrbitRadiusKm(57.9e6)
+                                        .addProperties(HOT)
                                         .setDimensionId(PlanetConfig.EARTH),
 
                                 new CelestialBody(EnumCelestialType.PLANET)
@@ -87,6 +91,7 @@ public class sbndCelestialObjects {
                                         .setMassKg(4.8e24)
                                         .setRadiusKm(6_052)
                                         .setOrbitRadiusKm(108.2e6)
+                                        .addProperties(HOT, GREENHOUSE)
                                         .setDimensionId(PlanetConfig.VENUS),
 
                                 new CelestialBody(EnumCelestialType.PLANET)
@@ -95,6 +100,7 @@ public class sbndCelestialObjects {
                                         .setMassKg(5.9e24)
                                         .setRadiusKm(6_378)
                                         .setOrbitRadiusKm(149.6e6)
+                                        .addProperties(BREATHABLE)
                                         .setDimensionId(PlanetConfig.EARTH)
                                         .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
 
@@ -204,6 +210,7 @@ public class sbndCelestialObjects {
                                         .setMassKg(1.3e22)
                                         .setRadiusKm(1_188)
                                         .setOrbitRadiusKm(5906e6)
+                                        .addProperties(FREEZING)
                                         .setDimensionId(PlanetConfig.PLUTO)
 
                                 )

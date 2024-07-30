@@ -4,7 +4,10 @@ import api.noise.NoiseModule;
 import api.noise.perlin.Gradient;
 import com.sbnd.content.block.ModBlocks;
 import com.sbnd.world.celestial.core.enums.EnumCrater;
+import com.sbnd.world.tmp.core.gen.util.Interval;
+import com.sbnd.world.tmp.core.gen.util.Pair;
 import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -13,26 +16,38 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderGenerate;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
+    // Basics
     Random rand;
 
-    private final NoiseModule noiseGen1;
-    private final NoiseModule noiseGen2;
-    private final NoiseModule noiseGen3;
-    private final NoiseModule noiseGen4;
+    private final World world;
 
+    // Change these
+    protected final NoiseModule noiseGen1;
+    protected final NoiseModule noiseGen2;
+    protected final NoiseModule noiseGen3;
+    protected final NoiseModule noiseGen4;
+
+    @Getter
+    @Setter
+    protected static int Y_START = 60;
+    @Getter @Setter
+    protected static int CRATER_PROBABILITY = 700;
+    @Getter @Setter
+    protected boolean spawnCraters = true;
+
+    // Blocks
+    protected Set<Pair<Block, Interval>> blockLayers;
+
+    // Constants
     private static final int CHUNK_SIZE_X = 16;
     private static final int CHUNK_SIZE_Y = 128;
     private static final int CHUNK_SIZE_Z = 16;
-
-    private static final int Y_START = 60;
-
-    private static final int CRATER_PROBABILITY = 700;
-
-    private final World world;
 
     public ChunkProviderCelestial(World world, long seed, boolean keepLoaded) {
 
@@ -46,6 +61,12 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
         noiseGen4 = new Gradient(rand.nextLong(), 1, 0.25f);
 
         this.world = world;
+
+        blockLayers = new HashSet<>();
+
+        blockLayers.add(createBlockLayer(ModBlocks.blockMoonTurf, 58, 100));
+        blockLayers.add(createBlockLayer(ModBlocks.blockMoonTurfMedium, 50, 58));
+        blockLayers.add(createBlockLayer(ModBlocks.blockMoonTurfDark, 0, 50));
 
     }
 
@@ -86,20 +107,14 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
                     if (y < Y_START + yDev) {
 
-                        if(y >= 58) {
+                        for(Pair<Block, Interval> pair : blockLayers) {
 
-                            ids[this.getIndex(x, y, z)] = ModBlocks.blockMoonTurf;
-                            meta[this.getIndex(x, y, z)] = 1;
+                            if(pair.getValue().contains(y)) {
 
-                        } else if (y >= 50) {
+                                ids[this.getIndex(x, y, z)] = pair.getKey();
+                                meta[this.getIndex(x, y, z)] = 1;
 
-                            ids[this.getIndex(x, y, z)] = ModBlocks.blockMoonTurfMedium;
-                            meta[this.getIndex(x, y, z)] = 1;
-
-                        } else {
-
-                            ids[this.getIndex(x, y, z)] = ModBlocks.blockMoonTurfDark;
-                            meta[this.getIndex(x, y, z)] = 1;
+                            }
 
                         }
 
@@ -120,13 +135,13 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
         BlockMetaBuffer buffer = new BlockMetaBuffer();
 
-        Arrays.fill(buffer.getIds(), Blocks.air);
+        Arrays.fill(buffer.getBlocks(), Blocks.air);
 
-        generateTerrain(chunkX, chunkY, buffer.getIds(), buffer.getMeta());
+        generateTerrain(chunkX, chunkY, buffer.getBlocks(), buffer.getMetas());
 
-        generateCrater(chunkX, chunkY, buffer.getIds(), buffer.getMeta());
+        if ( spawnCraters ) { generateCrater(chunkX, chunkY, buffer.getBlocks(), buffer.getMetas()); }
 
-        Chunk chunk = new Chunk(world, buffer.getIds(), buffer.getMeta(), chunkX, chunkY);
+        Chunk chunk = new Chunk(world, buffer.getBlocks(), buffer.getMetas(), chunkX, chunkY);
         chunk.generateSkylightMap();
 
         return chunk;
@@ -235,11 +250,17 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
     }
 
+    protected Pair<Block, Interval> createBlockLayer(Block block, int min, int max) {
+
+        return new Pair<>(block, new Interval(min, max));
+
+    }
+
     @Getter
     private static class BlockMetaBuffer {
 
-        private final Block[] ids = new Block[16 * 16 * 256];
-        private final byte[] meta = new byte[16 * 16 * 256];
+        private final Block[] blocks = new Block[16 * 16 * 256];
+        private final byte[] metas = new byte[16 * 16 * 256];
 
     }
 

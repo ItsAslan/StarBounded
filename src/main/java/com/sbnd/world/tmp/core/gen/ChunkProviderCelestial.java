@@ -1,354 +1,127 @@
 package com.sbnd.world.tmp.core.gen;
 
+import api.noise.NoiseModule;
+import api.noise.perlin.Gradient;
+import com.sbnd.content.block.ModBlocks;
 import com.sbnd.world.celestial.core.enums.EnumCrater;
-import com.sbnd.world.tmp.core.gen.util.BlockLayer;
-import javafx.util.Pair;
+import com.sbnd.world.tmp.core.gen.util.Interval;
+import com.sbnd.world.tmp.core.gen.util.Pair;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.block.Block;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.IProgressUpdate;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.NoiseGenerator;
-import net.minecraft.world.gen.NoiseGeneratorOctaves;
-import net.minecraft.world.gen.NoiseGeneratorPerlin;
-import net.minecraftforge.event.terraingen.TerrainGen;
+import net.minecraft.world.gen.ChunkProviderGenerate;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
-public class ChunkProviderCelestial implements IChunkProvider {
+public class ChunkProviderCelestial extends ChunkProviderGenerate {
+
 
     // Basics
-    protected World world;
-    protected Random random;
+    Random rand;
 
-    // Blocks
-    @Setter @Getter
-    protected Block seaLayer;
-    @Setter @Getter
-    protected int seaLevel;
-    @Getter
-    protected ArrayList<BlockLayer> blockLayers;
+    private final World world;
 
-    // Specifics
-    protected final int CRATER_PROBABILITY = 700;
+    // Change these
+    protected final NoiseModule noiseGen1;
+    protected final NoiseModule noiseGen2;
+    protected final NoiseModule noiseGen3;
+    protected final NoiseModule noiseGen4;
+
+    @Getter @Setter
+    protected static int Y_START = 60;
+    @Getter @Setter
+    protected static int CRATER_PROBABILITY = 700;
+    @Getter @Setter
     protected boolean spawnCraters = false;
 
+    // Blocks
+    protected Set<Pair<Block, Interval>> blockLayers;
 
-    // Noise
-    protected NoiseGeneratorOctaves heightOrder;
-    protected NoiseGeneratorOctaves noiseGen1;
-    protected NoiseGeneratorOctaves noiseGen2;
-    protected NoiseGeneratorOctaves noiseGen3;
-    protected NoiseGeneratorPerlin perlinGen1;
-
-    private double[] stoneNoise = new double[256];
-
-    protected BiomeGenBase[] biomesForGeneration;
-    private final float[] parabolicField;
-    private final double[] terrainBuffer;
-
-    double[] orderBuffer;
-    double[] genBuffer1;
-    double[] genBuffer2;
-    double[] genBuffer3;
-
-    //Constants
+    // Constants
     private static final int CHUNK_SIZE_X = 16;
     private static final int CHUNK_SIZE_Y = 128;
     private static final int CHUNK_SIZE_Z = 16;
 
-    public ChunkProviderCelestial(World world, long seed, boolean bool) {
+    public ChunkProviderCelestial(World world, long seed, boolean keepLoaded) {
 
-        random = new Random(seed);
+        super(world, seed, keepLoaded);
 
-        this.heightOrder = new NoiseGeneratorOctaves(random, 16);
-        this.noiseGen1 = new NoiseGeneratorOctaves(random, 16);
-        this.noiseGen2 = new NoiseGeneratorOctaves(random, 16);
-        this.noiseGen3 = new NoiseGeneratorOctaves(random, 8);
-        this.perlinGen1 = new NoiseGeneratorPerlin(random, 4);
+        rand = new Random(seed);
+
+        noiseGen1 = new Gradient(rand.nextLong(), 4, 0.25f);
+        noiseGen2 = new Gradient(rand.nextLong(), 4, 0.25f);
+        noiseGen3 = new Gradient(rand.nextLong(), 1, 0.25f);
+        noiseGen4 = new Gradient(rand.nextLong(), 1, 0.25f);
 
         this.world = world;
 
-        this.parabolicField = new float[25];
-        terrainBuffer = new double[825];
+        blockLayers = new HashSet<>();
 
-        for (int j = -2; j <= 2; ++j) {
-
-            for (int k = -2; k <= 2; ++k) {
-
-                float f = 10.0F / MathHelper.sqrt_float((float)(j * j + k * k) + 0.2F);
-                this.parabolicField[j + 2 + (k + 2) * 5] = f;
-
-            }
-
-        }
-
-        blockLayers = new ArrayList<>();
-        seaLayer = Blocks.water;
-        seaLevel = 63;
-
-        NoiseGenerator[] noiseGens = {noiseGen1, noiseGen2, noiseGen3, perlinGen1 };
-        noiseGens = TerrainGen.getModdedNoiseGenerators(world, random, noiseGens);
-
-        this.noiseGen1 = (NoiseGeneratorOctaves)noiseGens[0];
-        this.noiseGen2 = (NoiseGeneratorOctaves)noiseGens[1];
-        this.noiseGen3 = (NoiseGeneratorOctaves)noiseGens[2];
-
-        this.perlinGen1 = (NoiseGeneratorPerlin)noiseGens[3];
+        blockLayers.add(createBlockLayer(ModBlocks.blockMoonTurf, 58, 100));
+        blockLayers.add(createBlockLayer(ModBlocks.blockMoonTurfMedium, 50, 58));
+        blockLayers.add(createBlockLayer(ModBlocks.blockMoonTurfDark, 0, 50));
 
     }
 
-    //---------------------------------------------------//
+    public void generateTerrain(int chunkX, int chunkZ, Block[] ids, byte[] meta) {
 
-    public void genBlocks(int x, int z, Block[] blocks) {
+        noiseGen1.setFrequency(0.0125F);
+        noiseGen2.setFrequency(0.015F);
+        noiseGen3.setFrequency(0.01F);
+        noiseGen4.setFrequency(0.02F);
 
-        this.biomesForGeneration = world.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
-        genNoiseField(x * 4, 0, z * 4);
+        for(int x = 0; x < CHUNK_SIZE_X; x++) {
 
-        for (int k = 0; k < 4; ++k) {
+            for(int z = 0; z < CHUNK_SIZE_Z; z++) {
 
-            int l = k * 5;
-            int i1 = (k + 1) * 5;
+                final double gen1 = noiseGen1.getNoise(x + chunkX * 16, z + chunkZ * 16) * 8;
+                final double gen2 = noiseGen2.getNoise(x + chunkX * 16, z + chunkZ * 16) * 24;
+                final double gen3 = (noiseGen3.getNoise(x + chunkX * 16, z + chunkZ * 16) - 0.1) * 4;
 
-            for (int j1 = 0; j1 < 4; ++j1) {
+                double yDev;
 
-                int k1 = (l + j1) * 33;
-                int l1 = (l + j1 + 1) * 33;
-                int i2 = (i1 + j1) * 33;
-                int j2 = (i1 + j1 + 1) * 33;
+                if (gen3 < 0.0D) {
 
-                for (int k2 = 0; k2 < 32; ++k2) {
-
-                    double d0 = 0.125D;
-                    double d1 = terrainBuffer[k1 + k2];
-                    double d2 = terrainBuffer[l1 + k2];
-                    double d3 = terrainBuffer[i2 + k2];
-                    double d4 = terrainBuffer[j2 + k2];
-                    double d5 = (terrainBuffer[k1 + k2 + 1] - d1) * d0;
-                    double d6 = (terrainBuffer[l1 + k2 + 1] - d2) * d0;
-                    double d7 = (terrainBuffer[i2 + k2 + 1] - d3) * d0;
-                    double d8 = (terrainBuffer[j2 + k2 + 1] - d4) * d0;
-
-                    for (int l2 = 0; l2 < 8; ++l2) {
-
-                        double d9 = 0.25D;
-                        double d10 = d1;
-                        double d11 = d2;
-                        double d12 = (d3 - d1) * d9;
-                        double d13 = (d4 - d2) * d9;
-
-                        for (int i3 = 0; i3 < 4; ++i3) {
-
-                            int j3 = i3 + k * 4 << 12 | 0 + j1 * 4 << 8 | k2 * 8 + l2;
-                            short short1 = 256;
-                            j3 -= short1;
-                            double d14 = 0.25D;
-                            double d16 = (d11 - d10) * d14;
-                            double d15 = d10 - d16;
-
-                            for (int k3 = 0; k3 < 4; ++k3) {
-
-                                int height = k2 * 8 + l2;
-                                Block blockToPlace = Blocks.air;
-
-                                for (BlockLayer blockLayer : blockLayers) {
-
-                                    Pair<Block, Pair<Integer, Integer>> blockToInterval = blockLayer.blockToIntervalPair;
-                                    Block block = blockToInterval.getKey();
-                                    int minHeight = blockToInterval.getValue().getKey();
-                                    int maxHeight = blockToInterval.getValue().getValue();
-
-                                    if (height >= minHeight && height <= maxHeight) {
-
-                                        blockToPlace = block;
-                                        break;
-
-                                    }
-
-                                }
-
-                                if ((d15 += d16) > 0.0D) {
-
-                                    blocks[j3 += short1] = blockToPlace;
-
-                                } else if (height < seaLevel) {
-
-                                    blocks[j3 += short1] = seaLayer;
-
-                                } else {
-
-                                    blocks[j3 += short1] = Blocks.air;
-
-                                }
-
-                            }
-
-                            d10 += d12;
-                            d11 += d13;
-
-                        }
-
-                        d1 += d5;
-                        d2 += d6;
-                        d3 += d7;
-                        d4 += d8;
-
-                    }
-                }
-
-            }
-
-        }
-
-    }
-
-
-    private void genNoiseField(int x, int y, int z) {
-
-        orderBuffer = heightOrder.generateNoiseOctaves(orderBuffer, x, y, z, 5, 33, 5, 684.412D, 684.412D, 684.412D);
-        genBuffer1 = noiseGen1.generateNoiseOctaves(genBuffer1, x, y, z, 5, 200.0D, 200.0D, 0.5D);
-        genBuffer2 = noiseGen2.generateNoiseOctaves(genBuffer2, x, y, z, 5, 33, 5, 8.555150000000001D, 4.277575000000001D, 8.555150000000001D);
-        genBuffer3 = noiseGen3.generateNoiseOctaves(genBuffer3, x, y, 5, 5, 33, 5, 684.412D, 684.412D, 684.412D);
-
-        int l = 0;
-        int i1 = 0;
-
-        for (int j1 = 0; j1 < 5; ++j1) {
-
-            for (int k1 = 0; k1 < 5; ++k1) {
-
-                float f = 0.0F;
-                float f1 = 0.0F;
-                float f2 = 0.0F;
-                byte b0 = 2;
-
-                BiomeGenBase biomegenbase = this.biomesForGeneration[j1 + 2 + (k1 + 2) * 10];
-
-                for (int l1 = -b0; l1 <= b0; ++l1) {
-
-                    for (int i2 = -b0; i2 <= b0; ++i2) {
-
-                        BiomeGenBase biomegenbase1 = this.biomesForGeneration[j1 + l1 + 2 + (k1 + i2 + 2) * 10];
-
-                        float f3 = biomegenbase1.rootHeight;
-                        float f4 = biomegenbase1.heightVariation;
-
-                        float f5 = parabolicField[l1 + 2 + (i2 + 2) * 5] / (f3 + 2.0F);
-
-                        if (biomegenbase1.rootHeight > biomegenbase.rootHeight) {
-
-                            f5 /= 2.0F;
-
-                        }
-
-                        f += f4 * f5;
-                        f1 += f3 * f5;
-                        f2 += f5;
-
-                    }
+                    yDev = gen1;
 
                 }
+                else if (gen3 > 1.0D) {
 
-                f /= f2;
-                f1 /= f2;
-                f = f * 0.9F + 0.1F;
-                f1 = (f1 * 4.0F - 1.0F) / 8.0F;
-                double d12 = orderBuffer[i1] / 8000.0D;
+                    yDev = gen2;
 
-                if (d12 < 0.0D) {
-
-                    d12 = -d12 * 0.3D;
-
-                }
-
-                d12 = d12 * 3.0D - 2.0D;
-
-                if (d12 < 0.0D) {
-
-                    d12 /= 2.0D;
-
-                    if (d12 < -1.0D) {
-
-                        d12 = -1.0D;
-
-                    }
-
-                    d12 /= 1.4D;
-                    d12 /= 2.0D;
                 }
                 else {
 
-                    if (d12 > 1.0D) {
-
-                        d12 = 1.0D;
-
-                    }
-
-                    d12 /= 8.0D;
+                    yDev = gen1 + (gen2 - gen1) * gen3;
 
                 }
 
-                ++i1;
-                double d13 = (double)f1;
-                double d14 = (double)f;
-                d13 += d12 * 0.2D;
-                d13 = d13 * 8.5D / 8.0D;
-                double d5 = 8.5D + d13 * 4.0D;
+                for (int y = 0; y < CHUNK_SIZE_Y; y++) {
 
-                for (int j2 = 0; j2 < 33; ++j2) {
+                    if (y < Y_START + yDev) {
 
-                    double d6 = ((double)j2 - d5) * 12.0D * 128.0D / 256.0D / d14;
+                        for(Pair<Block, Interval> pair : blockLayers) {
 
-                    if (d6 < 0.0D) {
+                            if(pair.getValue().contains(y)) {
 
-                        d6 *= 4.0D;
+                                ids[this.getIndex(x, y, z)] = pair.getKey();
+                                meta[this.getIndex(x, y, z)] = 1;
 
-                    }
+                            }
 
-                    double d7 = this.genBuffer1[l] / 512.0D;
-                    double d8 = this.genBuffer2[l] / 512.0D;
-                    double d9 = (this.genBuffer3[l] / 10.0D + 1.0D) / 2.0D;
-
-                    double d10 = MathHelper.denormalizeClamp(d7, d8, d9) - d6;
-
-                    if (j2 > 29) {
-
-                        double d11 = (float)(j2 - 29) / 3.0F;
-                        d10 = d10 * (1.0D - d11) + -10.0D * d11;
+                        }
 
                     }
-
-                    this.terrainBuffer[l] = d10;
-                    ++l;
 
                 }
 
-            }
-
-        }
-
-    }
-
-    public void replaceBlocksForBiome(int x, int z, Block[] blocks, byte[] metas, BiomeGenBase[] biomes) {
-
-        double d0 = 0.03125D;
-        this.stoneNoise = this.perlinGen1.func_151599_a(stoneNoise, x * 16, z * 16, 16, 16, d0 * 2.0D, d0 * 2.0D, 1.0D);
-
-        for (int k = 0; k < 16; ++k) {
-
-            for (int l = 0; l < 16; ++l) {
-
-                BiomeGenBase biomegenbase = biomes[l + k * 16];
-                biomegenbase.genTerrainBlocks(world, random, blocks, metas, x * 16 + k, z * 16 + l, stoneNoise[l + k * 16]);
             }
 
         }
@@ -356,27 +129,19 @@ public class ChunkProviderCelestial implements IChunkProvider {
     }
 
     @Override
-    public Chunk provideChunk(int x, int z) {
+    public Chunk provideChunk(int chunkX, int chunkY) {
 
-        random.setSeed((long)x * 341873128712L + (long)z * 132897987541L);
+        rand.setSeed(chunkX * 341873128712L + chunkY * 132897987541L);
 
         BlockMetaBuffer buffer = new BlockMetaBuffer();
 
-        genBlocks(x, z, buffer.getBlocks());
-        biomesForGeneration = world.getWorldChunkManager().loadBlockGeneratorData(biomesForGeneration, x * 16, z * 16, 16, 16);
-        replaceBlocksForBiome(x, z, buffer.getBlocks(), buffer.getMetas(), biomesForGeneration);
+        Arrays.fill(buffer.getBlocks(), Blocks.air);
 
-        if(spawnCraters) { generateCrater(x, z, buffer.getBlocks(), buffer.getMetas()); }
+        generateTerrain(chunkX, chunkY, buffer.getBlocks(), buffer.getMetas());
 
-        Chunk chunk = new Chunk(world, buffer.getBlocks(), buffer.getMetas(), x, z);
+        if ( spawnCraters ) { generateCrater(chunkX, chunkY, buffer.getBlocks(), buffer.getMetas()); }
 
-        byte[] blockBuffer = chunk.getBiomeArray();
-
-        for (int k = 0; k < blockBuffer.length; ++k)
-        {
-            blockBuffer[k] = (byte) biomesForGeneration[k].biomeID;
-        }
-
+        Chunk chunk = new Chunk(world, buffer.getBlocks(), buffer.getMetas(), chunkX, chunkY);
         chunk.generateSkylightMap();
 
         return chunk;
@@ -384,29 +149,11 @@ public class ChunkProviderCelestial implements IChunkProvider {
     }
 
     @Override
-    public void populate(IChunkProvider provider, int x, int y) {
+    public void populate(IChunkProvider p_73153_1_, int p_73153_2_, int p_73153_3_) {
 
         ;
 
     }
-
-    @SuppressWarnings("rawtypes") // stop complaining please 'RaW UsE Of PaRAMeTerIZed CLasS 'LISt'
-    @Override
-    public List getPossibleCreatures(EnumCreatureType creatureType, int x, int y, int z) {
-        BiomeGenBase biomegenbase = world.getBiomeGenForCoords(x, z);
-
-        return biomegenbase.getSpawnableList(creatureType);
-
-    }
-
-    @Override
-    public void recreateStructures(int x, int y) {
-
-        ;
-
-    }
-
-    //---------------------------------------------------//
 
     private void generateCrater(int chunkX, int chunkZ, Block[] blocks, byte[] meta) {
 
@@ -418,7 +165,7 @@ public class ChunkProviderCelestial implements IChunkProvider {
 
                     for (int z = 0; z < CHUNK_SIZE_Z; z++) {
 
-                        if (Math.abs(randFromPoint((cx * 16) + x, ((cz * 16) + z) * 1000)) < perlinGen1.func_151601_a(x * CHUNK_SIZE_X + x, cz * CHUNK_SIZE_Z + z) / CRATER_PROBABILITY) {
+                        if (Math.abs(randFromPoint((cx * 16) + x, ((cz * 16) + z) * 1000)) < noiseGen4.getNoise(x * CHUNK_SIZE_X + x, cz * CHUNK_SIZE_Z + z) / CRATER_PROBABILITY) {
 
                             Random random = new Random(cx * 16L + x + (cz * 16L + z) * 5000);
 
@@ -488,58 +235,9 @@ public class ChunkProviderCelestial implements IChunkProvider {
 
     }
 
-    //---------------------------------------------------//
+    private int getIndex(int x, int y, int z) {
 
-    @Override
-    public String makeString() {
-        return "SbndDimension";
-    }
-
-    @Override
-    public boolean saveChunks(boolean bool, IProgressUpdate update) {
-        return true;
-    }
-
-    @Override
-    public boolean unloadQueuedChunks() {
-        return false;
-    }
-
-    @Override
-    public boolean canSave() {
-        return true;
-    }
-
-    @Override
-    public boolean chunkExists(int x, int y) {
-        return true;
-    }
-
-    @Override
-    public Chunk loadChunk(int x, int y) {
-        return provideChunk(x, y);
-    }
-
-    @Override
-    public int getLoadedChunkCount() {
-        return 0;
-    }
-
-    @Override
-    public ChunkPosition func_147416_a(World world, String structureName, int x, int y, int z) {
-        return null;
-    }
-
-    @Override
-    public void saveExtraData() { ; }
-
-    //---------------------------------------------------//
-
-    @Getter
-    private static class BlockMetaBuffer {
-
-        private final Block[] blocks = new Block[16 * 16 * 256];
-        private final byte[] metas = new byte[16 * 16 * 256];
+        return (x * 16 + z) * 256 + y;
 
     }
 
@@ -552,11 +250,18 @@ public class ChunkProviderCelestial implements IChunkProvider {
 
     }
 
-    private int getIndex(int x, int y, int z) {
+    protected com.sbnd.world.tmp.core.gen.util.Pair<Block, Interval> createBlockLayer(Block block, int min, int max) {
 
-        return (x * 16 + z) * 256 + y;
+        return new Pair<>(block, new Interval(min, max));
 
     }
 
+    @Getter
+    private static class BlockMetaBuffer {
+
+        private final Block[] blocks = new Block[16 * 16 * 256];
+        private final byte[] metas = new byte[16 * 16 * 256];
+
+    }
 
 }
