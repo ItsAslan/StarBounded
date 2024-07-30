@@ -1,6 +1,5 @@
 package com.sbnd.world.celestial.core.base;
 
-import com.sbnd.main.ResourceManager;
 import com.sbnd.world.celestial.core.data.ISkyData;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;

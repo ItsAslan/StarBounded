@@ -41,5 +41,5 @@ tile.oreNiobium.name=Niobium Ore
 tile.oreTantalum.name=Tantalum Ore
 
 tile.blockMoonTurf.name=Moon Turf
-tile.blockMoonTurfMedium=Dark Moon Turf
-tile.blockMoonTurfDark=Darker Moon Turf
+tile.blockMoonTurfMedium.name=Dark Moon Turf
+tile.blockMoonTurfDark.name=Darker Moon Turf

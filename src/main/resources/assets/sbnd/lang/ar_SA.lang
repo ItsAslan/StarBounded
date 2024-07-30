@@ -41,5 +41,5 @@ tile.oreNiobium.name=خام نيوبيوم
 tile.oreTantalum.name=خام تانتالوم
 
 tile.blockMoonTurf.name=تربة القمر
-tile.blockMoonTurfMedium=تربة القمر الداكنة
-tile.blockMoonTurfDark=تربة القمر الأكثر داكنة
+tile.blockMoonTurfMedium.name=تربة القمر الداكنة
+tile.blockMoonTurfDark.name=تربة القمر الأكثر داكنة
