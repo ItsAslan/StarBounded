@@ -366,7 +366,7 @@ public class ChunkProviderCelestial implements IChunkProvider {
         biomesForGeneration = world.getWorldChunkManager().loadBlockGeneratorData(biomesForGeneration, x * 16, z * 16, 16, 16);
         replaceBlocksForBiome(x, z, buffer.getBlocks(), buffer.getMetas(), biomesForGeneration);
 
-        generateCrater(x, z, buffer.getBlocks(), buffer.getMetas());
+        if(spawnCraters) { generateCrater(x, z, buffer.getBlocks(), buffer.getMetas()); }
 
         Chunk chunk = new Chunk(world, buffer.getBlocks(), buffer.getMetas(), x, z);
 
