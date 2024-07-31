@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import net.minecraft.util.ResourceLocation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,6 +49,9 @@ public class Star {
         private final int maxTemp;
 
     }
+
+    @Getter
+    private ResourceLocation icon;
 
     @Getter
     private int temperatureK;

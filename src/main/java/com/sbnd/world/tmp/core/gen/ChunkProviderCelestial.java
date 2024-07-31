@@ -250,7 +250,7 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
     }
 
-    protected com.sbnd.world.tmp.core.gen.util.Pair<Block, Interval> createBlockLayer(Block block, int min, int max) {
+    protected Pair<Block, Interval> createBlockLayer(Block block, int min, int max) {
 
         return new Pair<>(block, new Interval(min, max));
 
