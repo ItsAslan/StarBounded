@@ -75,6 +75,9 @@ public class CelestialBody {
 
     }
 
+    @Getter @Setter
+    public Star star;
+
     // Star map and Sky
 
     @Setter

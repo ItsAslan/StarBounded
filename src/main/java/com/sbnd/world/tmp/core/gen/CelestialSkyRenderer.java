@@ -3,54 +3,214 @@ package com.sbnd.world.tmp.core.gen;
 import com.sbnd.main.SbndUtil;
 import com.sbnd.world.tmp.core.bodies.CelestialBody;
 import com.sbnd.world.tmp.core.bodies.Star;
-import com.sbnd.world.tmp.core.gen.util.Color4;
+import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.renderer.GLAllocation;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.util.Vec3;
 import net.minecraftforge.client.IRenderHandler;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
 
-import java.util.ArrayList;
 import java.util.Random;
+
+// This is a custom class for rendering the sky for any given `CelestialBody`
+
+// The state the renderer is in right now is very primitive and is subject to substantial change.
+// Currently, the renderer renders:
+//      Single Star
+//      Single Parent Planet
+//      Stars In Sky
+
+// The renderer won't work in this state, for sizes are arbitrary numbers, icon loading
+// is not implemented, and the code is overall not optimized.
+
+// The renderer will support (basically a to-do list for the next few commits):
+//      Automatic Primary Planet Rendering
+//      Automatic Star Rendering
+//      Automatic Size Calculations Based on Distance From Body
+//      Cool Graphics (Glare, Bloom, Glow, etc...)
+//      Render Primary Planet Satellites in Sky (Will Come Later)
 
 public class CelestialSkyRenderer extends IRenderHandler {
 
-    private final ArrayList<ResourceLocation> bodyIcons = new ArrayList<>();
+    // Sky Params
+    private final CelestialBody body;
     private final Star star;
-    private final Color4 fogColor;
+    private final Vec3 fogColor;
 
-    public CelestialSkyRenderer(ArrayList<CelestialBody> bodies, Star star, Color4 fogColor) {
+    // Utility
+    private Tessellator tessellator;
 
-        bodies.forEach(icon -> bodyIcons.add(icon.getIcon()));
+    // Call Lists
+    private final int glStarCallList;
+    private int glListTopDome;
+    private int glListBottomDome;
+
+    public CelestialSkyRenderer(CelestialBody body, Star star, String fogColor) {
+
+        this.body = body;
 
         this.star = star;
-        this.fogColor = fogColor;
+        this.fogColor = parseColor(fogColor);
+
+        glStarCallList = GLAllocation.generateDisplayLists(3);
+
+        setupGL();
+        renderStars();
+        genSkyDomeTop();
+        genSkyDomeBottom();
 
     }
 
+    // Called every tick
     @Override
     public void render(float partialTicks, WorldClient world, Minecraft mc) {
 
-        renderBodies(bodyIcons);
+        renderBodies(body);
         renderSun(star);
-        renderSkybox(SbndUtil.STAR_COUNT, SbndUtil.STAR_SEED);
         renderFog(fogColor);
 
     }
 
-    private void renderBodies(ArrayList<ResourceLocation> bodyIcons) {
+    // Renders bodies in the sky (ex: Earth, Mars & Phobos, etc...)
+    private void renderBodies(CelestialBody body) {
 
-        ;
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        GL11.glCallList(glStarCallList);
+
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
+
+        GL11.glPushMatrix();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+
+        GL11.glRotatef(-90.0F, 0.0F, 1.0F, 0.0F);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 5F);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
+        GL11.glColor4f(0.0F, 0.0F, 0.0F, 1.0F);
+
+        float size = 1;
+
+        tessellator.startDrawingQuads();
+        tessellator.addVertex(-size, 99.9D, -size);
+        tessellator.addVertex(size, 99.9D, -size);
+        tessellator.addVertex(size, 99.9D, size);
+        tessellator.addVertex(-size, 99.9D, size);
+        tessellator.draw();
+
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+
+        size = 20.0F;
+
+        GL11.glRotatef(75.0F, 1.0F, 0.0F, 0.0F);
+
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(body.getIcon());
+
+        tessellator.startDrawingQuads();
+        tessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D, 0.0D);
+        tessellator.addVertexWithUV(size, 100.0D, -size, 1.0D, 0.0D);
+        tessellator.addVertexWithUV(size, 100.0D, size, 1.0D, 1.0D);
+        tessellator.addVertexWithUV(-size, 100.0D, size, 0.0D, 1.0D);
+        tessellator.draw();
+
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+
+        GL11.glDisable(GL11.GL_BLEND);
 
     }
 
+    // Renders star in the sky based on distance away and size
     private void renderSun(Star star) {
 
-        ;
+        GL11.glScalef(0.6F, 0.6F, 0.6F);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1F);
+
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
+
+        GL11.glPushMatrix();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 5F);
+        GL11.glRotatef(45, 1.0F, 0.0F, 0.0F);
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
+        GL11.glColor4f(0.0F, 0.0F, 0.0F, 1.0F);
+
+        float size = 20.0F / 3.5F;
+
+        tessellator.startDrawingQuads();
+        tessellator.addVertex(-size, 99.9D, -size);
+        tessellator.addVertex(size, 99.9D, -size);
+        tessellator.addVertex(size, 99.9D, size);
+        tessellator.addVertex(-size, 99.9D, size);
+        tessellator.draw();
+
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+
+        size = 20.0F;
+
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(star.getIcon());
+
+        tessellator.startDrawingQuads();
+        tessellator.addVertexWithUV(-size, -100.0D, size, 0, 1);
+        tessellator.addVertexWithUV(size, -100.0D, size, 1, 1);
+        tessellator.addVertexWithUV(size, -100.0D, -size, 1, 0);
+        tessellator.addVertexWithUV(-size, -100.0D, -size, 0, 0);
+        tessellator.draw();
+
+        GL11.glDisable(GL11.GL_BLEND);
+
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glPopMatrix();
 
     }
 
-    private void renderSkybox(int numStar, long seed) {
+    // Renders horizon
+    private void renderFog(Vec3 color) {
+
+        GL11.glDepthMask(false);
+        GL11.glEnable(GL11.GL_FOG);
+
+        GL11.glColor3f((int) color.xCoord, (int) color.yCoord, (int) color.zCoord);
+
+        GL11.glCallList(glListTopDome);
+        GL11.glDisable(GL11.GL_FOG);
+        GL11.glDisable(GL11.GL_ALPHA_TEST);
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+
+        RenderHelper.disableStandardItemLighting();
+
+    }
+
+    // Actually sets up star rendering and renders them
+    private void renderStars() {
+
+        GL11.glPushMatrix();
+        GL11.glNewList(glStarCallList, GL11.GL_COMPILE);
+
+        drawStars(SbndUtil.STAR_COUNT, SbndUtil.STAR_SEED);
+
+        GL11.glEndList();
+        GL11.glPopMatrix();
+
+    }
+
+    // Draws stars in the sky
+    private void drawStars(int numStar, long seed) {
 
         Random random = new Random(seed);
 
@@ -84,19 +244,110 @@ public class CelestialSkyRenderer extends IRenderHandler {
 
     }
 
-    private void renderFog(Color4 color) {
+    // Generates Top Part of Sky Dome
+    private void genSkyDomeTop() {
 
-        ;
+        glListTopDome = glStarCallList + 1;
+
+        GL11.glNewList(glListTopDome, GL11.GL_COMPILE);
+
+        byte cellSize = 64;
+        int gridRange = 256 / cellSize + 2;
+        float quadHeight = 16F;
+
+        for (int i = -cellSize * gridRange; i <= cellSize * gridRange; i += cellSize) {
+
+            for (int j = -cellSize * gridRange; j <= cellSize * gridRange; j += cellSize) {
+
+                tessellator.startDrawingQuads();
+                tessellator.addVertex(i, quadHeight, j);
+                tessellator.addVertex(i + cellSize, quadHeight, j);
+                tessellator.addVertex(i + cellSize, quadHeight, j + cellSize);
+                tessellator.addVertex(i, quadHeight, j + cellSize);
+                tessellator.draw();
+
+            }
+
+        }
+
+        tessellator.draw();
+
+        GL11.glEndList();
 
     }
 
-    //------------------------------------------------------//
+    // Generates Bottom Part of Sky Dome
+    private void genSkyDomeBottom() {
 
+        glListBottomDome = glStarCallList + 2;
+
+        GL11.glNewList(glListBottomDome, GL11.GL_COMPILE);
+
+        byte cellSize = 64;
+        int gridRange = 256 / cellSize + 2;
+        float quadHeightNeg = -16F;
+
+        for (int i = -cellSize * gridRange; i <= cellSize * gridRange; i += cellSize) {
+
+            for (int j = -cellSize * gridRange; j <= cellSize * gridRange; j += cellSize) {
+
+                tessellator.startDrawingQuads();
+                tessellator.addVertex(i, quadHeightNeg, j);
+                tessellator.addVertex(i + cellSize, quadHeightNeg, j);
+                tessellator.addVertex(i + cellSize, quadHeightNeg, j + cellSize);
+                tessellator.addVertex(i, quadHeightNeg, j + cellSize);
+                tessellator.draw();
+
+            }
+
+        }
+
+        tessellator.draw();
+
+        GL11.glEndList();
+
+    }
+
+    //--------------------------EXTRAS--------------------------//
+
+    // Setups GL Matrix Stack
+    private void setupGL() {
+
+        resetGL();
+
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
+        GL11.glDisable(GL12.GL_RESCALE_NORMAL);
+        GL11.glColor3f(1F, 1F, 1F);
+
+        tessellator = Tessellator.instance;
+
+    }
+
+    // Resets GL Matrix Stack
     private void resetGL() {
 
         GL11.glPushMatrix();
         GL11.glLoadIdentity();
         GL11.glPopMatrix();
+
+    }
+
+    // Parses hex color into r, g, b
+    private Vec3 parseColor(String color) {
+
+        int colorInt = Integer.parseInt(color.substring(2), 16);
+
+        int r = (colorInt >> 16) & 0xFF;
+        int g = (colorInt >> 8) & 0xFF;
+        int b = colorInt & 0xFF;
+
+        return Vec3.createVectorHelper(r, g, b);
+
+    }
+
+    private float getSizeFromDistance(CelestialBody body) {
+
+        return 0;
 
     }
 

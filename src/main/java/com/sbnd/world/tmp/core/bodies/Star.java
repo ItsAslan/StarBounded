@@ -7,8 +7,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 import net.minecraft.util.ResourceLocation;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 @Accessors(chain = true)
 public class Star {
@@ -86,6 +85,8 @@ public class Star {
     public ArrayList<CelestialBody> planets = new ArrayList<>();
 
     public Star addPlanets(CelestialBody... bodies) {
+
+        Arrays.asList(bodies).forEach(e -> e.setStar(this));
 
         planets.addAll(Arrays.asList(bodies));
 

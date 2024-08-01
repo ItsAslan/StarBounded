@@ -46,6 +46,12 @@ public class sbndCelestialObjects {
     // The `ChunkProvider` for each planet will extend a common `CelestialChunkProvider` that's
     // noise generation / structure generation can be altered to fit a planets certain criteria
 
+    // Stars are set for `CelestialBody`s in the `Star` class when they are added to the `planets`
+    // ArrayList in the `Star` class
+
+    // All `CelestialBody`s are added to two static maps-- `nameToBodyMap` and `idToBodyMap.`
+    // These do what they say. Use `getBody(String name / int id)`
+
     private static StarSystem solarSystem;
 
     public static void REGISTER() {
