@@ -1,5 +1,6 @@
 package com.sbnd.world.tmp.core.bodies;
 
+import com.sbnd.main.ResourceManager;
 import com.sbnd.world.tmp.SbndGas;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,6 +31,30 @@ public class Star {
 
     }
 
+    public ResourceLocation getStarIcon() {
+
+        switch(color) {
+
+            case BLUE: return blue();
+
+            case BLUE_WHITE: return blueWhite();
+
+            case WHITE: return white();
+
+            case YELLOW_WHITE: return yellowWhite();
+
+            case YELLOW: return yellow();
+
+            case ORANGE: return orange();
+
+            case RED: return red();
+
+        }
+
+        return null;
+
+    }
+
     @AllArgsConstructor
     @Getter
     private enum StarColor {
@@ -49,8 +74,13 @@ public class Star {
 
     }
 
-    @Getter
-    private ResourceLocation icon;
+    private ResourceLocation blue() { return ResourceManager.BLUE_STAR; }
+    private ResourceLocation blueWhite() { return ResourceManager.BLUE_WHITE_STAR; }
+    private ResourceLocation white() { return ResourceManager.WHITE_STAR; }
+    private ResourceLocation yellowWhite() { return ResourceManager.YELLOW_WHITE_STAR; }
+    private ResourceLocation yellow() { return ResourceManager.YELLOW_STAR; }
+    private ResourceLocation orange() { return ResourceManager.ORANGE_STAR; }
+    private ResourceLocation red() { return ResourceManager.RED_STAR; }
 
     @Getter
     private int temperatureK;
@@ -65,6 +95,7 @@ public class Star {
     }
 
     @Setter
+    @Getter
     private double radiusKm;
 
     @Setter

@@ -10,10 +10,12 @@ import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
 import net.minecraftforge.client.IRenderHandler;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 // This is a custom class for rendering the sky for any given `CelestialBody`
@@ -32,13 +34,14 @@ import java.util.Random;
 //      Automatic Star Rendering
 //      Automatic Size Calculations Based on Distance From Body
 //      Cool Graphics (Glare, Bloom, Glow, etc...)
-//      Render Primary Planet Satellites in Sky (Will Come Later)
+//      Render Primary Planet Satellites in Sky
 
 public class CelestialSkyRenderer extends IRenderHandler {
 
     // Sky Params
     private final CelestialBody body;
     private final Star star;
+    private final ArrayList<CelestialBody> satellites = new ArrayList<>();
     private final Vec3 fogColor;
 
     // Utility
@@ -49,11 +52,12 @@ public class CelestialSkyRenderer extends IRenderHandler {
     private int glListTopDome;
     private int glListBottomDome;
 
-    public CelestialSkyRenderer(CelestialBody body, Star star, String fogColor) {
+    public CelestialSkyRenderer(CelestialBody body, String fogColor) {
 
         this.body = body;
+        this.star = body.getStar();
+        this.satellites.addAll(body.getNameToSatelliteMap().values());
 
-        this.star = star;
         this.fogColor = parseColor(fogColor);
 
         glStarCallList = GLAllocation.generateDisplayLists(3);
@@ -69,14 +73,23 @@ public class CelestialSkyRenderer extends IRenderHandler {
     @Override
     public void render(float partialTicks, WorldClient world, Minecraft mc) {
 
-        renderBodies(body);
+        if(body.getParent() != null)
+            renderPrimaryPlanet(body);
+
+        if(!body.getNameToSatelliteMap().values().isEmpty())
+            renderSatellites(body);
+
+        if(!body.getParent().getNameToSatelliteMap().values().isEmpty())
+            renderParentSatellites(body.getParent());
+
         renderSun(star);
         renderFog(fogColor);
+        renderHorizon(mc, world, partialTicks);
 
     }
 
     // Renders bodies in the sky (ex: Earth, Mars & Phobos, etc...)
-    private void renderBodies(CelestialBody body) {
+    private void renderPrimaryPlanet(CelestialBody body) {
 
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GL11.glCallList(glStarCallList);
@@ -94,7 +107,7 @@ public class CelestialSkyRenderer extends IRenderHandler {
         GL11.glDisable(GL11.GL_TEXTURE_2D);
         GL11.glColor4f(0.0F, 0.0F, 0.0F, 1.0F);
 
-        float size = 1;
+        double size = 1;
 
         tessellator.startDrawingQuads();
         tessellator.addVertex(-size, 99.9D, -size);
@@ -106,11 +119,11 @@ public class CelestialSkyRenderer extends IRenderHandler {
         GL11.glEnable(GL11.GL_TEXTURE_2D);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
-        size = 20.0F;
+        size = getPrimaryPlanetSizeFromDistance(body);
 
         GL11.glRotatef(75.0F, 1.0F, 0.0F, 0.0F);
 
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(body.getIcon());
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(body.getParent().getIcon());
 
         tessellator.startDrawingQuads();
         tessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D, 0.0D);
@@ -123,6 +136,18 @@ public class CelestialSkyRenderer extends IRenderHandler {
         GL11.glPushMatrix();
 
         GL11.glDisable(GL11.GL_BLEND);
+
+    }
+
+    private void renderSatellites(CelestialBody body) {
+
+        ;
+
+    }
+
+    private void renderParentSatellites(CelestialBody body) {
+
+        ;
 
     }
 
@@ -146,7 +171,7 @@ public class CelestialSkyRenderer extends IRenderHandler {
         GL11.glDisable(GL11.GL_TEXTURE_2D);
         GL11.glColor4f(0.0F, 0.0F, 0.0F, 1.0F);
 
-        float size = 20.0F / 3.5F;
+        double size = getStarSizeFromDistance(body) / 3.5D;
 
         tessellator.startDrawingQuads();
         tessellator.addVertex(-size, 99.9D, -size);
@@ -159,9 +184,9 @@ public class CelestialSkyRenderer extends IRenderHandler {
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
-        size = 20.0F;
+        size = getStarSizeFromDistance(body);
 
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(star.getIcon());
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(star.getStarIcon());
 
         tessellator.startDrawingQuads();
         tessellator.addVertexWithUV(-size, -100.0D, size, 0, 1);
@@ -193,6 +218,60 @@ public class CelestialSkyRenderer extends IRenderHandler {
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
         RenderHelper.disableStandardItemLighting();
+
+    }
+
+    private void renderHorizon(Minecraft mc, World world, float partialTicks) {
+
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        GL11.glDisable(GL11.GL_BLEND);
+        GL11.glEnable(GL11.GL_ALPHA_TEST);
+        GL11.glEnable(GL11.GL_FOG);
+        GL11.glPopMatrix();
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
+        GL11.glColor3f(0.0F, 0.0F, 0.0F);
+
+        double playerHeightAboveHorizon = mc.thePlayer.getPosition(partialTicks).yCoord - world.getHorizon();
+
+        if (playerHeightAboveHorizon < 0.0D) {
+
+            GL11.glPushMatrix();
+            GL11.glTranslatef(0.0F, 12.0F, 0.0F);
+            GL11.glCallList(glListBottomDome);
+            GL11.glPopMatrix();
+
+            float unitSize = 1.0F;
+            float translatedYPosition = -((float) (playerHeightAboveHorizon + 65.0D));
+            float negativeUnitSize = -unitSize;
+
+            tessellator.startDrawingQuads();
+            
+            tessellator.setColorRGBA_I(0, 255);
+            
+            tessellator.addVertex(-unitSize, translatedYPosition, unitSize);
+            tessellator.addVertex(unitSize, translatedYPosition, unitSize);
+            tessellator.addVertex(unitSize, negativeUnitSize, unitSize);
+            tessellator.addVertex(-unitSize, negativeUnitSize, unitSize);
+            tessellator.addVertex(-unitSize, negativeUnitSize, -unitSize);
+            tessellator.addVertex(unitSize, negativeUnitSize, -unitSize);
+            tessellator.addVertex(unitSize, translatedYPosition, -unitSize);
+            tessellator.addVertex(-unitSize, translatedYPosition, -unitSize);
+            tessellator.addVertex(unitSize, negativeUnitSize, -unitSize);
+            tessellator.addVertex(unitSize, negativeUnitSize, unitSize);
+            tessellator.addVertex(unitSize, translatedYPosition, unitSize);
+            tessellator.addVertex(unitSize, translatedYPosition, -unitSize);
+            tessellator.addVertex(-unitSize, translatedYPosition, -unitSize);
+            tessellator.addVertex(-unitSize, translatedYPosition, unitSize);
+            tessellator.addVertex(-unitSize, negativeUnitSize, unitSize);
+            tessellator.addVertex(-unitSize, negativeUnitSize, -unitSize);
+            tessellator.addVertex(-unitSize, negativeUnitSize, -unitSize);
+            tessellator.addVertex(-unitSize, negativeUnitSize, unitSize);
+            tessellator.addVertex(unitSize, negativeUnitSize, unitSize);
+            tessellator.addVertex(unitSize, negativeUnitSize, -unitSize);
+
+            tessellator.draw();
+
+        }
 
     }
 
@@ -345,9 +424,23 @@ public class CelestialSkyRenderer extends IRenderHandler {
 
     }
 
-    private float getSizeFromDistance(CelestialBody body) {
+    // Gets distance from satellite to primary planet
+    private double getPrimaryPlanetSizeFromDistance(CelestialBody satellite) {
 
-        return 0;
+        double distance = satellite.getOrbitRadiusKm();
+        double radius = satellite.getParent().getRadiusKm();
+
+        return 2D * (float) Math.atan((2D * radius) / (2D * distance)) * SbndUtil.CELESTIAL_RENDER_MULTIPLIER;
+
+    }
+
+    // Gets distance from planet to star
+    private double getStarSizeFromDistance(CelestialBody planet) {
+
+        double distance = planet.getOrbitRadiusKm();
+        double radius = planet.getStar().getRadiusKm();
+
+        return 2D * (float) Math.atan((2D * radius) / (2D * distance)) * SbndUtil.CELESTIAL_RENDER_MULTIPLIER;
 
     }
 

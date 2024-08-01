@@ -57,6 +57,7 @@ public class CelestialBody {
     private double massKg;
 
     @Setter
+    @Getter
     private double radiusKm;
 
     @Getter
@@ -81,15 +82,19 @@ public class CelestialBody {
     // Star map and Sky
 
     @Setter
+    @Getter
     private double orbitRadiusKm;
 
     @Setter
+    @Getter
     private float axialTilt;
 
     @Setter
+    @Getter
     private CelestialBody parent = null;
 
     @Setter
+    @Getter
     private boolean visibleStars;
 
     @Getter

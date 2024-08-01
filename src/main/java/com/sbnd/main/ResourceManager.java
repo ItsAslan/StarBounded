@@ -13,4 +13,12 @@ public class ResourceManager {
     //Stars
     public static ResourceLocation SOL = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/solTexture.png");
 
+    public static ResourceLocation BLUE_STAR;
+    public static ResourceLocation BLUE_WHITE_STAR;
+    public static ResourceLocation WHITE_STAR;
+    public static ResourceLocation YELLOW_WHITE_STAR;
+    public static ResourceLocation YELLOW_STAR;
+    public static ResourceLocation ORANGE_STAR;
+    public static ResourceLocation RED_STAR;
+
 }
