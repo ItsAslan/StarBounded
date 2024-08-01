@@ -1,6 +1,5 @@
 package com.sbnd.main;
 
-import com.sbnd.config.PlanetConfig;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.event.entity.living.LivingEvent;

@@ -15,12 +15,14 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import com.sbnd.proxy.CommonProxy;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraft.stats.AchievementList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(modid = ModVars.MOD_ID, name = ModVars.MOD_NAME, version = ModVars.MOD_VERSION)
 public class Starbounded {
@@ -30,6 +32,9 @@ public class Starbounded {
 
     @SidedProxy(clientSide = "com.sbnd.proxy.ClientProxy", serverSide = "com.sbnd.proxy.ServerProxy")
     public static CommonProxy PROXY;
+
+    // I think this is how you do it
+    public static Logger logger = LogManager.getLogger("StarBounded");
 
     // Creative Tabs
     public static CreativeTabs materialsTab = new MaterialsTab(CreativeTabs.getNextID(), "tabMaterials");
@@ -64,7 +69,7 @@ public class Starbounded {
     public void init(FMLInitializationEvent $e) {
         PROXY.init($e);
 
-        moonLanding = new Achievement("achievement.moonLanding", "moonLanding", 0, 0, new ItemStack(ModBlocks.blockMoonTurf), AchievementList.openInventory).initIndependentStat().registerStat();
+        moonLanding = new Achievement("achievement.moonLanding", "moonLanding", 0, 0, new ItemStack(ModBlocks.blockMoonTurf), null).initIndependentStat().registerStat();
 
         OreDictionaryManager.REGISTER();
 

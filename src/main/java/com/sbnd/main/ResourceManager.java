@@ -4,13 +4,13 @@ import net.minecraft.util.ResourceLocation;
 
 public class ResourceManager {
 
-    //Planets
+    // Planets
     public static ResourceLocation EARTH = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/planets/earthTexture.png");
 
-    //Satellites
+    // Satellites
     public static ResourceLocation MOON = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/satellites/moonTexture.png");
 
-    //Stars
+    // Stars
     public static ResourceLocation BLUE_STAR = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/starBlue.png");
     public static ResourceLocation BLUE_WHITE_STAR = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/starBlueWhite.png");
     public static ResourceLocation WHITE_STAR = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/starWhite.png");

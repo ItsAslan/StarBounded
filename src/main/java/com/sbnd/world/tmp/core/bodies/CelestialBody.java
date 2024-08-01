@@ -1,6 +1,7 @@
 package com.sbnd.world.tmp.core.bodies;
 
 import com.sbnd.main.SbndUtil;
+import com.sbnd.world.tmp.SbndCelestialObjects;
 import com.sbnd.world.tmp.SbndGas;
 import com.sbnd.world.tmp.core.CelestialProperty;
 import com.sbnd.world.tmp.core.EnumCelestialType;

@@ -10,8 +10,7 @@ import net.minecraftforge.common.DimensionManager;
 
 import static com.sbnd.world.tmp.core.CelestialProperty.*;
 
-
-public class sbndCelestialObjects {
+public class SbndCelestialObjects {
 
     // In system object you add star -> add planets -> add planet satellites in tree graph fashion
     // System
