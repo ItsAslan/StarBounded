@@ -22,12 +22,12 @@ public class OreDictionaryManager {
 
     public static void REGISTER() {
 
-        CU  .addOre(oreCopper)      .addPlate(plateCopper)      .addIngot(ingotCopper)     .addWire(wireCopper)      .addSheet(sheetCopper);
-        AL  .addOre(oreAluminum)    .addPlate(plateAluminum)    .addIngot(ingotAluminum)   .addWire(wireAluminum)    .addSheet(sheetAluminum);
-        TI  .addOre(oreTitanium)    .addPlate(plateTitanium)    .addIngot(ingotTitanium)   .addWire(wireTitanium)    .addSheet(sheetTitanium);
-        W   .addOre(oreTungsten)    .addPlate(plateTungsten)    .addIngot(ingotTungsten)   .addWire(wireTungsten)    .addSheet(sheetTungsten);
-        SN  .addOre(oreTin)         .addPlate(plateTin)         .addIngot(ingotTin)        .addWire(wireTin)         .addSheet(sheetTin);
-        PB                          .addPlate(plateLead)        .addIngot(ingotLead)       .addWire(wireLead)        .addSheet(sheetLead);
+        CU  .addOre(oreCopper)      .addPlate(plateCopper)      .addIngot(ingotCopper)     .addWire(wireCopper)      .addSheet(sheetCopper)      .addPowder(powderCopper);
+        AL  .addOre(oreAluminum)    .addPlate(plateAluminum)    .addIngot(ingotAluminum)   .addWire(wireAluminum)    .addSheet(sheetAluminum)    .addPowder(powderAluminum);
+        TI  .addOre(oreTitanium)    .addPlate(plateTitanium)    .addIngot(ingotTitanium)   .addWire(wireTitanium)    .addSheet(sheetTitanium)    .addPowder(powderTitanium);
+        W   .addOre(oreTungsten)    .addPlate(plateTungsten)    .addIngot(ingotTungsten)   .addWire(wireTungsten)    .addSheet(sheetTungsten)    .addPowder(powderTungsten);
+        SN  .addOre(oreTin)         .addPlate(plateTin)         .addIngot(ingotTin)        .addWire(wireTin)         .addSheet(sheetTin)         .addPowder(powderTin);
+        PB                          .addPlate(plateLead)        .addIngot(ingotLead)       .addWire(wireLead)        .addSheet(sheetLead)        .addPowder(powderLead);
 
     }
 

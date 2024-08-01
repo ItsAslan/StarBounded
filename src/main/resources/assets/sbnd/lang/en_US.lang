@@ -28,6 +28,13 @@ item.sheetTungsten.name=Tungsten Sheet
 item.sheetTin.name=Tin Sheet
 item.sheetLead.name=Lead Sheet
 
+item.powderCopper.name=Copper Powder
+item.powderAluminum.name=Aluminum Powder
+item.powderTitanium.name=Titanium Powder
+item.powderTungsten.name=Tungsten Powder
+item.powderTin.name=Tin Powder
+item.powderLead.name=Lead Powder
+
 #Blocks
 
 tile.oreCopper.name=Copper Ore
@@ -47,3 +54,7 @@ tile.blockMoonTurfDark.name=Darker Moon Turf
 #Achievements
 achievement.moonLanding=Magnificent Desolation
 achievement.moonLanding.desc=Land on the Moon Without Dying
+
+#Tabs
+itemGroup.tabMaterials=Starbounded Materials
+itemGroup.tabOres=Starbounded Ores

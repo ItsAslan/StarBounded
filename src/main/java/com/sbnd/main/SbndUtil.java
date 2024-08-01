@@ -7,6 +7,8 @@ public class SbndUtil {
 
     public static double CELESTIAL_RENDER_MULTIPLIER = 5;
 
-    // More will be added here soon
+    public static float GRAVITATIONAL_CONSTANT = 9.8f;
+
+    public static int SECONDS_MC_DAY = 20 * 60;
 
 }

@@ -1,5 +1,6 @@
 package com.sbnd.world.tmp.core.bodies;
 
+import com.sbnd.main.SbndUtil;
 import com.sbnd.world.tmp.SbndGas;
 import com.sbnd.world.tmp.core.CelestialProperty;
 import com.sbnd.world.tmp.core.EnumCelestialType;
@@ -54,6 +55,7 @@ public class CelestialBody {
     }
 
     @Setter
+    @Getter
     private double massKg;
 
     @Setter
@@ -88,6 +90,21 @@ public class CelestialBody {
     @Setter
     @Getter
     private float axialTilt;
+
+    // Kepler's Third Law
+    private double getOrbitalPeriod() {
+
+        double period = Math.sqrt((4 * Math.pow(Math.PI, 2) / SbndUtil.GRAVITATIONAL_CONSTANT * (massKg + parent.getMassKg())) * Math.pow(orbitRadiusKm, 3));
+
+        return period / SbndUtil.SECONDS_MC_DAY;
+
+    }
+
+    public float getRotationalPeriod() {
+
+        return 0;
+
+    }
 
     @Setter
     @Getter

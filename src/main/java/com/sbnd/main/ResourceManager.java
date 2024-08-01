@@ -11,14 +11,12 @@ public class ResourceManager {
     public static ResourceLocation MOON = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/satellites/moonTexture.png");
 
     //Stars
-    public static ResourceLocation SOL = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/solTexture.png");
-
-    public static ResourceLocation BLUE_STAR;
-    public static ResourceLocation BLUE_WHITE_STAR;
-    public static ResourceLocation WHITE_STAR;
-    public static ResourceLocation YELLOW_WHITE_STAR;
-    public static ResourceLocation YELLOW_STAR;
-    public static ResourceLocation ORANGE_STAR;
-    public static ResourceLocation RED_STAR;
+    public static ResourceLocation BLUE_STAR = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/starBlue.png");
+    public static ResourceLocation BLUE_WHITE_STAR = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/starBlueWhite.png");
+    public static ResourceLocation WHITE_STAR = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/starWhite.png");
+    public static ResourceLocation YELLOW_WHITE_STAR = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/starYellowWhite.png");
+    public static ResourceLocation YELLOW_STAR = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/starYellow.png");
+    public static ResourceLocation ORANGE_STAR = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/starOrange.png");
+    public static ResourceLocation RED_STAR = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/stars/starRed.png");
 
 }

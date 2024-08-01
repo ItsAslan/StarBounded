@@ -91,51 +91,7 @@ public class CelestialSkyRenderer extends IRenderHandler {
     // Renders bodies in the sky (ex: Earth, Mars & Phobos, etc...)
     private void renderPrimaryPlanet(CelestialBody body) {
 
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        GL11.glCallList(glStarCallList);
-
-        GL11.glEnable(GL11.GL_TEXTURE_2D);
-        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
-
-        GL11.glPushMatrix();
-        GL11.glPopMatrix();
-        GL11.glPushMatrix();
-
-        GL11.glRotatef(-90.0F, 0.0F, 1.0F, 0.0F);
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 5F);
-        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GL11.glDisable(GL11.GL_TEXTURE_2D);
-        GL11.glColor4f(0.0F, 0.0F, 0.0F, 1.0F);
-
-        double size = 1;
-
-        tessellator.startDrawingQuads();
-        tessellator.addVertex(-size, 99.9D, -size);
-        tessellator.addVertex(size, 99.9D, -size);
-        tessellator.addVertex(size, 99.9D, size);
-        tessellator.addVertex(-size, 99.9D, size);
-        tessellator.draw();
-
-        GL11.glEnable(GL11.GL_TEXTURE_2D);
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-
-        size = getPrimaryPlanetSizeFromDistance(body);
-
-        GL11.glRotatef(75.0F, 1.0F, 0.0F, 0.0F);
-
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(body.getParent().getIcon());
-
-        tessellator.startDrawingQuads();
-        tessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D, 0.0D);
-        tessellator.addVertexWithUV(size, 100.0D, -size, 1.0D, 0.0D);
-        tessellator.addVertexWithUV(size, 100.0D, size, 1.0D, 1.0D);
-        tessellator.addVertexWithUV(-size, 100.0D, size, 0.0D, 1.0D);
-        tessellator.draw();
-
-        GL11.glPopMatrix();
-        GL11.glPushMatrix();
-
-        GL11.glDisable(GL11.GL_BLEND);
+        ;
 
     }
 

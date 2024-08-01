@@ -16,7 +16,7 @@ public enum EnumCelestial {
 
     EARTH(EnumChatFormatting.DARK_GREEN, ResourceManager.EARTH, CelestialType.PLANET),
 
-    SOL(EnumChatFormatting.RED, ResourceManager.SOL, CelestialType.STAR);
+    SOL(EnumChatFormatting.RED, ResourceManager.YELLOW_STAR, CelestialType.STAR); // This class is being deleted soon anyway
 
     private final EnumChatFormatting color;
 

@@ -28,6 +28,13 @@ item.sheetTungsten.name=صفحة تنغستن
 item.sheetTin.name=صفحة قصدير
 item.sheetLead.name=صفحة رصاص
 
+item.powderCopper.name=مسحوق نحاس
+item.powderAluminum.name=مسحوق ألومنيوم
+item.powderTitanium.name=مسحوق تيتانيوم
+item.powderTungsten.name=مسحوق تنغستن
+item.powderTin.name=مسحوق قصدير
+item.powderLead.name=مسحوق رصاص
+
 #Blocks
 
 tile.oreCopper.name=خام نحاس
@@ -43,3 +50,12 @@ tile.oreTantalum.name=خام تانتالوم
 tile.blockMoonTurf.name=تربة القمر
 tile.blockMoonTurfMedium.name=تربة القمر الداكنة
 tile.blockMoonTurfDark.name=تربة القمر الأكثر داكنة
+
+#Achievements
+achievement.moonLanding=عظمة الخراب
+achievement.moonLanding.desc=اهبط على القمر بدون أن تموت
+
+#Tabs
+itemGroup.tabMaterials=علامة المواد
+itemGroup.tabOres=علامة الخامات
+

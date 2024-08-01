@@ -4,6 +4,8 @@ import com.sbnd.commands.CommandTeleportDimension;
 import com.sbnd.config.OreConfig;
 import com.sbnd.config.PlanetConfig;
 import com.sbnd.content.block.ModBlocks;
+import com.sbnd.creativetabs.MaterialsTab;
+import com.sbnd.creativetabs.OresTab;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -12,6 +14,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import com.sbnd.proxy.CommonProxy;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
@@ -27,6 +30,10 @@ public class Starbounded {
 
     @SidedProxy(clientSide = "com.sbnd.proxy.ClientProxy", serverSide = "com.sbnd.proxy.ServerProxy")
     public static CommonProxy PROXY;
+
+    // Creative Tabs
+    public static CreativeTabs materialsTab = new MaterialsTab(CreativeTabs.getNextID(), "tabMaterials");
+    public static CreativeTabs oresTab = new OresTab(CreativeTabs.getNextID(), "tabOres");
 
     // Achievements
     public static Achievement moonLanding;
