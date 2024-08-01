@@ -43,3 +43,7 @@ tile.oreTantalum.name=Tantalum Ore
 tile.blockMoonTurf.name=Moon Turf
 tile.blockMoonTurfMedium.name=Dark Moon Turf
 tile.blockMoonTurfDark.name=Darker Moon Turf
+
+#Achievements
+achievement.moonLanding=Magnificent Desolation
+achievement.moonLanding.desc=Land on the Moon Without Dying

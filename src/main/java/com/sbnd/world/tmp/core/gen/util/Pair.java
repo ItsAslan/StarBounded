@@ -15,12 +15,6 @@ public class Pair<K, V> {
 
     }
 
-    public void put(K key, V value) {
-
-
-
-    }
-
     public K getKey() {
 
         return key;
