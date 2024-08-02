@@ -19,6 +19,8 @@ public class OreDictionaryManager {
     private final static DictEntry W = new DictEntry("Tungsten");
     private final static DictEntry SN = new DictEntry("Tin");
     private final static DictEntry PB = new DictEntry("Lead");
+    private final static DictEntry LI = new DictEntry("Lithium");
+    private final static DictEntry C = new DictEntry("Carbon");
 
     public static void REGISTER() {
 
@@ -28,6 +30,8 @@ public class OreDictionaryManager {
         W   .addOre(oreTungsten)    .addPlate(plateTungsten)    .addIngot(ingotTungsten)   .addWire(wireTungsten)    .addSheet(sheetTungsten)    .addPowder(powderTungsten);
         SN  .addOre(oreTin)         .addPlate(plateTin)         .addIngot(ingotTin)        .addWire(wireTin)         .addSheet(sheetTin)         .addPowder(powderTin);
         PB                          .addPlate(plateLead)        .addIngot(ingotLead)       .addWire(wireLead)        .addSheet(sheetLead)        .addPowder(powderLead);
+        LI                                                                                                                                       .addPowder(cubeLithium);
+        C                                                                                                                                        .addPowder(cubeGraphite);
 
     }
 

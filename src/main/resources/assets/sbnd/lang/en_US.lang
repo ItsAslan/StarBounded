@@ -35,6 +35,9 @@ item.powderTungsten.name=Tungsten Powder
 item.powderTin.name=Tin Powder
 item.powderLead.name=Lead Powder
 
+item.cubeGraphite.name=Graphite Cube
+item.cubeLithium.name=Lithium Cube
+
 #Blocks
 
 tile.oreCopper.name=Copper Ore

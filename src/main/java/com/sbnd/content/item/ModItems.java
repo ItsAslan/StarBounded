@@ -58,6 +58,9 @@ public class ModItems {
     public static Item powderTin;
     public static Item powderLead;
 
+    public static Item cubeLithium;
+    public static Item cubeGraphite;
+
     public static void REGISTER() {
 
         initItems();
@@ -107,6 +110,9 @@ public class ModItems {
         powderTungsten = new ItemGeneric(modItems).setUnlocalizedName("powderTungsten").setCreativeTab(Starbounded.materialsTab);
         powderTin = new ItemGeneric(modItems).setUnlocalizedName("powderTin").setCreativeTab(Starbounded.materialsTab);
         powderLead = new ItemGeneric(modItems).setUnlocalizedName("powderLead").setCreativeTab(Starbounded.materialsTab);
+
+        cubeLithium = new ItemGeneric(modItems).setUnlocalizedName("cubeLithium").setCreativeTab(Starbounded.materialsTab);
+        cubeGraphite = new ItemGeneric(modItems).setUnlocalizedName("cubeGraphite").setCreativeTab(Starbounded.materialsTab);
 
     }
 

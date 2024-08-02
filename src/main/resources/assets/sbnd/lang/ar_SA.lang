@@ -35,6 +35,9 @@ item.powderTungsten.name=مسحوق تنغستن
 item.powderTin.name=مسحوق قصدير
 item.powderLead.name=مسحوق رصاص
 
+item.cubeGraphite.name=مكعب الجرافيت
+item.cubeLithium.name=مكعب الليثيوم
+
 #Blocks
 
 tile.oreCopper.name=خام نحاس
