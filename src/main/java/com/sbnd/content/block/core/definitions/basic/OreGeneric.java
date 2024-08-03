@@ -13,7 +13,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 public class OreGeneric extends Block {
 

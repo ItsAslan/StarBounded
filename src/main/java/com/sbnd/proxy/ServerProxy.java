@@ -5,6 +5,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public class ServerProxy extends CommonProxy {
+
     public void preInit(FMLPreInitializationEvent $e) {
         super.preInit($e);
 
@@ -19,4 +20,6 @@ public class ServerProxy extends CommonProxy {
         super.postInit($e);
 
     }
+
 }
+

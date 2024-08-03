@@ -4,7 +4,7 @@ public class BasicCrafting {
 
     public static void REGISTER() {
 
-
+        ;
 
     }
 

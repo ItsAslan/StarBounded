@@ -1,6 +1,5 @@
 package api.util;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

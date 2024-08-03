@@ -6,8 +6,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.common.DimensionManager;
 
-public class CommandTeleportDimension extends CommandBase
-{
+public class CommandTeleportDimension extends CommandBase {
 
     @Override
     public String getCommandName() {
@@ -21,24 +20,30 @@ public class CommandTeleportDimension extends CommandBase
 
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
-        if(args.length > 0 && sender instanceof EntityPlayerMP)
-        {
+
+        if(args.length > 0 && sender instanceof EntityPlayerMP) {
+
             EntityPlayerMP player = (EntityPlayerMP) sender;
             int dimensionId = parseInt(sender, args[0]);
-            if(DimensionManager.isDimensionRegistered(dimensionId))
-            {
+
+            if(DimensionManager.isDimensionRegistered(dimensionId)) {
+
                 player.mcServer.getConfigurationManager().transferPlayerToDimension(player, dimensionId);
+
             }
-            else
-            {
+            else {
+
                 player.addChatMessage(new ChatComponentText("Dimension ID doesn't exist"));
+
             }
 
         }
+
     }
 
     @Override
     public int getRequiredPermissionLevel() {
         return 2;
     }
+
 }

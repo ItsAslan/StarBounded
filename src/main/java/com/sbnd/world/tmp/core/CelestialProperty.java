@@ -45,7 +45,7 @@ public class CelestialProperty {
     public static PROPERTY_WATER WATER = new PROPERTY_WATER();
     public static PROPERTY_GREENHOUSE GREENHOUSE = new PROPERTY_GREENHOUSE();
 
-    // Referencing subclass `PROPERTY_FREEZING` from superclass
+    // Referencing subclass `PROPERTY_%` from superclass
     // `CelestialProperty` initializer might lead to class loading deadlock.
     // Using `synchronized` fixes this issue. However, since an error is yet
     // to occur, I will keep the code cleaner and easier to read.

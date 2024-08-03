@@ -45,7 +45,6 @@ public class BlockPos {
 
     }
 
-
     public long toLong() {
         return ((long)x & 0xFFFFFFFFL) | (((long)y & 0xFFFFFFFFL) << 32) | (((long)z & 0xFFFFFFFFL) << 16);
     }

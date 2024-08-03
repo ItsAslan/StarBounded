@@ -1,20 +1,18 @@
-1. Started working on multiblock spacecraft implementation
-    Began working on `SpacecraftBlueprint` which maps out all
-    valid rocket blocks and maps it to an abstract vertex map
+1. Completed new `CelestialBody` registration with a tree map instead of
+   interface stacking.
 
-2. Created custom and scalable implementation of `SbndBiomes`
-    Allows unique custom biome generation
-    Easy Additions
-    Easily scalable
+2. Created custom `ChunkProviderCelestial` that can be extended and customized.
+   This provider takes use of `BlockLayer.`
 
 TO-DO:
 
 1. Create more injections for `ChunkProviderCelestial`
-    Craters
     Surface block sploshes (Terrain stuff)
     Fauna
+    Caves
 
-2. Finish implementation of `SbndBiomes`
+2. Swap `ChunkProviderCelestial` from using `BlockLayer`s to using normal
+    BiomeForGen and Standard Terrain Gen Implementation
 
 3. Begin working on spacecraft implementation
     Multi-block instantiable spacecraft

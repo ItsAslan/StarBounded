@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class PerlinNoise {
 
-    private static final int PERMUTATION[] = new int[512];
+    private static final int[] PERMUTATION = new int[512];
 
     public PerlinNoise(long seed) {
 

@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 import java.util.List;
-import java.util.Set;
 
 public class BlockGeneric extends Block {
 

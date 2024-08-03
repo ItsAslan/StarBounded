@@ -13,6 +13,18 @@ import static com.sbnd.content.item.ItemPrefix.*;
 
 public class OreDictionaryManager {
 
+    //----------------VANILLA----------------//
+    public static final DictEntry COAL = new DictEntry("Coal");
+    public static final DictEntry IRON = new DictEntry("Iron");
+    public static final DictEntry GOLD = new DictEntry("Gold");
+    public static final DictEntry DIAMOND = new DictEntry("Diamond");
+    public static final DictEntry REDSTONE = new DictEntry("Redstone");
+    public static final DictEntry NetherQuartz = new DictEntry("NetherQuartz");
+    public static final DictEntry LAPIS = new DictEntry("Lapis");
+    public static final DictEntry EMERALD = new DictEntry("Emerald");
+
+
+    //----------------MODDED----------------//
     private final static DictEntry CU = new DictEntry("Copper");
     private final static DictEntry AL = new DictEntry("Aluminum");
     private final static DictEntry TI = new DictEntry("Titanium");
@@ -24,6 +36,15 @@ public class OreDictionaryManager {
 
     public static void REGISTER() {
 
+        //----------------VANILLA----------------//
+
+        /*
+
+            Implement Modded Versions of Vanilla ores here (Plates, Dust, etc...)
+
+         */
+
+        //----------------MODDED----------------//
         CU  .addOre(oreCopper)      .addPlate(plateCopper)      .addIngot(ingotCopper)     .addWire(wireCopper)      .addSheet(sheetCopper)      .addPowder(powderCopper);
         AL  .addOre(oreAluminum)    .addPlate(plateAluminum)    .addIngot(ingotAluminum)   .addWire(wireAluminum)    .addSheet(sheetAluminum)    .addPowder(powderAluminum);
         TI  .addOre(oreTitanium)    .addPlate(plateTitanium)    .addIngot(ingotTitanium)   .addWire(wireTitanium)    .addSheet(sheetTitanium)    .addPowder(powderTitanium);
@@ -59,6 +80,16 @@ public class OreDictionaryManager {
         public DictEntry addPowder(Item item) {
 
             String name = powder() + entryName;
+
+            initEntry(name, item);
+
+            return this;
+
+        }
+
+        public DictEntry addGem(Item item) {
+
+            String name = gem() + entryName;
 
             initEntry(name, item);
 
@@ -118,6 +149,7 @@ public class OreDictionaryManager {
 
         public String ingot() { return INGOT; }
         public String powder() { return POWDER; }
+        public String gem() { return GEM; }
         public String plate() { return PLATE; }
         public String wire() { return WIRE; }
         public String sheet() { return SHEET; }

@@ -22,7 +22,6 @@ import java.util.Set;
 
 public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
-
     // Basics
     Random rand;
 
@@ -139,7 +138,7 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
 
         generateTerrain(chunkX, chunkY, buffer.getBlocks(), buffer.getMetas());
 
-        if ( spawnCraters ) { generateCrater(chunkX, chunkY, buffer.getBlocks(), buffer.getMetas()); }
+        if (spawnCraters) { generateCrater(chunkX, chunkY, buffer.getBlocks(), buffer.getMetas()); }
 
         Chunk chunk = new Chunk(world, buffer.getBlocks(), buffer.getMetas(), chunkX, chunkY);
         chunk.generateSkylightMap();
@@ -197,7 +196,6 @@ public class ChunkProviderCelestial extends ChunkProviderGenerate {
                 double zDev = craterZ - (chunkZ + z);
                 double distanceSquared = xDev * xDev + zDev * zDev;
 
-                // Check if the block is within the crater radius
                 if (distanceSquared < size * size) {
 
                     xDev /= size;
