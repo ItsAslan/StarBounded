@@ -60,6 +60,7 @@ public class ModItems {
 
     public static Item cubeLithium;
     public static Item cubeGraphite;
+    public static Item cubeSulfur;
 
     public static void REGISTER() {
 
@@ -113,6 +114,7 @@ public class ModItems {
 
         cubeLithium = new ItemGeneric(modItems).setUnlocalizedName("cubeLithium").setCreativeTab(Starbounded.materialsTab);
         cubeGraphite = new ItemGeneric(modItems).setUnlocalizedName("cubeGraphite").setCreativeTab(Starbounded.materialsTab);
+        cubeSulfur = new ItemGeneric(modItems).setUnlocalizedName("cubeSulfur").setCreativeTab(Starbounded.materialsTab);
 
     }
 

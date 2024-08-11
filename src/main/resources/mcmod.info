@@ -2,13 +2,13 @@
   {
     "modid": "sbnd",
     "name": "Starbounded",
-    "description": "You're technically riding a giant bomb",
+    "description": "Why did the restaurant on the moon fail? It had no atmosphere.",
     "version": "0.0.4",
     "mcversion": "1.7.10",
     "url": "",
     "updateUrl": "",
-    "authorList": ["ItsAslan"],
-    "credits": "ItsAslan",
+    "authorList": ["ItsAslanMods"],
+    "credits": "ItsAslanMods",
     "logoFile": "",
     "screenshots": [],
     "dependencies": []

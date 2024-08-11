@@ -30,7 +30,7 @@ public class OreGeneric extends Block {
         NORMAL(),
         BURNING("flame", "smoke"),
         FREEZING("crit", "crit"),
-        WET();
+        WET("bubble", "bubble"); // This doesn't work :(
 
         private String particle;
 
@@ -45,14 +45,16 @@ public class OreGeneric extends Block {
 
         this.type = type;
 
+        // Basic for Stone
+        this.setHardness(3.0F);
+        this.setResistance(5.0F);
+        this.setHarvestLevel("pickaxe", 2);
+
     }
 
     public OreGeneric(List<Block> registry, Material material, OreType type, Item itemToDrop, int maxAmount) {
 
-        super(material);
-        registry.add(this);
-
-        this.type = type;
+        this( registry, material, type );
 
         this.itemToDrop = itemToDrop;
         this.maxAmount = maxAmount;

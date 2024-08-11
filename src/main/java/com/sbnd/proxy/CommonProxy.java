@@ -15,8 +15,8 @@ public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent $e) {
 
-        ModBlocks.REGISTER();
         ModItems.REGISTER();
+        ModBlocks.REGISTER();
 
         CraftingRegistry.REGISTER();
 
