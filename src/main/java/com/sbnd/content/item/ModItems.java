@@ -1,22 +1,26 @@
 package com.sbnd.content.item;
 
 import com.sbnd.content.item.core.definitions.basic.ItemGeneric;
+import com.sbnd.content.item.core.definitions.basic.ItemGenericTooltip;
 import com.sbnd.main.ModVars;
 import com.sbnd.main.Starbounded;
+import com.sbnd.world.tmp.core.bodies.CelestialBody;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ModItems {
 
     static List<Item> modItems = new ArrayList<>();
 
     //---------------ITEMS---------------//
+
+    // Raw
+    public static Item clusterZirconium;
+    public static Item clusterNiobium;
+    public static Item clusterTantalum;
 
     // Ingot
     public static Item ingotCopper;
@@ -71,6 +75,11 @@ public class ModItems {
     }
 
     static void initItems() {
+
+        // Raw
+        clusterZirconium = new ItemGenericTooltip(modItems, "Moon").setUnlocalizedName("clusterZirconium").setCreativeTab(Starbounded.materialsTab);
+        clusterNiobium = new ItemGenericTooltip(modItems, "Moon").setUnlocalizedName("clusterNiobium").setCreativeTab(Starbounded.materialsTab);
+        clusterTantalum = new ItemGenericTooltip(modItems, "Moon").setUnlocalizedName("clusterTantalum").setCreativeTab(Starbounded.materialsTab);
 
         // Ingot
         ingotCopper = new ItemGeneric(modItems).setUnlocalizedName("ingotCopper").setCreativeTab(Starbounded.materialsTab);

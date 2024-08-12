@@ -1,5 +1,9 @@
 #Items
 
+item.clusterZirconium.name=كتلة الزركونيوم
+item.clusterNiobium.name=كتلة النيوبيوم
+item.clusterTantalum.name=كتلة التانتالوم
+
 item.ingotCopper.name=سبيكة نحاس
 item.ingotAluminum.name=سبيكة ألومنيوم
 item.ingotTitanium.name=سبيكة تيتانيوم

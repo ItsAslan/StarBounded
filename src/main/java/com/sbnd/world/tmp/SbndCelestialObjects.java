@@ -9,6 +9,8 @@ import net.minecraft.world.WorldProvider;
 import net.minecraftforge.common.DimensionManager;
 
 import static com.sbnd.world.tmp.core.CelestialProperty.*;
+import static com.sbnd.world.tmp.SbndGas.*;
+import static net.minecraft.util.EnumChatFormatting.*;
 
 public class SbndCelestialObjects {
 
@@ -58,7 +60,7 @@ public class SbndCelestialObjects {
         initSystems();
 
         // This is a sample. Change `WorldProvider` to a custom one
-        initDimensions(WorldProvider.class , CelestialBody.getBody("Moon").getDimensionId());
+        // initDimensions(WorldProvider.class , CelestialBody.getBody("Moon").getDimensionId());
 
     }
 
@@ -75,7 +77,7 @@ public class SbndCelestialObjects {
 
                 .setName("Solar System")
                 .setSizeAu(200_000)
-                .setPrimaryGas(SbndGas.HELIUM, SbndGas.HYDROGEN)
+                .setPrimaryGas(HELIUM, HYDROGEN)
                 .setStar(new Star()
 
                         .setName("Sol")
@@ -113,6 +115,7 @@ public class SbndCelestialObjects {
                                                 .setMassKg(7.3e22)
                                                 .setRadiusKm(1_079)
                                                 .setOrbitRadiusKm(384_400)
+                                                .setFormatColor(GRAY)
                                                 .setDimensionId(PlanetConfig.MOON)
 
                                         ),

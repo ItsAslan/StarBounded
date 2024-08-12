@@ -1,5 +1,9 @@
 #Items
 
+item.clusterZirconium.name=Zirconium Cluster
+item.clusterNiobium.name=Niobium Cluster
+item.clusterTantalum.name=Tantalum Cluster
+
 item.ingotCopper.name=Copper Ingot
 item.ingotAluminum.name=Aluminum Ingot
 item.ingotTitanium.name=Titanium Ingot

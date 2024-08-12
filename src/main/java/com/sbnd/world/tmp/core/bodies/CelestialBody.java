@@ -8,6 +8,7 @@ import com.sbnd.world.tmp.core.EnumCelestialType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class CelestialBody {
 
         this.name = name;
 
-        nameToBodyMap.put(name, this);
+        CelestialBody.getNameToBodyMap().put(name, this);
 
         return this;
 
@@ -47,7 +48,7 @@ public class CelestialBody {
 
     public CelestialBody setDimensionId(int id) {
 
-        idToBodyMap.put(id, this);
+        CelestialBody.getIdToBodyMap().put(id, this);
 
         this.dimensionId = id;
 
@@ -79,7 +80,8 @@ public class CelestialBody {
 
     }
 
-    @Getter @Setter
+    @Setter
+    @Getter
     public Star star;
 
     // Star map and Sky
@@ -138,10 +140,19 @@ public class CelestialBody {
 
     }
 
+    // Util
+
+    @Setter
+    @Getter
+    private EnumChatFormatting formatColor;
+
     // Statics
 
-    public static Map<String, CelestialBody> nameToBodyMap;
-    public static Map<Integer, CelestialBody> idToBodyMap;
+    @Getter
+    public static Map<String, CelestialBody> nameToBodyMap = new HashMap<>();
+
+    @Getter
+    public static Map<Integer, CelestialBody> idToBodyMap = new HashMap<>();
 
     public static CelestialBody getBody(String name) {
 

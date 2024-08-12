@@ -29,15 +29,15 @@ public class StarSystem {
     @Setter
     private ResourceLocation icon;
 
-    @Getter
     @Setter
+    @Getter
     private Star star;
 
     @Setter
     private String name;
 
     @Getter
-    private ArrayList<SbndGas> primaryGas;
+    private ArrayList<SbndGas> primaryGas = new ArrayList<>();
 
     public StarSystem setPrimaryGas(SbndGas... gases) {
 

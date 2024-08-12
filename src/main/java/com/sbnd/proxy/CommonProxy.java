@@ -26,7 +26,8 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent $e) {
 
-        SbndCelestialObjects.REGISTER();
+        SbndCelestialObjects.REGISTER(); // This will be deleted soon
+        com.sbnd.world.tmp.SbndCelestialObjects.REGISTER(); // See the confusion here? I was stuck on this for an hour
         SbndBiomes.REGISTER();
 
     }
