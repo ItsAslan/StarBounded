@@ -1,7 +1,8 @@
 package com.sbnd.world.celestial.core.data;
 
 import com.sbnd.world.celestial.EnumCelestial;
-import com.sbnd.world.celestial.core.base.CelestialSkyRenderer;
+import com.sbnd.world.tmp.core.gen.SkyRendererCelestial;
+
 
 import java.util.Set;
 
@@ -28,6 +29,6 @@ public interface ISkyData {
 
     Set<EnumCelestial> getMoons();
 
-    CelestialSkyRenderer getSkyRenderer();
+    SkyRendererCelestial getSkyRenderer();
 
 }

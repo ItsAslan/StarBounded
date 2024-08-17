@@ -99,6 +99,7 @@ public class Star {
     private double radiusKm;
 
     @Setter
+    @Getter
     private String name;
 
     @Getter
@@ -117,11 +118,31 @@ public class Star {
 
     public Star addPlanets(CelestialBody... bodies) {
 
-        Arrays.asList(bodies).forEach(e -> e.setStar(this));
+        for(CelestialBody body : bodies) {
+
+            checkAndSetStar(body);
+
+        }
 
         planets.addAll(Arrays.asList(bodies));
 
         return this;
+
+    }
+
+    private void checkAndSetStar(CelestialBody body) {
+
+        body.setStar(this);
+
+        if(!body.getSatellites().isEmpty()) {
+
+            for(CelestialBody satellite : body.getSatellites()) {
+
+                checkAndSetStar(satellite);
+
+            }
+
+        }
 
     }
 

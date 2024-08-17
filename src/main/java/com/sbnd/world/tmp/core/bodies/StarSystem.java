@@ -39,7 +39,7 @@ public class StarSystem {
     @Getter
     private ArrayList<SbndGas> primaryGas = new ArrayList<>();
 
-    public StarSystem setPrimaryGas(SbndGas... gases) {
+    public StarSystem addPrimaryGas(SbndGas... gases) {
 
         primaryGas.addAll(Arrays.asList(gases));
 

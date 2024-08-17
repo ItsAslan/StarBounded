@@ -3,9 +3,10 @@ package com.sbnd.main;
 public class SbndUtil {
 
     public static int STAR_COUNT = 9000;
-    public static long STAR_SEED = 10842;
+    public static long STAR_SEED = 10842L;
 
-    public static double CELESTIAL_RENDER_MULTIPLIER = 5;
+    public static double CELESTIAL_RENDER_MULTIPLIER = 200;
+    public static double SUN_RENDER_MULTIPLIER = 10;
 
     public static float GRAVITATIONAL_CONSTANT = 9.8f;
 

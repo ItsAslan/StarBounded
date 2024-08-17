@@ -77,7 +77,7 @@ public class SbndCelestialObjects {
 
                 .setName("Solar System")
                 .setSizeAu(200_000)
-                .setPrimaryGas(HELIUM, HYDROGEN)
+                .addPrimaryGas(HELIUM, HYDROGEN)
                 .setStar(new Star()
 
                         .setName("Sol")
@@ -95,6 +95,7 @@ public class SbndCelestialObjects {
                                 new CelestialBody(EnumCelestialType.PLANET)
 
                                         .setName("Venus")
+                                        .setFormatColor(YELLOW)
                                         .setMassKg(4.8e24)
                                         .setRadiusKm(6_052)
                                         .setOrbitRadiusKm(108.2e6)
@@ -108,14 +109,15 @@ public class SbndCelestialObjects {
                                         .setRadiusKm(6_378)
                                         .setOrbitRadiusKm(149.6e6)
                                         .addProperties(BREATHABLE)
+                                        .addPrimaryGas(NITROGEN, OXYGEN)
                                         .setDimensionId(PlanetConfig.EARTH)
                                         .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
 
                                                 .setName("Moon")
+                                                .setFormatColor(GRAY)
                                                 .setMassKg(7.3e22)
                                                 .setRadiusKm(1_079)
                                                 .setOrbitRadiusKm(384_400)
-                                                .setFormatColor(GRAY)
                                                 .setDimensionId(PlanetConfig.MOON)
 
                                         ),
@@ -123,9 +125,11 @@ public class SbndCelestialObjects {
                                 new CelestialBody(EnumCelestialType.PLANET)
 
                                         .setName("Mars")
+                                        .setFormatColor(RED)
                                         .setMassKg(6.3e23)
                                         .setRadiusKm(2_106)
                                         .setOrbitRadiusKm(228e6)
+                                        .addPrimaryGas(CO2, NITROGEN, ARGON)
                                         .setDimensionId(PlanetConfig.MARS)
                                         .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
 
@@ -151,6 +155,7 @@ public class SbndCelestialObjects {
                                         .setMassKg(1.8e27)
                                         .setRadiusKm(69_911)
                                         .setOrbitRadiusKm(778.5e6)
+                                        .addPrimaryGas(HYDROGEN, HELIUM)
                                         .setDimensionId(PlanetConfig.JUPITER)
                                         .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
 
@@ -176,6 +181,7 @@ public class SbndCelestialObjects {
                                         .setMassKg(5.6e26)
                                         .setRadiusKm(58.232)
                                         .setOrbitRadiusKm(1432e6)
+                                        .addPrimaryGas(HYDROGEN, HELIUM)
                                         .setDimensionId(PlanetConfig.SATURN)
                                         .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
 
@@ -193,6 +199,7 @@ public class SbndCelestialObjects {
                                         .setMassKg(8.7e25)
                                         .setRadiusKm(25_559)
                                         .setOrbitRadiusKm(2867e6)
+                                        .addPrimaryGas(HYDROGEN, HELIUM)
                                         .setDimensionId(PlanetConfig.URANUS),
 
                                 new CelestialBody(EnumCelestialType.GAS_GIANT)
@@ -201,6 +208,7 @@ public class SbndCelestialObjects {
                                         .setMassKg(1.02e26)
                                         .setRadiusKm(24_622)
                                         .setOrbitRadiusKm(4515e6)
+                                        .addPrimaryGas(HYDROGEN, HELIUM, METHANE)
                                         .setDimensionId(PlanetConfig.NEPTUNE)
                                         .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
 

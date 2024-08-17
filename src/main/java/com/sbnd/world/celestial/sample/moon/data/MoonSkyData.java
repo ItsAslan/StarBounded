@@ -1,10 +1,11 @@
 package com.sbnd.world.celestial.sample.moon.data;
 
 import com.sbnd.world.celestial.EnumCelestial;
-import com.sbnd.world.celestial.core.base.CelestialSkyRenderer;
-import com.sbnd.world.celestial.core.data.ISkyData;
 
-import java.util.ArrayList;
+import com.sbnd.world.celestial.core.data.ISkyData;
+import com.sbnd.world.tmp.core.bodies.CelestialBody;
+import com.sbnd.world.tmp.core.gen.SkyRendererCelestial;
+
 import java.util.Collections;
 import java.util.Set;
 
@@ -76,8 +77,8 @@ public class MoonSkyData implements ISkyData {
     }
 
     @Override
-    public CelestialSkyRenderer getSkyRenderer() {
-        return new CelestialSkyRenderer(this);
+    public SkyRendererCelestial getSkyRenderer() {
+        return new SkyRendererCelestial(CelestialBody.getBody("Moon"));
     }
 
 }

@@ -11,10 +11,7 @@ import lombok.experimental.Accessors;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Accessors(chain = true)
 public class CelestialBody {
@@ -66,6 +63,8 @@ public class CelestialBody {
 
     @Getter
     public Map<String, CelestialBody> nameToSatelliteMap = new HashMap<>();
+    @Getter
+    public Set<CelestialBody> satellites = new HashSet<>();
 
     public CelestialBody addSatellites(CelestialBody... bodies) {
 
@@ -73,6 +72,7 @@ public class CelestialBody {
 
             e.setParent(this);
             nameToSatelliteMap.put(e.getName(), e);
+            satellites.add(e);
 
         });
 
@@ -122,9 +122,16 @@ public class CelestialBody {
 
     // Atmosphere
 
-    @Setter
     @Getter
-    private SbndGas primaryAtmosphereGas;
+    private ArrayList<SbndGas> primaryGas = new ArrayList<>();
+
+    public CelestialBody addPrimaryGas(SbndGas... gases) {
+
+        primaryGas.addAll(Arrays.asList(gases));
+
+        return this;
+
+    }
 
     @Setter
     private int pressurePsi;

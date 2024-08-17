@@ -78,8 +78,8 @@ public class ModItems {
 
         // Raw
         clusterZirconium = new ItemGenericTooltip(modItems, "Moon").setUnlocalizedName("clusterZirconium").setCreativeTab(Starbounded.materialsTab);
-        clusterNiobium = new ItemGenericTooltip(modItems, "Moon").setUnlocalizedName("clusterNiobium").setCreativeTab(Starbounded.materialsTab);
-        clusterTantalum = new ItemGenericTooltip(modItems, "Moon").setUnlocalizedName("clusterTantalum").setCreativeTab(Starbounded.materialsTab);
+            clusterNiobium = new ItemGenericTooltip(modItems, "Mars").setUnlocalizedName("clusterNiobium").setCreativeTab(Starbounded.materialsTab);
+        clusterTantalum = new ItemGenericTooltip(modItems, "Venus").setUnlocalizedName("clusterTantalum").setCreativeTab(Starbounded.materialsTab);
 
         // Ingot
         ingotCopper = new ItemGeneric(modItems).setUnlocalizedName("ingotCopper").setCreativeTab(Starbounded.materialsTab);
