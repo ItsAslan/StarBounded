@@ -250,7 +250,7 @@ public class SkyRendererCelestial extends IRenderHandler {
 
         GL11.glPushMatrix();
         GL11.glScalef(0.6F, 0.6F, 0.6F);
-        GL11.glRotatef(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
+        GL11.glRotatef(getCelestialAngle(body, world, partialTicks) * 360, 1.0F, 0.0F, 0.0F);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GL11.glDepthMask(false);
 
@@ -366,6 +366,40 @@ public class SkyRendererCelestial extends IRenderHandler {
         double radius = planet.getStar().getRadiusKm();
 
         return (float) (2D * Math.atan(radius / distance) * SbndUtil.SUN_RENDER_MULTIPLIER);
+
+    }
+
+    private float getCelestialAngle(CelestialBody body, WorldClient world, float partialTicks) {
+
+        return body.isTidallyLocked() ? getTidallyLockedAngle(body, world, partialTicks) : getNormalAngle(body, world, partialTicks);
+
+    }
+
+    private float getNormalAngle(CelestialBody body, WorldClient world, float partialTicks) {
+
+        float dayLength = ((body.getDayLengthSeconds() / SbndUtil.SECONDS_MC_DAY) * SbndUtil.GAME_TICK);
+
+        float celestialAngle = ((world.getWorldTime() + partialTicks) % dayLength) / dayLength;
+
+        celestialAngle = celestialAngle > 0.5F ? (1.0F - celestialAngle) : celestialAngle;
+
+        celestialAngle = 1.0F - (float)((Math.cos(celestialAngle * Math.PI) + 1.0D) / 2.0D);
+
+        return celestialAngle * (float)Math.cos(Math.toRadians(body.getAxialTiltDegrees())) * 360F;
+
+    }
+
+    private float getTidallyLockedAngle(CelestialBody body, WorldClient world, float partialTicks) {
+
+        float orbitalPeriod = (float) (body.getOrbitalPeriodSeconds() * SbndUtil.GAME_TICK);
+
+        float celestialAngle = (world.getWorldTime() + partialTicks) % orbitalPeriod / orbitalPeriod;
+
+        celestialAngle = (celestialAngle * 360.0F) + getNormalAngle(body.getParent(), world, partialTicks);
+
+        celestialAngle = celestialAngle % 360.0F;
+
+        return celestialAngle * (float)Math.cos(Math.toRadians(body.getAxialTiltDegrees()));
 
     }
 

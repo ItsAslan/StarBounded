@@ -12,4 +12,6 @@ public class SbndUtil {
 
     public static int SECONDS_MC_DAY = 20 * 60;
 
+    public static int GAME_TICK = 20;
+
 }

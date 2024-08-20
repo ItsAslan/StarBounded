@@ -1,5 +1,6 @@
 package com.sbnd.world.tmp;
 
+import api.util.TimeUtil;
 import com.sbnd.config.PlanetConfig;
 import com.sbnd.world.tmp.core.bodies.CelestialBody;
 import com.sbnd.world.tmp.core.bodies.Star;
@@ -118,6 +119,8 @@ public class SbndCelestialObjects {
                                                 .setMassKg(7.3e22)
                                                 .setRadiusKm(1_079)
                                                 .setOrbitRadiusKm(384_400)
+                                                .setAxialTiltDegrees(5)
+                                                .setDayLengthSeconds(TimeUtil.DayToSecond(29.5F))
                                                 .setDimensionId(PlanetConfig.MOON)
 
                                         ),

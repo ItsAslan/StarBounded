@@ -34,6 +34,7 @@ public class OreDictionaryManager {
     private final static DictEntry LI = new DictEntry("Lithium");
     private final static DictEntry C = new DictEntry("Carbon");
     private final static DictEntry S = new DictEntry("Sulfur");
+    private final static DictEntry KNO = new DictEntry("Saltpeter");
 
     public static void REGISTER() {
 
@@ -55,6 +56,7 @@ public class OreDictionaryManager {
         LI                                                                                                                                       .addPowder(cubeLithium);
         C                                                                                                                                        .addPowder(cubeGraphite);
         S                                                                                                                                        .addPowder(cubeSulfur);
+        KNO                                                                                                                                      .addPowder(powderSaltpeter);
 
     }
 

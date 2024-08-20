@@ -4,7 +4,6 @@ import com.sbnd.content.item.core.definitions.basic.ItemGeneric;
 import com.sbnd.content.item.core.definitions.basic.ItemGenericTooltip;
 import com.sbnd.main.ModVars;
 import com.sbnd.main.Starbounded;
-import com.sbnd.world.tmp.core.bodies.CelestialBody;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 
@@ -18,6 +17,7 @@ public class ModItems {
     //---------------ITEMS---------------//
 
     // Raw
+    public static Item powderSaltpeter;
     public static Item clusterZirconium;
     public static Item clusterNiobium;
     public static Item clusterTantalum;
@@ -62,6 +62,7 @@ public class ModItems {
     public static Item powderTin;
     public static Item powderLead;
 
+    // Cube
     public static Item cubeLithium;
     public static Item cubeGraphite;
     public static Item cubeSulfur;
@@ -77,8 +78,9 @@ public class ModItems {
     static void initItems() {
 
         // Raw
+        powderSaltpeter = new ItemGeneric(modItems).setUnlocalizedName("powderSaltpeter").setCreativeTab(Starbounded.materialsTab);
         clusterZirconium = new ItemGenericTooltip(modItems, "Moon").setUnlocalizedName("clusterZirconium").setCreativeTab(Starbounded.materialsTab);
-            clusterNiobium = new ItemGenericTooltip(modItems, "Mars").setUnlocalizedName("clusterNiobium").setCreativeTab(Starbounded.materialsTab);
+        clusterNiobium = new ItemGenericTooltip(modItems, "Mars").setUnlocalizedName("clusterNiobium").setCreativeTab(Starbounded.materialsTab);
         clusterTantalum = new ItemGenericTooltip(modItems, "Venus").setUnlocalizedName("clusterTantalum").setCreativeTab(Starbounded.materialsTab);
 
         // Ingot

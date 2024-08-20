@@ -92,10 +92,18 @@ public class CelestialBody {
 
     @Setter
     @Getter
-    private float axialTilt;
+    private float axialTiltDegrees;
+
+    @Setter
+    @Getter
+    private float dayLengthSeconds;
+
+    @Setter
+    @Getter
+    private boolean isTidallyLocked;
 
     // Kepler's Third Law
-    private double getOrbitalPeriod() {
+    public double getOrbitalPeriodSeconds() {
 
         double period = Math.sqrt((4 * Math.pow(Math.PI, 2) / SbndUtil.GRAVITATIONAL_CONSTANT * (massKg + parent.getMassKg())) * Math.pow(orbitRadiusKm, 3));
 
