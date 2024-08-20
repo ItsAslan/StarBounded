@@ -88,7 +88,7 @@ public class CelestialBody {
 
     @Setter
     @Getter
-    private double orbitRadiusKm;
+    private double orbitRadiusKm; // When the body is a satellite, it means the distance away from the parent planet. When the body is anything else, it's the distance away from the star. I should probably change this but it's fine
 
     @Setter
     @Getter
@@ -125,6 +125,7 @@ public class CelestialBody {
     @Getter
     private boolean visibleStars;
 
+    @Setter
     @Getter
     private ResourceLocation icon;
 

@@ -5,7 +5,10 @@ import net.minecraft.util.ResourceLocation;
 public class ResourceManager {
 
     // Planets
+    public static ResourceLocation MERCURY = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/planets/mercuryTexture.png");
+    public static ResourceLocation VENUS = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/planets/venusTexture.png");
     public static ResourceLocation EARTH = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/planets/earthTexture.png");
+    public static ResourceLocation MARS = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/planets/marsTexture.png");
 
     // Satellites
     public static ResourceLocation MOON = new ResourceLocation(ModVars.MOD_ID, "textures/celestial/satellites/moonTexture.png");

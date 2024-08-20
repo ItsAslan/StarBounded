@@ -6,7 +6,7 @@ public class SbndUtil {
     public static long STAR_SEED = 10842L;
 
     public static double CELESTIAL_RENDER_MULTIPLIER = 200;
-    public static double SUN_RENDER_MULTIPLIER = 10;
+    public static double SUN_RENDER_MULTIPLIER = 2500;
 
     public static float GRAVITATIONAL_CONSTANT = 9.8f;
 

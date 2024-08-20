@@ -31,7 +31,7 @@ public class Star {
 
     }
 
-    public ResourceLocation getStarIcon() {
+    public ResourceLocation getIcon() {
 
         switch(color) {
 

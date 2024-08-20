@@ -17,6 +17,8 @@ import org.lwjgl.opengl.GL12;
 
 import java.util.Random;
 
+import static com.sbnd.world.tmp.core.EnumCelestialType.*;
+
 // This is a custom class for rendering the sky for any given `CelestialBody`
 
 // The state the renderer is in right now is very primitive and is subject to substantial change.
@@ -203,7 +205,8 @@ public class SkyRendererCelestial extends IRenderHandler {
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
         GL11.glPushMatrix();
 
-        renderPrimaryPlanet();
+        if(body.getType() == SATELLITE)
+            renderPrimaryPlanet();
 
         renderStar(world, partialTicks);
 
@@ -235,7 +238,7 @@ public class SkyRendererCelestial extends IRenderHandler {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
         GL11.glRotatef(75.0F, 1.0F, 0.0F, 0.0F);
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(ResourceManager.EARTH);
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(body.getParent().getIcon());
 
         tessellator.startDrawingQuads();
         tessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D, 0.0D);
@@ -267,7 +270,7 @@ public class SkyRendererCelestial extends IRenderHandler {
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(ResourceManager.BLUE_STAR);
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(body.getStar().getIcon());
 
         tessellator.startDrawingQuads();
         tessellator.addVertexWithUV(-size, -100.0D, size, 0, 1);
@@ -360,7 +363,27 @@ public class SkyRendererCelestial extends IRenderHandler {
     }
 
     // Gets distance from planet to star
-    private float getStarSizeFromDistance(CelestialBody planet) {
+    private float getStarSizeFromDistance(CelestialBody body) {
+
+        return body.getType() == SATELLITE ? getStarSizeFromSatellite(body) : getStarSizeNormal(body);
+
+    }
+
+    // This makes sense right?
+    private float getStarSizeFromSatellite(CelestialBody satellite) {
+
+        double parentDistance = satellite.getParent().getOrbitRadiusKm();
+        double radius = satellite.getParent().getStar().getRadiusKm();
+
+        double distanceFromParent = satellite.getOrbitRadiusKm();
+
+        double distance = parentDistance + distanceFromParent;
+
+        return (float) (2D * Math.atan(radius / distance) * SbndUtil.SUN_RENDER_MULTIPLIER);
+
+    }
+
+    private float getStarSizeNormal(CelestialBody planet) {
 
         double distance = planet.getOrbitRadiusKm();
         double radius = planet.getStar().getRadiusKm();

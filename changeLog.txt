@@ -1,21 +1,8 @@
-1. Completed new `CelestialBody` registration with a tree map instead of
-   interface stacking.
+CHANGED:
 
-2. Created custom `ChunkProviderCelestial` that can be extended and customized.
-   This provider takes use of `BlockLayer.`
-
-TO-DO:
-
-1. Create more injections for `ChunkProviderCelestial`
-    Surface block sploshes (Terrain stuff)
-    Fauna
-    Caves
-
-2. Swap `ChunkProviderCelestial` from using `BlockLayer`s to using normal
-    BiomeForGen and Standard Terrain Gen Implementation
-
-3. Begin working on spacecraft implementation
-    Multi-block instantiable spacecraft
-    Custom spacecraft rendering
-    Custom spacecraft entity
-    Mountable
+Added Saltpeter
+Refactored SkyRenderer system
+Added celestial angle system
+Sun Revolutions
+Dynamic sun and parent planet size scaling
+Custom icons for more planets (Venus, Mercury, Mars)

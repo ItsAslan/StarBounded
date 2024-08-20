@@ -2,6 +2,7 @@ package com.sbnd.world.tmp;
 
 import api.util.TimeUtil;
 import com.sbnd.config.PlanetConfig;
+import com.sbnd.main.ResourceManager;
 import com.sbnd.world.tmp.core.bodies.CelestialBody;
 import com.sbnd.world.tmp.core.bodies.Star;
 import com.sbnd.world.tmp.core.bodies.StarSystem;
@@ -87,6 +88,7 @@ public class SbndCelestialObjects {
                         .addPlanets(new CelestialBody(EnumCelestialType.PLANET)
 
                                         .setName("Mercury")
+                                        .setIcon(ResourceManager.MERCURY)
                                         .setMassKg(3.3e23)
                                         .setRadiusKm(2_440)
                                         .setOrbitRadiusKm(57.9e6)
@@ -96,6 +98,7 @@ public class SbndCelestialObjects {
                                 new CelestialBody(EnumCelestialType.PLANET)
 
                                         .setName("Venus")
+                                        .setIcon(ResourceManager.VENUS)
                                         .setFormatColor(YELLOW)
                                         .setMassKg(4.8e24)
                                         .setRadiusKm(6_052)
@@ -106,6 +109,7 @@ public class SbndCelestialObjects {
                                 new CelestialBody(EnumCelestialType.PLANET)
 
                                         .setName("Earth")
+                                        .setIcon(ResourceManager.EARTH)
                                         .setMassKg(5.9e24)
                                         .setRadiusKm(6_378)
                                         .setOrbitRadiusKm(149.6e6)
@@ -115,6 +119,7 @@ public class SbndCelestialObjects {
                                         .addSatellites(new CelestialBody(EnumCelestialType.SATELLITE)
 
                                                 .setName("Moon")
+                                                .setIcon(ResourceManager.MOON)
                                                 .setFormatColor(GRAY)
                                                 .setMassKg(7.3e22)
                                                 .setRadiusKm(1_079)
@@ -128,6 +133,7 @@ public class SbndCelestialObjects {
                                 new CelestialBody(EnumCelestialType.PLANET)
 
                                         .setName("Mars")
+                                        .setIcon(ResourceManager.MARS)
                                         .setFormatColor(RED)
                                         .setMassKg(6.3e23)
                                         .setRadiusKm(2_106)
