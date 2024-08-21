@@ -5,10 +5,10 @@
     "description": "Why did the restaurant on the moon fail? It had no atmosphere.",
     "version": "0.0.4",
     "mcversion": "1.7.10",
-    "url": "",
+    "url": "https://modrinth.com/mod/starbounded",
     "updateUrl": "",
-    "authorList": ["ItsAslanMods"],
-    "credits": "ItsAslanMods",
+    "authorList": ["ItsAslanMods", "Lordmwmw"],
+    "credits": "",
     "logoFile": "",
     "screenshots": [],
     "dependencies": []
