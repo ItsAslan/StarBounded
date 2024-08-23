@@ -1,8 +1,7 @@
 CHANGED:
 
-Added Saltpeter
-Refactored SkyRenderer system
-Added celestial angle system
-Sun Revolutions
-Dynamic sun and parent planet size scaling
-Custom icons for more planets (Venus, Mercury, Mars)
+Saltpeter ore
+New ChunkProvider
+New WorldChunkManager & WorldProvider
+Revamp of biome system
+Crater and Cave Generator

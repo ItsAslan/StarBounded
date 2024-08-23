@@ -4,6 +4,7 @@ import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.gen.ChunkProviderGenerate;
 import net.minecraftforge.oredict.OreDictionary;
 
 // This is so cool
@@ -35,6 +36,9 @@ public class OreDictionaryManager {
     private final static DictEntry C = new DictEntry("Carbon");
     private final static DictEntry S = new DictEntry("Sulfur");
     private final static DictEntry KNO = new DictEntry("Saltpeter");
+    private final static DictEntry NB = new DictEntry("Niobium");
+    private final static DictEntry ZN = new DictEntry("Zirconium");
+    private final static DictEntry TA = new DictEntry("Tantalum");
 
     public static void REGISTER() {
 
@@ -56,7 +60,7 @@ public class OreDictionaryManager {
         LI                                                                                                                                       .addPowder(cubeLithium);
         C                                                                                                                                        .addPowder(cubeGraphite);
         S                                                                                                                                        .addPowder(cubeSulfur);
-        KNO                                                                                                                                      .addPowder(powderSaltpeter);
+        KNO .addOre(oreSaltpeter)                                                                                                                .addPowder(powderSaltpeter);
 
     }
 

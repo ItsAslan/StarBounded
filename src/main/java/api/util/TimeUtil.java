@@ -44,4 +44,16 @@ public class TimeUtil {
 
     }
 
+    public static float DayToMinecraftDay(float day) {
+
+        return day * 72;
+
+    }
+
+    public static float MinecraftDayToDay(float mcDay) {
+
+        return mcDay / 27;
+
+    }
+
 }

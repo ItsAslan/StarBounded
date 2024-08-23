@@ -1,6 +1,6 @@
 package com.sbnd.content.item.core.definitions.basic;
 
-import com.sbnd.world.tmp.core.bodies.CelestialBody;
+import com.sbnd.world.celestial.core.bodies.CelestialBody;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

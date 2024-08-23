@@ -51,6 +51,7 @@ public class SbndGen implements IWorldGenerator {
         SbndGenToolbox.addOreSpawn(ModBlocks.oreTungsten, Blocks.stone, world, random, x, z, 16, 16, 4, 2, OreConfig.TUNGSTEN_SPAWN_RATE, 12, 40);
         SbndGenToolbox.addOreSpawn(ModBlocks.oreTin, Blocks.stone, world, random, x, z, 16, 16, 8, 4, OreConfig.TIN_SPAWN_RATE, 12, 50);
         SbndGenToolbox.addOreSpawn(ModBlocks.oreSulfur, Blocks.stone, world, random, x, z, 16, 16, 8, 4, OreConfig.SULFUR_SPAWN_RATE, 12, 50);
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreSaltpeter, Blocks.stone, world, random, x, z, 16, 16, 8, 4, OreConfig.SALTPETER_SPAWN_RATE, 12, 50);
 
     }
 

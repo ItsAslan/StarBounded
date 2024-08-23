@@ -10,6 +10,7 @@ public class OreConfig {
     public static int TUNGSTEN_SPAWN_RATE = 5;
     public static int TIN_SPAWN_RATE = 6;
     public static int SULFUR_SPAWN_RATE = 6;
+    public static int SALTPETER_SPAWN_RATE = 12;
 
     public static int ZIRCONIUM_SPAWN_RATE = 2;
     public static int NIOBIUM_SPAWN_RATE = 3;
@@ -25,10 +26,11 @@ public class OreConfig {
         TUNGSTEN_SPAWN_RATE = SbndConfig.createConfigInt(config, CATEGORY_ORE_SPAWN, "1.04_tungsten_rate", "Spawn Rate for Tungsten Ore", 5);
         TIN_SPAWN_RATE = SbndConfig.createConfigInt(config, CATEGORY_ORE_SPAWN, "1.05_tin_rate", "Spawn Rate for Tin Ore", 6);
         SULFUR_SPAWN_RATE = SbndConfig.createConfigInt(config, CATEGORY_ORE_SPAWN, "1.06_sulfur_rate", "Spawn Rate for Sulfur Ore", 6);
+        SALTPETER_SPAWN_RATE = SbndConfig.createConfigInt(config, CATEGORY_ORE_SPAWN, "1.07_saltpeter_rate", "Spawn Rate for Saltpeter Ore", 12);
 
-        ZIRCONIUM_SPAWN_RATE = SbndConfig.createConfigInt(config, CATEGORY_ORE_SPAWN, "1.07_zirconium_rate", "Spawn Rate for Zirconium Ore", 2);
-        NIOBIUM_SPAWN_RATE = SbndConfig.createConfigInt(config, CATEGORY_ORE_SPAWN, "1.08_niobium_rate", "Spawn Rate for Niobium Ore", 3);
-        TANTALUM_SPAWN_RATE = SbndConfig.createConfigInt(config, CATEGORY_ORE_SPAWN, "1.09_tantalum_rate", "Spawn Rate for Tantalum Ore", 7);
+        ZIRCONIUM_SPAWN_RATE = SbndConfig.createConfigInt(config, CATEGORY_ORE_SPAWN, "1.08_zirconium_rate", "Spawn Rate for Zirconium Ore", 2);
+        NIOBIUM_SPAWN_RATE = SbndConfig.createConfigInt(config, CATEGORY_ORE_SPAWN, "1.09_niobium_rate", "Spawn Rate for Niobium Ore", 3);
+        TANTALUM_SPAWN_RATE = SbndConfig.createConfigInt(config, CATEGORY_ORE_SPAWN, "1.010_tantalum_rate", "Spawn Rate for Tantalum Ore", 7);
 
     }
 

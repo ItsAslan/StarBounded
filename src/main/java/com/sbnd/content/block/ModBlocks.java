@@ -33,6 +33,7 @@ public class ModBlocks {
     public static Block oreTungsten;
     public static Block oreTin;
     public static Block oreSulfur;
+    public static Block oreSaltpeter;
     public static Block oreZirconium;
     public static Block oreNiobium;
     public static Block oreTantalum;
@@ -64,6 +65,7 @@ public class ModBlocks {
         oreTungsten = new OreGeneric(modBlocks, Material.rock, NORMAL).setBlockName("oreTungsten").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
         oreTin = new OreGeneric(modBlocks, Material.rock, NORMAL).setBlockName("oreTin").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
         oreSulfur = new OreGeneric(modBlocks, Material.rock, NORMAL, ModItems.cubeSulfur, 4).setBlockName("oreSulfur").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
+        oreSaltpeter = new OreGeneric(modBlocks, Material.rock, NORMAL, ModItems.powderSaltpeter, 4).setBlockName("oreSaltpeter").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
         oreZirconium = new OreGeneric(modBlocks, Material.rock, FREEZING, ModItems.clusterZirconium, 5).setBlockName("oreZirconium").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeSand);
         oreNiobium = new OreGeneric(modBlocks, Material.rock, FREEZING, ModItems.clusterNiobium, 5).setBlockName("oreNiobium").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeSand);
         oreTantalum = new OreGeneric(modBlocks, Material.rock, FREEZING, ModItems.clusterTantalum, 5).setBlockName("oreTantalum").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeSand);
