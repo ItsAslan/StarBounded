@@ -1,4 +1,4 @@
-package com.sbnd.content.fluid.gas;
+package com.sbnd.content.transport.fluid.gas;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

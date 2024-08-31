@@ -2,6 +2,7 @@ package com.sbnd.content.block;
 
 import com.sbnd.content.block.core.definitions.basic.BlockGeneric;
 import com.sbnd.content.block.core.definitions.basic.OreGeneric;
+import com.sbnd.content.block.core.definitions.basic.SbndBlock;
 import com.sbnd.content.item.ModItems;
 import com.sbnd.main.ModVars;
 import com.sbnd.main.Starbounded;
@@ -12,12 +13,13 @@ import net.minecraft.creativetab.CreativeTabs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import static com.sbnd.content.block.core.definitions.basic.OreGeneric.OreType.*;
 
 public class ModBlocks {
 
-    static List<Block> modBlocks = new ArrayList<>();
+    static List<SbndBlock> modBlocks = new ArrayList<>();
 
     //---------------BLOCKS---------------//
 
@@ -37,11 +39,17 @@ public class ModBlocks {
     public static Block oreZirconium;
     public static Block oreNiobium;
     public static Block oreTantalum;
+    public static Block oreMoonIron;
+    public static Block oreMoonTin;
+    public static Block oreMoonTitanium;
+    public static Block oreMoonRockSaltpeter;
+    public static Block oreMoonBasaltSaltpeter;
+    public static Block oreIceIron;
 
     // Terrain
     public static Block blockMoonTurf;
-    public static Block blockMoonTurfMedium;
-    public static Block blockMoonTurfDark;
+    public static Block blockMoonRock;
+    public static Block blockMoonBasalt;
 
     public static void REGISTER() {
 
@@ -66,20 +74,34 @@ public class ModBlocks {
         oreTin = new OreGeneric(modBlocks, Material.rock, NORMAL).setBlockName("oreTin").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
         oreSulfur = new OreGeneric(modBlocks, Material.rock, NORMAL, ModItems.cubeSulfur, 4).setBlockName("oreSulfur").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
         oreSaltpeter = new OreGeneric(modBlocks, Material.rock, NORMAL, ModItems.powderSaltpeter, 4).setBlockName("oreSaltpeter").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
-        oreZirconium = new OreGeneric(modBlocks, Material.rock, FREEZING, ModItems.clusterZirconium, 5).setBlockName("oreZirconium").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeSand);
-        oreNiobium = new OreGeneric(modBlocks, Material.rock, FREEZING, ModItems.clusterNiobium, 5).setBlockName("oreNiobium").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeSand);
-        oreTantalum = new OreGeneric(modBlocks, Material.rock, FREEZING, ModItems.clusterTantalum, 5).setBlockName("oreTantalum").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeSand);
+        oreZirconium = new OreGeneric(modBlocks, Material.rock, FREEZING, ModItems.clusterZirconium, 5).setBlockName("oreZirconium").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
+        oreNiobium = new OreGeneric(modBlocks, Material.rock, FREEZING, ModItems.clusterNiobium, 5).setBlockName("oreNiobium").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
+        oreTantalum = new OreGeneric(modBlocks, Material.rock, FREEZING, ModItems.clusterTantalum, 5).setBlockName("oreTantalum").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
+        oreMoonIron = new OreGeneric(modBlocks, Material.rock, NORMAL).setBlockName("oreMoonIron").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
+        oreMoonTin = new OreGeneric(modBlocks, Material.rock, NORMAL).setBlockName("oreMoonTin").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
+        oreMoonTitanium = new OreGeneric(modBlocks, Material.rock, NORMAL).setBlockName("oreMoonTitanium").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
+        oreMoonRockSaltpeter = new OreGeneric(modBlocks, Material.rock, NORMAL, ModItems.powderSaltpeter, 8).setBlockName("oreMoonRockSaltpeter").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
+        oreMoonBasaltSaltpeter = new OreGeneric(modBlocks, Material.rock, NORMAL, ModItems.powderSaltpeter, 8).setBlockName("oreMoonBasaltSaltpeter").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeStone);
+        oreIceIron = new OreGeneric(modBlocks, Material.rock, NORMAL).setBlockName("oreIceIron").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeGlass);
 
         // Terrain
-        blockMoonTurf = new OreGeneric(modBlocks, Material.sand, NORMAL).setBlockName("blockMoonTurf").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
-        blockMoonTurfMedium = new OreGeneric(modBlocks, Material.sand, NORMAL).setBlockName("blockMoonTurfMedium").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
-        blockMoonTurfDark = new OreGeneric(modBlocks, Material.sand, NORMAL).setBlockName("blockMoonTurfDark").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
+        blockMoonTurf = new BlockGeneric(modBlocks, Material.sand).setBlockName("blockMoonTurf").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
+        blockMoonRock = new BlockGeneric(modBlocks, Material.rock).setBlockName("blockMoonRock").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone);
+        blockMoonBasalt = new BlockGeneric(modBlocks, Material.rock).setBlockName("blockMoonBasalt").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone);
 
     }
 
     static void registerTextures() {
 
-        modBlocks.forEach(block -> block.setBlockTextureName(String.format("%s:%s", ModVars.MOD_ID, block.getUnlocalizedName().substring(5))));
+        modBlocks.forEach(block -> {
+
+            if (block.isUsingTextureRegistry()) {
+
+                block.setBlockTextureName(String.format("%s:%s", ModVars.MOD_ID, block.getUnlocalizedName().substring(5)));
+
+            }
+
+        });
 
     }
 

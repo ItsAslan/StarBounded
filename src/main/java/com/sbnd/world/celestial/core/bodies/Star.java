@@ -1,7 +1,7 @@
 package com.sbnd.world.celestial.core.bodies;
 
 import com.sbnd.main.ResourceManager;
-import com.sbnd.content.fluid.gas.SbndGas;
+import com.sbnd.content.transport.fluid.gas.SbndGas;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

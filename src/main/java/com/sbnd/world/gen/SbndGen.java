@@ -2,7 +2,11 @@ package com.sbnd.world.gen;
 
 import com.sbnd.config.OreConfig;
 import com.sbnd.content.block.ModBlocks;
+import com.sbnd.content.item.ModItems;
+import com.sbnd.main.Starbounded;
 import cpw.mods.fml.common.IWorldGenerator;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -31,7 +35,7 @@ public class SbndGen implements IWorldGenerator {
                 genEnd(world, random, chunkX << 4, chunkZ << 4);
                 break;
 
-            case 2:
+            case 4:
                 genMoon(world, random, chunkX << 4, chunkZ << 4);
                 break;
 
@@ -61,9 +65,16 @@ public class SbndGen implements IWorldGenerator {
 
     private void genMoon(World world, Random random, int x, int z) {
 
-        SbndGenToolbox.addOreSpawn(ModBlocks.oreZirconium, ModBlocks.blockMoonTurf, world, random, x, z, 16, 16, 3, 1, OreConfig.ZIRCONIUM_SPAWN_RATE, 58, 67);
-        SbndGenToolbox.addOreSpawn(ModBlocks.oreNiobium, ModBlocks.blockMoonTurfMedium, world, random, x, z, 16, 16, 4, 1, OreConfig.NIOBIUM_SPAWN_RATE, 50, 57);
-        SbndGenToolbox.addOreSpawn(ModBlocks.oreTantalum, ModBlocks.blockMoonTurfDark, world, random, x, z, 16, 16, 2, 1, OreConfig.TANTALUM_SPAWN_RATE, 40, 57);
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreZirconium, ModBlocks.blockMoonRock, world, random, x, z, 16, 16, 3, 1, OreConfig.ZIRCONIUM_SPAWN_RATE, 12, 70);
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreNiobium, ModBlocks.blockMoonRock, world, random, x, z, 16, 16, 4, 1, OreConfig.NIOBIUM_SPAWN_RATE, 12, 70);
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreTantalum, ModBlocks.blockMoonRock, world, random, x, z, 16, 16, 2, 1, OreConfig.TANTALUM_SPAWN_RATE, 12, 70);
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreMoonIron, ModBlocks.blockMoonRock, world, random, x, z, 16, 16, 12, 5, OreConfig.MOON_IRON_SPAWN_RATE, 12, 70);
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreMoonTin, ModBlocks.blockMoonRock, world, random, x, z, 16, 16, 12, 5, OreConfig.MOON_TIN_SPAWN_RATE, 12, 70);
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreMoonTitanium, ModBlocks.blockMoonRock, world, random, x, z, 16, 16, 10, 6, OreConfig.MOON_TITANIUM_SPAWN_RATE, 12, 70);
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreMoonRockSaltpeter, ModBlocks.blockMoonRock, world, random, x, z, 16, 16, 10, 5, OreConfig.MOON_ROCK_SALTPETER_SPAWN_RATE, 12, 70);
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreMoonBasaltSaltpeter, ModBlocks.blockMoonBasalt, world, random, x, z, 16, 16, 12, 6, OreConfig.MOON_BASALT_SALTPETER_SPAWN_RATE, 12, 70);
+
+        SbndGenToolbox.addOreSpawn(ModBlocks.oreIceIron, Blocks.packed_ice, world, random, x, z, 16, 16, 12, 6, OreConfig.ICE_IRON_SPAWN_RATE, 60, 80);
 
     }
 

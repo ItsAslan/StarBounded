@@ -8,11 +8,11 @@ import com.sbnd.world.celestial.core.bodies.CelestialBody;
 import com.sbnd.world.celestial.core.bodies.Star;
 import com.sbnd.world.celestial.core.bodies.StarSystem;
 import com.sbnd.world.celestial.core.EnumCelestialType;
-import net.minecraft.world.WorldProvider;
+import com.sbnd.world.celestial.core.gen.WorldProviderCelestial;
 import net.minecraftforge.common.DimensionManager;
 
 import static com.sbnd.world.celestial.core.CelestialProperty.*;
-import static com.sbnd.content.fluid.gas.SbndGas.*;
+import static com.sbnd.content.transport.fluid.gas.SbndGas.*;
 import static net.minecraft.util.EnumChatFormatting.*;
 
 public class SbndCelestialObjects {
@@ -66,14 +66,14 @@ public class SbndCelestialObjects {
 
     }
 
-    public static void initDimensions(Class<? extends WorldProvider> c, int id) {
+    public static void initDimensions(Class<? extends WorldProviderCelestial> c, int id) {
 
         DimensionManager.registerProviderType(id, c, false);
         DimensionManager.registerDimension(id, id);
 
     }
 
-    public static void initSystems() {
+    private static void initSystems() {
 
         solarSystem = new StarSystem()
 

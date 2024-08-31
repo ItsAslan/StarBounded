@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class SbndBiomes {
 
-    public static AtomicInteger currentId = new AtomicInteger(50);
+    public static AtomicInteger currentId = new AtomicInteger(60);
     public static Set<BiomeGenCelestial> biomes = new HashSet<>();
 
     //---------------BIOMES---------------//

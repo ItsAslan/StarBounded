@@ -55,10 +55,16 @@ tile.oreSulfur.name=Sulfur Ore
 tile.oreZirconium.name=Zirconium Ore
 tile.oreNiobium.name=Niobium Ore
 tile.oreTantalum.name=Tantalum Ore
+tile.oreMoonIron.name=Iron Ore
+tile.oreMoonTin.name=Tin Ore
+tile.oreMoonTitanium.name=Titanium Ore
+tile.oreMoonRockSaltpeter=Saltpeter Ore
+tile.oreMoonBasaltSaltpeter=Igneous Saltpeter Ore
+tile.oreIceIron=Frozen Iron Ore
 
 tile.blockMoonTurf.name=Moon Turf
-tile.blockMoonTurfMedium.name=Dark Moon Turf
-tile.blockMoonTurfDark.name=Darker Moon Turf
+tile.blockMoonRock.name=Moon Rock
+tile.blockMoonBasalt.name=Basalt
 
 #Achievements
 achievement.moonLanding=Magnificent Desolation

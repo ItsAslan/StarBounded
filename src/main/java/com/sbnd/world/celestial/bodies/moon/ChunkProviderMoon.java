@@ -1,6 +1,8 @@
 package com.sbnd.world.celestial.bodies.moon;
 
 import com.sbnd.content.block.ModBlocks;
+import com.sbnd.world.biome.SbndBiomes;
+import com.sbnd.world.biome.biomes.moon.BiomeGenMoonIceCap;
 import com.sbnd.world.celestial.core.gen.ChunkProviderCelestial;
 import com.sbnd.world.celestial.core.gen.features.CraterGenerator;
 import net.minecraft.world.World;
@@ -13,14 +15,14 @@ public class ChunkProviderMoon extends ChunkProviderCelestial {
     public ChunkProviderMoon(World world, long seed, boolean hasMapFeatures) {
         super(world, seed, hasMapFeatures);
 
-        craterSmall = new CraterGenerator(8);
-        craterBig = new CraterGenerator(40);
+        craterSmall = new CraterGenerator(5, SbndBiomes.moonIceCap);
+        craterBig = new CraterGenerator(30, SbndBiomes.moonIceCap);
 
         craterSmall.setCraterSize(9, 36);
         craterBig.setCraterSize(64, 144);
 
-        stoneBlock = ModBlocks.blockMoonTurf;
-        seaBlock = ModBlocks.blockMoonTurfMedium;
+        stoneBlock = ModBlocks.blockMoonRock;
+        seaBlock = ModBlocks.blockMoonBasalt;
         seaLevel = 62;
 
     }

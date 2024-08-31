@@ -14,7 +14,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.List;
 import java.util.Random;
 
-public class OreGeneric extends Block {
+public class OreGeneric extends SbndBlock {
 
     OreType type;
 
@@ -38,7 +38,7 @@ public class OreGeneric extends Block {
 
     }
 
-    public OreGeneric(List<Block> registry, Material material, OreType type) {
+    public OreGeneric(List<SbndBlock> registry, Material material, OreType type) {
 
         super(material);
         registry.add(this);
@@ -52,7 +52,7 @@ public class OreGeneric extends Block {
 
     }
 
-    public OreGeneric(List<Block> registry, Material material, OreType type, Item itemToDrop, int maxAmount) {
+    public OreGeneric(List<SbndBlock> registry, Material material, OreType type, Item itemToDrop, int maxAmount) {
 
         this( registry, material, type );
 

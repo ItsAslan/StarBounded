@@ -1,7 +1,7 @@
 package com.sbnd.world.celestial.core.bodies;
 
 import com.sbnd.main.SbndUtil;
-import com.sbnd.content.fluid.gas.SbndGas;
+import com.sbnd.content.transport.fluid.gas.SbndGas;
 import com.sbnd.world.celestial.core.CelestialProperty;
 import com.sbnd.world.celestial.core.EnumCelestialType;
 import lombok.Getter;
@@ -59,6 +59,14 @@ public class CelestialBody {
     @Setter
     @Getter
     private double radiusKm;
+
+    public double getGravity() {
+
+        double radius = getRadiusKm() * 1000;
+
+        return SbndUtil.GRAVITATIONAL_CONSTANT * getMassKg() / (Math.pow(radius, 2));
+
+    }
 
     @Getter
     public Map<String, CelestialBody> nameToSatelliteMap = new HashMap<>();
