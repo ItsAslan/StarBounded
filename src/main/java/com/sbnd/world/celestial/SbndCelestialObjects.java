@@ -3,7 +3,9 @@ package com.sbnd.world.celestial;
 import api.util.TimeUtil;
 import com.sbnd.config.PlanetConfig;
 import com.sbnd.main.ResourceManager;
+import com.sbnd.world.celestial.bodies.mars.WorldProviderMars;
 import com.sbnd.world.celestial.bodies.moon.WorldProviderMoon;
+import com.sbnd.world.celestial.core.CelestialProperty;
 import com.sbnd.world.celestial.core.bodies.CelestialBody;
 import com.sbnd.world.celestial.core.bodies.Star;
 import com.sbnd.world.celestial.core.bodies.StarSystem;
@@ -63,6 +65,7 @@ public class SbndCelestialObjects {
         initSystems();
 
         initDimensions(WorldProviderMoon.class , CelestialBody.getBody("Moon").getDimensionId());
+        initDimensions(WorldProviderMars.class, CelestialBody.getBody("Mars").getDimensionId());
 
     }
 

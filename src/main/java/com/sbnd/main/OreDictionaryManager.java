@@ -15,9 +15,9 @@ import static com.sbnd.content.item.ItemPrefix.*;
 public class OreDictionaryManager {
 
     //----------------VANILLA----------------//
-    public static final DictEntry COAL = new DictEntry("Coal");
-    public static final DictEntry IRON = new DictEntry("Iron");
-    public static final DictEntry GOLD = new DictEntry("Gold");
+    public static final DictEntry COAL = new DictEntry("Coal"); // Shouldn't this be the same as Carbon?
+    public static final DictEntry FE = new DictEntry("Iron");
+    public static final DictEntry AU = new DictEntry("Gold");
     public static final DictEntry DIAMOND = new DictEntry("Diamond");
     public static final DictEntry REDSTONE = new DictEntry("Redstone");
     public static final DictEntry NetherQuartz = new DictEntry("NetherQuartz");
@@ -50,17 +50,20 @@ public class OreDictionaryManager {
 
          */
 
+        FE  .addOre(oreMoonIron, oreIceIron);
+
+
         //----------------MODDED----------------//
-        CU  .addOre(oreCopper)      .addPlate(plateCopper)      .addIngot(ingotCopper)     .addWire(wireCopper)      .addSheet(sheetCopper)      .addPowder(powderCopper);
-        AL  .addOre(oreAluminum)    .addPlate(plateAluminum)    .addIngot(ingotAluminum)   .addWire(wireAluminum)    .addSheet(sheetAluminum)    .addPowder(powderAluminum);
-        TI  .addOre(oreTitanium)    .addPlate(plateTitanium)    .addIngot(ingotTitanium)   .addWire(wireTitanium)    .addSheet(sheetTitanium)    .addPowder(powderTitanium);
-        W   .addOre(oreTungsten)    .addPlate(plateTungsten)    .addIngot(ingotTungsten)   .addWire(wireTungsten)    .addSheet(sheetTungsten)    .addPowder(powderTungsten);
-        SN  .addOre(oreTin)         .addPlate(plateTin)         .addIngot(ingotTin)        .addWire(wireTin)         .addSheet(sheetTin)         .addPowder(powderTin);
-        PB                          .addPlate(plateLead)        .addIngot(ingotLead)       .addWire(wireLead)        .addSheet(sheetLead)        .addPowder(powderLead);
-        LI                                                                                                                                       .addPowder(cubeLithium);
-        C                                                                                                                                        .addPowder(cubeGraphite);
-        S                                                                                                                                        .addPowder(cubeSulfur);
-        KNO .addOre(oreSaltpeter)                                                                                                                .addPowder(powderSaltpeter);
+        CU  .addOre(oreCopper)                                                         .addPlate(plateCopper)      .addIngot(ingotCopper)     .addWire(wireCopper)          .addSheet(sheetCopper)      .addPowder(powderCopper);
+        AL  .addOre(oreAluminum)                                                       .addPlate(plateAluminum)    .addIngot(ingotAluminum)   .addWire(wireAluminum)        .addSheet(sheetAluminum)    .addPowder(powderAluminum);
+        TI  .addOre(oreTitanium, oreMoonTitanium)                                      .addPlate(plateTitanium)    .addIngot(ingotTitanium)   .addWire(wireTitanium)        .addSheet(sheetTitanium)    .addPowder(powderTitanium);
+        W   .addOre(oreTungsten)                                                       .addPlate(plateTungsten)    .addIngot(ingotTungsten)   .addWire(wireTungsten)        .addSheet(sheetTungsten)    .addPowder(powderTungsten);
+        SN  .addOre(oreTin, oreMoonTin)                                                .addPlate(plateTin)         .addIngot(ingotTin)        .addWire(wireTin)             .addSheet(sheetTin)         .addPowder(powderTin);
+        PB                                                                             .addPlate(plateLead)        .addIngot(ingotLead)       .addWire(wireLead)            .addSheet(sheetLead)        .addPowder(powderLead);
+        LI                                                                                                                                    .addPowder(cubeLithium);
+        C                                                                                                                                     .addPowder(cubeGraphite);
+        S                                                                                                                                     .addPowder(cubeSulfur);
+        KNO .addOre(oreSaltpeter, oreMoonRockSaltpeter, oreMoonBasaltSaltpeter)                                                               .addPowder(powderSaltpeter);
 
     }
 
@@ -135,11 +138,15 @@ public class OreDictionaryManager {
 
         }
 
-        public DictEntry addOre(Block block) {
+        public DictEntry addOre(Block... blocks) {
 
-            String name = ore() + entryName;
+            for(Block block : blocks) {
 
-            initEntry(name, block);
+                String name = ore() + entryName;
+
+                initEntry(name, block);
+
+            }
 
             return this;
 

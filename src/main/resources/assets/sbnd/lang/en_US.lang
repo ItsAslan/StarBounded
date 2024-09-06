@@ -58,9 +58,9 @@ tile.oreTantalum.name=Tantalum Ore
 tile.oreMoonIron.name=Iron Ore
 tile.oreMoonTin.name=Tin Ore
 tile.oreMoonTitanium.name=Titanium Ore
-tile.oreMoonRockSaltpeter=Saltpeter Ore
-tile.oreMoonBasaltSaltpeter=Igneous Saltpeter Ore
-tile.oreIceIron=Frozen Iron Ore
+tile.oreMoonRockSaltpeter.name=Saltpeter Ore
+tile.oreMoonBasaltSaltpeter.name=Igneous Saltpeter Ore
+tile.oreIceIron.name=Frozen Iron Ore
 
 tile.blockMoonTurf.name=Moon Turf
 tile.blockMoonRock.name=Moon Rock

@@ -1,8 +1,7 @@
 package com.sbnd.world.biome;
 
+import com.sbnd.world.biome.biomes.mars.BiomeGenMarsFlats;
 import com.sbnd.world.biome.biomes.moon.BiomeGenMoonFlats;
-import com.sbnd.world.biome.biomes.moon.BiomeGenMoonBasaltPlains;
-import com.sbnd.world.biome.biomes.moon.BiomeGenMoonIceCap;
 import com.sbnd.world.biome.core.BiomeGenCelestial;
 import net.minecraftforge.common.BiomeDictionary;
 
@@ -17,14 +16,14 @@ public class SbndBiomes {
 
     //---------------BIOMES---------------//
     public static BiomeGenCelestial moonFlats;
-    public static BiomeGenCelestial moonBasaltPlains;
-    public static BiomeGenCelestial moonIceCap;
+
+    public static BiomeGenCelestial marsFlats;
 
     static void biomesInit() {
 
         moonFlats = new BiomeGenMoonFlats(biomes, currentId.getAndIncrement());
-        moonBasaltPlains = new BiomeGenMoonBasaltPlains(biomes, currentId.getAndIncrement());
-        moonIceCap = new BiomeGenMoonIceCap(biomes, currentId.getAndIncrement());
+
+        marsFlats = new BiomeGenMarsFlats(biomes, currentId.getAndIncrement());
 
     }
 

@@ -5,9 +5,9 @@ import net.minecraft.block.material.Material;
 
 import java.util.List;
 
-public class BlockGeneric extends SbndBlock {
+public class BlockCrystal extends SbndBlock {
 
-    public BlockGeneric(List<SbndBlock> registry, Material material) {
+    public BlockCrystal(List<SbndBlock> registry, Material material) {
 
         super(material);
         registry.add(this);
@@ -19,4 +19,19 @@ public class BlockGeneric extends SbndBlock {
 
     }
 
+    @Override
+    public boolean renderAsNormalBlock() {
+        return false;
+    }
+
+    public int getRenderType()
+    {
+        return 1;
+    }
+
+    public boolean isOpaqueCube()
+    {
+        return false;
+    }
+    
 }

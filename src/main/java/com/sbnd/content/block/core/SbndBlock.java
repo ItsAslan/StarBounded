@@ -1,4 +1,4 @@
-package com.sbnd.content.block.core.definitions.basic;
+package com.sbnd.content.block.core;
 
 import lombok.Getter;
 import net.minecraft.block.Block;

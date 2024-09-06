@@ -1,5 +1,6 @@
-package com.sbnd.world.biome.biomes.moon;
+package com.sbnd.world.biome.biomes.mars;
 
+import com.sbnd.content.block.ModBlocks;
 import com.sbnd.world.biome.core.BiomeGenCelestial;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -11,18 +12,18 @@ import net.minecraftforge.common.BiomeDictionary;
 import java.util.Random;
 import java.util.Set;
 
-public class BiomeGenMoonIceCap extends BiomeGenCelestial {
+public class BiomeGenMarsFlats extends BiomeGenCelestial {
 
-    public static final BiomeGenBase.Height height = new BiomeGenBase.Height(0.2F, 0.2F);
+    public static final BiomeGenBase.Height height = new BiomeGenBase.Height(0.15F, 0.1F);
 
-    public BiomeGenMoonIceCap(int id) {
+    public BiomeGenMarsFlats(int id) {
         super(id);
 
         biomeInit();
 
     }
 
-    public BiomeGenMoonIceCap(Set<BiomeGenCelestial> registry, int id) {
+    public BiomeGenMarsFlats(Set<BiomeGenCelestial> registry, int id) {
         super(registry, id);
 
         biomeInit();
@@ -33,19 +34,18 @@ public class BiomeGenMoonIceCap extends BiomeGenCelestial {
 
         setHeight(height);
 
-        type = BiomeDictionary.Type.COLD;
-        topBlock = Blocks.snow;
-        fillerBlock = Blocks.packed_ice;
+        type = BiomeDictionary.Type.WASTELAND;
+        topBlock = ModBlocks.blockMarsTurf;
+        fillerBlock = ModBlocks.blockMoonRock;
 
-        setBiomeName("Moon Ice");
+        setBiomeName("Mars Flats");
 
     }
 
     /**
-     *  The `BiomeGenMoonIceCap` biome will be the
-     *  polar ice caps of the moon (except there are more than 2)
-     *  this biome will just be similar to ice glaciers,
-     *  covered in snow with an ice block fill
+     * The `BiomeGenMoonFlats` biome will be the
+     * classic "Moon Biome" with some mountains and
+     * craters. Mostly tame and wavy
      */
 
     @Override
@@ -74,13 +74,7 @@ public class BiomeGenMoonIceCap extends BiomeGenCelestial {
 
                         if (y >= seaLevel - 1) {
 
-                            blocks[index] = random.nextInt(4) == 3 ? Blocks.ice : top;
-
-                            if(random.nextInt(4) == 2) {
-
-                                blocks[index + 1] = Blocks.snow_layer;
-
-                            }
+                            blocks[index] = top;
 
                         } else {
 

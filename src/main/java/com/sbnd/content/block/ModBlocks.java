@@ -1,8 +1,9 @@
 package com.sbnd.content.block;
 
+import com.sbnd.content.block.core.definitions.basic.BlockCrystal;
 import com.sbnd.content.block.core.definitions.basic.BlockGeneric;
 import com.sbnd.content.block.core.definitions.basic.OreGeneric;
-import com.sbnd.content.block.core.definitions.basic.SbndBlock;
+import com.sbnd.content.block.core.SbndBlock;
 import com.sbnd.content.item.ModItems;
 import com.sbnd.main.ModVars;
 import com.sbnd.main.Starbounded;
@@ -10,14 +11,15 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.world.Teleporter;
+import net.minecraftforge.common.DimensionManager;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 
 import static com.sbnd.content.block.core.definitions.basic.OreGeneric.OreType.*;
 
-public class ModBlocks {
+public class ModBlocks extends DimensionManager {
 
     static List<SbndBlock> modBlocks = new ArrayList<>();
 
@@ -50,6 +52,12 @@ public class ModBlocks {
     public static Block blockMoonTurf;
     public static Block blockMoonRock;
     public static Block blockMoonBasalt;
+    public static Block blockMarsTurf;
+
+    // Test
+    public static Block crystalZirconium;
+    public static Block crystalNiobium;
+    public static Block crystalTantalum;
 
     public static void REGISTER() {
 
@@ -88,6 +96,13 @@ public class ModBlocks {
         blockMoonTurf = new BlockGeneric(modBlocks, Material.sand).setBlockName("blockMoonTurf").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
         blockMoonRock = new BlockGeneric(modBlocks, Material.rock).setBlockName("blockMoonRock").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone);
         blockMoonBasalt = new BlockGeneric(modBlocks, Material.rock).setBlockName("blockMoonBasalt").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeStone);
+
+        blockMarsTurf = new BlockGeneric(modBlocks, Material.rock).setBlockName("blockMarsTurf").setCreativeTab(CreativeTabs.tabBlock).setStepSound(Block.soundTypeSand);
+
+        // Test
+        crystalZirconium = new BlockCrystal(modBlocks, Material.glass).setBlockName("crystalZirconium").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeGlass);
+        crystalNiobium = new BlockCrystal(modBlocks, Material.glass).setBlockName("crystalNiobium").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeGlass);
+        crystalTantalum = new BlockCrystal(modBlocks, Material.glass).setBlockName("crystalTantalum").setCreativeTab(Starbounded.oresTab).setStepSound(Block.soundTypeGlass);
 
     }
 
