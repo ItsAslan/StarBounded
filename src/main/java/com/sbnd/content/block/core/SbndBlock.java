@@ -15,9 +15,11 @@ public class SbndBlock extends Block {
 
     }
 
-    public void disableTextureRegistry() {
+    public SbndBlock disableTextureRegistry() {
 
         usingTextureRegistry = false;
+
+        return this;
 
     }
 

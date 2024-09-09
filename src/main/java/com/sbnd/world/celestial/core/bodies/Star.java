@@ -1,35 +1,22 @@
 package com.sbnd.world.celestial.core.bodies;
 
 import com.sbnd.main.ResourceManager;
-import com.sbnd.content.transport.fluid.gas.SbndGas;
+import com.sbnd.content.transport.fluid.gas.ModGasses;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.*;
 
-@Accessors(chain = true)
 public class Star {
 
-    @Getter
-    private StarColor color;
+    @Getter private String name;
+    @Getter private double radiusKm;
+    @Getter private int temperatureK;
+    @Getter private StarColor color;
 
-    private void calculateStarColor() {
-
-        color = getColorForTemp(temperatureK);
-
-    }
-
-    private StarColor getColorForTemp(int temp) {
-
-        return Arrays.stream(StarColor.values())
-                .filter(color -> temp >= color.getMinTemp() && temp <= color.getMaxTemp())
-                .findFirst()
-                .orElse(null);
-
-    }
+    @Getter private ArrayList<StarGas> gasses;
+    @Getter private ArrayList<CelestialBody> planets = new ArrayList<>();
 
     public ResourceLocation getIcon() {
 
@@ -55,22 +42,98 @@ public class Star {
 
     }
 
-    @AllArgsConstructor
-    @Getter
-    private enum StarColor {
+    //-----------------------CHAIN-----------------------//
 
-        BLUE(         'O',  30_000,  Integer.MAX_VALUE),
-        BLUE_WHITE(   'B',  10_000,  30_000),
-        WHITE(        'A',  7_500,   10_000),
-        YELLOW_WHITE( 'F',  6_000,   7_500),
-        YELLOW(       'G',  5_200,   6_000),
-        ORANGE(       'K',  3_700,   5_200),
-        RED(          'M',  2_400,   3_700);
+    public Star setName(String _name) {
 
-        private final char starClass;
+        name = _name;
 
-        private final int minTemp;
-        private final int maxTemp;
+        return this;
+
+    }
+
+    public Star setRadiusKm(double _radiusKm) {
+
+        radiusKm = _radiusKm;
+
+        return this;
+
+    }
+
+    public Star setTemperatureK(int _temperatureK) {
+
+        calculateStarColor(_temperatureK);
+
+        temperatureK = _temperatureK;
+
+        return this;
+
+    }
+
+    public Star addGas(StarGas... _gasses) throws ArithmeticException {
+
+        double totalPercentage = 0D;
+
+        for(StarGas gas : _gasses) {
+
+            totalPercentage += gas.getPercentage();
+
+        }
+
+        if(totalPercentage > 100D) {
+
+            throw new ArithmeticException(String.format("Percentage is greater than 100: %f", totalPercentage));
+
+        }
+
+        gasses.addAll(Arrays.asList(_gasses));
+
+        return this;
+
+    }
+
+    public Star addPlanet(CelestialBody... _planets) {
+
+        for(CelestialBody planet : _planets) {
+
+            setStarRecursive(planet);
+
+        }
+
+        planets.addAll(Arrays.asList(_planets));
+
+        return this;
+
+    }
+
+    //-------------------------UTIL-------------------------//
+
+    private void setStarRecursive(CelestialBody _body) {
+
+        _body.setStar(this);
+
+        if(_body.getSatellites().isEmpty()) return;
+
+        for(CelestialBody satellite : _body.getSatellites()) {
+
+            setStarRecursive(satellite);
+
+        }
+
+    }
+
+    private void calculateStarColor(int _temperatureK) {
+
+        color = getColorForTemp(_temperatureK);
+
+    }
+
+    private StarColor getColorForTemp(int temp) {
+
+        return Arrays.stream(StarColor.values())
+                .filter(color -> temp >= color.getMinTemp() && temp <= color.getMaxTemp())
+                .findFirst()
+                .orElse(null);
 
     }
 
@@ -82,72 +145,31 @@ public class Star {
     private ResourceLocation orange() { return ResourceManager.ORANGE_STAR; }
     private ResourceLocation red() { return ResourceManager.RED_STAR; }
 
-    @Getter
-    private int temperatureK;
+    //---------------------INNER CLASS---------------------//
 
-    public Star setTemperatureK(int temp) {
+    @AllArgsConstructor
+    public static class StarGas {
 
-        temperatureK = temp;
-        calculateStarColor();
-
-        return this;
+        @Getter private ModGasses gas;
+        @Getter private double percentage;
 
     }
 
-    @Setter
-    @Getter
-    private double radiusKm;
+    @AllArgsConstructor
+    private enum StarColor {
 
-    @Setter
-    @Getter
-    private String name;
+        BLUE(         'O',  30_000D,  Integer.MAX_VALUE),
+        BLUE_WHITE(   'B',  10_000D,  30_000D),
+        WHITE(        'A',  7_500D,   10_000D),
+        YELLOW_WHITE( 'F',  6_000D,   7_500D),
+        YELLOW(       'G',  5_200D,   6_000D),
+        ORANGE(       'K',  3_700D,   5_200D),
+        RED(          'M',  2_400D,   3_700D);
 
-    @Getter
-    private ArrayList<SbndGas> primaryGas;
+        @Getter private final char starClass;
 
-    public Star setPrimaryGas(SbndGas... gases) {
-
-        primaryGas.addAll(Arrays.asList(gases));
-
-        return this;
-
-    }
-
-    @Getter
-    public ArrayList<CelestialBody> planets = new ArrayList<>();
-
-    public Star addPlanets(CelestialBody... bodies) {
-
-        for(CelestialBody body : bodies) {
-
-            checkAndSetStar(body);
-
-        }
-
-        planets.addAll(Arrays.asList(bodies));
-
-        return this;
-
-    }
-
-    /**
-     *  Loops through every child planet and its satellites
-     *  This function is recursive, for it finds every
-     *  possible body that exists in the star system
-     */
-    private void checkAndSetStar(CelestialBody body) {
-
-        body.setStar(this);
-
-        if(!body.getSatellites().isEmpty()) {
-
-            for(CelestialBody satellite : body.getSatellites()) {
-
-                checkAndSetStar(satellite);
-
-            }
-
-        }
+        @Getter private final double minTemp;
+        @Getter private final double maxTemp;
 
     }
 

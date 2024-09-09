@@ -2,11 +2,7 @@ package com.sbnd.world.gen;
 
 import com.sbnd.config.OreConfig;
 import com.sbnd.content.block.ModBlocks;
-import com.sbnd.content.item.ModItems;
-import com.sbnd.main.Starbounded;
 import cpw.mods.fml.common.IWorldGenerator;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -73,8 +69,6 @@ public class SbndGen implements IWorldGenerator {
         SbndGenToolbox.addOreSpawn(ModBlocks.oreMoonTitanium, ModBlocks.blockMoonRock, world, random, x, z, 16, 16, 10, 6, OreConfig.MOON_TITANIUM_SPAWN_RATE, 12, 70);
         SbndGenToolbox.addOreSpawn(ModBlocks.oreMoonRockSaltpeter, ModBlocks.blockMoonRock, world, random, x, z, 16, 16, 10, 5, OreConfig.MOON_ROCK_SALTPETER_SPAWN_RATE, 12, 70);
         SbndGenToolbox.addOreSpawn(ModBlocks.oreMoonBasaltSaltpeter, ModBlocks.blockMoonBasalt, world, random, x, z, 16, 16, 12, 6, OreConfig.MOON_BASALT_SALTPETER_SPAWN_RATE, 12, 70);
-
-        SbndGenToolbox.addOreSpawn(ModBlocks.oreIceIron, Blocks.packed_ice, world, random, x, z, 16, 16, 12, 6, OreConfig.ICE_IRON_SPAWN_RATE, 60, 80);
 
     }
 

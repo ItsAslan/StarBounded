@@ -1,85 +1,163 @@
 package com.sbnd.world.celestial.core.bodies;
 
 import com.sbnd.main.SbndUtil;
-import com.sbnd.content.transport.fluid.gas.SbndGas;
-import com.sbnd.world.celestial.core.CelestialProperty;
 import com.sbnd.world.celestial.core.EnumCelestialType;
+import com.sbnd.world.celestial.core.property.CelestialProperty;
 import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.*;
 
-@Accessors(chain = true)
 public class CelestialBody {
 
-    // Basic Information
+    @Getter private String name;
+    @Getter private int id;
 
-    @Getter
-    private final EnumCelestialType type;
+    @Getter private double massKg;
+    @Getter private double radiusKm;
+    @Getter private double orbitRadiusStarKm;
+    @Getter private double orbitRadiusParentKm;
+    @Getter private double axialTiltDegrees;
+    @Getter private double rotationalPeriodSeconds;
+    @Getter private boolean isTidallyLocked;
 
-    @Getter
-    private String name;
+    private HashMap<String, CelestialBody> nameToSatelliteMap;
+    private HashMap<Class<? extends CelestialProperty>, CelestialProperty> propertyList;
 
-    public CelestialBody setName(String name) {
+    @Getter private Star star;
+    @Getter private CelestialBody parent;
 
-        this.name = name;
+    @Getter private ResourceLocation icon;
+    @Getter private EnumChatFormatting formatColor;
 
-        CelestialBody.getNameToBodyMap().put(name, this);
+    @Getter private EnumCelestialType type;
+
+    public CelestialBody(EnumCelestialType _type) {
+
+        type = _type;
+
+        nameToSatelliteMap = new HashMap<>();
+        propertyList = new HashMap<>();
+
+    }
+
+    //-----------------------CHAIN-----------------------//
+
+    public CelestialBody setIcon(ResourceLocation _icon) {
+
+        icon = _icon;
 
         return this;
 
     }
 
-    public CelestialBody(EnumCelestialType type) {
+    public CelestialBody setColor(EnumChatFormatting _formatColor) {
 
-        this.type = type;
-
-    }
-
-    @Getter
-    private int dimensionId;
-
-    public CelestialBody setDimensionId(int id) {
-
-        CelestialBody.getIdToBodyMap().put(id, this);
-
-        this.dimensionId = id;
+        formatColor = _formatColor;
 
         return this;
 
     }
 
-    @Setter
-    @Getter
-    private double massKg;
+    public CelestialBody setName(String _name) {
 
-    @Setter
-    @Getter
-    private double radiusKm;
+        name = _name;
 
-    public double getGravity() {
+        CelestialBody.nameToBodyMap.put(name, this);
 
-        double radius = getRadiusKm() * 1000;
-
-        return SbndUtil.GRAVITATIONAL_CONSTANT * getMassKg() / (Math.pow(radius, 2));
+        return this;
 
     }
 
-    @Getter
-    public Map<String, CelestialBody> nameToSatelliteMap = new HashMap<>();
-    @Getter
-    public Set<CelestialBody> satellites = new HashSet<>();
+    public CelestialBody setId(int _id) {
 
-    public CelestialBody addSatellites(CelestialBody... bodies) {
+        id = _id;
 
-        Arrays.asList(bodies).forEach(e -> {
+        CelestialBody.idToBodyMap.put(id, this);
 
-            e.setParent(this);
-            nameToSatelliteMap.put(e.getName(), e);
-            satellites.add(e);
+        return this;
+
+    }
+
+    public CelestialBody setStar(Star _star) {
+
+        star = _star;
+
+        return this;
+
+    }
+
+    public CelestialBody setParent(CelestialBody _parent) {
+
+        parent = _parent;
+
+        return this;
+
+    }
+
+    public CelestialBody setMassKg(double _massKg) {
+
+        massKg = _massKg;
+
+        return this;
+
+    }
+
+    public CelestialBody setRadiusKm(double _radiusKm) {
+
+        radiusKm = _radiusKm;
+
+        return this;
+
+    }
+
+    public CelestialBody setOrbitRadiusStarKm(double _orbitRadiusStarKm) {
+
+        orbitRadiusStarKm = _orbitRadiusStarKm;
+
+        return this;
+
+    }
+
+    public CelestialBody setOrbitRadiusParentKm(double _orbitRadiusParentKm) {
+
+        orbitRadiusParentKm = _orbitRadiusParentKm;
+
+        return this;
+
+    }
+
+    public CelestialBody setAxialTiltDegrees(double _axialTiltDegrees) {
+
+        axialTiltDegrees = _axialTiltDegrees;
+
+        return this;
+
+    }
+
+    public CelestialBody setRotationalPeriodSeconds(double _rotationalPeriodSeconds) {
+
+        rotationalPeriodSeconds = _rotationalPeriodSeconds;
+
+        return this;
+
+    }
+
+    public CelestialBody setTidallyLocked() {
+
+        isTidallyLocked = true;
+
+        return this;
+
+    }
+
+    public CelestialBody addSatellite(CelestialBody... bodies) {
+
+        Arrays.asList(bodies).forEach(body -> {
+
+            body.setParent(this);
+            nameToSatelliteMap.put(body.getName(), body);
 
         });
 
@@ -87,93 +165,60 @@ public class CelestialBody {
 
     }
 
-    @Setter
-    @Getter
-    public Star star;
+    //-----------------------PROPERTY-----------------------//
 
-    // Star map and Sky
+    public CelestialBody addProperty(CelestialProperty... properties) {
 
-    /**
-     *  When the body is a satellite, it means the distance away from the parent planet.
-     *  When the body is anything else, it's the distance away from the star.
-     *  I should probably change this, but it's fine for now
-     */
-    @Setter
-    @Getter
-    private double orbitRadiusKm;
+        Arrays.asList(properties).forEach(prop -> propertyList.put(prop.getClass(), prop));
 
-    @Setter
-    @Getter
-    private float axialTiltDegrees;
+        return this;
 
-    @Setter
-    @Getter
-    private float dayLengthSeconds;
+    }
 
-    @Setter
-    @Getter
-    private boolean isTidallyLocked;
+    //-------------------------UTIL-------------------------//
 
-    // Kepler's Third Law
     public double getOrbitalPeriodSeconds() {
 
-        double period = Math.sqrt((4 * Math.pow(Math.PI, 2) / SbndUtil.GRAVITATIONAL_CONSTANT * (massKg + parent.getMassKg())) * Math.pow(orbitRadiusKm, 3));
+        double orbitRadius = 0;
+
+        switch(type) {
+
+            case PLANET:
+
+                orbitRadius = getOrbitRadiusStarKm();
+                break;
+
+            case SATELLITE:
+
+                orbitRadius = getOrbitRadiusParentKm();
+                break;
+
+        }
+
+        double period = Math.sqrt((4 * Math.pow(Math.PI, 2) / SbndUtil.GRAVITATIONAL_CONSTANT * (getMassKg() + getParent().getMassKg())) * Math.pow(orbitRadius, 3));
 
         return period / SbndUtil.SECONDS_MC_DAY;
 
     }
 
-    @Setter
-    @Getter
-    private CelestialBody parent = null;
+    public double getGravity() {
 
-    @Setter
-    @Getter
-    private boolean visibleStars;
+        double radius = radiusKm * 1000;
 
-    @Setter
-    @Getter
-    private ResourceLocation icon;
-
-    // Atmosphere
-
-    @Getter
-    private ArrayList<SbndGas> primaryGas = new ArrayList<>();
-
-    public CelestialBody addPrimaryGas(SbndGas... gases) {
-
-        primaryGas.addAll(Arrays.asList(gases));
-
-        return this;
+        return SbndUtil.GRAVITATIONAL_CONSTANT * massKg / (Math.pow(radius, 2));
 
     }
 
-    @Setter
-    private int pressurePsi;
+    public List<CelestialBody> getSatellites() {
 
-    @Getter
-    public ArrayList<CelestialProperty> propertyList = new ArrayList<>();
-
-    public CelestialBody addProperties(CelestialProperty... properties) {
-
-        propertyList.addAll(Arrays.asList(properties));
-
-        return this;
+        return new ArrayList<>(nameToSatelliteMap.values());
 
     }
 
-    // Util
+    //------------------------STATIC------------------------//
 
-    @Setter
-    @Getter
-    private EnumChatFormatting formatColor;
-
-    // Statics
-
-    @Getter
     public static Map<String, CelestialBody> nameToBodyMap = new HashMap<>();
 
-    @Getter
     public static Map<Integer, CelestialBody> idToBodyMap = new HashMap<>();
 
     public static CelestialBody getBody(String name) {

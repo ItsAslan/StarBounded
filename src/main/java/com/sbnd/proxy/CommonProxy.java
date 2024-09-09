@@ -3,6 +3,8 @@ package com.sbnd.proxy;
 import com.sbnd.content.block.ModBlocks;
 import com.sbnd.content.crafting.CraftingRegistry;
 import com.sbnd.content.item.ModItems;
+import com.sbnd.content.transport.fluid.gas.ModGasses;
+import com.sbnd.content.transport.fluid.liquid.ModFluids;
 import com.sbnd.world.biome.SbndBiomes;
 import com.sbnd.world.celestial.SbndCelestialObjects;
 import com.sbnd.world.gen.SbndGen;
@@ -17,6 +19,8 @@ public class CommonProxy {
 
         ModItems.REGISTER();
         ModBlocks.REGISTER();
+        ModGasses.REGISTER();
+        ModFluids.REGISTER();
 
         CraftingRegistry.REGISTER();
 
