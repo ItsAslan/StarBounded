@@ -1,5 +1,6 @@
 package com.sbnd.server.init;
 
+import api.sbnd.ct.BlockConnectedTexture;
 import api.sbnd.forge.ForgeRegistry;
 import com.sbnd.server.block.spacecraft.BlockController;
 import com.sbnd.server.block.spacecraft.BlockFuselage;
@@ -17,6 +18,8 @@ public class ModBlocks {
     public static Block controller;
     public static Block thruster;
 
+    public static Block ctTest;
+
     public static void register() {
 
         registry = new ForgeRegistry<>();
@@ -31,6 +34,8 @@ public class ModBlocks {
         fuselage = registry.register(new BlockFuselage(Material.rock).setBlockName("fuselage").setBlockTextureName("sbnd:fuselage").setCreativeTab(CreativeTabs.tabBlock));
         controller = registry.register(new BlockController(Material.rock).setBlockName("controller").setBlockTextureName("sbnd:controller").setCreativeTab(CreativeTabs.tabBlock));
         thruster = registry.register(new BlockThruster(Material.rock).setBlockName("thruster").setBlockTextureName("sbnd:thruster").setCreativeTab(CreativeTabs.tabBlock));
+
+        ctTest = registry.register(new BlockConnectedTexture(Material.rock).setBlockName("test").setCreativeTab(CreativeTabs.tabBlock));
 
     }
 
