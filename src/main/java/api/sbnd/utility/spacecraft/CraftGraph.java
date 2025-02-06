@@ -80,7 +80,7 @@ public class CraftGraph implements Iterable<ISpacecraftModule> {
 
             ISpacecraft owner = data.getModule().getOwner();
 
-            if(owner == null || owner.equals(getSpacecraft())) { // This won't work
+            if(owner == null || owner.equals(getSpacecraft())) {
                 return true;
             }
 
